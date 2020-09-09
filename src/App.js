@@ -1,17 +1,66 @@
 // Import: Dependencies
-import React from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 
-// Import: Styling
-import "./App.styles.scss";
+// Import: UI
+import Header from "./components/UI/Header/Header.component";
+import PatientList from "./components/UI/PatientList/PatientList.component";
 
 // Component: App
 function App() {
+  // State = isOpen, selectedPatient
+  const [isOpen, setIsOpen] = useState(true);
+  const [selectedPatient, setSelectedPatient] = useState(null);
+
   return (
-    <div className="App">
-      <h1>One Response</h1>
-    </div>
+    <AppContainer>
+      <AppHeader>
+        <Header setIsOpen={setIsOpen} />
+      </AppHeader>
+
+      <AppLayout>
+        <AppPatientList>
+          <PatientList
+            isOpen={isOpen}
+            setSelectedPatient={setSelectedPatient}
+          />
+        </AppPatientList>
+
+        <AppPatientReport></AppPatientReport>
+      </AppLayout>
+    </AppContainer>
   );
 }
 
 // Export: App
 export default App;
+
+// Styled: AppContainer
+const AppContainer = styled.div`
+  background: #f0f1f6;
+`;
+
+// Styled: AppHeader
+const AppHeader = styled.div`
+  height: 12vh;
+  width: 100%;
+`;
+
+// Styled: AppLayout
+const AppLayout = styled.div`
+  display: grid;
+  grid-template-areas: "patient-list report-container";
+  grid-template-columns: 375px 1fr;
+  grid-template-rows: 88vh;
+  transition: all 150ms linear;
+`;
+
+// Styled: AppPatientList
+const AppPatientList = styled.div`
+  grid-area: patient-list;
+`;
+
+// Styled: AppPatientReport
+const AppPatientReport = styled.div`
+  grid-area: report-container;
+`;

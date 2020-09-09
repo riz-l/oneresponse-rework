@@ -1,6 +1,7 @@
 // Import: Dependencies
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // Import: Styling
 import "./index.styles.scss";
@@ -14,7 +15,9 @@ import * as serviceWorker from "./serviceWorker";
 // Render: App
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );
