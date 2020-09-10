@@ -21,7 +21,15 @@ function App() {
         <Header setIsOpen={setIsOpen} />
       </AppHeader>
 
-      <AppLayout>
+      <AppLayout
+        style={
+          !isOpen
+            ? {
+                gridTemplateColumns: "0 1fr",
+              }
+            : null
+        }
+      >
         <AppPatientList>
           <PatientList
             isOpen={isOpen}
