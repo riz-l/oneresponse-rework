@@ -59,7 +59,6 @@ const PatientNameHeaderPrompt = styled.div`
   display: flex;
   justify-content: flex-start;
   letter-spacing: 1.4px;
-  margin-bottom: 1rem;
   padding: 1rem;
   text-transform: uppercase;
   width: 100vw;
