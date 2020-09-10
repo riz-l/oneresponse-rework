@@ -14,50 +14,50 @@ function PatientItem({
   ePR_CallSign,
 }) {
   return (
-    <PatientItem__Container>
-      <PatientItem__Icon className="PatientItem__Icon-hover">
+    <PatientItemContainer>
+      <PatientItemIcon className="PatientItemIcon-hover">
         <Icon icon="fas fa-user-alt" />
-      </PatientItem__Icon>
+      </PatientItemIcon>
 
-      <PatientItem__Wrapper>
-        <PatientItem__SecondWrapper>
-          <PatientItem__NameContainer>
-            <PatientItem__Name>
+      <PatientItemWrapper>
+        <PatientItemSecondWrapper>
+          <PatientItemNameContainer>
+            <PatientItemName>
               {PD_Firstname ? PD_Firstname : <span>Firstname</span>}
-            </PatientItem__Name>
+            </PatientItemName>
 
-            <PatientItem__Name>
+            <PatientItemName>
               {PD_Surname ? PD_Surname : <span>Surname</span>}
-            </PatientItem__Name>
-          </PatientItem__NameContainer>
+            </PatientItemName>
+          </PatientItemNameContainer>
 
-          <PatientItem__OtherContainer>
-            <PatientItem__Other>
+          <PatientItemOtherContainer>
+            <PatientItemOther>
               {PD_Gender ? PD_Gender : <span>Gender</span>}
-            </PatientItem__Other>
+            </PatientItemOther>
 
-            <PatientItem__Other>
+            <PatientItemOther>
               {PD_DOB ? PD_DOB : <span>Date of Birth</span>}
-            </PatientItem__Other>
-          </PatientItem__OtherContainer>
-        </PatientItem__SecondWrapper>
+            </PatientItemOther>
+          </PatientItemOtherContainer>
+        </PatientItemSecondWrapper>
 
-        <PatientItem__Status>
-          <PatientItem__StatusText>
+        <PatientItemStatus>
+          <PatientItemStatusText>
             {ePR_CallSign ? ePR_CallSign : <span>ePR CallSign</span>}
             <p>Status:</p>
-          </PatientItem__StatusText>
-        </PatientItem__Status>
-      </PatientItem__Wrapper>
-    </PatientItem__Container>
+          </PatientItemStatusText>
+        </PatientItemStatus>
+      </PatientItemWrapper>
+    </PatientItemContainer>
   );
 }
 
 // Export: PatientItem
 export default PatientItem;
 
-// Styled: PatientItem__Container
-const PatientItem__Container = styled.div`
+// Styled: PatientItemContainer
+const PatientItemContainer = styled.div`
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
@@ -73,7 +73,7 @@ const PatientItem__Container = styled.div`
     cursor: pointer;
     transition: background 150ms linear;
 
-    .PatientItem__Icon-hover {
+    .PatientItemIcon-hover {
       background: #414141;
       border-radius: 10px;
       transition: all 500ms linear;
@@ -81,8 +81,8 @@ const PatientItem__Container = styled.div`
   }
 `;
 
-// Styled: PatientItem__Icon
-const PatientItem__Icon = styled.div`
+// Styled: PatientItemIcon
+const PatientItemIcon = styled.div`
   align-items: center;
   background: #2c2c2c;
   border-radius: 50%;
@@ -102,8 +102,8 @@ const PatientItem__Icon = styled.div`
   }
 `;
 
-// Styled: PatientItem__Wrapper
-const PatientItem__Wrapper = styled.div`
+// Styled: PatientItemWrapper
+const PatientItemWrapper = styled.div`
   align-self: center;
   display: flex;
   height: 100%;
@@ -111,8 +111,8 @@ const PatientItem__Wrapper = styled.div`
   width: 100%;
 `;
 
-// Styled: PatientItem__SecondWrapper
-const PatientItem__SecondWrapper = styled.div`
+// Styled: PatientItemSecondWrapper
+const PatientItemSecondWrapper = styled.div`
   align-self: center;
   display: flex;
   flex-direction: column;
@@ -122,8 +122,8 @@ const PatientItem__SecondWrapper = styled.div`
   width: 100%;
 `;
 
-// Styled: PatientItem__NameContainer
-const PatientItem__NameContainer = styled.div`
+// Styled: PatientItemNameContainer
+const PatientItemNameContainer = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -133,8 +133,8 @@ const PatientItem__NameContainer = styled.div`
   width: 100%;
 `;
 
-// Styled: PatientItem__Name
-const PatientItem__Name = styled.span`
+// Styled: PatientItemName
+const PatientItemName = styled.span`
   width: 210px;
   word-wrap: break-word;
 
@@ -148,8 +148,8 @@ const PatientItem__Name = styled.span`
   }
 `;
 
-// Styled: PatientItem__OtherContainer
-const PatientItem__OtherContainer = styled.div`
+// Styled: PatientItemOtherContainer
+const PatientItemOtherContainer = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -157,8 +157,8 @@ const PatientItem__OtherContainer = styled.div`
   padding: 0.4rem 0 0.4rem 1rem;
 `;
 
-// Styled: PatientItem__Other
-const PatientItem__Other = styled.span`
+// Styled: PatientItemOther
+const PatientItemOther = styled.span`
   font-size: 14px;
 
   & span {
@@ -167,8 +167,8 @@ const PatientItem__Other = styled.span`
   }
 `;
 
-// Styled: PatientItem__Status
-const PatientItem__Status = styled.div`
+// Styled: PatientItemStatus
+const PatientItemStatus = styled.div`
   align-items: flex-end;
   display: flex;
   flex: 1;
@@ -178,8 +178,8 @@ const PatientItem__Status = styled.div`
   text-align: right;
 `;
 
-// Styled: PatientItem__StatusText
-const PatientItem__StatusText = styled.span`
+// Styled: PatientItemStatusText
+const PatientItemStatusText = styled.span`
   font-size: 12px;
 
   & span {

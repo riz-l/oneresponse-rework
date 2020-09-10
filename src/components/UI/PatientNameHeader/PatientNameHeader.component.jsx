@@ -10,26 +10,26 @@ function PatientNameHeader({ selectedPatient, patientDetailsData }) {
   // Renders a selected Patient's Firstname, Surname and Master_ePR_ID
   const patientNameRender = patientDetailsData.map(
     ({ Master_ePR_ID, PD_Firstname, PD_Surname }) => (
-      <PatientNameHeader__Container>
-        <PatientNameHeader__Wrapper>
-          <PatientNameHeader__Row>
-            <PatientNameHeader__PatientFirstname>
+      <PatientNameHeaderContainer>
+        <PatientNameHeaderWrapper>
+          <PatientNameHeaderRow>
+            <PatientNameHeaderFirstname>
               {PD_Firstname ? PD_Firstname : <span>Forename</span>}
-            </PatientNameHeader__PatientFirstname>
+            </PatientNameHeaderFirstname>
 
-            <PatientNameHeader__PatientSurname>
+            <PatientNameHeaderSurname>
               {PD_Surname ? PD_Surname : <span>Surname</span>}
-            </PatientNameHeader__PatientSurname>
-          </PatientNameHeader__Row>
+            </PatientNameHeaderSurname>
+          </PatientNameHeaderRow>
 
-          <PatientNameHeader__IdContainer>
+          <PatientNameHeaderIdContainer>
             <span>Master ePR ID:</span>
-            <PatientNameHeader__Id>
+            <PatientNameHeaderId>
               {Master_ePR_ID ? Master_ePR_ID : <span>Master ePR ID</span>}
-            </PatientNameHeader__Id>
-          </PatientNameHeader__IdContainer>
-        </PatientNameHeader__Wrapper>
-      </PatientNameHeader__Container>
+            </PatientNameHeaderId>
+          </PatientNameHeaderIdContainer>
+        </PatientNameHeaderWrapper>
+      </PatientNameHeaderContainer>
     )
   );
 
@@ -38,10 +38,10 @@ function PatientNameHeader({ selectedPatient, patientDetailsData }) {
   return (
     <>
       {selectedPatient === null ? (
-        <PatientNameHeader__Prompt>
+        <PatientNameHeaderPrompt>
           <Icon icon="fas fa-exclamation-triangle" />
           <span>Please select a Patient</span>
-        </PatientNameHeader__Prompt>
+        </PatientNameHeaderPrompt>
       ) : (
         patientNameRender
       )}
@@ -52,8 +52,8 @@ function PatientNameHeader({ selectedPatient, patientDetailsData }) {
 // Export: PatientNameHeader
 export default PatientNameHeader;
 
-// Styled: PatientNameHeader__Prompt
-const PatientNameHeader__Prompt = styled.div`
+// Styled: PatientNameHeaderPrompt
+const PatientNameHeaderPrompt = styled.div`
   align-items: center;
   background: rgba(255, 99, 71, 1);
   display: flex;
@@ -74,8 +74,8 @@ const PatientNameHeader__Prompt = styled.div`
   }
 `;
 
-// Styled: PatientNameHeader__Container
-const PatientNameHeader__Container = styled.div`
+// Styled: PatientNameHeaderContainer
+const PatientNameHeaderContainer = styled.div`
   align-items: center;
   border-radius: 8px;
   display: flex;
@@ -85,16 +85,16 @@ const PatientNameHeader__Container = styled.div`
   width: 100vw;
 `;
 
-// Styled: PatientNameHeader__Wrapper
-const PatientNameHeader__Wrapper = styled.div`
+// Styled: PatientNameHeaderWrapper
+const PatientNameHeaderWrapper = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 
-// Styled: PatientNameHeader__Row
-const PatientNameHeader__Row = styled.div`
+// Styled: PatientNameHeaderRow
+const PatientNameHeaderRow = styled.div`
   align-items: center;
   display: flex;
   height: 100%;
@@ -107,8 +107,8 @@ const PatientNameHeader__Row = styled.div`
   }
 `;
 
-// Styled: PatientNameHeader__PatientFirstname
-const PatientNameHeader__PatientFirstname = styled.span`
+// Styled: PatientNameHeaderFirstname
+const PatientNameHeaderFirstname = styled.span`
   color: #414141;
   font-size: 2.2rem;
   font-weight: 600;
@@ -154,8 +154,8 @@ const PatientNameHeader__PatientFirstname = styled.span`
   }
 `;
 
-// Styled: PatientNameHeader__PatientSurname
-const PatientNameHeader__PatientSurname = styled.span`
+// Styled: PatientNameHeaderSurname
+const PatientNameHeaderSurname = styled.span`
   color: #414141;
   font-size: 2.2rem;
   font-weight: 600;
@@ -198,8 +198,8 @@ const PatientNameHeader__PatientSurname = styled.span`
   }
 `;
 
-// Styled: PatientNameHeader__IdContainer
-const PatientNameHeader__IdContainer = styled.div`
+// Styled: PatientNameHeaderIdContainer
+const PatientNameHeaderIdContainer = styled.div`
   align-items: flex-start;
   display: flex;
   justify-content: flex-start;
@@ -214,8 +214,8 @@ const PatientNameHeader__IdContainer = styled.div`
   }
 `;
 
-// Styled: PatientNameHeader__Id
-const PatientNameHeader__Id = styled.span`
+// Styled: PatientNameHeaderId
+const PatientNameHeaderId = styled.span`
   color: #414141;
   margin-left: 1rem;
 `;

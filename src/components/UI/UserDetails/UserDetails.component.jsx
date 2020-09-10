@@ -8,31 +8,31 @@ import Icon from "../Icon/Icon.component";
 // UI: UserDetails
 function UserDetails() {
   return (
-    <UserDetails__Container>
-      <UserDetails__Test>
+    <UserDetailsContainer>
+      <UserDetailsTest>
         <span>jldxc</span>
         <span>DXC Super User</span>
-      </UserDetails__Test>
+      </UserDetailsTest>
 
-      <UserDetails__Icon>
+      <UserDetailsIcon>
         <Icon icon="fas fa-users" />
-      </UserDetails__Icon>
-    </UserDetails__Container>
+      </UserDetailsIcon>
+    </UserDetailsContainer>
   );
 }
 
 // Export: UserDetails
 export default UserDetails;
 
-// Styled: UserDetails__Container
-const UserDetails__Container = styled.div`
+// Styled: UserDetailsContainer
+const UserDetailsContainer = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
 `;
 
-// Styled: UserDetails__Text
-const UserDetails__Test = styled.div`
+// Styled: UserDetailsText
+const UserDetailsTest = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 1rem;
@@ -48,8 +48,8 @@ const UserDetails__Test = styled.div`
   }
 `;
 
-// Styled: UserDetails__Icon
-const UserDetails__Icon = styled.div`
+// Styled: UserDetailsIcon
+const UserDetailsIcon = styled.div`
   background: #2c2c2c;
   padding: 0.4rem 0.6rem;
 

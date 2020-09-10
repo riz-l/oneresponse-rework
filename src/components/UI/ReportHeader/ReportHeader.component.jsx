@@ -9,8 +9,8 @@ import Icon from "../Icon/Icon.component";
 // UI: ReportHeader
 function ReportHeader() {
   return (
-    <ReportHeader__Container>
-      <ReportHeader__Options>
+    <ReportHeaderContainer>
+      <ReportHeaderOptions>
         <NavLink
           activeStyle={{
             borderTop: "3px solid #569fd3",
@@ -70,16 +70,16 @@ function ReportHeader() {
           <Icon icon="fas fa-procedures" />
           <li>DoD</li>
         </NavLink>
-      </ReportHeader__Options>
-    </ReportHeader__Container>
+      </ReportHeaderOptions>
+    </ReportHeaderContainer>
   );
 }
 
 // Export: ReportHeader
 export default ReportHeader;
 
-// Styled: ReportHeader__Container
-const ReportHeader__Container = styled.div`
+// Styled: ReportHeaderContainer
+const ReportHeaderContainer = styled.div`
   align-items: center;
   display: flex;
   height: auto;
@@ -88,8 +88,8 @@ const ReportHeader__Container = styled.div`
   width: 100%;
 `;
 
-// Styled: ReportHeader__Options
-const ReportHeader__Options = styled.ul`
+// Styled: ReportHeaderOptions
+const ReportHeaderOptions = styled.ul`
   align-items: center;
   display: flex;
   height: auto;

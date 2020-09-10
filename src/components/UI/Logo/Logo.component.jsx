@@ -8,17 +8,17 @@ import { ReactComponent as OneResponseLogo } from "../../../assets/images/oneres
 // UI: Logo
 function Logo() {
   return (
-    <Logo__Container>
+    <LogoContainer>
       <OneResponseLogo />
-    </Logo__Container>
+    </LogoContainer>
   );
 }
 
 // Export: Logo
 export default Logo;
 
-// Styled: Logo__Container
-const Logo__Container = styled.div`
+// Styled: LogoContainer
+const LogoContainer = styled.div`
   align-items: center;
   color: #ffffff;
   display: flex;

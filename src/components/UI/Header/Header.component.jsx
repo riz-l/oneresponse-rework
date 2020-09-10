@@ -11,44 +11,44 @@ import UserDetails from "../UserDetails/UserDetails.component";
 // UI: Header
 function Header({ setIsOpen }) {
   return (
-    <Header__Container>
-      <Header__Primary>
-        <Header__PrimaryLeft>
+    <HeaderContainer>
+      <HeaderPrimary>
+        <HeaderPrimaryLeft>
           <Link to="/">
             <Logo />
           </Link>
-        </Header__PrimaryLeft>
+        </HeaderPrimaryLeft>
 
-        <Header__PrimaryRight>
+        <HeaderPrimaryRight>
           <UserDetails />
-        </Header__PrimaryRight>
-      </Header__Primary>
+        </HeaderPrimaryRight>
+      </HeaderPrimary>
 
-      <Header__Secondary>
-        <Header__SecondaryLeft
+      <HeaderSecondary>
+        <HeaderSecondaryLeft
           onClick={() => {
             setIsOpen((isOpen) => !isOpen);
           }}
         >
-          <Header__SecondaryLeftToggle>
+          <HeaderSecondaryLeftToggle>
             <Icon icon="fas fa-bars" />
-          </Header__SecondaryLeftToggle>
+          </HeaderSecondaryLeftToggle>
           <p>Patient List</p>
-        </Header__SecondaryLeft>
+        </HeaderSecondaryLeft>
 
-        <Header__SecondaryRight>
+        <HeaderSecondaryRight>
           <p>Emergency Department</p>
-        </Header__SecondaryRight>
-      </Header__Secondary>
-    </Header__Container>
+        </HeaderSecondaryRight>
+      </HeaderSecondary>
+    </HeaderContainer>
   );
 }
 
 // Export: Header
 export default Header;
 
-// Styled: Header__Container
-const Header__Container = styled.div`
+// Styled: HeaderContainer
+const HeaderContainer = styled.div`
   display: grid;
   grid-template-areas:
     "primary-header"
@@ -56,8 +56,8 @@ const Header__Container = styled.div`
   grid-template-rows: 7vh 5vh;
 `;
 
-// Styled: Header__Primary
-const Header__Primary = styled.div`
+// Styled: HeaderPrimary
+const HeaderPrimary = styled.div`
   align-items: center;
   background: #569fd3;
   display: flex;
@@ -65,24 +65,24 @@ const Header__Primary = styled.div`
   justify-content: space-between;
 `;
 
-// Styled: Header__PrimaryLeft
-const Header__PrimaryLeft = styled.div`
+// Styled: HeaderPrimaryLeft
+const HeaderPrimaryLeft = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
 `;
 
-// Styled: Header__PrimaryRight
-const Header__PrimaryRight = styled.div`
+// Styled: HeaderPrimaryRight
+const HeaderPrimaryRight = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
 `;
 
-// Styled: Header__Secondary
-const Header__Secondary = styled.div`
+// Styled: HeaderSecondary
+const HeaderSecondary = styled.div`
   align-items: center;
   background: #2c2c2c;
   color: #ffffff;
@@ -93,8 +93,8 @@ const Header__Secondary = styled.div`
   width: 100%;
 `;
 
-// Styled: Header__SecondaryLeft
-const Header__SecondaryLeft = styled.div`
+// Styled: HeaderSecondaryLeft
+const HeaderSecondaryLeft = styled.div`
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -110,16 +110,16 @@ const Header__SecondaryLeft = styled.div`
   }
 `;
 
-// Styled: Header__SecondaryLeftToggle
-const Header__SecondaryLeftToggle = styled.div`
+// Styled: HeaderSecondaryLeftToggle
+const HeaderSecondaryLeftToggle = styled.div`
   & i {
     font-size: 20px;
     margin-right: 10px;
   }
 `;
 
-// Styled: Header__SecondaryRight
-const Header__SecondaryRight = styled.div`
+// Styled: HeaderSecondaryRight
+const HeaderSecondaryRight = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;

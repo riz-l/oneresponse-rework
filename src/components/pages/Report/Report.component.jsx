@@ -237,29 +237,29 @@ function Report({ selectedPatient }) {
   }, [selectedPatient]);
 
   return (
-    <Report__Container>
-      <Report__Wrapper>
+    <ReportContainer>
+      <ReportWrapper>
         <PatientNameHeader
           selectedPatient={selectedPatient}
           patientDetailsData={patientDetailsData}
         />
         <ReportHeader />
-      </Report__Wrapper>
-    </Report__Container>
+      </ReportWrapper>
+    </ReportContainer>
   );
 }
 
 // Export: Report
 export default Report;
 
-// Styled: Report__Container
-const Report__Container = styled.div`
+// Styled: ReportContainer
+const ReportContainer = styled.div`
   height: 100%;
   width: 100%;
 `;
 
-// Styled: Report__Wrapper
-const Report__Wrapper = styled.div`
+// Styled: ReportWrapper
+const ReportWrapper = styled.div`
   height: 100%;
   width: 100%;
 `;

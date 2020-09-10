@@ -16,12 +16,12 @@ function App() {
   const [selectedPatient, setSelectedPatient] = useState(null);
 
   return (
-    <App__Container>
-      <App__Header>
+    <AppContainer>
+      <AppHeader>
         <Header setIsOpen={setIsOpen} />
-      </App__Header>
+      </AppHeader>
 
-      <App__Layout
+      <AppLayout
         style={
           !isOpen
             ? {
@@ -30,37 +30,37 @@ function App() {
             : null
         }
       >
-        <App__PatientList>
+        <AppPatientList>
           <PatientList
             isOpen={isOpen}
             setSelectedPatient={setSelectedPatient}
           />
-        </App__PatientList>
+        </AppPatientList>
 
-        <App__PatientReport>
+        <AppPatientReport>
           <Report selectedPatient={selectedPatient} />
-        </App__PatientReport>
-      </App__Layout>
-    </App__Container>
+        </AppPatientReport>
+      </AppLayout>
+    </AppContainer>
   );
 }
 
 // Export: App
 export default App;
 
-// Styled: App__Container
-const App__Container = styled.div`
+// Styled: AppContainer
+const AppContainer = styled.div`
   background: #f0f1f6;
 `;
 
-// Styled: App__Header
-const App__Header = styled.div`
+// Styled: AppHeader
+const AppHeader = styled.div`
   height: 12vh;
   width: 100%;
 `;
 
-// Styled: App__Layout
-const App__Layout = styled.div`
+// Styled: AppLayout
+const AppLayout = styled.div`
   display: grid;
   grid-template-areas: "patient-list report-container";
   grid-template-columns: 400px 1fr;
@@ -68,12 +68,12 @@ const App__Layout = styled.div`
   transition: all 150ms linear;
 `;
 
-// Styled: App__PatientList
-const App__PatientList = styled.div`
+// Styled: AppPatientList
+const AppPatientList = styled.div`
   grid-area: patient-list;
 `;
 
-// Styled: App__PatientReport
-const App__PatientReport = styled.div`
+// Styled: AppPatientReport
+const AppPatientReport = styled.div`
   grid-area: report-container;
 `;

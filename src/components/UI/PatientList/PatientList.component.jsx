@@ -35,11 +35,11 @@ function PatientList({ isOpen, setSelectedPatient }) {
   // If loading === true, render loading message
   if (loading) {
     return (
-      <PatientList__Container>
-        <PatientList__LoadingMessage>
+      <PatientListContainer>
+        <PatientListLoadingMessage>
           <p>Loading...</p>
-        </PatientList__LoadingMessage>
-      </PatientList__Container>
+        </PatientListLoadingMessage>
+      </PatientListContainer>
     );
   }
 
@@ -57,19 +57,15 @@ function PatientList({ isOpen, setSelectedPatient }) {
 
   return (
     <>
-      <PatientList__Container
+      <PatientListContainer
         style={!isOpen ? { transform: "translateX(-100%" } : null}
       >
-        <PatientList__Wrapper>
-          <PatientList__Header>
-            Patients Created in last 72hrs
-          </PatientList__Header>
-          <PatientList__Lead>
-            Please select from the list below:
-          </PatientList__Lead>
-        </PatientList__Wrapper>
+        <PatientListWrapper>
+          <PatientListHeader>Patients Created in last 72hrs</PatientListHeader>
+          <PatientListLead>Please select from the list below:</PatientListLead>
+        </PatientListWrapper>
         {patientListRender}
-      </PatientList__Container>
+      </PatientListContainer>
     </>
   );
 }
@@ -77,8 +73,8 @@ function PatientList({ isOpen, setSelectedPatient }) {
 // Export: PatientList
 export default PatientList;
 
-// Styled: PatientList__Container
-const PatientList__Container = styled.div`
+// Styled: PatientListContainer
+const PatientListContainer = styled.div`
   background: #414141;
   color: #ffffff;
   left: 0;
@@ -96,8 +92,8 @@ const PatientList__Container = styled.div`
   }
 `;
 
-// Styled: PatientList__LoadingMessage
-const PatientList__LoadingMessage = styled.div`
+// Styled: PatientListLoadingMessage
+const PatientListLoadingMessage = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-around;
@@ -110,8 +106,8 @@ const PatientList__LoadingMessage = styled.div`
   }
 `;
 
-// Styled: PatientList__Wrapper
-const PatientList__Wrapper = styled.div`
+// Styled: PatientListWrapper
+const PatientListWrapper = styled.div`
   align-items: flex-start;
   ${"" /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */}
   color: #ffffff;
@@ -124,8 +120,8 @@ const PatientList__Wrapper = styled.div`
   width: 100%;
 `;
 
-// Styled: PatientList__Header
-const PatientList__Header = styled.span`
+// Styled: PatientListHeader
+const PatientListHeader = styled.span`
   font-size: 1.3rem;
   letter-spacing: 1px;
   margin: 0.4rem 0;
@@ -135,8 +131,8 @@ const PatientList__Header = styled.span`
   }
 `;
 
-// Styled: PatientList__Lead
-const PatientList__Lead = styled.span`
+// Styled: PatientListLead
+const PatientListLead = styled.span`
   letter-spacing: 0.8px;
   opacity: 0.7;
 `;
