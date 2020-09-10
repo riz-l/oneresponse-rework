@@ -51,7 +51,7 @@ const UserDetailsTest = styled.div`
 // Styled: UserDetailsIcon
 const UserDetailsIcon = styled.div`
   background: #2c2c2c;
-  padding: 0.4rem;
+  padding: 0.6rem;
 
   & i {
     color: #ffffff;

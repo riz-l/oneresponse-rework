@@ -3,6 +3,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Switch, Route } from "react-router-dom";
 
+// Import: UI
+import PatientNameHeader from "../../UI/PatientNameHeader/PatientNameHeader.component";
+
 // page: Report
 function Report({ selectedPatient }) {
   // State
@@ -235,7 +238,10 @@ function Report({ selectedPatient }) {
   return (
     <ReportContainer>
       <ReportWrapper>
-        <h1>{selectedPatient}</h1>
+        <PatientNameHeader
+          selectedPatient={selectedPatient}
+          patientDetailsData={patientDetailsData}
+        />
       </ReportWrapper>
     </ReportContainer>
   );
