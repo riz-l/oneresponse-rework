@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 // Import: UI
 import Icon from "../Icon/Icon.component";
 import Logo from "../Logo/Logo.component";
+import UserDetails from "../UserDetails/UserDetails.component";
 
 // UI: Header
 function Header({ setIsOpen }) {
@@ -13,11 +14,13 @@ function Header({ setIsOpen }) {
     <HeaderContainer>
       <HeaderPrimary>
         <HeaderPrimaryLeft>
-          <Logo />
+          <Link to="/">
+            <Logo />
+          </Link>
         </HeaderPrimaryLeft>
 
         <HeaderPrimaryRight>
-          <p>Right side</p>
+          <UserDetails />
         </HeaderPrimaryRight>
       </HeaderPrimary>
 
@@ -60,7 +63,6 @@ const HeaderPrimary = styled.div`
   display: flex;
   grid-area: primary-header;
   justify-content: space-between;
-  padding: 1rem;
 `;
 
 // Styled: HeaderPrimaryLeft

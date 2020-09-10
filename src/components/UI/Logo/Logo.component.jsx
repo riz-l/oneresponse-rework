@@ -23,7 +23,7 @@ const LogoContainer = styled.div`
   color: #ffffff;
   display: flex;
   justify-content: space-between;
-  margin-left: -2.9rem;
+  margin-left: -1.9rem;
 
   & svg {
     height: 170px;

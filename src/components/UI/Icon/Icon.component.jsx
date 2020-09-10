@@ -1,6 +1,5 @@
 // Import: Dependencies
 import React from "react";
-import styled from "styled-components";
 
 // UI: Icon
 function Icon({ icon }) {

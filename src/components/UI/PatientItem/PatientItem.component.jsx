@@ -15,7 +15,7 @@ function PatientItem({
 }) {
   return (
     <PatientItemContainer>
-      <PatientItemIcon>
+      <PatientItemIcon className="PatientItemIcon-hover">
         <Icon icon="fas fa-user-alt" />
       </PatientItemIcon>
 
@@ -73,7 +73,7 @@ const PatientItemContainer = styled.div`
     cursor: pointer;
     transition: background 150ms linear;
 
-    &:hover PatientItemIcon {
+    .PatientItemIcon-hover {
       background: #414141;
       border-radius: 10px;
       transition: all 500ms linear;

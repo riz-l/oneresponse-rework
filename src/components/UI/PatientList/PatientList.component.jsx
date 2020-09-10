@@ -24,7 +24,8 @@ function PatientList({ isOpen, setSelectedPatient }) {
         const oneResponseApiData = await oneResponseResponse.json();
         setPatients(oneResponseApiData);
       } catch (error) {
-        throw new Error("Patient List data unavailable");
+        console.log("Patient Lists data error: ", error);
+        throw new Error("Patient List data unavailable.");
       }
       setLoading(false);
     }
@@ -79,15 +80,15 @@ const PatientListContainer = styled.div`
   left: 0;
   max-height: 88vh;
   min-height: 88vh;
-  overflow-x: hidden
+  overflow-x: hidden;
   overflow-y: scroll;
   top: 0;
   transform: translateX(0%);
   transition: transform 150ms linear;
-  width: 375px;
+  width: 400px;
 
   @media screen and (max-width: 768px) {
-      width: 100vw;
+    width: 100vw;
   }
 `;
 
@@ -113,7 +114,6 @@ const PatientListWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 100%;
   justify-content: center;
   padding: 1rem;
   text-align: left;
