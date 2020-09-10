@@ -41,6 +41,10 @@ const UserDetailsTest = styled.div`
   & span {
     color: #fff;
     font-size: 0.8rem;
+
+    @media screen and (max-width: 518px) {
+      display: none;
+    }
   }
 `;
 
