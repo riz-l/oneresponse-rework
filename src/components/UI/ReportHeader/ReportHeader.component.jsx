@@ -104,6 +104,22 @@ const ReportHeader__Options = styled.ul`
     justify-content: center;
     padding: 0.8rem 2rem;
 
+    @media screen and (max-width: 558px) {
+      padding: 0.8rem 1.6rem;
+    }
+
+    @media screen and (max-width: 480px) {
+      padding: 0.8rem 1.2rem;
+    }
+
+    @media screen and (max-width: 400px) {
+      padding: 0.8rem 1rem;
+    }
+
+    @media screen and (max-width: 364px) {
+      padding: 0.8rem 0.8rem;
+    }
+
     &:hover {
       & i,
       li {
@@ -126,6 +142,10 @@ const ReportHeader__Options = styled.ul`
       letter-spacing: 1px;
       padding-top: 0.2rem;
       transition: color 150ms linear;
+
+      @media screen and (max-width: 678px) {
+        display: none;
+      }
     }
   }
 `;

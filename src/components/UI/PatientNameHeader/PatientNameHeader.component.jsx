@@ -80,7 +80,7 @@ const PatientNameHeader__Container = styled.div`
   border-radius: 8px;
   display: flex;
   justify-content: flex-start;
-  margin: 0 2rem;
+  margin: 0 1rem;
   padding: 1rem 0;
   width: 100vw;
 `;
@@ -99,6 +99,12 @@ const PatientNameHeader__Row = styled.div`
   display: flex;
   height: 100%;
   justify-content: center;
+
+  @media screen and (max-width: 468px) {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 // Styled: PatientNameHeader__PatientFirstname
@@ -117,7 +123,11 @@ const PatientNameHeader__PatientFirstname = styled.span`
   }
 
   @media screen and (max-width: 468px) {
-    display: none;
+    margin-left: 0;
+  }
+
+  @media screen and (max-width: 368px) {
+    font-size: 1rem;
   }
 
   & span {
@@ -135,7 +145,11 @@ const PatientNameHeader__PatientFirstname = styled.span`
     }
 
     @media screen and (max-width: 468px) {
-      display: none;
+      margin-left: 0;
+    }
+
+    @media screen and (max-width: 368px) {
+      font-size: 1rem;
     }
   }
 `;
