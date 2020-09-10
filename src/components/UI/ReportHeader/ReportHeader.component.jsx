@@ -1,0 +1,131 @@
+// Import: Dependencies
+import React from "react";
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
+
+// Import: UI
+import Icon from "../Icon/Icon.component";
+
+// UI: ReportHeader
+function ReportHeader() {
+  return (
+    <ReportHeader__Container>
+      <ReportHeader__Options>
+        <NavLink
+          activeStyle={{
+            borderTop: "3px solid #569fd3",
+          }}
+          to="/sbar"
+        >
+          <Icon icon="fas fa-laptop-medical" />
+          <li>SBAR</li>
+        </NavLink>
+
+        <NavLink
+          activeStyle={{
+            borderTop: "3px solid #569fd3",
+          }}
+          to="/patient-report"
+        >
+          <Icon icon="fas fa-file-medical-alt" />
+          <li>Report</li>
+        </NavLink>
+
+        <NavLink
+          activeStyle={{
+            borderTop: "3px solid #569fd3",
+          }}
+          to="/notes"
+        >
+          <Icon icon="fas fa-sticky-note" />
+          <li>Notes</li>
+        </NavLink>
+
+        <NavLink
+          activeStyle={{
+            borderTop: "3px solid #569fd3",
+          }}
+          to="/media"
+        >
+          <Icon icon="fas fa-camera" />
+          <li>Media</li>
+        </NavLink>
+
+        <NavLink
+          activeStyle={{
+            borderTop: "3px solid #569fd3",
+          }}
+          to="/ecg"
+        >
+          <Icon icon="fas fa-heartbeat" />
+          <li>ECG</li>
+        </NavLink>
+
+        <NavLink
+          activeStyle={{
+            borderTop: "3px solid #569fd3",
+          }}
+          to="/diagnosis-of-death"
+        >
+          <Icon icon="fas fa-procedures" />
+          <li>DoD</li>
+        </NavLink>
+      </ReportHeader__Options>
+    </ReportHeader__Container>
+  );
+}
+
+// Export: ReportHeader
+export default ReportHeader;
+
+// Styled: ReportHeader__Container
+const ReportHeader__Container = styled.div`
+  align-items: center;
+  display: flex;
+  height: auto;
+  justify-content: space-between;
+  margin: 0 1rem;
+  width: 100%;
+`;
+
+// Styled: ReportHeader__Options
+const ReportHeader__Options = styled.ul`
+  align-items: center;
+  display: flex;
+  height: auto;
+  justify-content: flex-start;
+  width: 100%;
+
+  & a {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+
+    &:hover {
+      & i,
+      li {
+        color: #2c2c2c;
+        transition: color 150ms linear;
+      }
+    }
+
+    & i {
+      color: #414141;
+      font-size: 1.4rem;
+      transition: color 150ms linear;
+    }
+
+    & li {
+      color: #414141;
+      display: inline;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding-top: 0.2rem;
+      transition: color 150ms linear;
+    }
+  }
+`;

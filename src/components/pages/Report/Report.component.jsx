@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 
 // Import: UI
 import PatientNameHeader from "../../UI/PatientNameHeader/PatientNameHeader.component";
+import ReportHeader from "../../UI/ReportHeader/ReportHeader.component";
 
 // page: Report
 function Report({ selectedPatient }) {
@@ -236,29 +237,29 @@ function Report({ selectedPatient }) {
   }, [selectedPatient]);
 
   return (
-    <ReportContainer>
-      <ReportWrapper>
+    <Report__Container>
+      <Report__Wrapper>
         <PatientNameHeader
           selectedPatient={selectedPatient}
           patientDetailsData={patientDetailsData}
         />
-      </ReportWrapper>
-    </ReportContainer>
+        <ReportHeader />
+      </Report__Wrapper>
+    </Report__Container>
   );
 }
 
 // Export: Report
 export default Report;
 
-// Styled: ReportContainer
-const ReportContainer = styled.div`
-  margin: 1rem;
-  min-height: 100%;
-  min-width: 100%;
+// Styled: Report__Container
+const Report__Container = styled.div`
+  height: 100%;
+  width: 100%;
 `;
 
-// Styled: ReportWrapper
-const ReportWrapper = styled.div`
+// Styled: Report__Wrapper
+const Report__Wrapper = styled.div`
   height: 100%;
   width: 100%;
 `;
