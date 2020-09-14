@@ -214,6 +214,9 @@ function PatientReport({
   );
   //#endregion /patientDetailsRender = Patient Details report
 
+  //#region triagePathfinderSupportRender = Triage and Pathfinder Support report
+  //#endregion /triagePathfinderSupportRender = Triage and Pathfinder Support report
+
   return (
     <PatientReportContainer>
       <ReportContainer>
@@ -231,7 +234,8 @@ export default PatientReport;
 
 // Styled: PatientReportContainer
 const PatientReportContainer = styled.div`
-  margin: 0rem;
+  background: #ffffff;
+  margin: 1rem;
 `;
 
 // Styled: PatientReportGrid

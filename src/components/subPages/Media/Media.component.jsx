@@ -28,5 +28,6 @@ export default Media;
 
 // Styled: MediaContainer
 const MediaContainer = styled.div`
-  margin: 0rem;
+  background: #ffffff;
+  margin: 1rem;
 `;

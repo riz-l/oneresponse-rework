@@ -28,5 +28,6 @@ export default Sbar;
 
 // Styled: SbarContainer
 const SbarContainer = styled.div`
-  margin: 0rem;
+  background: #ffffff;
+  margin: 1rem;
 `;

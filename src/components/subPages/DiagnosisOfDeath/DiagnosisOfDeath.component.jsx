@@ -28,5 +28,6 @@ export default DiagnosisOfDeath;
 
 // Styled: DiagnosisOfDeathContainer
 const DiagnosisOfDeathContainer = styled.div`
-  margin: 0rem;
+  background: #ffffff;
+  margin: 1rem;
 `;
