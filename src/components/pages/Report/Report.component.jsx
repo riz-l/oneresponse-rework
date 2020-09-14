@@ -7,6 +7,14 @@ import { Switch, Route } from "react-router-dom";
 import PatientNameHeader from "../../UI/PatientNameHeader/PatientNameHeader.component";
 import ReportHeader from "../../UI/ReportHeader/ReportHeader.component";
 
+// Import: subPages
+import DiagnosisOfDeath from "../../subPages/DiagnosisOfDeath/DiagnosisOfDeath.component";
+import Ecg from "../../subPages/Ecg/Ecg.component";
+import Media from "../../subPages/Media/Media.component";
+import Notes from "../../subPages/Notes/Notes.component";
+import PatientReport from "../../subPages/PatientReport/PatientReport.component";
+import Sbar from "../../subPages/Sbar/Sbar.component";
+
 // page: Report
 function Report({ selectedPatient }) {
   // State
@@ -244,6 +252,54 @@ function Report({ selectedPatient }) {
           patientDetailsData={patientDetailsData}
         />
         <ReportHeader />
+
+        <Switch>
+          <Route exact path="/">
+            <Sbar selectedPatient={selectedPatient} />
+          </Route>
+
+          <Route path="/sbar">
+            <Sbar selectedPatient={selectedPatient} />
+          </Route>
+
+          <Route path="/patient-report">
+            <PatientReport
+              selectedPatient={selectedPatient}
+              patientDetailsData={patientDetailsData}
+              nokData={nokData}
+              specialistPathwayData={specialistPathwaysData}
+              majorTraumaData={majorTraumaData}
+              manchesterTriageSystemData={manchesterTriageSystemData}
+              pathfindersData={pathfindersData}
+              jointDecisionMakingData={jointDecisionMakingData}
+              cardiacChestPainData={cardiacChestPainData}
+              strokeAssessmentData={strokeAssessmentData}
+              cardiacArrestData={cardiacArrestData}
+              patientIVData={patientIVData}
+              drugsMedsData={drugsMedsData}
+              skeletalTraumaData={skeletalTraumaData}
+              burnsData={burnsData}
+              transportOptionsData={transportOptionsData}
+              airwaysManagementData={airwaysManagementData}
+            />
+          </Route>
+
+          <Route path="/notes">
+            <Notes selectedPatient={selectedPatient} />
+          </Route>
+
+          <Route path="/media">
+            <Media selectedPatient={selectedPatient} />
+          </Route>
+
+          <Route path="/ecg">
+            <Ecg selectedPatient={selectedPatient} />
+          </Route>
+
+          <Route path="/diagnosis-of-death">
+            <DiagnosisOfDeath selectedPatient={selectedPatient} />
+          </Route>
+        </Switch>
       </ReportWrapper>
     </ReportContainer>
   );
