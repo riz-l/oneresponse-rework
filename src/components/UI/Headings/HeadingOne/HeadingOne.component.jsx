@@ -6,9 +6,11 @@ import styled from "styled-components";
 import Icon from "../../Icon/Icon.component";
 
 // Heading: HeadingOne
-function HeadingOne({ text, icon }) {
+function HeadingOne({ text, icon, marginTop, marginBottom }) {
   return (
-    <HeadingOneContainer>
+    <HeadingOneContainer
+      style={{ marginTop: `${marginTop}`, marginBottom: `${marginBottom}` }}
+    >
       <HeadingOneWrapper>
         <Icon icon={icon} />
         <HeadingOneText>{text}</HeadingOneText>
@@ -25,6 +27,7 @@ const HeadingOneContainer = styled.div`
   align-items: flex-start;
   display: flex;
   justify-content: flex-start;
+  margin: 1rem 0;
 `;
 
 // Styled: HeadingOneWrapper

@@ -16,7 +16,7 @@ import PatientReport from "../../subPages/PatientReport/PatientReport.component"
 import Sbar from "../../subPages/Sbar/Sbar.component";
 
 // page: Report
-function Report({ selectedPatient }) {
+function Report({ selectedPatient, isOpen }) {
   // State
   const [patientDetailsData, setPatientDetailsData] = useState([]);
   const [nokData, setNokData] = useState([]);

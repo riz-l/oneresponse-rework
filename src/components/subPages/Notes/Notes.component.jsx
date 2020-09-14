@@ -28,5 +28,5 @@ export default Notes;
 
 // Styled: NotesContainer
 const NotesContainer = styled.div`
-  margin: 1rem;
+  margin: 0rem;
 `;

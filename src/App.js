@@ -76,4 +76,8 @@ const AppPatientList = styled.div`
 // Styled: AppPatientReport
 const AppPatientReport = styled.div`
   grid-area: report-container;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;

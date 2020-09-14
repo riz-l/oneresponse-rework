@@ -3,12 +3,14 @@ import React from "react";
 import styled from "styled-components";
 
 // UI: ReportField
-function ReportField({ field, data }) {
+function ReportField({ field, data, marginTop, marginBottom }) {
   return (
-    <ReportFieldContainer>
+    <ReportFieldContainer
+      style={{ marginTop: `${marginTop}`, marginBottom: `${marginBottom}` }}
+    >
       <ReportFieldWrapper>
         <ReportFieldField>{field}</ReportFieldField>
-        <p>{data}</p>
+        <ReportFieldData>{data}</ReportFieldData>
       </ReportFieldWrapper>
     </ReportFieldContainer>
   );
@@ -22,6 +24,7 @@ const ReportFieldContainer = styled.div`
   align-items: center;
   display: flex;
   justify-content: flex-start;
+  padding-bottom: 1rem;
 `;
 
 // Styled: ReportFieldWrapper
@@ -34,5 +37,11 @@ const ReportFieldWrapper = styled.div`
 
 // Styled: ReportFieldField
 const ReportFieldField = styled.p`
+  color: #414141;
+`;
+
+// Styled: ReportFieldData
+const ReportFieldData = styled.p`
+  color: #2c2c2c;
   font-weight: 600;
 `;

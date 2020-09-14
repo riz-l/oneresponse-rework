@@ -28,5 +28,5 @@ export default Ecg;
 
 // Styled: EcgContainer
 const EcgContainer = styled.div`
-  margin: 1rem;
+  margin: 0rem;
 `;

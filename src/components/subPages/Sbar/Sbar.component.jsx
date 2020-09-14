@@ -28,5 +28,5 @@ export default Sbar;
 
 // Styled: SbarContainer
 const SbarContainer = styled.div`
-  margin: 1rem;
+  margin: 0rem;
 `;
