@@ -81,7 +81,7 @@ export default ReportHeader;
 // Styled: ReportHeaderContainer
 const ReportHeaderContainer = styled.div`
   align-items: center;
-  background: #f0f1f6;
+  background: #ffffff;
   box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
   display: flex;
   height: auto;

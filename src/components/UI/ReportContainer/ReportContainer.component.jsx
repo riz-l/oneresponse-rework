@@ -13,5 +13,5 @@ export default ReportContainer;
 // Styled: ReportContainerContainer
 const ReportContainerContainer = styled.div`
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
 `;

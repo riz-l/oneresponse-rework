@@ -76,12 +76,11 @@ const PatientNameHeaderPrompt = styled.div`
 // Styled: PatientNameHeaderContainer
 const PatientNameHeaderContainer = styled.div`
   align-items: center;
-  border-radius: 8px;
+  background: #ffffff;
   display: flex;
   justify-content: flex-start;
-  margin: 0 1rem;
-  padding: 1rem 0;
-  width: 100vw;
+  padding: 1rem;
+  width: 100%;
 `;
 
 // Styled: PatientNameHeaderWrapper

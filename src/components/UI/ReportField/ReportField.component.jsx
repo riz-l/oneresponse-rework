@@ -3,10 +3,34 @@ import React from "react";
 import styled from "styled-components";
 
 // UI: ReportField
-function ReportField({ field, data, marginTop, marginBottom }) {
+function ReportField({
+  field,
+  data,
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  padding,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+}) {
   return (
     <ReportFieldContainer
-      style={{ marginTop: `${marginTop}`, marginBottom: `${marginBottom}` }}
+      style={{
+        margin: `${margin}`,
+        marginTop: `${marginTop}`,
+        marginRight: `${marginRight}`,
+        marginBottom: `${marginBottom}`,
+        marginLeft: `${marginLeft}`,
+        padding: `${padding}`,
+        paddingTop: `${paddingTop}`,
+        paddingRight: `${paddingRight}`,
+        paddingBottom: `${paddingBottom}`,
+        paddingLeft: `${paddingLeft}`,
+      }}
     >
       <ReportFieldWrapper>
         <ReportFieldField>{field}</ReportFieldField>

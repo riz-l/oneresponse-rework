@@ -219,8 +219,14 @@ function PatientReport({
 
   return (
     <PatientReportContainer>
+      <PatientReportHeadingContainer>
+        <HeadingOne
+          icon="fas fa-file-medical-alt"
+          text="Patient Details"
+          padding="1rem"
+        />
+      </PatientReportHeadingContainer>
       <ReportContainer>
-        <HeadingOne icon="fas fa-file-medical-alt" text="Patient Details" />
         {selectedPatient === null
           ? "Please select a Patient from the Patient list"
           : patientDetailsRender}
@@ -254,5 +260,11 @@ const PatientReportColumn = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: flex-start;
+  width: 100%;
+`;
+
+// Styled: PatientReportHeadingContainer
+const PatientReportHeadingContainer = styled.div`
+  background: #e0e0e0;
   width: 100%;
 `;

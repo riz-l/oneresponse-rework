@@ -6,10 +6,34 @@ import styled from "styled-components";
 import Icon from "../../Icon/Icon.component";
 
 // Heading: HeadingOne
-function HeadingOne({ text, icon, marginTop, marginBottom }) {
+function HeadingOne({
+  text,
+  icon,
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  padding,
+  paddingTop,
+  paddingRight,
+  paddingBottom,
+  paddingLeft,
+}) {
   return (
     <HeadingOneContainer
-      style={{ marginTop: `${marginTop}`, marginBottom: `${marginBottom}` }}
+      style={{
+        margin: `${margin}`,
+        marginTop: `${marginTop}`,
+        marginRight: `${marginRight}`,
+        marginBottom: `${marginBottom}`,
+        marginLeft: `${marginLeft}`,
+        padding: `${padding}`,
+        paddingTop: `${paddingTop}`,
+        paddingRight: `${paddingRight}`,
+        paddingBottom: `${paddingBottom}`,
+        paddingLeft: `${paddingLeft}`,
+      }}
     >
       <HeadingOneWrapper>
         <Icon icon={icon} />
