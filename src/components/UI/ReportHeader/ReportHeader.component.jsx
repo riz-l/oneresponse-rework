@@ -89,6 +89,14 @@ const ReportHeaderContainer = styled.div`
   padding: 0 1rem;
   top: 0;
   width: 100%;
+
+  position: sticky;
+  -webkit-position: sticky;
+
+  @media screen and (max-width: 768px) {
+    position: static;
+    -webkit-position: static;
+  }
 `;
 
 // Styled: ReportHeaderOptions
