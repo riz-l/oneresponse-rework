@@ -310,7 +310,7 @@ export default Report;
 
 // Styled: ReportContainer
 const ReportContainer = styled.div`
-  height: 100%;
+  height: auto;
   width: 100%;
 `;
 
