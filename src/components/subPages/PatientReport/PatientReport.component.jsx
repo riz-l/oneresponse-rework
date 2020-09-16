@@ -858,7 +858,16 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
-          ) : (
+          ) : specialistPathwayData &&
+            specialistPathwayData.length > 0 &&
+            majorTraumaData &&
+            majorTraumaData.length > 0 &&
+            manchesterTriageSystemData &&
+            manchesterTriageSystemData.length > 0 &&
+            pathfindersData &&
+            pathfindersData.length > 0 &&
+            jointDecisionMakingData &&
+            jointDecisionMakingData.length > 0 ? (
             <>
               {specialistPathwayData && specialistPathwayData.length > 0
                 ? specialistPathwayRender
@@ -884,6 +893,8 @@ function PatientReport({
                 </>
               ) : null}
             </>
+          ) : (
+            "There is no Triage and Pathfinder Support data recorded"
           )}
         </ReportContainer>
       </PatientReportSection>
@@ -900,7 +911,10 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
-          ) : (
+          ) : cardiacChestPainData &&
+            cardiacChestPainData.length > 0 &&
+            strokeAssessmentData &&
+            strokeAssessmentData.length > 0 ? (
             <>
               {cardiacChestPainData && cardiacChestPainData.length > 0 ? (
                 <>
@@ -913,6 +927,8 @@ function PatientReport({
                 ? strokeAssesssmentRender
                 : null}
             </>
+          ) : (
+            "There is no Cardiovascular Assessment data recorded"
           )}
         </ReportContainer>
       </PatientReportSection>
