@@ -1426,6 +1426,109 @@ function PatientReport({
   );
   //#endregion /communicationsConsentNotificationsRender = Communications, Consent and Notifications report
 
+  //#region airwaysManagementRender = Airways Management report
+  const airwaysManagementRender = airwaysManagementData.map(
+    ({
+      Master_ePR_ID,
+      BVM,
+      NPA_Size,
+      NPA_By,
+      OPA_Size,
+      OPA_By,
+      LMA_Size,
+      LMA_By,
+      ET_Size,
+      ET_By,
+      GradeOfView,
+      SurgicalCric_By,
+      Suction_By,
+      Thoracostomy_By,
+    }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <HeadingThree text="Bag Valve Mask" />
+            <ReportField
+              field="Size"
+              data={BVM ? BVM : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Nasopharyngeal Airway" />
+            <ReportField
+              field="Size"
+              data={NPA_Size ? NPA_Size : "Not recorded"}
+            />
+            <ReportField
+              field="By"
+              data={NPA_By ? NPA_By : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Oropharyngeal Airway" />
+            <ReportField
+              field="Size"
+              data={OPA_Size ? OPA_Size : "Not recorded"}
+            />
+            <ReportField
+              field="By"
+              data={OPA_By ? OPA_By : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Supraglottic Airway" />
+            <ReportField
+              field="Size"
+              data={LMA_Size ? LMA_Size : "Not recorded"}
+            />
+            <ReportField
+              field="By"
+              data={LMA_By ? LMA_By : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Endotracheal" />
+            <ReportField
+              field="Size"
+              data={ET_Size ? ET_Size : "Not recorded"}
+            />
+            <ReportField field="By" data={ET_By ? ET_By : "Not recorded"} />
+            <ReportField
+              field="Grade of View"
+              data={GradeOfView ? GradeOfView : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Surgical Cric." />
+            <ReportField
+              field="By"
+              data={SurgicalCric_By ? SurgicalCric_By : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Suction" />
+            <ReportField
+              field="By"
+              data={Suction_By ? Suction_By : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Thoracostomy" />
+            <ReportField
+              field="By"
+              data={Thoracostomy_By ? Thoracostomy_By : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /airwaysManagementRender = Airways Management report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -1665,9 +1768,29 @@ function PatientReport({
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
             : communicationsConsentNotificationsData &&
-              communicationsConsentNotificationsData.length > 0
+              communicationsConsentNotificationsData.length > 0 &&
+              patientRefusalData &&
+              patientRefusalData.length > 0
             ? communicationsConsentNotificationsRender
             : "Communications, Consent and Notifications data not recorded"}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Airways Management */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Airways Management"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : airwaysManagementData && airwaysManagementData.length > 0
+            ? airwaysManagementRender
+            : "Airways Management data not recorded"}
         </ReportContainer>
       </PatientReportSection>
     </PatientReportContainer>
