@@ -7,7 +7,6 @@ import Icon from "../../Icon/Icon.component";
 
 // Heading: HeadingOne
 function HeadingOne({
-  text,
   icon,
   margin,
   marginTop,
@@ -19,6 +18,7 @@ function HeadingOne({
   paddingRight,
   paddingBottom,
   paddingLeft,
+  text,
 }) {
   return (
     <HeadingOneContainer

@@ -31,6 +31,7 @@ function PatientReport({
   communicationsConsentNotificationsData,
   patientRefusalData,
   airwaysManagementData,
+  clinicalObservationsData,
 }) {
   //#region nokRender = Next of Kin report
   const nokRender = nokData.map(
@@ -845,7 +846,7 @@ function PatientReport({
         key={Master_ePR_ID}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
-        <PatientReportIVGrid>
+        <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Type"
@@ -909,7 +910,7 @@ function PatientReport({
               paddingBottom="0"
             />
           </PatientReportColumn>
-        </PatientReportIVGrid>
+        </PatientReportTableGrid>
       </PatientReportRender>
     )
   );
@@ -965,7 +966,7 @@ function PatientReport({
         key={Master_ePR_ID}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
-        <PatientReportIVGrid>
+        <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Drug"
@@ -1029,7 +1030,7 @@ function PatientReport({
               paddingBottom="0"
             />
           </PatientReportColumn>
-        </PatientReportIVGrid>
+        </PatientReportTableGrid>
       </PatientReportRender>
     )
   );
@@ -1042,7 +1043,7 @@ function PatientReport({
         key={Master_ePR_ID}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
-        <PatientReportIVGrid>
+        <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Type"
@@ -1062,7 +1063,7 @@ function PatientReport({
           <PatientReportColumn>
             <></>
           </PatientReportColumn>
-        </PatientReportIVGrid>
+        </PatientReportTableGrid>
       </PatientReportRender>
     )
   );
@@ -1075,7 +1076,7 @@ function PatientReport({
         key={Master_ePR_ID}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
-        <PatientReportIVGrid>
+        <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Type"
@@ -1123,7 +1124,7 @@ function PatientReport({
               paddingBottom="0"
             />
           </PatientReportColumn>
-        </PatientReportIVGrid>
+        </PatientReportTableGrid>
       </PatientReportRender>
     )
   );
@@ -1529,6 +1530,237 @@ function PatientReport({
   );
   //#endregion /airwaysManagementRender = Airways Management report
 
+  //#region clinicalObservationsRender = Clinical Observations report
+  const clinicalObservationsRender = clinicalObservationsData.map(
+    ({
+      Master_ePR_ID,
+      Obs_Time,
+      Obs_Resp_Rate,
+      Obs_SpO2,
+      Obs_Oxygen,
+      Obs_Temp,
+      Obs_BP_Sys,
+      Obs_BP_Dia,
+      Obs_Heart_Rate,
+      Obs_AVPU,
+      Obs_NEWS_Total,
+      Obs_Cap_Refill,
+      Obs_EVM_Eye,
+      Obs_EVM_Voice,
+      Obs_EVM_Motor,
+      Obs_EVM_Total,
+      Obs_BM,
+      Obs_Pupils_Size_Left,
+      Obs_Pupils_Size_Right,
+      Obs_Pupils_React_Left,
+      Obs_Pupils_React_Right,
+      Obs_Pain_Score,
+      Obs_Peak_Flow,
+    }) => (
+      <PatientReportRender
+        key={Master_ePR_ID}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportTableGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Time"
+              data={Obs_Time ? Obs_Time : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Resp Rate"
+              data={Obs_Resp_Rate ? Obs_Resp_Rate : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="SpO2 (&#37;)"
+              data={Obs_SpO2 ? Obs_SpO2 : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Air/Oxygen"
+              data={Obs_Oxygen ? Obs_Oxygen : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Temp (&#176;C)"
+              data={Obs_Temp ? Obs_Temp : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="BP (MMHG)"
+              data={
+                Obs_BP_Sys || Obs_BP_Dia ? (
+                  <>
+                    {Obs_BP_Sys} / {Obs_BP_Dia}
+                  </>
+                ) : null
+              }
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Heart Rate"
+              data={Obs_Heart_Rate ? Obs_Heart_Rate : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="ACVPU"
+              data={Obs_AVPU ? Obs_AVPU : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="NEWS2 Total"
+              data={Obs_NEWS_Total ? Obs_NEWS_Total : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Cap Refill (sec)"
+              data={Obs_Cap_Refill ? Obs_Cap_Refill : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="GCS"
+              data={
+                Obs_EVM_Eye || Obs_EVM_Voice || Obs_EVM_Motor ? (
+                  <>
+                    {Obs_EVM_Eye} / {Obs_EVM_Voice} / {Obs_EVM_Motor}
+                  </>
+                ) : null
+              }
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="GCS Total"
+              data={Obs_EVM_Total ? Obs_EVM_Total : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="BM (M/Mol)"
+              data={Obs_BM ? Obs_BM : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Pupils Size (mm)"
+              data={
+                Obs_Pupils_Size_Left || Obs_Pupils_Size_Right ? (
+                  <>
+                    {Obs_Pupils_Size_Left} / {Obs_Pupils_Size_Right}
+                  </>
+                ) : null
+              }
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Pupils React"
+              data={
+                Obs_Pupils_React_Left || Obs_Pupils_React_Right ? (
+                  <>
+                    {Obs_Pupils_React_Left} / {Obs_Pupils_React_Right}
+                  </>
+                ) : null
+              }
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Pain Score"
+              data={Obs_Pain_Score ? Obs_Pain_Score : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Peak Flow (l/min)"
+              data={Obs_Peak_Flow ? Obs_Peak_Flow : null}
+              paddingBottom="0"
+              fontSize="0.8rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+        </PatientReportTableGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /clinicalObservationsRender = Clinical Observations report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -1793,6 +2025,24 @@ function PatientReport({
             : "Airways Management data not recorded"}
         </ReportContainer>
       </PatientReportSection>
+
+      {/* Clinical Observations */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Clinical Observations"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : clinicalObservationsData && clinicalObservationsData.length > 0
+            ? clinicalObservationsRender
+            : "Clinical Observations data not recorded"}
+        </ReportContainer>
+      </PatientReportSection>
     </PatientReportContainer>
   );
 }
@@ -1825,10 +2075,10 @@ const PatientReportGrid = styled.div`
   width: 100%;
 `;
 
-const PatientReportIVGrid = styled.div`
+const PatientReportTableGrid = styled.div`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   height: 100%;
   width: 100%;
 `;

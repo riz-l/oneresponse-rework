@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 // Heading: HeadingThree
 function HeadingThree({
-  text,
   margin,
   marginTop,
   marginRight,
@@ -15,6 +14,7 @@ function HeadingThree({
   paddingRight,
   paddingBottom,
   paddingLeft,
+  text,
 }) {
   return (
     <HeadingThreeText

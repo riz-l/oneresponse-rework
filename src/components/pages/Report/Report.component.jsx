@@ -41,6 +41,7 @@ function Report({ selectedPatient, isOpen }) {
   ] = useState([]);
   const [patientRefusalData, setPatientRefusalData] = useState([]);
   const [airwaysManagementData, setAirwaysManagementData] = useState([]);
+  const [clinicalObservationsData, setClinicalObservationsData] = useState([]);
 
   // When selectedPatient changes fetch selected Patient report data from OneResponse APIs
   // If successful, ...Data === OneResponse API data (for selected Patient), loading === false
@@ -276,6 +277,20 @@ function Report({ selectedPatient, isOpen }) {
           throw new Error("Unable to retrieve Airways Management data.");
         }
         //#endregion /Airways Management data
+
+        //#region Clinical Observations data
+        try {
+          const clinicalObservationsApi = `https://cad-message-to-trust-test.azurewebsites.net/ClinicalObservations/ePRID/${selectedPatient}`;
+          const clinicalObservationsResponse = await fetch(
+            clinicalObservationsApi
+          );
+          const clinicalObservationsApiData = await clinicalObservationsResponse.json();
+          setClinicalObservationsData(clinicalObservationsApiData);
+        } catch (error) {
+          console.log("Clinical Observations data error: ", error);
+          throw new Error("Unable to retrieve Clinical Observations data.");
+        }
+        //#endregion /Clinical Observations data
       }
     }
 
@@ -323,6 +338,7 @@ function Report({ selectedPatient, isOpen }) {
               }
               patientRefusalData={patientRefusalData}
               airwaysManagementData={airwaysManagementData}
+              clinicalObservationsData={clinicalObservationsData}
             />
           </Route>
 

@@ -4,8 +4,10 @@ import styled from "styled-components";
 
 // UI: ReportField
 function ReportField({
-  field,
   data,
+  field,
+  fieldMinHeight,
+  fontSize,
   margin,
   marginTop,
   marginRight,
@@ -20,6 +22,7 @@ function ReportField({
   return (
     <ReportFieldContainer
       style={{
+        fontSize: `${fontSize}`,
         margin: `${margin}`,
         marginTop: `${marginTop}`,
         marginRight: `${marginRight}`,
@@ -33,7 +36,9 @@ function ReportField({
       }}
     >
       <ReportFieldWrapper>
-        <ReportFieldField>{field}</ReportFieldField>
+        <ReportFieldField style={{ minHeight: `${fieldMinHeight}` }}>
+          {field}
+        </ReportFieldField>
         <ReportFieldData>{data}</ReportFieldData>
       </ReportFieldWrapper>
     </ReportFieldContainer>

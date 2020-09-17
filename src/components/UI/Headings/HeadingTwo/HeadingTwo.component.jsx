@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 // Heading: HeadingTwo
 function HeadingTwo({
-  text,
   margin,
   marginTop,
   marginRight,
@@ -15,6 +14,7 @@ function HeadingTwo({
   paddingRight,
   paddingBottom,
   paddingLeft,
+  text,
 }) {
   return (
     <HeadingTwoText
