@@ -842,7 +842,7 @@ function PatientReport({
             ? "Please select a Patient from the Patient list"
             : patientDetailsData && patientDetailsData.length > 0
             ? patientDetailsRender
-            : "There is no Patient Details data recorded"}
+            : "Patient Details data not recorded"}
         </ReportContainer>
       </PatientReportSection>
 
@@ -894,7 +894,7 @@ function PatientReport({
               ) : null}
             </>
           ) : (
-            "There is no Triage and Pathfinder Support data recorded"
+            "Triage and Pathfinder Support data not recorded"
           )}
         </ReportContainer>
       </PatientReportSection>
@@ -928,7 +928,7 @@ function PatientReport({
                 : null}
             </>
           ) : (
-            "There is no Cardiovascular Assessment data recorded"
+            "Cardiovascular Assessment data not recorded"
           )}
         </ReportContainer>
       </PatientReportSection>
@@ -947,7 +947,7 @@ function PatientReport({
             ? "Please select a Patient from the Patient list"
             : cardiacArrestData && cardiacArrestData.length > 0
             ? cardiacArrestRender
-            : "There is no Cardiac Arrest data recorded"}
+            : "Cardiac Arrest data not recorded"}
         </ReportContainer>
       </PatientReportSection>
     </PatientReportContainer>
