@@ -1221,6 +1221,80 @@ function PatientReport({
   );
   //#endregion /burnsRender = Burns report
 
+  //#region transportOptionsRender = Transport Options report
+  const transportOptionsRender = transportOptionsData.map(
+    ({
+      Master_ePR_ID,
+      DestinationName,
+      WardName,
+      OtherLocation,
+      Pre_Alert,
+      PreAlert_RAG,
+      NonTransportReason,
+      Other,
+      Scene_Mobility,
+      Amb_Mobility,
+    }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Receiving Location"
+              data={DestinationName ? DestinationName : "Not recorded"}
+            />
+            <ReportField
+              field="Destination Name"
+              data={WardName ? WardName : "Not recorded"}
+            />
+            <ReportField
+              field="Other Location"
+              data={OtherLocation ? OtherLocation : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Hospital Pre-Alert" />
+            <ReportField
+              field="Pre-Alert"
+              data={Pre_Alert ? Pre_Alert : "Not recorded"}
+            />
+            <ReportField
+              field="Status"
+              data={PreAlert_RAG ? PreAlert_RAG : "Not recorded"}
+              marginBottom="2rem"
+            />
+
+            <HeadingThree text="Non-Transport" />
+            <ReportField
+              field="Reason"
+              data={NonTransportReason ? NonTransportReason : "Not recorded"}
+            />
+            <ReportField
+              field="Other"
+              data={Other ? Other : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Patients Mobility" />
+            <ReportField
+              field="Scene to Ambulance"
+              data={Scene_Mobility ? Scene_Mobility : "Not recorded"}
+            />
+            <ReportField
+              field="Ambulance to Hospital"
+              data={Amb_Mobility ? Amb_Mobility : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /transportOptionsRender = Transport Options report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -1426,6 +1500,24 @@ function PatientReport({
           ) : (
             "Trauma Management data not recorded"
           )}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Transport Options */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Transport Options"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : transportOptionsData && transportOptionsData.length > 0
+            ? transportOptionsRender
+            : "Transport Options data not recorded"}
         </ReportContainer>
       </PatientReportSection>
     </PatientReportContainer>
