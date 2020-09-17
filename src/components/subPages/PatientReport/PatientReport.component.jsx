@@ -1127,6 +1127,100 @@ function PatientReport({
   );
   //#endregion /skeletalTraumaRender = Skeletal Trauma report
 
+  //#region burnsRender = Burns report
+  const burnsRender = burnsData.map(
+    ({
+      Master_ePR_ID,
+      TotalBox,
+      t_Head,
+      HeadBox,
+      Head_Dressing_Time,
+      Head_Cooling_Time,
+      t_Torso,
+      TorsoBox,
+      Torso_Dressing_Time,
+      Torso_Cooling_Time,
+      t_Limbs,
+      LimbsBox,
+      Limbs_Dressing_Time,
+      Limbs_Cooling_Time,
+    }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <HeadingTwo text="Burns" />
+        <ReportField
+          field="Total &#37;"
+          data={TotalBox ? TotalBox : "Not recorded"}
+          marginBottom="1rem"
+        />
+
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <HeadingThree text="Head" />
+            <ReportField
+              field="Thickness"
+              data={t_Head ? t_Head : "Not recorded"}
+            />
+            <ReportField
+              field="&#37; Area"
+              data={HeadBox ? HeadBox : "Not recorded"}
+            />
+            <ReportField
+              field="Time Dressing Applied"
+              data={Head_Dressing_Time ? Head_Dressing_Time : "Not recorded"}
+            />
+            <ReportField
+              field="Time Cooling Applied"
+              data={Head_Cooling_Time ? Head_Cooling_Time : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Torso" />
+            <ReportField
+              field="Thickness"
+              data={t_Torso ? t_Torso : "Not recorded"}
+            />
+            <ReportField
+              field="&#37; Area"
+              data={TorsoBox ? TorsoBox : "Not recorded"}
+            />
+            <ReportField
+              field="Time Dressing Applied"
+              data={Torso_Dressing_Time ? Torso_Dressing_Time : "Not recorded"}
+            />
+            <ReportField
+              field="Time Cooling Applied"
+              data={Torso_Cooling_Time ? Torso_Cooling_Time : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Limbs" />
+            <ReportField
+              field="Thickness"
+              data={t_Limbs ? t_Limbs : "Not recorded"}
+            />
+            <ReportField
+              field="&#37; Area"
+              data={LimbsBox ? LimbsBox : "Not recorded"}
+            />
+            <ReportField
+              field="Time Dressing Applied"
+              data={Limbs_Dressing_Time ? Limbs_Dressing_Time : "Not recorded"}
+            />
+            <ReportField
+              field="Time Cooling Applied"
+              data={Limbs_Cooling_Time ? Limbs_Cooling_Time : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /burnsRender = Burns report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -1315,7 +1409,10 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
-          ) : skeletalTraumaData && skeletalTraumaData.length > 0 ? (
+          ) : skeletalTraumaData &&
+            skeletalTraumaData.length > 0 &&
+            burnsData &&
+            burnsData.length > 0 ? (
             <>
               {skeletalTraumaData && skeletalTraumaData.length > 0 ? (
                 <>
@@ -1323,6 +1420,8 @@ function PatientReport({
                   {skeletalTraumaRender}
                 </>
               ) : null}
+
+              {burnsData && burnsData.length > 0 ? burnsRender : null}
             </>
           ) : (
             "Trauma Management data not recorded"
