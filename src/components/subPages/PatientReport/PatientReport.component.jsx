@@ -826,6 +826,307 @@ function PatientReport({
   );
   //#endregion /cardiacArrestRender = Cardiac Arrest report
 
+  //#region ivAccessRender = IV Access report
+  const ivAccessRender = patientIVData.map(
+    ({
+      Master_ePR_ID,
+      IV_ID,
+      IV_Size,
+      IV_Site,
+      IV_Successful,
+      IV_Flushed,
+      IV_Non_Touch,
+      IV_Attempts,
+      IV_By,
+    }) => (
+      <PatientReportRender
+        key={Master_ePR_ID}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportIVGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Type"
+              data={IV_ID ? IV_ID : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Size"
+              data={IV_Size ? IV_Size : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Site"
+              data={IV_Site ? IV_Site : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Successful"
+              data={IV_Successful ? IV_Successful : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Flushed"
+              data={IV_Flushed ? IV_Flushed : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Non-touch Technique"
+              data={IV_Non_Touch ? IV_Non_Touch : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Attempts"
+              data={IV_Attempts ? IV_Attempts : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={IV_By ? IV_By : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+        </PatientReportIVGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /ivAccessRender = IV Access report
+
+  //#region ivRefusalRender = IV Refusal report
+  const ivRefusalRender = patientIVData.map(
+    ({ Master_ePR_ID, IV_Type_Refusal, IV_By_Refusal }) => (
+      <PatientReportRender
+        key={Master_ePR_ID}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Type"
+              data={IV_Type_Refusal ? IV_Type_Refusal : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={IV_By_Refusal ? IV_By_Refusal : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <></>
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /ivRefusalRender = IV Refusal report
+
+  //#region drugsMedsRender = Drugs/Meds report
+  const drugsMedsRender = drugsMedsData.map(
+    ({
+      Master_ePR_ID,
+      Name,
+      Pouch,
+      Time,
+      Dosage,
+      Unit,
+      Route,
+      By,
+      Own_Meds,
+    }) => (
+      <PatientReportRender
+        key={Master_ePR_ID}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportIVGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Drug"
+              data={Name ? Name : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Pouch No."
+              data={Pouch ? Pouch : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Time"
+              data={Time ? Time : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Dosage"
+              data={Dosage ? Dosage : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Unit"
+              data={Unit ? Unit : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Route"
+              data={Route ? Route : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={By ? By : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Own Medications"
+              data={Own_Meds ? Own_Meds : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+        </PatientReportIVGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /drugsMedsRender = Drugs/Meds report
+
+  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report
+  const drugsMedsRefusalRender = drugsMedsData.map(
+    ({ Master_ePR_ID, Drug_Refusal, Drug_By_Refusal }) => (
+      <PatientReportRender
+        key={Master_ePR_ID}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportIVGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Type"
+              data={Drug_Refusal ? Drug_Refusal : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={Drug_By_Refusal ? Drug_By_Refusal : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <></>
+          </PatientReportColumn>
+        </PatientReportIVGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /drugsMedsRefusalRender = Drugs/Meds Refusal report
+
+  //#region skeletalTraumaRender = Skeletal Trauma report
+  const skeletalTraumaRender = skeletalTraumaData.map(
+    ({ Master_ePR_ID, ST_Type, ST_Site, ST_Side, ST_Area, ST_Time, ST_By }) => (
+      <PatientReportRender
+        key={Master_ePR_ID}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportIVGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Type"
+              data={ST_Type ? ST_Type : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Site"
+              data={ST_Site ? ST_Site : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Side"
+              data={ST_Side ? ST_Side : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Area"
+              data={ST_Area ? ST_Area : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Time"
+              data={ST_Time ? ST_Time : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={ST_By ? ST_By : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+        </PatientReportIVGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /skeletalTraumaRender = Skeletal Trauma report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -950,6 +1251,84 @@ function PatientReport({
             : "Cardiac Arrest data not recorded"}
         </ReportContainer>
       </PatientReportSection>
+
+      {/* IV Access and Medications */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="IV Access and Medications"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null ? (
+            "Please select a Patient from the Patient list"
+          ) : patientIVData &&
+            patientIVData.length > 0 &&
+            drugsMedsData &&
+            drugsMedsData.length > 0 ? (
+            <>
+              {patientIVData && patientIVData.length > 0 ? (
+                <>
+                  <HeadingTwo text="IV Access" />
+                  {ivAccessRender}
+                </>
+              ) : null}
+
+              {patientIVData && patientIVData.length > 0 ? (
+                <>
+                  <HeadingTwo text="IV Refusal" marginTop="2rem" />
+                  {ivRefusalRender}
+                </>
+              ) : null}
+
+              {drugsMedsData && drugsMedsData.length > 0 ? (
+                <>
+                  <HeadingTwo text="Drugs/Meds" marginTop="2rem" />
+                  {drugsMedsRender}
+                </>
+              ) : null}
+
+              {drugsMedsData && drugsMedsData.length > 0 ? (
+                <>
+                  <HeadingTwo text="Drugs Refusal" marginTop="2rem" />
+                  {drugsMedsRefusalRender}
+                </>
+              ) : null}
+            </>
+          ) : (
+            "IV Access and Medications data not recorded"
+          )}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Trauma Management */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Trauma Management"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null ? (
+            "Please select a Patient from the Patient list"
+          ) : skeletalTraumaData && skeletalTraumaData.length > 0 ? (
+            <>
+              {skeletalTraumaData && skeletalTraumaData.length > 0 ? (
+                <>
+                  <HeadingTwo text="Skeletal Trauma" />
+                  {skeletalTraumaRender}
+                </>
+              ) : null}
+            </>
+          ) : (
+            "Trauma Management data not recorded"
+          )}
+        </ReportContainer>
+      </PatientReportSection>
     </PatientReportContainer>
   );
 }
@@ -978,6 +1357,14 @@ const PatientReportGrid = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  height: 100%;
+  width: 100%;
+`;
+
+const PatientReportIVGrid = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   height: 100%;
   width: 100%;
 `;
