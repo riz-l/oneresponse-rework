@@ -35,6 +35,11 @@ function Report({ selectedPatient, isOpen }) {
   const [skeletalTraumaData, setSkeletalTraumaData] = useState([]);
   const [burnsData, setBurnsData] = useState([]);
   const [transportOptionsData, setTransportOptionsData] = useState([]);
+  const [
+    communicationsConsentNotificationsData,
+    setCommunicationsConsentNotificationsData,
+  ] = useState([]);
+  const [patientRefusalData, setPatientRefusalData] = useState([]);
   const [airwaysManagementData, setAirwaysManagementData] = useState([]);
 
   // When selectedPatient changes fetch selected Patient report data from OneResponse APIs
@@ -227,6 +232,39 @@ function Report({ selectedPatient, isOpen }) {
         }
         //#endregion /Transport Options data
 
+        //#region Communications, Consent and Notifications
+        try {
+          const communicationsConsentNotificationsApi = `https://cad-message-to-trust-test.azurewebsites.net/CommunicationsConsentNotifications/ePRID/${selectedPatient}`;
+          const communicationsConsentNotificationsResponse = await fetch(
+            communicationsConsentNotificationsApi
+          );
+          const communicationsConsentNotificationsApiData = await communicationsConsentNotificationsResponse.json();
+          setCommunicationsConsentNotificationsData(
+            communicationsConsentNotificationsApiData
+          );
+        } catch (error) {
+          console.log(
+            "Communications, Consent and Notifications data error: ",
+            error
+          );
+          throw new Error(
+            "Unable to retrieve Communications, Consent and Notifications data."
+          );
+        }
+        //#endregion /Communications, Consent and Notifications
+
+        //#region Patient Refusal
+        try {
+          const patientRefusalApi = `https://cad-message-to-trust-test.azurewebsites.net/PatientRefusal/ePRID/${selectedPatient}`;
+          const patientRefusalResponse = await fetch(patientRefusalApi);
+          const patientRefusalApiData = await patientRefusalResponse.json();
+          setPatientRefusalData(patientRefusalApiData);
+        } catch (error) {
+          console.log("Patient Refusal data error: ", error);
+          throw new Error("Unable to retrieve Patient Refusal data.");
+        }
+        //#endregion /Communications, Consent and Notifications
+
         //#region Airways Management data
         try {
           const airwaysManagementApi = `https://cad-message-to-trust-test.azurewebsites.net/AirwaysManagement/ePRID/${selectedPatient}`;
@@ -280,6 +318,10 @@ function Report({ selectedPatient, isOpen }) {
               skeletalTraumaData={skeletalTraumaData}
               burnsData={burnsData}
               transportOptionsData={transportOptionsData}
+              communicationsConsentNotificationsData={
+                communicationsConsentNotificationsData
+              }
+              patientRefusalData={patientRefusalData}
               airwaysManagementData={airwaysManagementData}
             />
           </Route>

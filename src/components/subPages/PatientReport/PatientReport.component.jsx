@@ -28,6 +28,8 @@ function PatientReport({
   skeletalTraumaData,
   burnsData,
   transportOptionsData,
+  communicationsConsentNotificationsData,
+  patientRefusalData,
   airwaysManagementData,
 }) {
   //#region nokRender = Next of Kin report
@@ -1295,6 +1297,135 @@ function PatientReport({
   );
   //#endregion /transportOptionsRender = Transport Options report
 
+  //#region patientRefusalRender = Patient Refusal report
+  const patientRefusalRender = patientRefusalData.map(
+    ({
+      Master_ePR_ID,
+      As_Reason,
+      As_Other,
+      Tran_Reason,
+      Tran_Other,
+      Int_Reason,
+      Int_Other,
+    }) => (
+      <React.Fragment key={Master_ePR_ID}>
+        <PatientReportColumn>
+          <ReportField field="The below section can also be populated using the Patient refusal slide out available in the Notes" />
+
+          <HeadingThree text="Refused Assessment" />
+          <ReportField
+            field="Reason"
+            data={As_Reason ? As_Reason : "Not recorded"}
+          />
+          <ReportField
+            field="Other"
+            data={As_Other ? As_Other : "Not recorded"}
+            marginBottom="2rem"
+          />
+
+          <HeadingThree text="Refused Transport" />
+          <ReportField
+            field="Reason"
+            data={Tran_Reason ? Tran_Reason : "Not recorded"}
+          />
+          <ReportField
+            field="Other"
+            data={Tran_Other ? Tran_Other : "Not recorded"}
+            marginBottom="2rem"
+          />
+
+          <HeadingThree text="Refused Intervention/Treatment" />
+          <ReportField
+            field="Reason"
+            data={Int_Reason ? Int_Reason : "Not recorded"}
+          />
+          <ReportField
+            field="Other"
+            data={Int_Other ? Int_Other : "Not recorded"}
+            marginBottom="2rem"
+          />
+        </PatientReportColumn>
+      </React.Fragment>
+    )
+  );
+  //#endregion /patientRefusalRender = Patient Refusal report
+
+  //#region communicationsConsentNotificationsRender = Communications, Consent and Notifications report
+  const communicationsConsentNotificationsRender = communicationsConsentNotificationsData.map(
+    ({
+      Master_ePR_ID,
+      CommsNeeds_YN,
+      ImprovePatCare_YN,
+      NotifyVulnerableAdult,
+      NotifyVulnerableChild,
+      SUDC,
+      DOD_Form,
+      NoCapacityDemoed_YN,
+      PatientHasCapacity_YN,
+      ConsentGainedPRF_YN,
+    }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <HeadingThree text="Communication" />
+            <ReportField
+              field="Does the Patient have any communication or information needs (described in notes)?"
+              data={CommsNeeds_YN ? CommsNeeds_YN : "Not recorded"}
+            />
+            <ReportField
+              field="NWAS improves the quality of care given toPatients through clinical audit, research and Patient feedback.
+              
+              May we contact you after this incident to assist us in improving patient care?"
+              data={ImprovePatCare_YN ? ImprovePatCare_YN : "Not recorded"}
+              marginBottom="2rem"
+            />
+
+            <HeadingThree text="Notifications" />
+            <ReportField
+              field="Vulnerable Adult"
+              data={
+                NotifyVulnerableAdult ? NotifyVulnerableAdult : "Not recorded"
+              }
+            />
+            <ReportField
+              field="Vulnerable Child"
+              data={
+                NotifyVulnerableChild ? NotifyVulnerableChild : "Not recorded"
+              }
+            />
+            <ReportField field="SUDC" data={SUDC ? SUDC : "Not recorded"} />
+            <ReportField
+              field="DOD Form"
+              data={DOD_Form ? DOD_Form : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Consent" />
+            <ReportField
+              field="The Patient has demonstrated behaviour that indicates they may not have the capacity to make decisions for themself. YES - Complete Capacity to Consent."
+              data={NoCapacityDemoed_YN ? NoCapacityDemoed_YN : "Not recorded"}
+            />
+            <ReportField
+              field="Does the Patient have capacity?"
+              data={
+                PatientHasCapacity_YN ? PatientHasCapacity_YN : "Not recorded"
+              }
+            />
+            <ReportField
+              field="Consent gained for care detailed on this PRF?"
+              data={ConsentGainedPRF_YN ? ConsentGainedPRF_YN : "Not recorded"}
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>{patientRefusalRender}</PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /communicationsConsentNotificationsRender = Communications, Consent and Notifications report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -1518,6 +1649,25 @@ function PatientReport({
             : transportOptionsData && transportOptionsData.length > 0
             ? transportOptionsRender
             : "Transport Options data not recorded"}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Communications, Consent and Notifications */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Communications, Consent and Notifications"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : communicationsConsentNotificationsData &&
+              communicationsConsentNotificationsData.length > 0
+            ? communicationsConsentNotificationsRender
+            : "Communications, Consent and Notifications data not recorded"}
         </ReportContainer>
       </PatientReportSection>
     </PatientReportContainer>
