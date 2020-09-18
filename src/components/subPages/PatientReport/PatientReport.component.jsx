@@ -2078,7 +2078,7 @@ const PatientReportGrid = styled.div`
 const PatientReportTableGrid = styled.div`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   height: 100%;
   width: 100%;
 `;

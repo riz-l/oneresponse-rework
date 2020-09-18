@@ -73,4 +73,5 @@ const ReportFieldField = styled.p`
 const ReportFieldData = styled.p`
   color: #2c2c2c;
   font-weight: 600;
+  word-wrap: break-word;
 `;
