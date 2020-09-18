@@ -1569,7 +1569,7 @@ function PatientReport({
               field="Time"
               data={Obs_Time ? Obs_Time : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1579,7 +1579,7 @@ function PatientReport({
               field="Resp Rate"
               data={Obs_Resp_Rate ? Obs_Resp_Rate : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1589,7 +1589,7 @@ function PatientReport({
               field="SpO2 (&#37;)"
               data={Obs_SpO2 ? Obs_SpO2 : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1599,7 +1599,7 @@ function PatientReport({
               field="Air/Oxygen"
               data={Obs_Oxygen ? Obs_Oxygen : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1609,7 +1609,7 @@ function PatientReport({
               field="Temp (&#176;C)"
               data={Obs_Temp ? Obs_Temp : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1625,7 +1625,7 @@ function PatientReport({
                 ) : null
               }
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1635,7 +1635,7 @@ function PatientReport({
               field="Heart Rate"
               data={Obs_Heart_Rate ? Obs_Heart_Rate : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1645,7 +1645,7 @@ function PatientReport({
               field="ACVPU"
               data={Obs_AVPU ? Obs_AVPU : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1655,7 +1655,7 @@ function PatientReport({
               field="NEWS2 Total"
               data={Obs_NEWS_Total ? Obs_NEWS_Total : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1665,7 +1665,7 @@ function PatientReport({
               field="Cap Refill (sec)"
               data={Obs_Cap_Refill ? Obs_Cap_Refill : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1681,7 +1681,7 @@ function PatientReport({
                 ) : null
               }
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1691,7 +1691,7 @@ function PatientReport({
               field="GCS Total"
               data={Obs_EVM_Total ? Obs_EVM_Total : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1701,7 +1701,7 @@ function PatientReport({
               field="BM (M/Mol)"
               data={Obs_BM ? Obs_BM : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1717,7 +1717,7 @@ function PatientReport({
                 ) : null
               }
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1733,7 +1733,7 @@ function PatientReport({
                 ) : null
               }
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1743,7 +1743,7 @@ function PatientReport({
               field="Pain Score"
               data={Obs_Pain_Score ? Obs_Pain_Score : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -1753,7 +1753,7 @@ function PatientReport({
               field="Peak Flow (l/min)"
               data={Obs_Peak_Flow ? Obs_Peak_Flow : null}
               paddingBottom="0"
-              fontSize="0.8rem"
+              fontSize="0.7rem"
               fieldMinHeight="35px"
             />
           </PatientReportColumn>
@@ -2414,7 +2414,7 @@ const PatientReportGrid = styled.div`
 const PatientReportTableGrid = styled.div`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
   height: 100%;
   width: 100%;
 `;
