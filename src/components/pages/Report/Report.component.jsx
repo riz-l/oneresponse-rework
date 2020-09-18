@@ -42,6 +42,8 @@ function Report({ selectedPatient, isOpen }) {
   const [patientRefusalData, setPatientRefusalData] = useState([]);
   const [airwaysManagementData, setAirwaysManagementData] = useState([]);
   const [clinicalObservationsData, setClinicalObservationsData] = useState([]);
+  const [mentalCapacityData, setMentalCapacityData] = useState([]);
+  const [patientDecisionsData, setPatientDecisionsData] = useState([]);
 
   // When selectedPatient changes fetch selected Patient report data from OneResponse APIs
   // If successful, ...Data === OneResponse API data (for selected Patient), loading === false
@@ -291,6 +293,30 @@ function Report({ selectedPatient, isOpen }) {
           throw new Error("Unable to retrieve Clinical Observations data.");
         }
         //#endregion /Clinical Observations data
+
+        //#region Mental Capacity data
+        try {
+          const mentalCapacityApi = `https://cad-message-to-trust-test.azurewebsites.net/MentalCapacity/ePRID/${selectedPatient}`;
+          const mentalCapacityResponse = await fetch(mentalCapacityApi);
+          const mentalCapacityApiData = await mentalCapacityResponse.json();
+          setMentalCapacityData(mentalCapacityApiData);
+        } catch (error) {
+          console.log("Mental Capacity data error: ", error);
+          throw new Error("Unable to retrieve Mental Capacity data.");
+        }
+        //#endregion /Mental Capacity data
+
+        //#region Patient Decisions data
+        try {
+          const patientDecisionsApi = `https://cad-message-to-trust-test.azurewebsites.net/PatientDecisions/ePRID/${selectedPatient}`;
+          const patientDecisionsResponse = await fetch(patientDecisionsApi);
+          const patientDecisionsApiData = await patientDecisionsResponse.json();
+          setPatientDecisionsData(patientDecisionsApiData);
+        } catch (error) {
+          console.log("Patient Decisions data error: ", error);
+          throw new Error("Unable to retrieve Patient Decisions data.");
+        }
+        //#endregion /Patient Decisions data
       }
     }
 
@@ -339,6 +365,8 @@ function Report({ selectedPatient, isOpen }) {
               patientRefusalData={patientRefusalData}
               airwaysManagementData={airwaysManagementData}
               clinicalObservationsData={clinicalObservationsData}
+              mentalCapacityData={mentalCapacityData}
+              patientDecisionsData={patientDecisionsData}
             />
           </Route>
 

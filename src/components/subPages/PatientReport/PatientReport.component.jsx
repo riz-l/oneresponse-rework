@@ -32,6 +32,8 @@ function PatientReport({
   patientRefusalData,
   airwaysManagementData,
   clinicalObservationsData,
+  mentalCapacityData,
+  patientDecisionsData,
 }) {
   //#region nokRender = Next of Kin report
   const nokRender = nokData.map(
@@ -1761,6 +1763,99 @@ function PatientReport({
   );
   //#endregion /clinicalObservationsRender = Clinical Observations report
 
+  //#region mentalCapacityRender = Mental Capacity report
+  const mentalCapacityRender = mentalCapacityData.map(
+    ({ Master_ePR_ID, MCA_Age, MCA_Reason, MCA_Treat }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <HeadingTwo text="Mental Capacity Act" />
+        <HeadingThree
+          text="Does the Mental Capacity Act 2005 apply?"
+          marginBottom="1rem"
+        />
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Is the Patient over 16 years of age?"
+              data={MCA_Age ? MCA_Age : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Is there any reason to doubt the Patients capacity?"
+              data={MCA_Reason ? MCA_Reason : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Is there a physical illness/injury that requires treatment?"
+              data={MCA_Treat ? MCA_Treat : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /mentalCapacityRender = Mental Capacity report
+
+  //#region patientDecisionsRender = Patient Decisions report
+  const patientDecisionsRender = patientDecisionsData.map(
+    ({
+      Master_ePR_ID,
+      p_DecisionBox,
+      p_DescribeBox,
+      DE_Understand,
+      DE_Information,
+      DE_Use,
+      DE_Communicate,
+    }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <HeadingTwo text="Patient Decisions" marginBottom="1rem" />
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Describe the decisions you're asking the Patient to make:"
+              data={p_DecisionBox ? p_DecisionBox : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Describe how the Patient has a disturbance of the mind, including a potential lack of capacity:"
+              data={p_DescribeBox ? p_DescribeBox : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Please identify why the Patient is unable to make a decision:" />
+            <ReportField
+              field="Unable to understand information"
+              data={DE_Understand ? DE_Understand : "Not recorded"}
+            />
+            <ReportField
+              field="Unable to retain information"
+              data={DE_Information ? DE_Information : "Not recorded"}
+            />
+            <ReportField
+              field="Unable to use information to form a decision"
+              data={DE_Use ? DE_Use : "Not recorded"}
+            />
+            <ReportField
+              field="Unable to communicate their decision"
+              data={DE_Communicate ? DE_Communicate : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /patientDecisionsRender = Patient Decisions report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -2041,6 +2136,24 @@ function PatientReport({
             : clinicalObservationsData && clinicalObservationsData.length > 0
             ? clinicalObservationsRender
             : "Clinical Observations data not recorded"}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Capacity to Consent */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Capacity to Consent"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : mentalCapacityData && mentalCapacityData.length > 0
+            ? mentalCapacityRender
+            : "Mental Capacity Act data not recorded"}
         </ReportContainer>
       </PatientReportSection>
     </PatientReportContainer>
