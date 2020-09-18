@@ -36,6 +36,7 @@ function PatientReport({
   patientDecisionsData,
   patientCapacityData,
   bestInterestData,
+  signAndSyncData,
 }) {
   //#region nokRender = Next of Kin report
   const nokRender = nokData.map(
@@ -1421,6 +1422,7 @@ function PatientReport({
             <ReportField
               field="Consent gained for care detailed on this PRF?"
               data={ConsentGainedPRF_YN ? ConsentGainedPRF_YN : "Not recorded"}
+              marginBottom="2rem"
             />
           </PatientReportColumn>
 
@@ -1475,11 +1477,7 @@ function PatientReport({
               field="Size"
               data={OPA_Size ? OPA_Size : "Not recorded"}
             />
-            <ReportField
-              field="By"
-              data={OPA_By ? OPA_By : "Not recorded"}
-              marginBottom="2rem"
-            />
+            <ReportField field="By" data={OPA_By ? OPA_By : "Not recorded"} />
           </PatientReportColumn>
 
           <PatientReportColumn>
@@ -1503,7 +1501,7 @@ function PatientReport({
             <ReportField
               field="Grade of View"
               data={GradeOfView ? GradeOfView : "Not recorded"}
-              marginBottom="2rem"
+              marginBottom="1rem"
             />
           </PatientReportColumn>
 
@@ -1910,7 +1908,6 @@ function PatientReport({
             <ReportField
               field="Option B"
               data={b_Box ? b_Box : "Not recorded"}
-              marginBottom="2rem"
             />
           </PatientReportColumn>
 
@@ -1937,6 +1934,111 @@ function PatientReport({
     )
   );
   //#endregion /bestInterestRender = Best Interest report
+
+  //#region signAndSyncRender = Sign and Sync report
+  const signAndSyncRender = signAndSyncData.map(
+    ({
+      Master_ePR_ID,
+      Final_Impression,
+      staffNumberInput,
+      professsional_Box,
+      professionalRegNoInput,
+      snrStaffNumberInput,
+      snrProfessional_Box,
+      snrProfessionalRegNoInput,
+      signatureRefusalName,
+    }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        {/* Final Impression and Clinical Signatures */}
+        <HeadingTwo
+          text="Final Impression and Clinical Signatures"
+          marginBottom="1rem"
+        />
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <HeadingThree text="Final Impression" />
+            <ReportField
+              field="Final Impression"
+              data={Final_Impression ? Final_Impression : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Clinical Assessment Completed By" />
+            <ReportField
+              field="Staff Number"
+              data={staffNumberInput ? staffNumberInput : "Not recorded"}
+            />
+            <ReportField
+              field="Registration No."
+              data={
+                professsional_Box || professionalRegNoInput
+                  ? { professsional_Box } / { professionalRegNoInput }
+                  : "Not recorded"
+              }
+            />
+            <ReportField
+              field="Signature"
+              data="[Requires Signature render]"
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Senior Clinician's Signature" />
+            <ReportField
+              field="Staff Number"
+              data={snrStaffNumberInput ? snrStaffNumberInput : "Not recorded"}
+            />
+            <ReportField
+              field="Registration No."
+              data={
+                professsional_Box || snrProfessionalRegNoInput
+                  ? { snrProfessional_Box } / { snrProfessionalRegNoInput }
+                  : "Not recorded"
+              }
+            />
+            <ReportField
+              field="Signature"
+              data="[Requires Signature render]"
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+
+        {/* Patient Refusal */}
+        <HeadingTwo text="Patient Refusal" marginBottom="1rem" />
+        <HeadingThree text="Refusal Statement/Signature" />
+        <ReportField
+          field="All the information and treatment options relating to my conditions/injuries have been explained. I fully understand the risks of refusing treatment or transport as advised by the ambulance clinician and I accept alll responsibility for my own care."
+          marginBottom="2rem"
+        />
+
+        <HeadingThree text="Patients / Guardians Name" />
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Name"
+              data={
+                signatureRefusalName ? signatureRefusalName : "Not recorded"
+              }
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField field="Signature" data="[Requires Signature render]" />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <></>
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /signAndSyncRender = Sign and Sync report
 
   return (
     <PatientReportContainer>
@@ -2257,6 +2359,24 @@ function PatientReport({
           ) : (
             "Capacity to Consent data not recorded"
           )}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Sign and Sync */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Sign and Sync"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : signAndSyncData && signAndSyncData.length > 0
+            ? signAndSyncRender
+            : "Sign and Sync data not recorded"}
         </ReportContainer>
       </PatientReportSection>
     </PatientReportContainer>

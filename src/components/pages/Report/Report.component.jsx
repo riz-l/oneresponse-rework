@@ -16,7 +16,7 @@ import PatientReport from "../../subPages/PatientReport/PatientReport.component"
 import Sbar from "../../subPages/Sbar/Sbar.component";
 
 // page: Report
-function Report({ selectedPatient, isOpen }) {
+function Report({ selectedPatient }) {
   // State
   const [patientDetailsData, setPatientDetailsData] = useState([]);
   const [nokData, setNokData] = useState([]);
@@ -46,6 +46,7 @@ function Report({ selectedPatient, isOpen }) {
   const [patientDecisionsData, setPatientDecisionsData] = useState([]);
   const [patientCapacityData, setPatientCapacityData] = useState([]);
   const [bestInterestData, setBestInterestData] = useState([]);
+  const [signAndSyncData, setSignAndSyncData] = useState([]);
 
   // When selectedPatient changes fetch selected Patient report data from OneResponse APIs
   // If successful, ...Data === OneResponse API data (for selected Patient), loading === false
@@ -343,6 +344,18 @@ function Report({ selectedPatient, isOpen }) {
           throw new Error("Unable to retrieve Best Interest data.");
         }
         //#endregion /Best Interest data
+
+        //#region Sign and Sync data
+        try {
+          const signAndSyncApi = `https://cad-message-to-trust-test.azurewebsites.net/BestInterest/ePRID/${selectedPatient}`;
+          const signAndSyncResponse = await fetch(signAndSyncApi);
+          const signAndSyncApiData = await signAndSyncResponse.json();
+          setSignAndSyncData(signAndSyncApiData);
+        } catch (error) {
+          console.log("Sign and Sync data error: ", error);
+          throw new Error("Unable to retrieve Sign and Sync data.");
+        }
+        //#endregion /Sign and Sync data
       }
     }
 
@@ -395,6 +408,7 @@ function Report({ selectedPatient, isOpen }) {
               patientDecisionsData={patientDecisionsData}
               patientCapacityData={patientCapacityData}
               bestInterestData={bestInterestData}
+              signAndSyncData={signAndSyncData}
             />
           </Route>
 
