@@ -34,6 +34,7 @@ function PatientReport({
   clinicalObservationsData,
   mentalCapacityData,
   patientDecisionsData,
+  patientCapacityData,
 }) {
   //#region nokRender = Next of Kin report
   const nokRender = nokData.map(
@@ -1856,6 +1857,40 @@ function PatientReport({
   );
   //#endregion /patientDecisionsRender = Patient Decisions report
 
+  //#region patientCapacityRender = Patient Capacity report
+  const patientCapacityRender = patientCapacityData.map(
+    ({ Master_ePR_ID, c_DescribeBox, c_PreviousBox, GC_Yes }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <HeadingTwo text="Patient Capacity" marginBottom="1rem" />
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Describe the actions you have taken to assist the Patient in making their own decisions and gain capacity:"
+              data={c_DescribeBox ? c_DescribeBox : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Despite the actions taken previously, I believe that the Patient still lacks capacity because:"
+              data={c_PreviousBox ? c_PreviousBox : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Is the desired treatment/assessment time critical and would delay cause immediate harm to the Patient:"
+              data={GC_Yes ? GC_Yes : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /patientCapacityRender = Patient Capacity report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -2149,11 +2184,28 @@ function PatientReport({
           />
         </PatientReportHeadingContainer>
         <ReportContainer>
-          {selectedPatient === null
-            ? "Please select a Patient from the Patient list"
-            : mentalCapacityData && mentalCapacityData.length > 0
-            ? mentalCapacityRender
-            : "Mental Capacity Act data not recorded"}
+          {selectedPatient === null ? (
+            "Please select a Patient from the Patient list"
+          ) : mentalCapacityData &&
+            mentalCapacityData.length > 0 &&
+            patientDecisionsData &&
+            patientDecisionsData.length > 0 ? (
+            <>
+              {mentalCapacityData && mentalCapacityData.length > 0
+                ? mentalCapacityRender
+                : null}
+
+              {patientDecisionsData && patientDecisionsData.length > 0
+                ? patientDecisionsRender
+                : null}
+
+              {patientCapacityData && patientCapacityData.length > 0
+                ? patientCapacityRender
+                : null}
+            </>
+          ) : (
+            "Capacity to Consent data not recorded"
+          )}
         </ReportContainer>
       </PatientReportSection>
     </PatientReportContainer>

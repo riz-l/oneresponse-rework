@@ -44,6 +44,7 @@ function Report({ selectedPatient, isOpen }) {
   const [clinicalObservationsData, setClinicalObservationsData] = useState([]);
   const [mentalCapacityData, setMentalCapacityData] = useState([]);
   const [patientDecisionsData, setPatientDecisionsData] = useState([]);
+  const [patientCapacityData, setPatientCapacityData] = useState([]);
 
   // When selectedPatient changes fetch selected Patient report data from OneResponse APIs
   // If successful, ...Data === OneResponse API data (for selected Patient), loading === false
@@ -317,6 +318,18 @@ function Report({ selectedPatient, isOpen }) {
           throw new Error("Unable to retrieve Patient Decisions data.");
         }
         //#endregion /Patient Decisions data
+
+        //#region Patient Capacity data
+        try {
+          const patientCapacityApi = `https://cad-message-to-trust-test.azurewebsites.net/PatientCapacity/ePRID/${selectedPatient}`;
+          const patientCapacityResponse = await fetch(patientCapacityApi);
+          const patientCapacityApiData = await patientCapacityResponse.json();
+          setPatientCapacityData(patientCapacityApiData);
+        } catch (error) {
+          console.log("Patient Capacity data error: ", error);
+          throw new Error("Unable to retrieve Patient Capacity data.");
+        }
+        //#endregion /Patient Capacity data
       }
     }
 
@@ -367,6 +380,7 @@ function Report({ selectedPatient, isOpen }) {
               clinicalObservationsData={clinicalObservationsData}
               mentalCapacityData={mentalCapacityData}
               patientDecisionsData={patientDecisionsData}
+              patientCapacityData={patientCapacityData}
             />
           </Route>
 
