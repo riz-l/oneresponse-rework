@@ -35,6 +35,7 @@ function PatientReport({
   mentalCapacityData,
   patientDecisionsData,
   patientCapacityData,
+  bestInterestData,
 }) {
   //#region nokRender = Next of Kin report
   const nokRender = nokData.map(
@@ -1891,6 +1892,52 @@ function PatientReport({
   );
   //#endregion /patientCapacityRender = Patient Capacity report
 
+  //#region bestInterestRender = Best Interest report
+  const bestInterestRender = bestInterestData.map(
+    ({ Master_ePR_ID, a_Box, b_Box, c_Box, d_Box, OptionBox }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <HeadingTwo text="Best Interest Option" />
+        <HeadingThree
+          text="Best interest decision options (consider all options of care, giving consideration to expressed wishes of Patients and family"
+          marginBottom="1rem"
+        />
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Option A"
+              data={a_Box ? a_Box : "Not recorded"}
+            />
+            <ReportField
+              field="Option B"
+              data={b_Box ? b_Box : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Option C"
+              data={c_Box ? c_Box : "Not recorded"}
+            />
+            <ReportField
+              field="Option D"
+              data={d_Box ? d_Box : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="I believe this option is the least restrictive and offers the Patient the appropriate care, which is proportionate to their condition and is in their best interests:"
+              data={OptionBox ? OptionBox : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /bestInterestRender = Best Interest report
+
   return (
     <PatientReportContainer>
       {/* Patient Details */}
@@ -2201,6 +2248,10 @@ function PatientReport({
 
               {patientCapacityData && patientCapacityData.length > 0
                 ? patientCapacityRender
+                : null}
+
+              {bestInterestData && bestInterestData.length > 0
+                ? bestInterestRender
                 : null}
             </>
           ) : (
