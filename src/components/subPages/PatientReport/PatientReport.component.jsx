@@ -6,7 +6,7 @@ import styled from "styled-components";
 import HeadingOne from "../../UI/Headings/HeadingOne/HeadingOne.component";
 import HeadingTwo from "../../UI/Headings/HeadingTwo/HeadingTwo.component";
 import HeadingThree from "../../UI/Headings/HeadingThree/HeadingThree.component";
-import HeadingFour from "../../UI/Headings/HeadingFour/HeadingFour.component";
+// import HeadingFour from "../../UI/Headings/HeadingFour/HeadingFour.component";
 import ReportContainer from "../../UI/ReportContainer/ReportContainer.component";
 import ReportField from "../../UI/ReportField/ReportField.component";
 
@@ -2042,6 +2042,24 @@ function PatientReport({
 
   return (
     <PatientReportContainer>
+      {/* Incident Information */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Incident Information"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : patientDetailsData && patientDetailsData.length > 0
+            ? patientDetailsRender
+            : "Patient Details data not recorded"}
+        </ReportContainer>
+      </PatientReportSection>
+
       {/* Patient Details */}
       <PatientReportSection>
         <PatientReportHeadingContainer>
