@@ -13,6 +13,7 @@ import ReportField from "../../UI/ReportField/ReportField.component";
 // subPage: PatientReport
 function PatientReport({
   selectedPatient,
+  cadDetailsData,
   patientDetailsData,
   nokData,
   specialistPathwayData,
@@ -38,7 +39,101 @@ function PatientReport({
   bestInterestData,
   signAndSyncData,
 }) {
-  //#region nokRender = Next of Kin report
+  //#region cadDetailsRender = CAD Details report #TODO - Needs testing
+  const cadDetailsRender = cadDetailsData.map(
+    ({
+      Master_ePR_ID,
+      CAD_ID,
+      ePR_User,
+      CAD_Date,
+      CAD_Complaint,
+      CAD_LocAdd1,
+      CAD_LocAdd2,
+      CAD_LocCity,
+      CAD_LocPCode,
+      CAD_IncidentDate,
+      CAD_Enroute,
+      CAD_ArriveScene,
+      CAD_ArrivePatient,
+      CAD_DepartScene,
+      CAD_ArriveDest,
+    }) => (
+      <PatientReportRender key={Master_ePR_ID}>
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Incident Number"
+              data={Master_ePR_ID ? Master_ePR_ID : "Not recorded"}
+            />
+            <ReportField
+              field="Call Sign"
+              data={ePR_User ? ePR_User : "Not recorded"}
+            />
+            <ReportField
+              field="Call Date"
+              data={CAD_Date ? CAD_Date : "Not recorded"}
+            />
+            <ReportField
+              field="Dispatch Complaint"
+              data={CAD_Complaint ? CAD_Complaint : "Not recorded"}
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField field="Crew" data={CAD_ID ? CAD_ID : "Not recorded"} />
+            <ReportField
+              field="Location of Incident"
+              data={
+                CAD_LocAdd1 || CAD_LocAdd2 || CAD_LocCity || CAD_LocPCode ? (
+                  <PatientReportAddressContainer>
+                    {CAD_LocAdd1}
+                    <br />
+                    {CAD_LocAdd2}
+                    <br />
+                    {CAD_LocCity}
+                    <br />
+                    {CAD_LocPCode}
+                  </PatientReportAddressContainer>
+                ) : (
+                  "Not recorded"
+                )
+              }
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Received"
+              data={CAD_IncidentDate ? CAD_IncidentDate : "Not recorded"}
+            />
+            <ReportField
+              field="Mobile"
+              data={CAD_Enroute ? CAD_Enroute : "Not recorded"}
+            />
+            <ReportField
+              field="On Scene"
+              data={CAD_ArriveScene ? CAD_ArriveScene : "Not recorded"}
+            />
+            <ReportField
+              field="At Patient"
+              data={CAD_ArrivePatient ? CAD_ArrivePatient : "Not recorded"}
+            />
+            <ReportField
+              field="Left Scene"
+              data={CAD_DepartScene ? CAD_DepartScene : "Not recorded"}
+            />
+            <ReportField
+              field="Arrived Destination"
+              data={CAD_ArriveDest ? CAD_ArriveDest : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /cadDetailsRender = CAD Details report
+
+  //#region nokRender = Next of Kin report #TODO - Needs testing
   const nokRender = nokData.map(
     ({
       Master_ePR_ID,
@@ -89,9 +184,13 @@ function PatientReport({
               GPPostcode ? (
                 <>
                   {GPAddressLine1}
+                  <br />
                   {GPAddressLine2}
+                  <br />
                   {GPAddressLine3}
+                  <br />
                   {GPAddressLine4}
+                  <br />
                   {GPPostcode}
                 </>
               ) : (
@@ -109,7 +208,7 @@ function PatientReport({
   );
   //#endregion /nokRender = Next of Kin report
 
-  //#region patientDetailsRender = Patient Details report
+  //#region patientDetailsRender = Patient Details report #TODO - Needs testing
   const patientDetailsRender = patientDetailsData.map(
     ({
       Master_ePR_ID,
@@ -187,9 +286,13 @@ function PatientReport({
                 PD_Housenum || PD_Add1 || PD_Add2 || PD_Add3 || PD_Postcode ? (
                   <>
                     {PD_Housenum}
+                    <br />
                     {PD_Add1}
+                    <br />
                     {PD_Add2}
+                    <br />
                     {PD_Add3}
+                    <br />
                     {PD_Postcode}
                   </>
                 ) : (
@@ -202,7 +305,7 @@ function PatientReport({
               data={PD_Patient_Allergy ? PD_Patient_Allergy : "Not recorded"}
             />
             <ReportField
-              field="Allergies?"
+              field="Allergies"
               data={PD_Allergy ? PD_Allergy : "Not recorded"}
             />
             <ReportField
@@ -210,7 +313,7 @@ function PatientReport({
               data={PD_Patient_Meds ? PD_Patient_Meds : "Not recorded"}
             />
             <ReportField
-              field="Medications?"
+              field="Medications"
               data={PD_Medication ? PD_Medication : "Not recorded"}
               marginBottom="2rem"
             />
@@ -223,7 +326,7 @@ function PatientReport({
   );
   //#endregion /patientDetailsRender = Patient Details report
 
-  //#region specialistPathwayRender = Specialist Pathway report
+  //#region specialistPathwayRender = Specialist Pathway report #TODO - Needs testing
   const specialistPathwayRender = specialistPathwayData.map(
     ({
       Master_ePR_ID,
@@ -272,7 +375,7 @@ function PatientReport({
   );
   //#endregion /specialistPathwayRender = Specialist Pathway report
 
-  //#region majorTraumaRender = Major Trauma report
+  //#region majorTraumaRender = Major Trauma report #TODO - Needs testing
   const majorTraumaRender = majorTraumaData.map(
     ({
       Master_ePR_ID,
@@ -333,7 +436,7 @@ function PatientReport({
   );
   //#endregion /majorTraumaRender = Major Trauma report
 
-  //#region manchesterTriageSystemRender = Manchester Triage System report
+  //#region manchesterTriageSystemRender = Manchester Triage System report #TODO - Needs testing
   const manchesterTriageSystemRender = manchesterTriageSystemData.map(
     ({
       Master_ePR_ID,
@@ -404,7 +507,7 @@ function PatientReport({
   );
   //#endregion /manchesterTriageSystemRender = Manchester Triage System report
 
-  //#region pathfindersRender = Pathfinders report
+  //#region pathfindersRender = Pathfinders report #TODO - Needs testing
   const pathfindersRender = pathfindersData.map(
     ({
       Master_ePR_ID,
@@ -483,7 +586,7 @@ function PatientReport({
   );
   //#endregion /pathfindersRender = Pathfinders report
 
-  //#region jointDecisionMakingRender = Joint Decision Making report
+  //#region jointDecisionMakingRender = Joint Decision Making report #TODO - Needs testing
   const jointDecisionMakingRender = jointDecisionMakingData.map(
     ({
       Master_ePR_ID,
@@ -556,7 +659,7 @@ function PatientReport({
   );
   //#endregion /jointDecisionMakingRender = Joint Decision Making report
 
-  //#region cardiacChestPainRender = Cardiac Chest Pain report
+  //#region cardiacChestPainRender = Cardiac Chest Pain report #TODO - Needs testing
   const cardiacChestPainRender = cardiacChestPainData.map(
     ({
       Master_ePR_ID,
@@ -625,7 +728,7 @@ function PatientReport({
   );
   //#endregion /cardiacChestPainRender = Cardiac Chest Pain report
 
-  //#region strokeAssesssmentRender = Stroke Assessment report
+  //#region strokeAssesssmentRender = Stroke Assessment report #TODO - Needs testing
   const strokeAssesssmentRender = strokeAssessmentData.map(
     ({
       Master_ePR_ID,
@@ -670,7 +773,7 @@ function PatientReport({
           <PatientReportColumn>
             <HeadingThree text="FAST Assessment" />
             <ReportField
-              field="FAST Positive on Assessment"
+              field="FAST Assessment Outcome"
               data={FAST_Positive ? FAST_Positive : "Not recorded"}
             />
 
@@ -729,7 +832,7 @@ function PatientReport({
   );
   //#endregion /strokeAssesssmentRender = Stroke Assessment report
 
-  //#region cardiacArrestRender = Cardiac Arrest report
+  //#region cardiacArrestRender = Cardiac Arrest report #TODO - Needs testing
   const cardiacArrestRender = cardiacArrestData.map(
     ({
       Master_ePR_ID,
@@ -834,7 +937,7 @@ function PatientReport({
   );
   //#endregion /cardiacArrestRender = Cardiac Arrest report
 
-  //#region ivAccessRender = IV Access report
+  //#region ivAccessRender = IV Access report #TODO - Needs testing
   const ivAccessRender = patientIVData.map(
     ({
       Master_ePR_ID,
@@ -921,7 +1024,7 @@ function PatientReport({
   );
   //#endregion /ivAccessRender = IV Access report
 
-  //#region ivRefusalRender = IV Refusal report
+  //#region ivRefusalRender = IV Refusal report #TODO - Needs testing
   const ivRefusalRender = patientIVData.map(
     ({ Master_ePR_ID, IV_Type_Refusal, IV_By_Refusal }) => (
       <PatientReportRender
@@ -954,7 +1057,7 @@ function PatientReport({
   );
   //#endregion /ivRefusalRender = IV Refusal report
 
-  //#region drugsMedsRender = Drugs/Meds report
+  //#region drugsMedsRender = Drugs/Meds report #TODO - Needs testing
   const drugsMedsRender = drugsMedsData.map(
     ({
       Master_ePR_ID,
@@ -1041,7 +1144,7 @@ function PatientReport({
   );
   //#endregion /drugsMedsRender = Drugs/Meds report
 
-  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report
+  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Needs testing
   const drugsMedsRefusalRender = drugsMedsData.map(
     ({ Master_ePR_ID, Drug_Refusal, Drug_By_Refusal }) => (
       <PatientReportRender
@@ -1074,7 +1177,7 @@ function PatientReport({
   );
   //#endregion /drugsMedsRefusalRender = Drugs/Meds Refusal report
 
-  //#region skeletalTraumaRender = Skeletal Trauma report
+  //#region skeletalTraumaRender = Skeletal Trauma report #TODO - Needs testing
   const skeletalTraumaRender = skeletalTraumaData.map(
     ({ Master_ePR_ID, ST_Type, ST_Site, ST_Side, ST_Area, ST_Time, ST_By }) => (
       <PatientReportRender
@@ -1135,7 +1238,7 @@ function PatientReport({
   );
   //#endregion /skeletalTraumaRender = Skeletal Trauma report
 
-  //#region burnsRender = Burns report
+  //#region burnsRender = Burns report #TODO - Needs testing
   const burnsRender = burnsData.map(
     ({
       Master_ePR_ID,
@@ -1229,7 +1332,7 @@ function PatientReport({
   );
   //#endregion /burnsRender = Burns report
 
-  //#region transportOptionsRender = Transport Options report
+  //#region transportOptionsRender = Transport Options report #TODO - Needs testing
   const transportOptionsRender = transportOptionsData.map(
     ({
       Master_ePR_ID,
@@ -1303,7 +1406,7 @@ function PatientReport({
   );
   //#endregion /transportOptionsRender = Transport Options report
 
-  //#region patientRefusalRender = Patient Refusal report
+  //#region patientRefusalRender = Patient Refusal report #TODO - Needs testing
   const patientRefusalRender = patientRefusalData.map(
     ({
       Master_ePR_ID,
@@ -1356,7 +1459,7 @@ function PatientReport({
   );
   //#endregion /patientRefusalRender = Patient Refusal report
 
-  //#region communicationsConsentNotificationsRender = Communications, Consent and Notifications report
+  //#region communicationsConsentNotificationsRender = Communications, Consent and Notifications report #TODO - Needs testing
   const communicationsConsentNotificationsRender = communicationsConsentNotificationsData.map(
     ({
       Master_ePR_ID,
@@ -1433,7 +1536,7 @@ function PatientReport({
   );
   //#endregion /communicationsConsentNotificationsRender = Communications, Consent and Notifications report
 
-  //#region airwaysManagementRender = Airways Management report
+  //#region airwaysManagementRender = Airways Management report #TODO - Needs testing
   const airwaysManagementRender = airwaysManagementData.map(
     ({
       Master_ePR_ID,
@@ -1532,7 +1635,7 @@ function PatientReport({
   );
   //#endregion /airwaysManagementRender = Airways Management report
 
-  //#region clinicalObservationsRender = Clinical Observations report
+  //#region clinicalObservationsRender = Clinical Observations report #TODO - Needs testing
   const clinicalObservationsRender = clinicalObservationsData.map(
     ({
       Master_ePR_ID,
@@ -1763,7 +1866,7 @@ function PatientReport({
   );
   //#endregion /clinicalObservationsRender = Clinical Observations report
 
-  //#region mentalCapacityRender = Mental Capacity report
+  //#region mentalCapacityRender = Mental Capacity report #TODO - Needs testing
   const mentalCapacityRender = mentalCapacityData.map(
     ({ Master_ePR_ID, MCA_Age, MCA_Reason, MCA_Treat }) => (
       <PatientReportRender key={Master_ePR_ID}>
@@ -1801,7 +1904,7 @@ function PatientReport({
   );
   //#endregion /mentalCapacityRender = Mental Capacity report
 
-  //#region patientDecisionsRender = Patient Decisions report
+  //#region patientDecisionsRender = Patient Decisions report #TODO - Needs testing
   const patientDecisionsRender = patientDecisionsData.map(
     ({
       Master_ePR_ID,
@@ -1856,7 +1959,7 @@ function PatientReport({
   );
   //#endregion /patientDecisionsRender = Patient Decisions report
 
-  //#region patientCapacityRender = Patient Capacity report
+  //#region patientCapacityRender = Patient Capacity report #TODO - Needs testing
   const patientCapacityRender = patientCapacityData.map(
     ({ Master_ePR_ID, c_DescribeBox, c_PreviousBox, GC_Yes }) => (
       <PatientReportRender key={Master_ePR_ID}>
@@ -1890,7 +1993,7 @@ function PatientReport({
   );
   //#endregion /patientCapacityRender = Patient Capacity report
 
-  //#region bestInterestRender = Best Interest report
+  //#region bestInterestRender = Best Interest report #TODO - Needs testing
   const bestInterestRender = bestInterestData.map(
     ({ Master_ePR_ID, a_Box, b_Box, c_Box, d_Box, OptionBox }) => (
       <PatientReportRender key={Master_ePR_ID}>
@@ -1935,7 +2038,7 @@ function PatientReport({
   );
   //#endregion /bestInterestRender = Best Interest report
 
-  //#region signAndSyncRender = Sign and Sync report
+  //#region signAndSyncRender = Sign and Sync report #TODO - Needs testing
   const signAndSyncRender = signAndSyncData.map(
     ({
       Master_ePR_ID,
@@ -2054,9 +2157,9 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
-            : patientDetailsData && patientDetailsData.length > 0
-            ? patientDetailsRender
-            : "Patient Details data not recorded"}
+            : cadDetailsData && cadDetailsData.length > 0
+            ? cadDetailsRender
+            : "Incident Information data not recorded"}
         </ReportContainer>
       </PatientReportSection>
 
@@ -2150,7 +2253,7 @@ function PatientReport({
             <>
               {cardiacChestPainData && cardiacChestPainData.length > 0 ? (
                 <>
-                  <HeadingTwo text="Cardiac Chest Pain" />
+                  <HeadingTwo text="Cardiac Assessment" />
                   {cardiacChestPainRender}
                 </>
               ) : null}
@@ -2452,4 +2555,12 @@ const PatientReportColumn = styled.div`
 const PatientReportHeadingContainer = styled.div`
   background: #e0e0e0;
   width: 100%;
+`;
+
+// Styled: PatientReportAddressContainer
+const PatientReportAddressContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;

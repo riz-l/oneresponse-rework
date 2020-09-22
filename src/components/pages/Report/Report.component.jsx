@@ -18,6 +18,7 @@ import Sbar from "../../subPages/Sbar/Sbar.component";
 // page: Report
 function Report({ selectedPatient }) {
   // State
+  const [cadDetailsData, setCADDetailsData] = useState([]);
   const [patientDetailsData, setPatientDetailsData] = useState([]);
   const [nokData, setNokData] = useState([]);
   const [specialistPathwaysData, setSpecialistPathwaysData] = useState([]);
@@ -54,6 +55,18 @@ function Report({ selectedPatient }) {
   useEffect(() => {
     async function getApiData() {
       if (selectedPatient !== null) {
+        //#region Incident Information Data
+        try {
+          const cadDetailsApi = `https://cad-message-to-trust-test.azurewebsites.net/CADDetails/ePRID/${selectedPatient}`;
+          const cadDetailsResponse = await fetch(cadDetailsApi);
+          const cadDetailsApiData = await cadDetailsResponse.json();
+          setCADDetailsData(cadDetailsApiData);
+        } catch (error) {
+          console.log("CAD Details data error: ", error);
+          throw new Error("Unable to retrieve CAD Details data.");
+        }
+        //#endregion /Incident Information Data
+
         //#region Patient Details Data
         try {
           const patientDetailsApi = `https://cad-message-to-trust-test.azurewebsites.net/PatientDetails/ePRID/${selectedPatient}`;
@@ -383,6 +396,7 @@ function Report({ selectedPatient }) {
           <Route path="/patient-report">
             <PatientReport
               selectedPatient={selectedPatient}
+              cadDetailsData={cadDetailsData}
               patientDetailsData={patientDetailsData}
               nokData={nokData}
               specialistPathwayData={specialistPathwaysData}
