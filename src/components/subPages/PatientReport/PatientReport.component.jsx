@@ -2429,6 +2429,7 @@ const PatientReportGrid = styled.div`
   width: 100%;
 `;
 
+// Styled: PatientReportTableGrid
 const PatientReportTableGrid = styled.div`
   display: grid;
   grid-gap: 10px;
