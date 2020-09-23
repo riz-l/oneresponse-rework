@@ -9,8 +9,8 @@ import Icon from "../Icon/Icon.component";
 function PatientNameHeader({ selectedPatient, patientDetailsData }) {
   // Renders a selected Patient's Firstname, Surname and Master_ePR_ID
   const patientNameRender = patientDetailsData.map(
-    ({ Master_ePR_ID, PD_Firstname, PD_Surname }) => (
-      <PatientNameHeaderContainer>
+    ({ id, Master_ePR_ID, PD_Firstname, PD_Surname }) => (
+      <PatientNameHeaderContainer key={id}>
         <PatientNameHeaderWrapper>
           <PatientNameHeaderRow>
             <PatientNameHeaderFirstname>

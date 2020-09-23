@@ -65,12 +65,12 @@ const ReportFieldWrapper = styled.div`
 `;
 
 // Styled: ReportFieldField
-const ReportFieldField = styled.p`
+const ReportFieldField = styled.span`
   color: #414141;
 `;
 
 // Styled: ReportFieldData
-const ReportFieldData = styled.p`
+const ReportFieldData = styled.span`
   color: #2c2c2c;
   font-weight: 600;
   word-wrap: break-word;

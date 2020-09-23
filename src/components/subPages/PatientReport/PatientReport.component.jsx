@@ -42,6 +42,7 @@ function PatientReport({
   //#region cadDetailsRender = CAD Details report #TODO - Needs testing
   const cadDetailsRender = cadDetailsData.map(
     ({
+      id,
       Master_ePR_ID,
       CAD_ID,
       ePR_User,
@@ -58,7 +59,7 @@ function PatientReport({
       CAD_DepartScene,
       CAD_ArriveDest,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <PatientReportGrid>
           <PatientReportColumn>
             <ReportField
@@ -136,7 +137,7 @@ function PatientReport({
   //#region nokRender = Next of Kin report #TODO - Needs testing
   const nokRender = nokData.map(
     ({
-      Master_ePR_ID,
+      id,
       NoK_Forename,
       NoK_Surname,
       NoK_Relation,
@@ -149,7 +150,7 @@ function PatientReport({
       GPPostcode,
       GPName_Other,
     }) => (
-      <React.Fragment key={Master_ePR_ID}>
+      <React.Fragment key={id}>
         <PatientReportColumn>
           <HeadingTwo text="Next of Kin" />
           <ReportField
@@ -211,7 +212,7 @@ function PatientReport({
   //#region patientDetailsRender = Patient Details report #TODO - Needs testing
   const patientDetailsRender = patientDetailsData.map(
     ({
-      Master_ePR_ID,
+      id,
       PD_Firstname,
       PD_Surname,
       PD_DOB,
@@ -232,7 +233,7 @@ function PatientReport({
       PD_Patient_Meds,
       PD_Medication,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <HeadingTwo text="Patient Details" />
 
         <PatientReportGrid>
@@ -329,13 +330,13 @@ function PatientReport({
   //#region specialistPathwayRender = Specialist Pathway report #TODO - Needs testing
   const specialistPathwayRender = specialistPathwayData.map(
     ({
-      Master_ePR_ID,
+      id,
       Pathway_Refusal,
       Pathway_NotApplicable,
       SP_Specialist_Path,
       Safeguarding_Concern,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <HeadingTwo text="Specialist Pathways Assessment" />
 
         <PatientReportGrid>
@@ -378,7 +379,7 @@ function PatientReport({
   //#region majorTraumaRender = Major Trauma report #TODO - Needs testing
   const majorTraumaRender = majorTraumaData.map(
     ({
-      Master_ePR_ID,
+      id,
       Pathway_Refusal,
       Pathway_NotApplicable,
       MajorTrauma_Pathfinder,
@@ -386,7 +387,7 @@ function PatientReport({
       MJOutcome,
       Safeguarding_Concern,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <HeadingTwo text="Major Trauma" />
 
         <PatientReportGrid>
@@ -439,7 +440,7 @@ function PatientReport({
   //#region manchesterTriageSystemRender = Manchester Triage System report #TODO - Needs testing
   const manchesterTriageSystemRender = manchesterTriageSystemData.map(
     ({
-      Master_ePR_ID,
+      id,
       Pathway_Refusal,
       Pathway_NotAvailable,
       Pathway_NotApplicable,
@@ -449,7 +450,7 @@ function PatientReport({
       Outcome_Code,
       Safeguarding_Concern,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <HeadingTwo text="Manchester Triage System" />
 
         <PatientReportGrid>
@@ -510,7 +511,7 @@ function PatientReport({
   //#region pathfindersRender = Pathfinders report #TODO - Needs testing
   const pathfindersRender = pathfindersData.map(
     ({
-      Master_ePR_ID,
+      id,
       Pathway_Refusal,
       Pathway_NotApplicable,
       Pathway_Exclude,
@@ -521,7 +522,7 @@ function PatientReport({
       Pathfinder_Outcome,
       Safeguarding_Concern,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <HeadingTwo text="Pathfinders" />
 
         <PatientReportGrid>
@@ -589,7 +590,7 @@ function PatientReport({
   //#region jointDecisionMakingRender = Joint Decision Making report #TODO - Needs testing
   const jointDecisionMakingRender = jointDecisionMakingData.map(
     ({
-      Master_ePR_ID,
+      id,
       ActionTaken,
       TraumaCellAdvice,
       ClinicalSupportAdvice,
@@ -598,7 +599,7 @@ function PatientReport({
       AdviceForm,
     }) => (
       <PatientReportRender
-        key={Master_ePR_ID}
+        key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
         <PatientReportGrid>
@@ -662,7 +663,7 @@ function PatientReport({
   //#region cardiacChestPainRender = Cardiac Chest Pain report #TODO - Needs testing
   const cardiacChestPainRender = cardiacChestPainData.map(
     ({
-      Master_ePR_ID,
+      id,
       Time_Obtained,
       Four_Rhythm,
       Twelve_Rhythm,
@@ -671,7 +672,7 @@ function PatientReport({
       Referred_To_PCI,
     }) => (
       <PatientReportRender
-        key={Master_ePR_ID}
+        key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
         <PatientReportGrid>
@@ -731,7 +732,7 @@ function PatientReport({
   //#region strokeAssesssmentRender = Stroke Assessment report #TODO - Needs testing
   const strokeAssesssmentRender = strokeAssessmentData.map(
     ({
-      Master_ePR_ID,
+      id,
       SI_Suspected,
       SI_TIA,
       BM_Recorded,
@@ -745,7 +746,7 @@ function PatientReport({
       Onset_Time,
       Last_Time,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <HeadingTwo text="Stroke Assessment" margin="2rem 0 1rem 0" />
 
         <PatientReportGrid>
@@ -835,7 +836,7 @@ function PatientReport({
   //#region cardiacArrestRender = Cardiac Arrest report #TODO - Needs testing
   const cardiacArrestRender = cardiacArrestData.map(
     ({
-      Master_ePR_ID,
+      id,
       Resus_Attempted,
       Bystander_CPR,
       Time_Compression_Started,
@@ -850,7 +851,7 @@ function PatientReport({
       Termination_of_Resus,
       No_of_Shocks,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <PatientReportGrid>
           <PatientReportColumn>
             <ReportField
@@ -940,7 +941,7 @@ function PatientReport({
   //#region ivAccessRender = IV Access report #TODO - Needs testing
   const ivAccessRender = patientIVData.map(
     ({
-      Master_ePR_ID,
+      id,
       IV_ID,
       IV_Size,
       IV_Site,
@@ -951,7 +952,7 @@ function PatientReport({
       IV_By,
     }) => (
       <PatientReportRender
-        key={Master_ePR_ID}
+        key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
         <PatientReportTableGrid>
@@ -1026,9 +1027,9 @@ function PatientReport({
 
   //#region ivRefusalRender = IV Refusal report #TODO - Needs testing
   const ivRefusalRender = patientIVData.map(
-    ({ Master_ePR_ID, IV_Type_Refusal, IV_By_Refusal }) => (
+    ({ id, IV_Type_Refusal, IV_By_Refusal }) => (
       <PatientReportRender
-        key={Master_ePR_ID}
+        key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
         <PatientReportGrid>
@@ -1059,19 +1060,9 @@ function PatientReport({
 
   //#region drugsMedsRender = Drugs/Meds report #TODO - Needs testing
   const drugsMedsRender = drugsMedsData.map(
-    ({
-      Master_ePR_ID,
-      Name,
-      Pouch,
-      Time,
-      Dosage,
-      Unit,
-      Route,
-      By,
-      Own_Meds,
-    }) => (
+    ({ id, Name, Pouch, Time, Dosage, Unit, Route, By, Own_Meds }) => (
       <PatientReportRender
-        key={Master_ePR_ID}
+        key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
         <PatientReportTableGrid>
@@ -1146,9 +1137,9 @@ function PatientReport({
 
   //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Needs testing
   const drugsMedsRefusalRender = drugsMedsData.map(
-    ({ Master_ePR_ID, Drug_Refusal, Drug_By_Refusal }) => (
+    ({ id, Drug_Refusal, Drug_By_Refusal }) => (
       <PatientReportRender
-        key={Master_ePR_ID}
+        key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
         <PatientReportTableGrid>
@@ -1179,9 +1170,9 @@ function PatientReport({
 
   //#region skeletalTraumaRender = Skeletal Trauma report #TODO - Needs testing
   const skeletalTraumaRender = skeletalTraumaData.map(
-    ({ Master_ePR_ID, ST_Type, ST_Site, ST_Side, ST_Area, ST_Time, ST_By }) => (
+    ({ id, ST_Type, ST_Site, ST_Side, ST_Area, ST_Time, ST_By }) => (
       <PatientReportRender
-        key={Master_ePR_ID}
+        key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
         <PatientReportTableGrid>
@@ -1241,7 +1232,7 @@ function PatientReport({
   //#region burnsRender = Burns report #TODO - Needs testing
   const burnsRender = burnsData.map(
     ({
-      Master_ePR_ID,
+      id,
       TotalBox,
       t_Head,
       HeadBox,
@@ -1256,7 +1247,7 @@ function PatientReport({
       Limbs_Dressing_Time,
       Limbs_Cooling_Time,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <HeadingTwo text="Burns" />
         <ReportField
           field="Total &#37;"
@@ -1335,7 +1326,7 @@ function PatientReport({
   //#region transportOptionsRender = Transport Options report #TODO - Needs testing
   const transportOptionsRender = transportOptionsData.map(
     ({
-      Master_ePR_ID,
+      id,
       DestinationName,
       WardName,
       OtherLocation,
@@ -1346,7 +1337,7 @@ function PatientReport({
       Scene_Mobility,
       Amb_Mobility,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <PatientReportGrid>
           <PatientReportColumn>
             <ReportField
@@ -1409,7 +1400,7 @@ function PatientReport({
   //#region patientRefusalRender = Patient Refusal report #TODO - Needs testing
   const patientRefusalRender = patientRefusalData.map(
     ({
-      Master_ePR_ID,
+      id,
       As_Reason,
       As_Other,
       Tran_Reason,
@@ -1417,7 +1408,7 @@ function PatientReport({
       Int_Reason,
       Int_Other,
     }) => (
-      <React.Fragment key={Master_ePR_ID}>
+      <React.Fragment key={id}>
         <PatientReportColumn>
           <ReportField field="The below section can also be populated using the Patient refusal slide out available in the Notes" />
 
@@ -1462,7 +1453,7 @@ function PatientReport({
   //#region communicationsConsentNotificationsRender = Communications, Consent and Notifications report #TODO - Needs testing
   const communicationsConsentNotificationsRender = communicationsConsentNotificationsData.map(
     ({
-      Master_ePR_ID,
+      id,
       CommsNeeds_YN,
       ImprovePatCare_YN,
       NotifyVulnerableAdult,
@@ -1473,7 +1464,7 @@ function PatientReport({
       PatientHasCapacity_YN,
       ConsentGainedPRF_YN,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <PatientReportGrid>
           <PatientReportColumn>
             <HeadingThree text="Communication" />
@@ -1539,7 +1530,7 @@ function PatientReport({
   //#region airwaysManagementRender = Airways Management report #TODO - Needs testing
   const airwaysManagementRender = airwaysManagementData.map(
     ({
-      Master_ePR_ID,
+      id,
       BVM,
       NPA_Size,
       NPA_By,
@@ -1554,7 +1545,7 @@ function PatientReport({
       Suction_By,
       Thoracostomy_By,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <PatientReportGrid>
           <PatientReportColumn>
             <HeadingThree text="Bag Valve Mask" />
@@ -1638,7 +1629,7 @@ function PatientReport({
   //#region clinicalObservationsRender = Clinical Observations report #TODO - Needs testing
   const clinicalObservationsRender = clinicalObservationsData.map(
     ({
-      Master_ePR_ID,
+      id,
       Obs_Time,
       Obs_Resp_Rate,
       Obs_SpO2,
@@ -1663,7 +1654,7 @@ function PatientReport({
       Obs_Peak_Flow,
     }) => (
       <PatientReportRender
-        key={Master_ePR_ID}
+        key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
         <PatientReportTableGrid>
@@ -1868,8 +1859,8 @@ function PatientReport({
 
   //#region mentalCapacityRender = Mental Capacity report #TODO - Needs testing
   const mentalCapacityRender = mentalCapacityData.map(
-    ({ Master_ePR_ID, MCA_Age, MCA_Reason, MCA_Treat }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+    ({ id, MCA_Age, MCA_Reason, MCA_Treat }) => (
+      <PatientReportRender key={id}>
         <HeadingTwo text="Mental Capacity Act" />
         <HeadingThree
           text="Does the Mental Capacity Act 2005 apply?"
@@ -1907,7 +1898,7 @@ function PatientReport({
   //#region patientDecisionsRender = Patient Decisions report #TODO - Needs testing
   const patientDecisionsRender = patientDecisionsData.map(
     ({
-      Master_ePR_ID,
+      id,
       p_DecisionBox,
       p_DescribeBox,
       DE_Understand,
@@ -1915,7 +1906,7 @@ function PatientReport({
       DE_Use,
       DE_Communicate,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         <HeadingTwo text="Patient Decisions" marginBottom="1rem" />
         <PatientReportGrid>
           <PatientReportColumn>
@@ -1961,8 +1952,8 @@ function PatientReport({
 
   //#region patientCapacityRender = Patient Capacity report #TODO - Needs testing
   const patientCapacityRender = patientCapacityData.map(
-    ({ Master_ePR_ID, c_DescribeBox, c_PreviousBox, GC_Yes }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+    ({ id, c_DescribeBox, c_PreviousBox, GC_Yes }) => (
+      <PatientReportRender key={id}>
         <HeadingTwo text="Patient Capacity" marginBottom="1rem" />
         <PatientReportGrid>
           <PatientReportColumn>
@@ -1995,8 +1986,8 @@ function PatientReport({
 
   //#region bestInterestRender = Best Interest report #TODO - Needs testing
   const bestInterestRender = bestInterestData.map(
-    ({ Master_ePR_ID, a_Box, b_Box, c_Box, d_Box, OptionBox }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+    ({ id, a_Box, b_Box, c_Box, d_Box, OptionBox }) => (
+      <PatientReportRender key={id}>
         <HeadingTwo text="Best Interest Option" />
         <HeadingThree
           text="Best interest decision options (consider all options of care, giving consideration to expressed wishes of Patients and family"
@@ -2041,7 +2032,7 @@ function PatientReport({
   //#region signAndSyncRender = Sign and Sync report #TODO - Needs testing
   const signAndSyncRender = signAndSyncData.map(
     ({
-      Master_ePR_ID,
+      id,
       Final_Impression,
       staffNumberInput,
       professsional_Box,
@@ -2051,7 +2042,7 @@ function PatientReport({
       snrProfessionalRegNoInput,
       signatureRefusalName,
     }) => (
-      <PatientReportRender key={Master_ePR_ID}>
+      <PatientReportRender key={id}>
         {/* Final Impression and Clinical Signatures */}
         <HeadingTwo
           text="Final Impression and Clinical Signatures"
