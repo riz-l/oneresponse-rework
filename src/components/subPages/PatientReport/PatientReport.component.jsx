@@ -327,6 +327,918 @@ function PatientReport({
   );
   //#endregion /patientDetailsRender = Patient Details report
 
+  //#region clinicalObservationsRender = Clinical Observations report #TODO - Needs testing
+  const clinicalObservationsRender = clinicalObservationsData.map(
+    ({
+      id,
+      Obs_Time,
+      Obs_Resp_Rate,
+      Obs_SpO2,
+      Obs_Oxygen,
+      Obs_Temp,
+      Obs_BP_Sys,
+      Obs_BP_Dia,
+      Obs_Heart_Rate,
+      Obs_AVPU,
+      Obs_NEWS_Total,
+      Obs_Cap_Refill,
+      Obs_EVM_Eye,
+      Obs_EVM_Voice,
+      Obs_EVM_Motor,
+      Obs_EVM_Total,
+      Obs_BM,
+      Obs_Pupils_Size_Left,
+      Obs_Pupils_Size_Right,
+      Obs_Pupils_React_Left,
+      Obs_Pupils_React_Right,
+      Obs_Pain_Score,
+      Obs_Peak_Flow,
+    }) => (
+      <PatientReportRender
+        key={id}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportTableGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Time"
+              data={Obs_Time ? Obs_Time : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Resp Rate"
+              data={Obs_Resp_Rate ? Obs_Resp_Rate : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="SpO2 (&#37;)"
+              data={Obs_SpO2 ? Obs_SpO2 : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Air/Oxygen"
+              data={Obs_Oxygen ? Obs_Oxygen : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Temp (&#176;C)"
+              data={Obs_Temp ? Obs_Temp : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="BP (MMHG)"
+              data={
+                Obs_BP_Sys || Obs_BP_Dia ? (
+                  <>
+                    {Obs_BP_Sys} / {Obs_BP_Dia}
+                  </>
+                ) : null
+              }
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Heart Rate"
+              data={Obs_Heart_Rate ? Obs_Heart_Rate : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="ACVPU"
+              data={Obs_AVPU ? Obs_AVPU : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="NEWS2 Total"
+              data={Obs_NEWS_Total ? Obs_NEWS_Total : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Cap Refill (sec)"
+              data={Obs_Cap_Refill ? Obs_Cap_Refill : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="GCS"
+              data={
+                Obs_EVM_Eye || Obs_EVM_Voice || Obs_EVM_Motor ? (
+                  <>
+                    {Obs_EVM_Eye} / {Obs_EVM_Voice} / {Obs_EVM_Motor}
+                  </>
+                ) : null
+              }
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="GCS Total"
+              data={Obs_EVM_Total ? Obs_EVM_Total : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="BM (M/Mol)"
+              data={Obs_BM ? Obs_BM : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Pupils Size (mm)"
+              data={
+                Obs_Pupils_Size_Left || Obs_Pupils_Size_Right ? (
+                  <>
+                    {Obs_Pupils_Size_Left} / {Obs_Pupils_Size_Right}
+                  </>
+                ) : null
+              }
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Pupils React"
+              data={
+                Obs_Pupils_React_Left || Obs_Pupils_React_Right ? (
+                  <>
+                    {Obs_Pupils_React_Left} / {Obs_Pupils_React_Right}
+                  </>
+                ) : null
+              }
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Pain Score"
+              data={Obs_Pain_Score ? Obs_Pain_Score : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Peak Flow (l/min)"
+              data={Obs_Peak_Flow ? Obs_Peak_Flow : null}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+        </PatientReportTableGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /clinicalObservationsRender = Clinical Observations report
+
+  //#region ivAccessRender = IV Access report #TODO - Needs testing
+  const ivAccessRender = patientIVData.map(
+    ({
+      id,
+      IV_ID,
+      IV_Size,
+      IV_Site,
+      IV_Successful,
+      IV_Flushed,
+      IV_Non_Touch,
+      IV_Attempts,
+      IV_By,
+    }) => (
+      <PatientReportRender
+        key={id}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportTableGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Type"
+              data={IV_ID ? IV_ID : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Size"
+              data={IV_Size ? IV_Size : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Site"
+              data={IV_Site ? IV_Site : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Successful"
+              data={IV_Successful ? IV_Successful : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Flushed"
+              data={IV_Flushed ? IV_Flushed : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Non-touch Technique"
+              data={IV_Non_Touch ? IV_Non_Touch : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Attempts"
+              data={IV_Attempts ? IV_Attempts : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={IV_By ? IV_By : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+        </PatientReportTableGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /ivAccessRender = IV Access report
+
+  //#region ivRefusalRender = IV Refusal report #TODO - Needs testing
+  const ivRefusalRender = patientIVData.map(
+    ({ id, IV_Type_Refusal, IV_By_Refusal }) => (
+      <PatientReportRender
+        key={id}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Type"
+              data={IV_Type_Refusal ? IV_Type_Refusal : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={IV_By_Refusal ? IV_By_Refusal : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <></>
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /ivRefusalRender = IV Refusal report
+
+  //#region drugsMedsRender = Drugs/Meds report #TODO - Needs testing
+  const drugsMedsRender = drugsMedsData.map(
+    ({ id, Name, Pouch, Time, Dosage, Unit, Route, By, Own_Meds }) => (
+      <PatientReportRender
+        key={id}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportTableGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Drug"
+              data={Name ? Name : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Pouch No."
+              data={Pouch ? Pouch : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Time"
+              data={Time ? Time : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Dosage"
+              data={Dosage ? Dosage : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Unit"
+              data={Unit ? Unit : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Route"
+              data={Route ? Route : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={By ? By : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Own Medications"
+              data={Own_Meds ? Own_Meds : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+        </PatientReportTableGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /drugsMedsRender = Drugs/Meds report
+
+  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Needs testing
+  const drugsMedsRefusalRender = drugsMedsData.map(
+    ({ id, Drug_Refusal, Drug_By_Refusal }) => (
+      <PatientReportRender
+        key={id}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportTableGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Type"
+              data={Drug_Refusal ? Drug_Refusal : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="By"
+              data={Drug_By_Refusal ? Drug_By_Refusal : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <></>
+          </PatientReportColumn>
+        </PatientReportTableGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /drugsMedsRefusalRender = Drugs/Meds Refusal report
+
+  //#region cardiacChestPainRender = Cardiac Chest Pain report #TODO - Needs testing
+  const cardiacChestPainRender = cardiacChestPainData.map(
+    ({
+      id,
+      Time_Obtained,
+      Four_Rhythm,
+      Twelve_Rhythm,
+      ECG_Other,
+      STEMI,
+      Referred_To_PCI,
+    }) => (
+      <PatientReportRender
+        key={id}
+        style={{ borderBottom: "1px solid #e0e0e0" }}
+      >
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Time"
+              data={Time_Obtained ? Time_Obtained : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="4 Rhythm"
+              data={Four_Rhythm ? Four_Rhythm : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="12 Rhythm"
+              data={Twelve_Rhythm ? Twelve_Rhythm : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Other Rhythm"
+              data={ECG_Other ? ECG_Other : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="STEMI"
+              data={STEMI ? STEMI : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Referred to Primary PCI"
+              data={Referred_To_PCI ? Referred_To_PCI : "Not recorded"}
+              paddingBottom="0"
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /cardiacChestPainRender = Cardiac Chest Pain report
+
+  //#region strokeAssesssmentRender = Stroke Assessment report #TODO - Needs testing
+  const strokeAssesssmentRender = strokeAssessmentData.map(
+    ({
+      id,
+      SI_Suspected,
+      SI_TIA,
+      BM_Recorded,
+      Referred_Acute,
+      FAST_Positive,
+      SI_Face,
+      Face_Box,
+      SI_Arms,
+      Arms_Box,
+      SI_Speech,
+      Onset_Time,
+      Last_Time,
+    }) => (
+      <PatientReportRender key={id}>
+        <HeadingTwo text="Stroke Assessment" margin="2rem 0 1rem 0" />
+
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <HeadingThree text="Condition" />
+            <ReportField
+              field="Suspected Stroke"
+              data={SI_Suspected ? SI_Suspected : "Not recorded"}
+            />
+            <ReportField
+              field="Suspected TIA"
+              data={SI_TIA ? SI_TIA : "Not recorded"}
+            />
+            <ReportField
+              field="BM Recorded"
+              data={BM_Recorded ? BM_Recorded : "Not recorded"}
+            />
+            <ReportField
+              field="Referred to Hyper-Accute"
+              data={Referred_Acute ? Referred_Acute : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="FAST Assessment" />
+            <ReportField
+              field="FAST Assessment Outcome"
+              data={FAST_Positive ? FAST_Positive : "Not recorded"}
+            />
+
+            <PatientReportGrid>
+              <PatientReportColumn>
+                <ReportField
+                  field="Face"
+                  data={SI_Face ? SI_Face : "Not recorded"}
+                />
+              </PatientReportColumn>
+
+              <PatientReportColumn>
+                <ReportField
+                  field="Side (Face)"
+                  data={Face_Box ? Face_Box : "Not recorded"}
+                />
+              </PatientReportColumn>
+            </PatientReportGrid>
+
+            <PatientReportGrid>
+              <PatientReportColumn>
+                <ReportField
+                  field="Arms"
+                  data={SI_Arms ? SI_Arms : "Not recorded"}
+                />
+              </PatientReportColumn>
+
+              <PatientReportColumn>
+                <ReportField
+                  field="Side (Arms)"
+                  data={Arms_Box ? Arms_Box : "Not recorded"}
+                />
+              </PatientReportColumn>
+            </PatientReportGrid>
+
+            <ReportField
+              field="Speech"
+              data={SI_Speech ? SI_Speech : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Witnessed Onset"
+              data={Onset_Time ? Onset_Time : "Not recorded"}
+            />
+            <ReportField
+              field="Last time seen well"
+              data={Last_Time ? Last_Time : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /strokeAssesssmentRender = Stroke Assessment repor
+
+  //#region airwaysManagementRender = Airways Management report #TODO - Needs testing
+  const airwaysManagementRender = airwaysManagementData.map(
+    ({
+      id,
+      BVM,
+      NPA_Size,
+      NPA_By,
+      OPA_Size,
+      OPA_By,
+      LMA_Size,
+      LMA_By,
+      ET_Size,
+      ET_By,
+      GradeOfView,
+      SurgicalCric_By,
+      Suction_By,
+      Thoracostomy_By,
+    }) => (
+      <PatientReportRender key={id}>
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <HeadingThree text="Bag Valve Mask" />
+            <ReportField
+              field="Size"
+              data={BVM ? BVM : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Nasopharyngeal Airway" />
+            <ReportField
+              field="Size"
+              data={NPA_Size ? NPA_Size : "Not recorded"}
+            />
+            <ReportField
+              field="By"
+              data={NPA_By ? NPA_By : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Oropharyngeal Airway" />
+            <ReportField
+              field="Size"
+              data={OPA_Size ? OPA_Size : "Not recorded"}
+            />
+            <ReportField field="By" data={OPA_By ? OPA_By : "Not recorded"} />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Supraglottic Airway" />
+            <ReportField
+              field="Size"
+              data={LMA_Size ? LMA_Size : "Not recorded"}
+            />
+            <ReportField
+              field="By"
+              data={LMA_By ? LMA_By : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Endotracheal" />
+            <ReportField
+              field="Size"
+              data={ET_Size ? ET_Size : "Not recorded"}
+            />
+            <ReportField field="By" data={ET_By ? ET_By : "Not recorded"} />
+            <ReportField
+              field="Grade of View"
+              data={GradeOfView ? GradeOfView : "Not recorded"}
+              marginBottom="1rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Surgical Cric." />
+            <ReportField
+              field="By"
+              data={SurgicalCric_By ? SurgicalCric_By : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Suction" />
+            <ReportField
+              field="By"
+              data={Suction_By ? Suction_By : "Not recorded"}
+              marginBottom="1rem"
+            />
+
+            <HeadingThree text="Thoracostomy" />
+            <ReportField
+              field="By"
+              data={Thoracostomy_By ? Thoracostomy_By : "Not recorded"}
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /airwaysManagementRender = Airways Management report
+
+  //#region cardiacArrestRender = Cardiac Arrest report #TODO - Needs testing
+  const cardiacArrestRender = cardiacArrestData.map(
+    ({
+      id,
+      Resus_Attempted,
+      Bystander_CPR,
+      Time_Compression_Started,
+      Public_AED,
+      Time_of_First_Shock,
+      First_Monitored_Rhythm,
+      NWAS_Shocked,
+      Time_of_First_NWAS_Shock,
+      ROSC_Present_at_Handover,
+      Time_of_ROSC,
+      Time_of_sub_ROSC,
+      Termination_of_Resus,
+      No_of_Shocks,
+    }) => (
+      <PatientReportRender key={id}>
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Resus Attempted"
+              data={Resus_Attempted ? Resus_Attempted : "Not recorded"}
+            />
+            <ReportField
+              field="Bystander CPR"
+              data={Bystander_CPR ? Bystander_CPR : "Not recorded"}
+            />
+            <ReportField
+              field="Time Compressions Started"
+              data={
+                Time_Compression_Started
+                  ? Time_Compression_Started
+                  : "Not recorded"
+              }
+            />
+            <ReportField
+              field="Public AED"
+              data={Public_AED ? Public_AED : "Not recorded"}
+            />
+            <ReportField
+              field="Time of First Public AED Shock"
+              data={Time_of_First_Shock ? Time_of_First_Shock : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="First Monitored Rhythm"
+              data={
+                First_Monitored_Rhythm ? First_Monitored_Rhythm : "Not recorded"
+              }
+            />
+            <ReportField
+              field="NWAS Shocks"
+              data={NWAS_Shocked ? NWAS_Shocked : "Not recorded"}
+            />
+            <ReportField
+              field="Time of First NWAS Shock"
+              data={
+                Time_of_First_NWAS_Shock
+                  ? Time_of_First_NWAS_Shock
+                  : "Not recorded"
+              }
+            />
+            <ReportField
+              field="ROSC Present at Handover"
+              data={
+                ROSC_Present_at_Handover
+                  ? ROSC_Present_at_Handover
+                  : "Not recorded"
+              }
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Time of First ROSC"
+              data={Time_of_ROSC ? Time_of_ROSC : "Not recorded"}
+            />
+            <ReportField
+              field="Time of Subsequent ROSCs"
+              data={Time_of_sub_ROSC ? Time_of_sub_ROSC : "Not recorded"}
+            />
+            <ReportField
+              field="Termination of Resus"
+              data={
+                Termination_of_Resus ? Termination_of_Resus : "Not recorded"
+              }
+            />
+            <ReportField
+              field="Total No. of Shocks"
+              data={No_of_Shocks ? No_of_Shocks : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /cardiacArrestRender = Cardiac Arrest report
+
+  //#region transportOptionsRender = Transport Options report #TODO - Needs testing
+  const transportOptionsRender = transportOptionsData.map(
+    ({
+      id,
+      DestinationName,
+      WardName,
+      OtherLocation,
+      Pre_Alert,
+      PreAlert_RAG,
+      NonTransportReason,
+      Other,
+      Scene_Mobility,
+      Amb_Mobility,
+    }) => (
+      <PatientReportRender key={id}>
+        <PatientReportGrid>
+          <PatientReportColumn>
+            <ReportField
+              field="Receiving Location"
+              data={DestinationName ? DestinationName : "Not recorded"}
+            />
+            <ReportField
+              field="Destination Name"
+              data={WardName ? WardName : "Not recorded"}
+            />
+            <ReportField
+              field="Other Location"
+              data={OtherLocation ? OtherLocation : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Hospital Pre-Alert" />
+            <ReportField
+              field="Pre-Alert"
+              data={Pre_Alert ? Pre_Alert : "Not recorded"}
+            />
+            <ReportField
+              field="Status"
+              data={PreAlert_RAG ? PreAlert_RAG : "Not recorded"}
+              marginBottom="2rem"
+            />
+
+            <HeadingThree text="Non-Transport" />
+            <ReportField
+              field="Reason"
+              data={NonTransportReason ? NonTransportReason : "Not recorded"}
+            />
+            <ReportField
+              field="Other"
+              data={Other ? Other : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <HeadingThree text="Patients Mobility" />
+            <ReportField
+              field="Scene to Ambulance"
+              data={Scene_Mobility ? Scene_Mobility : "Not recorded"}
+            />
+            <ReportField
+              field="Ambulance to Hospital"
+              data={Amb_Mobility ? Amb_Mobility : "Not recorded"}
+              marginBottom="2rem"
+            />
+          </PatientReportColumn>
+        </PatientReportGrid>
+      </PatientReportRender>
+    )
+  );
+  //#endregion /transportOptionsRender = Transport Options report
+
   //#region specialistPathwayRender = Specialist Pathway report #TODO - Needs testing
   const specialistPathwayRender = specialistPathwaysData.map(
     ({
@@ -660,514 +1572,6 @@ function PatientReport({
   );
   //#endregion /jointDecisionMakingRender = Joint Decision Making report
 
-  //#region cardiacChestPainRender = Cardiac Chest Pain report #TODO - Needs testing
-  const cardiacChestPainRender = cardiacChestPainData.map(
-    ({
-      id,
-      Time_Obtained,
-      Four_Rhythm,
-      Twelve_Rhythm,
-      ECG_Other,
-      STEMI,
-      Referred_To_PCI,
-    }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Time"
-              data={Time_Obtained ? Time_Obtained : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="4 Rhythm"
-              data={Four_Rhythm ? Four_Rhythm : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="12 Rhythm"
-              data={Twelve_Rhythm ? Twelve_Rhythm : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Other Rhythm"
-              data={ECG_Other ? ECG_Other : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="STEMI"
-              data={STEMI ? STEMI : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Referred to Primary PCI"
-              data={Referred_To_PCI ? Referred_To_PCI : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-        </PatientReportGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /cardiacChestPainRender = Cardiac Chest Pain report
-
-  //#region strokeAssesssmentRender = Stroke Assessment report #TODO - Needs testing
-  const strokeAssesssmentRender = strokeAssessmentData.map(
-    ({
-      id,
-      SI_Suspected,
-      SI_TIA,
-      BM_Recorded,
-      Referred_Acute,
-      FAST_Positive,
-      SI_Face,
-      Face_Box,
-      SI_Arms,
-      Arms_Box,
-      SI_Speech,
-      Onset_Time,
-      Last_Time,
-    }) => (
-      <PatientReportRender key={id}>
-        <HeadingTwo text="Stroke Assessment" margin="2rem 0 1rem 0" />
-
-        <PatientReportGrid>
-          <PatientReportColumn>
-            <HeadingThree text="Condition" />
-            <ReportField
-              field="Suspected Stroke"
-              data={SI_Suspected ? SI_Suspected : "Not recorded"}
-            />
-            <ReportField
-              field="Suspected TIA"
-              data={SI_TIA ? SI_TIA : "Not recorded"}
-            />
-            <ReportField
-              field="BM Recorded"
-              data={BM_Recorded ? BM_Recorded : "Not recorded"}
-            />
-            <ReportField
-              field="Referred to Hyper-Accute"
-              data={Referred_Acute ? Referred_Acute : "Not recorded"}
-              marginBottom="2rem"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <HeadingThree text="FAST Assessment" />
-            <ReportField
-              field="FAST Assessment Outcome"
-              data={FAST_Positive ? FAST_Positive : "Not recorded"}
-            />
-
-            <PatientReportGrid>
-              <PatientReportColumn>
-                <ReportField
-                  field="Face"
-                  data={SI_Face ? SI_Face : "Not recorded"}
-                />
-              </PatientReportColumn>
-
-              <PatientReportColumn>
-                <ReportField
-                  field="Side (Face)"
-                  data={Face_Box ? Face_Box : "Not recorded"}
-                />
-              </PatientReportColumn>
-            </PatientReportGrid>
-
-            <PatientReportGrid>
-              <PatientReportColumn>
-                <ReportField
-                  field="Arms"
-                  data={SI_Arms ? SI_Arms : "Not recorded"}
-                />
-              </PatientReportColumn>
-
-              <PatientReportColumn>
-                <ReportField
-                  field="Side (Arms)"
-                  data={Arms_Box ? Arms_Box : "Not recorded"}
-                />
-              </PatientReportColumn>
-            </PatientReportGrid>
-
-            <ReportField
-              field="Speech"
-              data={SI_Speech ? SI_Speech : "Not recorded"}
-              marginBottom="2rem"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Witnessed Onset"
-              data={Onset_Time ? Onset_Time : "Not recorded"}
-            />
-            <ReportField
-              field="Last time seen well"
-              data={Last_Time ? Last_Time : "Not recorded"}
-            />
-          </PatientReportColumn>
-        </PatientReportGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /strokeAssesssmentRender = Stroke Assessment report
-
-  //#region cardiacArrestRender = Cardiac Arrest report #TODO - Needs testing
-  const cardiacArrestRender = cardiacArrestData.map(
-    ({
-      id,
-      Resus_Attempted,
-      Bystander_CPR,
-      Time_Compression_Started,
-      Public_AED,
-      Time_of_First_Shock,
-      First_Monitored_Rhythm,
-      NWAS_Shocked,
-      Time_of_First_NWAS_Shock,
-      ROSC_Present_at_Handover,
-      Time_of_ROSC,
-      Time_of_sub_ROSC,
-      Termination_of_Resus,
-      No_of_Shocks,
-    }) => (
-      <PatientReportRender key={id}>
-        <PatientReportGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Resus Attempted"
-              data={Resus_Attempted ? Resus_Attempted : "Not recorded"}
-            />
-            <ReportField
-              field="Bystander CPR"
-              data={Bystander_CPR ? Bystander_CPR : "Not recorded"}
-            />
-            <ReportField
-              field="Time Compressions Started"
-              data={
-                Time_Compression_Started
-                  ? Time_Compression_Started
-                  : "Not recorded"
-              }
-            />
-            <ReportField
-              field="Public AED"
-              data={Public_AED ? Public_AED : "Not recorded"}
-            />
-            <ReportField
-              field="Time of First Public AED Shock"
-              data={Time_of_First_Shock ? Time_of_First_Shock : "Not recorded"}
-              marginBottom="2rem"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="First Monitored Rhythm"
-              data={
-                First_Monitored_Rhythm ? First_Monitored_Rhythm : "Not recorded"
-              }
-            />
-            <ReportField
-              field="NWAS Shocks"
-              data={NWAS_Shocked ? NWAS_Shocked : "Not recorded"}
-            />
-            <ReportField
-              field="Time of First NWAS Shock"
-              data={
-                Time_of_First_NWAS_Shock
-                  ? Time_of_First_NWAS_Shock
-                  : "Not recorded"
-              }
-            />
-            <ReportField
-              field="ROSC Present at Handover"
-              data={
-                ROSC_Present_at_Handover
-                  ? ROSC_Present_at_Handover
-                  : "Not recorded"
-              }
-              marginBottom="2rem"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Time of First ROSC"
-              data={Time_of_ROSC ? Time_of_ROSC : "Not recorded"}
-            />
-            <ReportField
-              field="Time of Subsequent ROSCs"
-              data={Time_of_sub_ROSC ? Time_of_sub_ROSC : "Not recorded"}
-            />
-            <ReportField
-              field="Termination of Resus"
-              data={
-                Termination_of_Resus ? Termination_of_Resus : "Not recorded"
-              }
-            />
-            <ReportField
-              field="Total No. of Shocks"
-              data={No_of_Shocks ? No_of_Shocks : "Not recorded"}
-              marginBottom="2rem"
-            />
-          </PatientReportColumn>
-        </PatientReportGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /cardiacArrestRender = Cardiac Arrest report
-
-  //#region ivAccessRender = IV Access report #TODO - Needs testing
-  const ivAccessRender = patientIVData.map(
-    ({
-      id,
-      IV_ID,
-      IV_Size,
-      IV_Site,
-      IV_Successful,
-      IV_Flushed,
-      IV_Non_Touch,
-      IV_Attempts,
-      IV_By,
-    }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportTableGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Type"
-              data={IV_ID ? IV_ID : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Size"
-              data={IV_Size ? IV_Size : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Site"
-              data={IV_Site ? IV_Site : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Successful"
-              data={IV_Successful ? IV_Successful : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Flushed"
-              data={IV_Flushed ? IV_Flushed : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Non-touch Technique"
-              data={IV_Non_Touch ? IV_Non_Touch : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Attempts"
-              data={IV_Attempts ? IV_Attempts : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="By"
-              data={IV_By ? IV_By : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-        </PatientReportTableGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /ivAccessRender = IV Access report
-
-  //#region ivRefusalRender = IV Refusal report #TODO - Needs testing
-  const ivRefusalRender = patientIVData.map(
-    ({ id, IV_Type_Refusal, IV_By_Refusal }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Type"
-              data={IV_Type_Refusal ? IV_Type_Refusal : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="By"
-              data={IV_By_Refusal ? IV_By_Refusal : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <></>
-          </PatientReportColumn>
-        </PatientReportGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /ivRefusalRender = IV Refusal report
-
-  //#region drugsMedsRender = Drugs/Meds report #TODO - Needs testing
-  const drugsMedsRender = drugsMedsData.map(
-    ({ id, Name, Pouch, Time, Dosage, Unit, Route, By, Own_Meds }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportTableGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Drug"
-              data={Name ? Name : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Pouch No."
-              data={Pouch ? Pouch : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Time"
-              data={Time ? Time : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Dosage"
-              data={Dosage ? Dosage : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Unit"
-              data={Unit ? Unit : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Route"
-              data={Route ? Route : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="By"
-              data={By ? By : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Own Medications"
-              data={Own_Meds ? Own_Meds : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-        </PatientReportTableGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /drugsMedsRender = Drugs/Meds report
-
-  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Needs testing
-  const drugsMedsRefusalRender = drugsMedsData.map(
-    ({ id, Drug_Refusal, Drug_By_Refusal }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportTableGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Type"
-              data={Drug_Refusal ? Drug_Refusal : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="By"
-              data={Drug_By_Refusal ? Drug_By_Refusal : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <></>
-          </PatientReportColumn>
-        </PatientReportTableGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /drugsMedsRefusalRender = Drugs/Meds Refusal report
-
   //#region skeletalTraumaRender = Skeletal Trauma report #TODO - Needs testing
   const skeletalTraumaRender = skeletalTraumaData.map(
     ({ id, ST_Type, ST_Site, ST_Side, ST_Area, ST_Time, ST_By }) => (
@@ -1323,80 +1727,6 @@ function PatientReport({
   );
   //#endregion /burnsRender = Burns report
 
-  //#region transportOptionsRender = Transport Options report #TODO - Needs testing
-  const transportOptionsRender = transportOptionsData.map(
-    ({
-      id,
-      DestinationName,
-      WardName,
-      OtherLocation,
-      Pre_Alert,
-      PreAlert_RAG,
-      NonTransportReason,
-      Other,
-      Scene_Mobility,
-      Amb_Mobility,
-    }) => (
-      <PatientReportRender key={id}>
-        <PatientReportGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Receiving Location"
-              data={DestinationName ? DestinationName : "Not recorded"}
-            />
-            <ReportField
-              field="Destination Name"
-              data={WardName ? WardName : "Not recorded"}
-            />
-            <ReportField
-              field="Other Location"
-              data={OtherLocation ? OtherLocation : "Not recorded"}
-              marginBottom="2rem"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <HeadingThree text="Hospital Pre-Alert" />
-            <ReportField
-              field="Pre-Alert"
-              data={Pre_Alert ? Pre_Alert : "Not recorded"}
-            />
-            <ReportField
-              field="Status"
-              data={PreAlert_RAG ? PreAlert_RAG : "Not recorded"}
-              marginBottom="2rem"
-            />
-
-            <HeadingThree text="Non-Transport" />
-            <ReportField
-              field="Reason"
-              data={NonTransportReason ? NonTransportReason : "Not recorded"}
-            />
-            <ReportField
-              field="Other"
-              data={Other ? Other : "Not recorded"}
-              marginBottom="2rem"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <HeadingThree text="Patients Mobility" />
-            <ReportField
-              field="Scene to Ambulance"
-              data={Scene_Mobility ? Scene_Mobility : "Not recorded"}
-            />
-            <ReportField
-              field="Ambulance to Hospital"
-              data={Amb_Mobility ? Amb_Mobility : "Not recorded"}
-              marginBottom="2rem"
-            />
-          </PatientReportColumn>
-        </PatientReportGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /transportOptionsRender = Transport Options report
-
   //#region patientRefusalRender = Patient Refusal report #TODO - Needs testing
   const patientRefusalRender = patientRefusalData.map(
     ({
@@ -1526,336 +1856,6 @@ function PatientReport({
     )
   );
   //#endregion /communicationsConsentNotificationsRender = Communications, Consent and Notifications report
-
-  //#region airwaysManagementRender = Airways Management report #TODO - Needs testing
-  const airwaysManagementRender = airwaysManagementData.map(
-    ({
-      id,
-      BVM,
-      NPA_Size,
-      NPA_By,
-      OPA_Size,
-      OPA_By,
-      LMA_Size,
-      LMA_By,
-      ET_Size,
-      ET_By,
-      GradeOfView,
-      SurgicalCric_By,
-      Suction_By,
-      Thoracostomy_By,
-    }) => (
-      <PatientReportRender key={id}>
-        <PatientReportGrid>
-          <PatientReportColumn>
-            <HeadingThree text="Bag Valve Mask" />
-            <ReportField
-              field="Size"
-              data={BVM ? BVM : "Not recorded"}
-              marginBottom="1rem"
-            />
-
-            <HeadingThree text="Nasopharyngeal Airway" />
-            <ReportField
-              field="Size"
-              data={NPA_Size ? NPA_Size : "Not recorded"}
-            />
-            <ReportField
-              field="By"
-              data={NPA_By ? NPA_By : "Not recorded"}
-              marginBottom="1rem"
-            />
-
-            <HeadingThree text="Oropharyngeal Airway" />
-            <ReportField
-              field="Size"
-              data={OPA_Size ? OPA_Size : "Not recorded"}
-            />
-            <ReportField field="By" data={OPA_By ? OPA_By : "Not recorded"} />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <HeadingThree text="Supraglottic Airway" />
-            <ReportField
-              field="Size"
-              data={LMA_Size ? LMA_Size : "Not recorded"}
-            />
-            <ReportField
-              field="By"
-              data={LMA_By ? LMA_By : "Not recorded"}
-              marginBottom="1rem"
-            />
-
-            <HeadingThree text="Endotracheal" />
-            <ReportField
-              field="Size"
-              data={ET_Size ? ET_Size : "Not recorded"}
-            />
-            <ReportField field="By" data={ET_By ? ET_By : "Not recorded"} />
-            <ReportField
-              field="Grade of View"
-              data={GradeOfView ? GradeOfView : "Not recorded"}
-              marginBottom="1rem"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <HeadingThree text="Surgical Cric." />
-            <ReportField
-              field="By"
-              data={SurgicalCric_By ? SurgicalCric_By : "Not recorded"}
-              marginBottom="1rem"
-            />
-
-            <HeadingThree text="Suction" />
-            <ReportField
-              field="By"
-              data={Suction_By ? Suction_By : "Not recorded"}
-              marginBottom="1rem"
-            />
-
-            <HeadingThree text="Thoracostomy" />
-            <ReportField
-              field="By"
-              data={Thoracostomy_By ? Thoracostomy_By : "Not recorded"}
-            />
-          </PatientReportColumn>
-        </PatientReportGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /airwaysManagementRender = Airways Management report
-
-  //#region clinicalObservationsRender = Clinical Observations report #TODO - Needs testing
-  const clinicalObservationsRender = clinicalObservationsData.map(
-    ({
-      id,
-      Obs_Time,
-      Obs_Resp_Rate,
-      Obs_SpO2,
-      Obs_Oxygen,
-      Obs_Temp,
-      Obs_BP_Sys,
-      Obs_BP_Dia,
-      Obs_Heart_Rate,
-      Obs_AVPU,
-      Obs_NEWS_Total,
-      Obs_Cap_Refill,
-      Obs_EVM_Eye,
-      Obs_EVM_Voice,
-      Obs_EVM_Motor,
-      Obs_EVM_Total,
-      Obs_BM,
-      Obs_Pupils_Size_Left,
-      Obs_Pupils_Size_Right,
-      Obs_Pupils_React_Left,
-      Obs_Pupils_React_Right,
-      Obs_Pain_Score,
-      Obs_Peak_Flow,
-    }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportTableGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Time"
-              data={Obs_Time ? Obs_Time : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Resp Rate"
-              data={Obs_Resp_Rate ? Obs_Resp_Rate : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="SpO2 (&#37;)"
-              data={Obs_SpO2 ? Obs_SpO2 : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Air/Oxygen"
-              data={Obs_Oxygen ? Obs_Oxygen : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Temp (&#176;C)"
-              data={Obs_Temp ? Obs_Temp : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="BP (MMHG)"
-              data={
-                Obs_BP_Sys || Obs_BP_Dia ? (
-                  <>
-                    {Obs_BP_Sys} / {Obs_BP_Dia}
-                  </>
-                ) : null
-              }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Heart Rate"
-              data={Obs_Heart_Rate ? Obs_Heart_Rate : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="ACVPU"
-              data={Obs_AVPU ? Obs_AVPU : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="NEWS2 Total"
-              data={Obs_NEWS_Total ? Obs_NEWS_Total : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Cap Refill (sec)"
-              data={Obs_Cap_Refill ? Obs_Cap_Refill : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="GCS"
-              data={
-                Obs_EVM_Eye || Obs_EVM_Voice || Obs_EVM_Motor ? (
-                  <>
-                    {Obs_EVM_Eye} / {Obs_EVM_Voice} / {Obs_EVM_Motor}
-                  </>
-                ) : null
-              }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="GCS Total"
-              data={Obs_EVM_Total ? Obs_EVM_Total : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="BM (M/Mol)"
-              data={Obs_BM ? Obs_BM : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Pupils Size (mm)"
-              data={
-                Obs_Pupils_Size_Left || Obs_Pupils_Size_Right ? (
-                  <>
-                    {Obs_Pupils_Size_Left} / {Obs_Pupils_Size_Right}
-                  </>
-                ) : null
-              }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Pupils React"
-              data={
-                Obs_Pupils_React_Left || Obs_Pupils_React_Right ? (
-                  <>
-                    {Obs_Pupils_React_Left} / {Obs_Pupils_React_Right}
-                  </>
-                ) : null
-              }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Pain Score"
-              data={Obs_Pain_Score ? Obs_Pain_Score : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Peak Flow (l/min)"
-              data={Obs_Peak_Flow ? Obs_Peak_Flow : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
-            />
-          </PatientReportColumn>
-        </PatientReportTableGrid>
-      </PatientReportRender>
-    )
-  );
-  //#endregion /clinicalObservationsRender = Clinical Observations report
 
   //#region mentalCapacityRender = Mental Capacity report #TODO - Needs testing
   const mentalCapacityRender = mentalCapacityData.map(
@@ -2172,108 +2172,21 @@ function PatientReport({
         </ReportContainer>
       </PatientReportSection>
 
-      {/* Triage and Pathfinder Support */}
+      {/* Clinical Observations */}
       <PatientReportSection>
         <PatientReportHeadingContainer>
           <HeadingOne
             icon="fas fa-file-medical-alt"
-            text="Triage and Pathfinder Support"
-            padding="1rem"
-          />
-        </PatientReportHeadingContainer>
-        <ReportContainer>
-          {selectedPatient === null ? (
-            "Please select a Patient from the Patient list"
-          ) : specialistPathwaysData &&
-            specialistPathwaysData.length > 0 &&
-            majorTraumaData &&
-            majorTraumaData.length > 0 &&
-            manchesterTriageSystemData &&
-            manchesterTriageSystemData.length > 0 &&
-            pathfindersData &&
-            pathfindersData.length > 0 &&
-            jointDecisionMakingData &&
-            jointDecisionMakingData.length > 0 ? (
-            <>
-              {specialistPathwaysData && specialistPathwaysData.length > 0
-                ? specialistPathwayRender
-                : null}
-
-              {majorTraumaData && majorTraumaData.length > 0
-                ? majorTraumaRender
-                : null}
-
-              {manchesterTriageSystemData &&
-              manchesterTriageSystemData.length > 0
-                ? manchesterTriageSystemRender
-                : null}
-
-              {pathfindersData && pathfindersData.length > 0
-                ? pathfindersRender
-                : null}
-
-              {jointDecisionMakingData && jointDecisionMakingData.length > 0 ? (
-                <>
-                  <HeadingTwo text="Joint Decision Making" />
-                  {jointDecisionMakingRender}
-                </>
-              ) : null}
-            </>
-          ) : (
-            "Triage and Pathfinder Support data not recorded"
-          )}
-        </ReportContainer>
-      </PatientReportSection>
-
-      {/* Cardiovascular Assessment */}
-      <PatientReportSection>
-        <PatientReportHeadingContainer>
-          <HeadingOne
-            icon="fas fa-file-medical-alt"
-            text="Cardiovascular Assessment"
-            padding="1rem"
-          />
-        </PatientReportHeadingContainer>
-        <ReportContainer>
-          {selectedPatient === null ? (
-            "Please select a Patient from the Patient list"
-          ) : cardiacChestPainData &&
-            cardiacChestPainData.length > 0 &&
-            strokeAssessmentData &&
-            strokeAssessmentData.length > 0 ? (
-            <>
-              {cardiacChestPainData && cardiacChestPainData.length > 0 ? (
-                <>
-                  <HeadingTwo text="Cardiac Assessment" />
-                  {cardiacChestPainRender}
-                </>
-              ) : null}
-
-              {strokeAssessmentData && strokeAssessmentData.length > 0
-                ? strokeAssesssmentRender
-                : null}
-            </>
-          ) : (
-            "Cardiovascular Assessment data not recorded"
-          )}
-        </ReportContainer>
-      </PatientReportSection>
-
-      {/* Cardiac Arrest */}
-      <PatientReportSection>
-        <PatientReportHeadingContainer>
-          <HeadingOne
-            icon="fas fa-file-medical-alt"
-            text="Cardiac Arrest"
+            text="Clinical Observations"
             padding="1rem"
           />
         </PatientReportHeadingContainer>
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
-            : cardiacArrestData && cardiacArrestData.length > 0
-            ? cardiacArrestRender
-            : "Cardiac Arrest data not recorded"}
+            : clinicalObservationsData && clinicalObservationsData.length > 0
+            ? clinicalObservationsRender
+            : "Clinical Observations data not recorded"}
         </ReportContainer>
       </PatientReportSection>
 
@@ -2328,6 +2241,147 @@ function PatientReport({
         </ReportContainer>
       </PatientReportSection>
 
+      {/* Cardiovascular Assessment */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Cardiovascular Assessment"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null ? (
+            "Please select a Patient from the Patient list"
+          ) : cardiacChestPainData &&
+            cardiacChestPainData.length > 0 &&
+            strokeAssessmentData &&
+            strokeAssessmentData.length > 0 ? (
+            <>
+              {cardiacChestPainData && cardiacChestPainData.length > 0 ? (
+                <>
+                  <HeadingTwo text="Cardiac Assessment" />
+                  {cardiacChestPainRender}
+                </>
+              ) : null}
+
+              {strokeAssessmentData && strokeAssessmentData.length > 0
+                ? strokeAssesssmentRender
+                : null}
+            </>
+          ) : (
+            "Cardiovascular Assessment data not recorded"
+          )}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Airways Management */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Airways Management"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : airwaysManagementData && airwaysManagementData.length > 0
+            ? airwaysManagementRender
+            : "Airways Management data not recorded"}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Cardiac Arrest */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Cardiac Arrest"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : cardiacArrestData && cardiacArrestData.length > 0
+            ? cardiacArrestRender
+            : "Cardiac Arrest data not recorded"}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Transport Options */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Transport Options"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : transportOptionsData && transportOptionsData.length > 0
+            ? transportOptionsRender
+            : "Transport Options data not recorded"}
+        </ReportContainer>
+      </PatientReportSection>
+
+      {/* Triage and Pathfinder Support */}
+      <PatientReportSection>
+        <PatientReportHeadingContainer>
+          <HeadingOne
+            icon="fas fa-file-medical-alt"
+            text="Triage and Pathfinder Support"
+            padding="1rem"
+          />
+        </PatientReportHeadingContainer>
+        <ReportContainer>
+          {selectedPatient === null ? (
+            "Please select a Patient from the Patient list"
+          ) : specialistPathwaysData &&
+            specialistPathwaysData.length > 0 &&
+            majorTraumaData &&
+            majorTraumaData.length > 0 &&
+            manchesterTriageSystemData &&
+            manchesterTriageSystemData.length > 0 &&
+            pathfindersData &&
+            pathfindersData.length > 0 &&
+            jointDecisionMakingData &&
+            jointDecisionMakingData.length > 0 ? (
+            <>
+              {specialistPathwaysData && specialistPathwaysData.length > 0
+                ? specialistPathwayRender
+                : null}
+
+              {majorTraumaData && majorTraumaData.length > 0
+                ? majorTraumaRender
+                : null}
+
+              {manchesterTriageSystemData &&
+              manchesterTriageSystemData.length > 0
+                ? manchesterTriageSystemRender
+                : null}
+
+              {pathfindersData && pathfindersData.length > 0
+                ? pathfindersRender
+                : null}
+
+              {jointDecisionMakingData && jointDecisionMakingData.length > 0 ? (
+                <>
+                  <HeadingTwo text="Joint Decision Making" />
+                  {jointDecisionMakingRender}
+                </>
+              ) : null}
+            </>
+          ) : (
+            "Triage and Pathfinder Support data not recorded"
+          )}
+        </ReportContainer>
+      </PatientReportSection>
+
       {/* Trauma Management */}
       <PatientReportSection>
         <PatientReportHeadingContainer>
@@ -2360,24 +2414,6 @@ function PatientReport({
         </ReportContainer>
       </PatientReportSection>
 
-      {/* Transport Options */}
-      <PatientReportSection>
-        <PatientReportHeadingContainer>
-          <HeadingOne
-            icon="fas fa-file-medical-alt"
-            text="Transport Options"
-            padding="1rem"
-          />
-        </PatientReportHeadingContainer>
-        <ReportContainer>
-          {selectedPatient === null
-            ? "Please select a Patient from the Patient list"
-            : transportOptionsData && transportOptionsData.length > 0
-            ? transportOptionsRender
-            : "Transport Options data not recorded"}
-        </ReportContainer>
-      </PatientReportSection>
-
       {/* Communications, Consent and Notifications */}
       <PatientReportSection>
         <PatientReportHeadingContainer>
@@ -2396,42 +2432,6 @@ function PatientReport({
               patientRefusalData.length > 0
             ? communicationsConsentNotificationsRender
             : "Communications, Consent and Notifications data not recorded"}
-        </ReportContainer>
-      </PatientReportSection>
-
-      {/* Airways Management */}
-      <PatientReportSection>
-        <PatientReportHeadingContainer>
-          <HeadingOne
-            icon="fas fa-file-medical-alt"
-            text="Airways Management"
-            padding="1rem"
-          />
-        </PatientReportHeadingContainer>
-        <ReportContainer>
-          {selectedPatient === null
-            ? "Please select a Patient from the Patient list"
-            : airwaysManagementData && airwaysManagementData.length > 0
-            ? airwaysManagementRender
-            : "Airways Management data not recorded"}
-        </ReportContainer>
-      </PatientReportSection>
-
-      {/* Clinical Observations */}
-      <PatientReportSection>
-        <PatientReportHeadingContainer>
-          <HeadingOne
-            icon="fas fa-file-medical-alt"
-            text="Clinical Observations"
-            padding="1rem"
-          />
-        </PatientReportHeadingContainer>
-        <ReportContainer>
-          {selectedPatient === null
-            ? "Please select a Patient from the Patient list"
-            : clinicalObservationsData && clinicalObservationsData.length > 0
-            ? clinicalObservationsRender
-            : "Clinical Observations data not recorded"}
         </ReportContainer>
       </PatientReportSection>
 
