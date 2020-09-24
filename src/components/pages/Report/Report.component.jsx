@@ -13,41 +13,41 @@ import Ecg from "../../subPages/Ecg/Ecg.component";
 import Media from "../../subPages/Media/Media.component";
 import Notes from "../../subPages/Notes/Notes.component";
 import PatientReport from "../../subPages/PatientReport/PatientReport.component";
-import Sbar from "../../subPages/Sbar/Sbar.component";
+// import Sbar from "../../subPages/Sbar/Sbar.component";
 
 // page: Report
 function Report({ selectedPatient }) {
   // State
-  const [cadDetailsData, setCADDetailsData] = useState([]);
-  const [patientDetailsData, setPatientDetailsData] = useState([]);
-  const [nokData, setNokData] = useState([]);
-  const [specialistPathwaysData, setSpecialistPathwaysData] = useState([]);
-  const [majorTraumaData, setMajorTraumaData] = useState([]);
+  const [cadDetailsData, setCADDetailsData] = useState([]); // Incident Information
+  const [patientDetailsData, setPatientDetailsData] = useState([]); // Patient Details
+  const [nokData, setNokData] = useState([]); // Patient Details
+  const [clinicalObservationsData, setClinicalObservationsData] = useState([]); // Clinical Observations
+  const [patientIVData, setPatientIVData] = useState([]); // IV Access and Medications
+  const [drugsMedsData, setDrugsMedsData] = useState([]); // IV Access and Medications
+  const [cardiacChestPainData, setCardiacChestPainData] = useState([]); // Cardiovascular Assessment
+  const [strokeAssessmentData, setStrokeAssessmentData] = useState([]); // Cardiovascular Assessment
+  const [airwaysManagementData, setAirwaysManagementData] = useState([]); // Airways Management
+  const [cardiacArrestData, setCardiacArrestData] = useState([]); // Cardiac Arrest
+  const [transportOptionsData, setTransportOptionsData] = useState([]); // Transport Options
+  const [specialistPathwaysData, setSpecialistPathwaysData] = useState([]); // Triage and Pathfinder Support
+  const [majorTraumaData, setMajorTraumaData] = useState([]); // Triage and Pathfinder Support
   const [manchesterTriageSystemData, setManchesterTriageSystemData] = useState(
     []
-  );
-  const [pathfindersData, setPathfindersData] = useState([]);
-  const [jointDecisionMakingData, setJointDecisionMakingData] = useState([]);
-  const [cardiacChestPainData, setCardiacChestPainData] = useState([]);
-  const [strokeAssessmentData, setStrokeAssessmentData] = useState([]);
-  const [cardiacArrestData, setCardiacArrestData] = useState([]);
-  const [patientIVData, setPatientIVData] = useState([]);
-  const [drugsMedsData, setDrugsMedsData] = useState([]);
-  const [skeletalTraumaData, setSkeletalTraumaData] = useState([]);
-  const [burnsData, setBurnsData] = useState([]);
-  const [transportOptionsData, setTransportOptionsData] = useState([]);
+  ); // Triage and Pathfinder Support
+  const [pathfindersData, setPathfindersData] = useState([]); // Triage and Pathfinder Support
+  const [jointDecisionMakingData, setJointDecisionMakingData] = useState([]); // Triage and Pathfinder Support
+  const [skeletalTraumaData, setSkeletalTraumaData] = useState([]); // Trauma Management
+  const [burnsData, setBurnsData] = useState([]); // Trauma Management
   const [
     communicationsConsentNotificationsData,
     setCommunicationsConsentNotificationsData,
-  ] = useState([]);
-  const [patientRefusalData, setPatientRefusalData] = useState([]);
-  const [airwaysManagementData, setAirwaysManagementData] = useState([]);
-  const [clinicalObservationsData, setClinicalObservationsData] = useState([]);
-  const [mentalCapacityData, setMentalCapacityData] = useState([]);
-  const [patientDecisionsData, setPatientDecisionsData] = useState([]);
-  const [patientCapacityData, setPatientCapacityData] = useState([]);
-  const [bestInterestData, setBestInterestData] = useState([]);
-  const [signAndSyncData, setSignAndSyncData] = useState([]);
+  ] = useState([]); // Communications, Consent and Notifications
+  const [patientRefusalData, setPatientRefusalData] = useState([]); // Communications, Consent and Notifications
+  const [mentalCapacityData, setMentalCapacityData] = useState([]); // Capacity to Consent
+  const [patientDecisionsData, setPatientDecisionsData] = useState([]); // Capacity to Consent
+  const [patientCapacityData, setPatientCapacityData] = useState([]); // Capacity to Consent
+  const [bestInterestData, setBestInterestData] = useState([]); // Capacity to Consent
+  const [signAndSyncData, setSignAndSyncData] = useState([]); // Sign and Sync
 
   // When selectedPatient changes fetch selected Patient report data from OneResponse APIs
   // If successful, ...Data === OneResponse API data (for selected Patient), loading === false
@@ -386,11 +386,36 @@ function Report({ selectedPatient }) {
 
         <Switch>
           <Route exact path="/">
-            <Sbar selectedPatient={selectedPatient} />
-          </Route>
-
-          <Route path="/sbar">
-            <Sbar selectedPatient={selectedPatient} />
+            <PatientReport
+              selectedPatient={selectedPatient}
+              cadDetailsData={cadDetailsData}
+              patientDetailsData={patientDetailsData}
+              nokData={nokData}
+              specialistPathwayData={specialistPathwaysData}
+              majorTraumaData={majorTraumaData}
+              manchesterTriageSystemData={manchesterTriageSystemData}
+              pathfindersData={pathfindersData}
+              jointDecisionMakingData={jointDecisionMakingData}
+              cardiacChestPainData={cardiacChestPainData}
+              strokeAssessmentData={strokeAssessmentData}
+              cardiacArrestData={cardiacArrestData}
+              patientIVData={patientIVData}
+              drugsMedsData={drugsMedsData}
+              skeletalTraumaData={skeletalTraumaData}
+              burnsData={burnsData}
+              transportOptionsData={transportOptionsData}
+              communicationsConsentNotificationsData={
+                communicationsConsentNotificationsData
+              }
+              patientRefusalData={patientRefusalData}
+              airwaysManagementData={airwaysManagementData}
+              clinicalObservationsData={clinicalObservationsData}
+              mentalCapacityData={mentalCapacityData}
+              patientDecisionsData={patientDecisionsData}
+              patientCapacityData={patientCapacityData}
+              bestInterestData={bestInterestData}
+              signAndSyncData={signAndSyncData}
+            />
           </Route>
 
           <Route path="/patient-report">

@@ -11,7 +11,7 @@ function ReportHeader() {
   return (
     <ReportHeaderContainer>
       <ReportHeaderOptions>
-        <NavLink
+        {/* <NavLink
           activeStyle={{
             borderTop: "3px solid #569fd3",
           }}
@@ -19,7 +19,7 @@ function ReportHeader() {
         >
           <Icon icon="fas fa-laptop-medical" />
           <li>SBAR</li>
-        </NavLink>
+        </NavLink> */}
 
         <NavLink
           activeStyle={{
