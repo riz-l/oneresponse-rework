@@ -16,23 +16,23 @@ function PatientReport({
   cadDetailsData,
   patientDetailsData,
   nokData,
-  specialistPathwayData,
+  clinicalObservationsData,
+  patientIVData,
+  drugsMedsData,
+  cardiacChestPainData,
+  strokeAssessmentData,
+  airwaysManagementData,
+  cardiacArrestData,
+  transportOptionsData,
+  specialistPathwaysData,
   majorTraumaData,
   manchesterTriageSystemData,
   pathfindersData,
   jointDecisionMakingData,
-  cardiacChestPainData,
-  strokeAssessmentData,
-  cardiacArrestData,
-  patientIVData,
-  drugsMedsData,
   skeletalTraumaData,
   burnsData,
-  transportOptionsData,
   communicationsConsentNotificationsData,
   patientRefusalData,
-  airwaysManagementData,
-  clinicalObservationsData,
   mentalCapacityData,
   patientDecisionsData,
   patientCapacityData,
@@ -328,7 +328,7 @@ function PatientReport({
   //#endregion /patientDetailsRender = Patient Details report
 
   //#region specialistPathwayRender = Specialist Pathway report #TODO - Needs testing
-  const specialistPathwayRender = specialistPathwayData.map(
+  const specialistPathwayRender = specialistPathwaysData.map(
     ({
       id,
       Pathway_Refusal,
@@ -2184,8 +2184,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
-          ) : specialistPathwayData &&
-            specialistPathwayData.length > 0 &&
+          ) : specialistPathwaysData &&
+            specialistPathwaysData.length > 0 &&
             majorTraumaData &&
             majorTraumaData.length > 0 &&
             manchesterTriageSystemData &&
@@ -2195,7 +2195,7 @@ function PatientReport({
             jointDecisionMakingData &&
             jointDecisionMakingData.length > 0 ? (
             <>
-              {specialistPathwayData && specialistPathwayData.length > 0
+              {specialistPathwaysData && specialistPathwaysData.length > 0
                 ? specialistPathwayRender
                 : null}
 

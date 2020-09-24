@@ -91,6 +91,104 @@ function Report({ selectedPatient }) {
         }
         //#endregion /Next of Kin Data
 
+        //#region Clinical Observations data
+        try {
+          const clinicalObservationsApi = `https://cad-message-to-trust-test.azurewebsites.net/ClinicalObservations/ePRID/${selectedPatient}`;
+          const clinicalObservationsResponse = await fetch(
+            clinicalObservationsApi
+          );
+          const clinicalObservationsApiData = await clinicalObservationsResponse.json();
+          setClinicalObservationsData(clinicalObservationsApiData);
+        } catch (error) {
+          console.log("Clinical Observations data error: ", error);
+          throw new Error("Unable to retrieve Clinical Observations data.");
+        }
+        //#endregion /Clinical Observations data
+
+        //#region Patient IV data
+        try {
+          const patientIVApi = `https://cad-message-to-trust-test.azurewebsites.net/PatientIV/ePRID/${selectedPatient}`;
+          const patientIVResponse = await fetch(patientIVApi);
+          const patientIVApiData = await patientIVResponse.json();
+          setPatientIVData(patientIVApiData);
+        } catch (error) {
+          console.log("Patient IV data error: ", error);
+          throw new Error("Unable to retrieve Patient IV data.");
+        }
+        //#endregion /Patient IV data
+
+        //#region Drugs Meds data
+        try {
+          const drugsMedsApi = `https://cad-message-to-trust-test.azurewebsites.net/DrugsMeds/ePRID/${selectedPatient}`;
+          const drugsMedsResponse = await fetch(drugsMedsApi);
+          const drugsMedsApiData = await drugsMedsResponse.json();
+          setDrugsMedsData(drugsMedsApiData);
+        } catch (error) {
+          console.log("Drugs / Meds data error: ", error);
+          throw new Error("Unable to retrieve Drugs / Meds data.");
+        }
+        //#endregion Drugs Meds data
+
+        //#region Cardiac Chest Pain data
+        try {
+          const cardiacChestPainApi = `https://cad-message-to-trust-test.azurewebsites.net/CardiacChestPain/ePRID/${selectedPatient}`;
+          const cardiacChestPainResponse = await fetch(cardiacChestPainApi);
+          const cardiacChestPainApiData = await cardiacChestPainResponse.json();
+          setCardiacChestPainData(cardiacChestPainApiData);
+        } catch (error) {
+          console.log(error);
+          throw new Error("Unable to retrieve Cardiac Chest Pain data.");
+        }
+        //#endregion /Cardiac Chest Pain data
+
+        //#region Stroke Assessment data
+        try {
+          const strokeAssessmentApi = `https://cad-message-to-trust-test.azurewebsites.net/StrokeAssessment/ePRID/${selectedPatient}`;
+          const strokeAssessmentResponse = await fetch(strokeAssessmentApi);
+          const strokeAssessmentApiData = await strokeAssessmentResponse.json();
+          setStrokeAssessmentData(strokeAssessmentApiData);
+        } catch (error) {
+          console.log("Stroke Assessment data error: ", error);
+          throw new Error("Unable to retrieve Stroke Assessment data.");
+        }
+        //#endregion /Stroke Assessment data
+
+        //#region Airways Management data
+        try {
+          const airwaysManagementApi = `https://cad-message-to-trust-test.azurewebsites.net/AirwaysManagement/ePRID/${selectedPatient}`;
+          const airwaysManagementResponse = await fetch(airwaysManagementApi);
+          const airwaysManagementApiData = await airwaysManagementResponse.json();
+          setAirwaysManagementData(airwaysManagementApiData);
+        } catch (error) {
+          console.log("Airways Management data error: ", error);
+          throw new Error("Unable to retrieve Airways Management data.");
+        }
+        //#endregion /Airways Management data
+
+        //#region Cardiac Arrest data
+        try {
+          const cardiacArrestApi = `https://cad-message-to-trust-test.azurewebsites.net/CardiacArrest/ePRID/${selectedPatient}`;
+          const cardiacArrestResponse = await fetch(cardiacArrestApi);
+          const cardiacArrestApiData = await cardiacArrestResponse.json();
+          setCardiacArrestData(cardiacArrestApiData);
+        } catch (error) {
+          console.log("Cardiac Arrest data error: ", error);
+          throw new Error("Unable to retrieve Cardiac Arrest data.");
+        }
+        //#endregion /Cardiac Arrest data
+
+        //#region Transport Options data
+        try {
+          const transportOptionsApi = `https://cad-message-to-trust-test.azurewebsites.net/TransportOptions/ePRID/${selectedPatient}`;
+          const transportOptionsResponse = await fetch(transportOptionsApi);
+          const transportOptionsApiData = await transportOptionsResponse.json();
+          setTransportOptionsData(transportOptionsApiData);
+        } catch (error) {
+          console.log("Transport Options data error: ", error);
+          throw new Error("Unable to retrieve Transport Options data.");
+        }
+        //#endregion /Transport Options data
+
         //#region Specialist Pathways data
         try {
           const specialistPathwaysApi = `https://cad-message-to-trust-test.azurewebsites.net/SpecialistPathways/ePRID/${selectedPatient}`;
@@ -155,66 +253,6 @@ function Report({ selectedPatient }) {
         }
         //#endregion /Joint Decision Making data
 
-        //#region Cardiac Chest Pain data
-        try {
-          const cardiacChestPainApi = `https://cad-message-to-trust-test.azurewebsites.net/CardiacChestPain/ePRID/${selectedPatient}`;
-          const cardiacChestPainResponse = await fetch(cardiacChestPainApi);
-          const cardiacChestPainApiData = await cardiacChestPainResponse.json();
-          setCardiacChestPainData(cardiacChestPainApiData);
-        } catch (error) {
-          console.log(error);
-          throw new Error("Unable to retrieve Cardiac Chest Pain data.");
-        }
-        //#endregion /Cardiac Chest Pain data
-
-        //#region Stroke Assessment data
-        try {
-          const strokeAssessmentApi = `https://cad-message-to-trust-test.azurewebsites.net/StrokeAssessment/ePRID/${selectedPatient}`;
-          const strokeAssessmentResponse = await fetch(strokeAssessmentApi);
-          const strokeAssessmentApiData = await strokeAssessmentResponse.json();
-          setStrokeAssessmentData(strokeAssessmentApiData);
-        } catch (error) {
-          console.log("Stroke Assessment data error: ", error);
-          throw new Error("Unable to retrieve Stroke Assessment data.");
-        }
-        //#endregion /Stroke Assessment data
-
-        //#region Cardiac Arrest data
-        try {
-          const cardiacArrestApi = `https://cad-message-to-trust-test.azurewebsites.net/CardiacArrest/ePRID/${selectedPatient}`;
-          const cardiacArrestResponse = await fetch(cardiacArrestApi);
-          const cardiacArrestApiData = await cardiacArrestResponse.json();
-          setCardiacArrestData(cardiacArrestApiData);
-        } catch (error) {
-          console.log("Cardiac Arrest data error: ", error);
-          throw new Error("Unable to retrieve Cardiac Arrest data.");
-        }
-        //#endregion /Cardiac Arrest data
-
-        //#region Patient IV data
-        try {
-          const patientIVApi = `https://cad-message-to-trust-test.azurewebsites.net/PatientIV/ePRID/${selectedPatient}`;
-          const patientIVResponse = await fetch(patientIVApi);
-          const patientIVApiData = await patientIVResponse.json();
-          setPatientIVData(patientIVApiData);
-        } catch (error) {
-          console.log("Patient IV data error: ", error);
-          throw new Error("Unable to retrieve Patient IV data.");
-        }
-        //#endregion /Patient IV data
-
-        //#region Drugs Meds data
-        try {
-          const drugsMedsApi = `https://cad-message-to-trust-test.azurewebsites.net/DrugsMeds/ePRID/${selectedPatient}`;
-          const drugsMedsResponse = await fetch(drugsMedsApi);
-          const drugsMedsApiData = await drugsMedsResponse.json();
-          setDrugsMedsData(drugsMedsApiData);
-        } catch (error) {
-          console.log("Drugs / Meds data error: ", error);
-          throw new Error("Unable to retrieve Drugs / Meds data.");
-        }
-        //#endregion Drugs Meds data
-
         //#region Skeletal Trauma data
         try {
           const skeletalTraumaApi = `https://cad-message-to-trust-test.azurewebsites.net/SkeletalTrauma/ePRID/${selectedPatient}`;
@@ -238,18 +276,6 @@ function Report({ selectedPatient }) {
           throw new Error("Unable to retrieve Burns data.");
         }
         //#endregion Burns data
-
-        //#region Transport Options data
-        try {
-          const transportOptionsApi = `https://cad-message-to-trust-test.azurewebsites.net/TransportOptions/ePRID/${selectedPatient}`;
-          const transportOptionsResponse = await fetch(transportOptionsApi);
-          const transportOptionsApiData = await transportOptionsResponse.json();
-          setTransportOptionsData(transportOptionsApiData);
-        } catch (error) {
-          console.log("Transport Options data error: ", error);
-          throw new Error("Unable to retrieve Transport Options data.");
-        }
-        //#endregion /Transport Options data
 
         //#region Communications, Consent and Notifications
         try {
@@ -283,32 +309,6 @@ function Report({ selectedPatient }) {
           throw new Error("Unable to retrieve Patient Refusal data.");
         }
         //#endregion /Communications, Consent and Notifications
-
-        //#region Airways Management data
-        try {
-          const airwaysManagementApi = `https://cad-message-to-trust-test.azurewebsites.net/AirwaysManagement/ePRID/${selectedPatient}`;
-          const airwaysManagementResponse = await fetch(airwaysManagementApi);
-          const airwaysManagementApiData = await airwaysManagementResponse.json();
-          setAirwaysManagementData(airwaysManagementApiData);
-        } catch (error) {
-          console.log("Airways Management data error: ", error);
-          throw new Error("Unable to retrieve Airways Management data.");
-        }
-        //#endregion /Airways Management data
-
-        //#region Clinical Observations data
-        try {
-          const clinicalObservationsApi = `https://cad-message-to-trust-test.azurewebsites.net/ClinicalObservations/ePRID/${selectedPatient}`;
-          const clinicalObservationsResponse = await fetch(
-            clinicalObservationsApi
-          );
-          const clinicalObservationsApiData = await clinicalObservationsResponse.json();
-          setClinicalObservationsData(clinicalObservationsApiData);
-        } catch (error) {
-          console.log("Clinical Observations data error: ", error);
-          throw new Error("Unable to retrieve Clinical Observations data.");
-        }
-        //#endregion /Clinical Observations data
 
         //#region Mental Capacity data
         try {
@@ -391,25 +391,25 @@ function Report({ selectedPatient }) {
               cadDetailsData={cadDetailsData}
               patientDetailsData={patientDetailsData}
               nokData={nokData}
-              specialistPathwayData={specialistPathwaysData}
+              clinicalObservationsData={clinicalObservationsData}
+              patientIVData={patientIVData}
+              drugsMedsData={drugsMedsData}
+              cardiacChestPainData={cardiacChestPainData}
+              strokeAssessmentData={strokeAssessmentData}
+              airwaysManagementData={airwaysManagementData}
+              cardiacArrestData={cardiacArrestData}
+              transportOptionsData={transportOptionsData}
+              specialistPathwaysData={specialistPathwaysData}
               majorTraumaData={majorTraumaData}
               manchesterTriageSystemData={manchesterTriageSystemData}
               pathfindersData={pathfindersData}
               jointDecisionMakingData={jointDecisionMakingData}
-              cardiacChestPainData={cardiacChestPainData}
-              strokeAssessmentData={strokeAssessmentData}
-              cardiacArrestData={cardiacArrestData}
-              patientIVData={patientIVData}
-              drugsMedsData={drugsMedsData}
               skeletalTraumaData={skeletalTraumaData}
               burnsData={burnsData}
-              transportOptionsData={transportOptionsData}
               communicationsConsentNotificationsData={
                 communicationsConsentNotificationsData
               }
               patientRefusalData={patientRefusalData}
-              airwaysManagementData={airwaysManagementData}
-              clinicalObservationsData={clinicalObservationsData}
               mentalCapacityData={mentalCapacityData}
               patientDecisionsData={patientDecisionsData}
               patientCapacityData={patientCapacityData}
@@ -424,25 +424,25 @@ function Report({ selectedPatient }) {
               cadDetailsData={cadDetailsData}
               patientDetailsData={patientDetailsData}
               nokData={nokData}
-              specialistPathwayData={specialistPathwaysData}
+              clinicalObservationsData={clinicalObservationsData}
+              patientIVData={patientIVData}
+              drugsMedsData={drugsMedsData}
+              cardiacChestPainData={cardiacChestPainData}
+              strokeAssessmentData={strokeAssessmentData}
+              airwaysManagementData={airwaysManagementData}
+              cardiacArrestData={cardiacArrestData}
+              transportOptionsData={transportOptionsData}
+              specialistPathwaysData={specialistPathwaysData}
               majorTraumaData={majorTraumaData}
               manchesterTriageSystemData={manchesterTriageSystemData}
               pathfindersData={pathfindersData}
               jointDecisionMakingData={jointDecisionMakingData}
-              cardiacChestPainData={cardiacChestPainData}
-              strokeAssessmentData={strokeAssessmentData}
-              cardiacArrestData={cardiacArrestData}
-              patientIVData={patientIVData}
-              drugsMedsData={drugsMedsData}
               skeletalTraumaData={skeletalTraumaData}
               burnsData={burnsData}
-              transportOptionsData={transportOptionsData}
               communicationsConsentNotificationsData={
                 communicationsConsentNotificationsData
               }
               patientRefusalData={patientRefusalData}
-              airwaysManagementData={airwaysManagementData}
-              clinicalObservationsData={clinicalObservationsData}
               mentalCapacityData={mentalCapacityData}
               patientDecisionsData={patientDecisionsData}
               patientCapacityData={patientCapacityData}
