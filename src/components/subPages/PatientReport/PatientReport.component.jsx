@@ -1027,7 +1027,7 @@ function PatientReport({
             />
             <ReportField field="By" data={ET_By ? ET_By : "Not recorded"} />
             <ReportField
-              field="Grade of View"
+              field="Grade of View for meeee"
               data={GradeOfView ? GradeOfView : "Not recorded"}
               marginBottom="1rem"
             />
