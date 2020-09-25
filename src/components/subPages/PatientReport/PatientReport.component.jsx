@@ -176,7 +176,7 @@ function PatientReport({
             data={GPName ? GPName : "Not recorded"}
           />
           <ReportField
-            field="GP Surgery Address"
+            field="GP Address"
             data={
               GPAddressLine1 ||
               GPAddressLine2 ||
@@ -263,7 +263,7 @@ function PatientReport({
               data={PD_Gender ? PD_Gender : "Not recorded"}
             />
             <ReportField
-              field="NHS Number"
+              field="NHS No."
               data={PD_NHS_No ? PD_NHS_No : "Not recorded"}
             />
             <ReportField
@@ -302,7 +302,7 @@ function PatientReport({
               }
             />
             <ReportField
-              field="Does the Patient have allergies?"
+              field="Patient has allergies?"
               data={PD_Patient_Allergy ? PD_Patient_Allergy : "Not recorded"}
             />
             <ReportField
@@ -310,7 +310,7 @@ function PatientReport({
               data={PD_Allergy ? PD_Allergy : "Not recorded"}
             />
             <ReportField
-              field="Does the Patient take medication?"
+              field="Patient takes medications?"
               data={PD_Patient_Meds ? PD_Patient_Meds : "Not recorded"}
             />
             <ReportField
