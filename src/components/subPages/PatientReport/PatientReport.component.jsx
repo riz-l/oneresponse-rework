@@ -2141,7 +2141,7 @@ function PatientReport({
         <HeadingTwo text="Patient Refusal" marginBottom="1rem" />
         <HeadingThree text="Refusal Statement/Signature" />
         <ReportField
-          field="All the information and treatment options relating to my conditions/injuries have been explained. I fully understand the risks of refusing treatment or transport as advised by the ambulance clinician and I accept alll responsibility for my own care."
+          field="All the information and treatment options relating to my conditions/injuries have been explained. I fully understand the risks of refusing treatment or transport as advised by the ambulance clinician and I accept all responsibility for my own care."
           marginBottom="2rem"
         />
 
