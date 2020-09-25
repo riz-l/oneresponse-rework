@@ -32,12 +32,12 @@ OneResponse - Management Coding Guidelines
 
 ### Basic Rules
 
-When creating a component, follow the below structure with 'Test' being an example:
+When creating a component, follow the below structure with `Test` being an example:
 
 #### Initial Naming Conventions
 
-- Folder name: 'Test'
-- Component name: 'Test.component.jsx'
+- Folder name: `Test`
+- Component name: `Test.component.jsx`
 
 #### Section Order
 
