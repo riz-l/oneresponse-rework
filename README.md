@@ -43,15 +43,15 @@ When creating a component, follow the below structure with 'Test' being an examp
 
 - Imports
 
-  - // Import: Dependencies
-  - // Import: UI
-  - // Import: subPages
-  - // Import: pages
+  - `// Import: Dependencies`
+  - `// Import: UI`
+  - `// Import: subPages`
+  - `// Import: pages`
 
 - Component
 
-  - // [UI, subPage, or page]: Test
-  - // Export: Test
+  - `// [UI, subPage, or page]: Test`
+  - `// Export: Test`
 
 - Styled Components
-  - // Styled: TestContainer
+  - `// Styled: TestContainer`
