@@ -975,8 +975,11 @@ function PatientReport({
       ET_Size,
       ET_By,
       GradeOfView,
+      SurgicalCric,
       SurgicalCric_By,
+      Suction,
       Suction_By,
+      Thoracostomy,
       Thoracostomy_By,
     }) => (
       <PatientReportRender key={id}>
@@ -1036,6 +1039,15 @@ function PatientReport({
           <PatientReportColumn>
             <HeadingThree text="Surgical Cric." />
             <ReportField
+              data={
+                SurgicalCric
+                  ? SurgicalCric === "True"
+                    ? "Yes"
+                    : "No"
+                  : "Not recorded"
+              }
+            />
+            <ReportField
               field="By"
               data={SurgicalCric_By ? SurgicalCric_By : "Not recorded"}
               marginBottom="1rem"
@@ -1043,12 +1055,26 @@ function PatientReport({
 
             <HeadingThree text="Suction" />
             <ReportField
+              data={
+                Suction ? (Suction === "True" ? "Yes" : "No") : "Not recorded"
+              }
+            />
+            <ReportField
               field="By"
               data={Suction_By ? Suction_By : "Not recorded"}
               marginBottom="1rem"
             />
 
             <HeadingThree text="Thoracostomy" />
+            <ReportField
+              data={
+                Thoracostomy
+                  ? Thoracostomy === "True"
+                    ? "Yes"
+                    : "No"
+                  : "Not recorded"
+              }
+            />
             <ReportField
               field="By"
               data={Thoracostomy_By ? Thoracostomy_By : "Not recorded"}
