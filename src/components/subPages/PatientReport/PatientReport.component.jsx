@@ -1913,7 +1913,7 @@ function PatientReport({
 
           <PatientReportColumn>
             <ReportField
-              field="Is there any reason to doubt the Patients capacity?"
+              field="Is there reason to doubt the Patients capacity?"
               data={MCA_Reason ? MCA_Reason : "Not recorded"}
               marginBottom="2rem"
             />
