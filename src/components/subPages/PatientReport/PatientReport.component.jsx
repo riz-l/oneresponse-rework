@@ -1197,6 +1197,7 @@ function PatientReport({
       DestinationName,
       WardName,
       OtherLocation,
+      patientOwnMeds,
       Pre_Alert,
       PreAlert_RAG,
       NonTransportReason,
@@ -1218,6 +1219,16 @@ function PatientReport({
             <ReportField
               field="Other Location"
               data={OtherLocation ? OtherLocation : "Not recorded"}
+            />
+            <ReportField
+              field="Patient Own Meds Transported"
+              data={
+                patientOwnMeds
+                  ? patientOwnMeds === "True"
+                    ? "Yes"
+                    : "No"
+                  : "Not recorded"
+              }
               marginBottom="2rem"
             />
           </PatientReportColumn>
