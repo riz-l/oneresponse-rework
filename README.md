@@ -50,7 +50,7 @@ To get started, follow the below steps:
 
 When creating a component, follow the below structure with `Test` being used as an example:
 
-#### Initial Naming Conventions
+#### Important Naming Conventions
 
 - Folder name: `Test`
 - Component name: `Test.component.jsx`
