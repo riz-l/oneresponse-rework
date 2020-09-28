@@ -1294,7 +1294,7 @@ function PatientReport({
               data={Pathway_Refusal ? Pathway_Refusal : "Not recorded"}
             />
             <ReportField
-              field="Pathway Not Applicable"
+              field="Patient refused pathway"
               data={
                 Pathway_NotApplicable ? Pathway_NotApplicable : "Not recorded"
               }
@@ -1345,7 +1345,7 @@ function PatientReport({
               data={Pathway_Refusal ? Pathway_Refusal : "Not recorded"}
             />
             <ReportField
-              field="Pathway Not Applicable"
+              field="Patient refused pathway"
               data={
                 Pathway_NotApplicable ? Pathway_NotApplicable : "Not recorded"
               }
@@ -1414,7 +1414,7 @@ function PatientReport({
               }
             />
             <ReportField
-              field="Pathway Not Applicable"
+              field="Patient refused pathway"
               data={
                 Pathway_NotApplicable ? Pathway_NotApplicable : "Not recorded"
               }
@@ -1480,7 +1480,7 @@ function PatientReport({
               data={Pathway_Refusal ? Pathway_Refusal : "Not recorded"}
             />
             <ReportField
-              field="Pathway Not Applicable"
+              field="Patient refused pathway"
               data={
                 Pathway_NotApplicable ? Pathway_NotApplicable : "Not recorded"
               }
