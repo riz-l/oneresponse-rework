@@ -2,10 +2,10 @@ OneResponse - Management Coding Guidelines
 
 ## Installed Packages
 
-- create-react-app
-- react-router-dom
-- node-sass
-- styled-components
+- `create-react-app`
+- `react-router-dom`
+- `node-sass`
+- `styled-components`
 
 ## VS Code Extensions
 
@@ -32,7 +32,7 @@ OneResponse - Management Coding Guidelines
 
 ### Basic Rules
 
-When creating a component, follow the below structure with `Test` being an example:
+When creating a component, follow the below structure with `Test` being used as an example:
 
 #### Initial Naming Conventions
 
