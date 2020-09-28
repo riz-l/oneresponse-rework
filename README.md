@@ -44,9 +44,9 @@ To get started, follow the below steps:
 
 ## Coding Style Guide
 
-1. Basic rules
+1. Component Structure
 
-### Basic Rules
+### Component Structure
 
 When creating a component, follow the below structure with `Test` being used as an example:
 
