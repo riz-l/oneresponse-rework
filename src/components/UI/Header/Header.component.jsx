@@ -54,6 +54,7 @@ const HeaderContainer = styled.div`
     "primary-header"
     "secondary-header";
   grid-template-rows: 7vh 5vh;
+  min-height: 200px;
 `;
 
 // Styled: HeaderPrimary

@@ -1542,28 +1542,26 @@ function PatientReport({
       ActionTaken,
       TraumaCellAdvice,
       ClinicalSupportAdvice,
+      OtherSupportAdvice,
+      AdviceForm,
       ClinicalSupportNotes,
       OtherAdvice,
-      AdviceForm,
     }) => (
       <PatientReportRender
         key={id}
         style={{ borderBottom: "1px solid #e0e0e0" }}
       >
-        <PatientReportGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Action Taken"
-              data={ActionTaken ? ActionTaken : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
+        <ReportField
+          field="Action Taken"
+          data={ActionTaken ? ActionTaken : "Not recorded"}
+          marginBottom="1rem"
+        />
+        <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Trauma Cell"
               data={TraumaCellAdvice ? TraumaCellAdvice : "Not recorded"}
-              paddingBottom="0"
+              marginBottom="1rem"
             />
           </PatientReportColumn>
 
@@ -1573,25 +1571,15 @@ function PatientReport({
               data={
                 ClinicalSupportAdvice ? ClinicalSupportAdvice : "Not recorded"
               }
-              paddingBottom="0"
+              marginBottom="1rem"
             />
           </PatientReportColumn>
 
           <PatientReportColumn>
             <ReportField
-              field="Note"
-              data={
-                ClinicalSupportNotes ? ClinicalSupportNotes : "Not recorded"
-              }
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
-
-          <PatientReportColumn>
-            <ReportField
-              field="Other (Please State)"
-              data={OtherAdvice ? OtherAdvice : "Not recorded"}
-              paddingBottom="0"
+              field="Other"
+              data={OtherSupportAdvice ? OtherSupportAdvice : "Not recorded"}
+              marginBottom="1rem"
             />
           </PatientReportColumn>
 
@@ -1599,10 +1587,20 @@ function PatientReport({
             <ReportField
               field="Advice Given By"
               data={AdviceForm ? AdviceForm : "Not recorded"}
-              paddingBottom="0"
+              marginBottom="1rem"
             />
           </PatientReportColumn>
-        </PatientReportGrid>
+        </PatientReportTableGrid>
+        <ReportField
+          field="Note"
+          data={ClinicalSupportNotes ? ClinicalSupportNotes : "Not recorded"}
+          marginBottom="1rem"
+        />
+        <ReportField
+          field="Other (Please State)"
+          data={OtherAdvice ? OtherAdvice : "Not recorded"}
+          paddingBottom="0"
+        />
       </PatientReportRender>
     )
   );
