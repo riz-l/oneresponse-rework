@@ -100,7 +100,7 @@ const TestContainer = styled.div`
 
 ### Styling
 
-When styling in (S)CSS and/or with `styled-components`, keep all styling properties in alphabetical order.
+When styling in `(S)CSS` and/or with `styled-components`, keep all styling properties in alphabetical order.
 
 `TestContainer` will be used as a `styled-components` example:
 
