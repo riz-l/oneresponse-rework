@@ -60,6 +60,7 @@ When creating a component, follow the below structure with `Test` being used as 
 - Imports
 
   - `// Import: Dependencies`
+  - `// Import: Assets`
   - `// Import: UI`
   - `// Import: subPages`
   - `// Import: pages`
@@ -71,3 +72,28 @@ When creating a component, follow the below structure with `Test` being used as 
 
 - Styled Components
   - `// Styled: TestContainer`
+
+#### Example
+
+```
+// Import: Dependencies
+import React from "react";
+import styled from "styled-components";
+
+// UI: Test
+function Test() {
+  return(
+    <TestContainer>
+      <h1>Hello, world!</h1>
+    </TestContainer>
+  );
+}
+
+// Export: Test
+export default Test;
+
+// Styled: TestContainer
+const TestContainer = styled.div`
+  ... styling
+`;
+```
