@@ -168,11 +168,11 @@ e.g. `// Import: Dependencies` as seen in the above Component Structure section.
 
 ```
 // State = randomData, preciseData
-const [randomData, setRandomData] = useState([]); // Random Data
-const [preciseData, setPreciseData] = useState([]); // Precise Data
+const [randomData, setRandomData] = useState([]);
+const [preciseData, setPreciseData] = useState([]);
 ```
 
-If you are using lots of different state variables, add a comment alongside each state item to clarify each state item's use. For example:
+If you are using lots of different state variables, instead of commenting the variable name in the above `// State` comment, add a comment alongside each state item to clarify each state item's use. For example:
 
 ```
 // State
