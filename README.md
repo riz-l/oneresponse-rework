@@ -97,3 +97,22 @@ const TestContainer = styled.div`
   ... styling
 `;
 ```
+
+### Styling
+
+When styling in (S)CSS and/or with `styled-components`, keep all styling properties in alphabetical order.
+
+`TestContainer` will be used as a `styled-components` example:
+
+```
+// Styled: TestContainer
+const TestContainer = styled.div`
+  align-items: center;
+  background: red;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+`;
+```
