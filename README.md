@@ -44,16 +44,31 @@ To get started, follow the below steps:
 
 ## Coding Style Guide
 
-1. Component Structure
+1. [Component Stucture](#component-structure)
+2. [Styling](#styling)
+3. [Commenting](#commenting)
 
 ### Component Structure
 
 When creating a component, follow the below structure with `Test` being used as an example:
 
-#### Naming Conventions
+#### Folder/File Structure
+
+When creating a file, ensure that it is placed into a correct hierarchy. This should follow the Structure of any relevant parent folders, the item folder, and finally the item file name.
+
+For example,
+
+```
+├── components
+    ├── UI
+        └── Test
+            └── Test.component.jsx
+            └── Test.styles.scss
+```
 
 - Folder name: `Test`
-- Component name: `Test.component.jsx`
+- Component file name: `Test.component.jsx`
+- SCSS file name: `Test.styles.scss`
 
 #### Section Order
 
@@ -100,6 +115,8 @@ const TestContainer = styled.div`
 
 ### Styling
 
+#### Alphabetical Order
+
 When styling in `(S)CSS` and/or with `styled-components`, keep all styling properties in alphabetical order.
 
 `TestContainer` will be used as a `styled-components` example:
@@ -115,4 +132,53 @@ const TestContainer = styled.div`
   justify-content: center;
   width: 100vw;
 `;
+```
+
+#### BEM (Block, Element, Modifier)
+
+When naming components, `styled-components` or `(S)CSS` classes, follow the BEM methodology.
+
+##### Block
+
+A **Block** is a standalone entity that is meaningful on its own.
+
+For example, a `Header`, `Container` or `Menu` component can be viewed as a **Block**.
+
+##### Element
+
+An **Element** is part of a **Block** that has no standalone meaning, and is semantically tied to its **Block**.
+
+For example, a `HeaderTitle`, `ContainerItem` or `MenuItem` can be viewed as an **Element**.
+
+##### Modifier
+
+A **Modifier** is a flag on a **Block** or **Element**. These are used to change the apperance or behaviour of their relative **Block** or **Element**.
+
+For example, `HeaderTitleDisable`, `ContainerItemSmall` or `MenuItemFixed` can be viewed as **Modifiers**.
+
+### Commenting
+
+Commenting is an important part of keeping each file easily understandable and well structured.
+
+1. Comment each relevant section
+
+e.g. `// Import: Dependencies` as seen in the above Component Structure section.
+
+2. If you are using `useState`, add the comment `// State = nameOfState` above the list of state variables in use. For example:
+
+```
+// State = randomData, preciseData
+const [randomData, setRandomData] = useState([]); // Random Data
+const [preciseData, setPreciseData] = useState([]); // Precise Data
+```
+
+2.1 If you are using lots of different state variables, add a comment alongside each state item to clarify each state item's use. For example:
+
+```
+// State
+const [randomData, setRandomData] = useState([]); // Random Data
+const [preciseData, setPreciseData] = useState([]); // Precise Data
+const [defaultData, setDefaultData] = useState([]); // Default Data
+const [difficultData, setDifficultData] = useState([]); // Difficult Data
+const [easyData, setEasyData] = useState([]); // Easy Data
 ```
