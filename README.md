@@ -172,7 +172,7 @@ const [randomData, setRandomData] = useState([]); // Random Data
 const [preciseData, setPreciseData] = useState([]); // Precise Data
 ```
 
-2.1. If you are using lots of different state variables, add a comment alongside each state item to clarify each state item's use. For example:
+If you are using lots of different state variables, add a comment alongside each state item to clarify each state item's use. For example:
 
 ```
 // State
