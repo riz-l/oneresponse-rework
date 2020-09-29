@@ -54,7 +54,7 @@ When creating a component, follow the below structure with `Test` being used as 
 
 #### Folder/File Structure
 
-When creating a file, ensure that it is placed into a correct hierarchy. This should follow the Structure of any relevant parent folders, the item folder, and finally the item file name.
+When creating a file, ensure that it is placed into a correct hierarchy. This should follow the structure of any relevant parent folders, the item folder, and finally the item file name.
 
 For example,
 
@@ -68,7 +68,7 @@ For example,
 
 - Folder name: `Test`
 - Component file name: `Test.component.jsx`
-- SCSS file name: `Test.styles.scss`
+- `SCSS` file name: `Test.styles.scss`
 
 #### Section Order
 
@@ -117,7 +117,7 @@ const TestContainer = styled.div`
 
 #### Alphabetical Order
 
-When styling in `(S)CSS` and/or with `styled-components`, keep all styling properties in alphabetical order.
+When styling in `SCSS` and/or with `styled-components`, keep all styling properties in alphabetical order.
 
 `TestContainer` will be used as a `styled-components` example:
 
@@ -136,7 +136,7 @@ const TestContainer = styled.div`
 
 #### BEM (Block, Element, Modifier)
 
-When naming components, `styled-components` or `(S)CSS` classes, follow the BEM methodology.
+When naming components, `styled-components` or `SCSS` classes, follow the BEM methodology.
 
 ##### Block
 
@@ -172,7 +172,7 @@ const [randomData, setRandomData] = useState([]); // Random Data
 const [preciseData, setPreciseData] = useState([]); // Precise Data
 ```
 
-2.1 If you are using lots of different state variables, add a comment alongside each state item to clarify each state item's use. For example:
+2.1. If you are using lots of different state variables, add a comment alongside each state item to clarify each state item's use. For example:
 
 ```
 // State
