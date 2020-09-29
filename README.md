@@ -160,9 +160,9 @@ For example, `HeaderTitleDisable`, `ContainerItemSmall` or `MenuItemFixed` can b
 
 Commenting is an important part of keeping each file easily understandable and well structured.
 
-1. Comment each relevant section
+1. Comment each relevant section. For example:
 
-e.g. `// Import: Dependencies` as seen in the above Component Structure section.
+`// Import: Dependencies` as seen in the above Component Structure section.
 
 2. If you are using `useState`, add the comment `// State = nameOfState` above the list of state variables in use. For example:
 
@@ -172,7 +172,7 @@ const [randomData, setRandomData] = useState([]);
 const [preciseData, setPreciseData] = useState([]);
 ```
 
-If you are using lots of different state variables, instead of commenting the variable name in the above `// State` comment, add a comment alongside each state item to clarify each state item's use. For example:
+3. If you are using lots of different state variables, instead of commenting the variable name in the above `// State` comment, add a comment alongside each state item to clarify each state item's use. For example:
 
 ```
 // State
@@ -181,4 +181,12 @@ const [preciseData, setPreciseData] = useState([]); // Precise Data
 const [defaultData, setDefaultData] = useState([]); // Default Data
 const [difficultData, setDifficultData] = useState([]); // Difficult Data
 const [easyData, setEasyData] = useState([]); // Easy Data
+```
+
+4. If you are writing code that needs an explanation and is not easily understandable, add an explanatory comment. For example:
+
+```
+// When selectedPatient changes fetch selected Patient report data from OneResponse APIs
+// If successful, ...Data === OneResponse API data (for selected Patient), loading === false
+// If unsuccessful, catch error
 ```
