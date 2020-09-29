@@ -1562,6 +1562,7 @@ function PatientReport({
               field="Trauma Cell"
               data={TraumaCellAdvice ? TraumaCellAdvice : "Not recorded"}
               marginBottom="1rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
 
@@ -1572,6 +1573,7 @@ function PatientReport({
                 ClinicalSupportAdvice ? ClinicalSupportAdvice : "Not recorded"
               }
               marginBottom="1rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
 
@@ -1580,6 +1582,7 @@ function PatientReport({
               field="Other"
               data={OtherSupportAdvice ? OtherSupportAdvice : "Not recorded"}
               marginBottom="1rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
 
@@ -1588,6 +1591,7 @@ function PatientReport({
               field="Advice Given By"
               data={AdviceForm ? AdviceForm : "Not recorded"}
               marginBottom="1rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
         </PatientReportTableGrid>
