@@ -6,7 +6,10 @@ import styled from "styled-components";
 function ReportField({
   data,
   field,
+  fieldFontWeight,
+  fieldLetterSpacing,
   fieldMinHeight,
+  fieldTextTransform,
   fontSize,
   margin,
   marginTop,
@@ -36,7 +39,14 @@ function ReportField({
       }}
     >
       <ReportFieldWrapper>
-        <ReportFieldField style={{ minHeight: `${fieldMinHeight}` }}>
+        <ReportFieldField
+          style={{
+            fontWeight: `${fieldFontWeight}`,
+            letterSpacing: `${fieldLetterSpacing}`,
+            minHeight: `${fieldMinHeight}`,
+            textTransform: `${fieldTextTransform}`,
+          }}
+        >
           {field}
         </ReportFieldField>
         <ReportFieldData>{data}</ReportFieldData>
@@ -66,7 +76,11 @@ const ReportFieldWrapper = styled.div`
 
 // Styled: ReportFieldField
 const ReportFieldField = styled.span`
+  align-items: center;
   color: #414141;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 // Styled: ReportFieldData
