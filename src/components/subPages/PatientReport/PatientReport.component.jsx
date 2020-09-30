@@ -787,27 +787,39 @@ function PatientReport({
   );
   //#endregion /drugsMedsRefusalRender = Drugs/Meds Refusal report
 
-  //#region cardiacChestPainRender = Cardiac Chest Pain report #TODO - Needs testing
-  const cardiacChestPainRender = cardiacChestPainData.map(
+  //#region cardiacAssessmentRender = Cardiac Assessment report #TODO - Needs testing
+  const cardiacAssessmentRender = cardiacChestPainData.map(
     ({
       id,
+      Time_Onset,
       Time_Obtained,
       Four_Rhythm,
       Twelve_Rhythm,
       ECG_Other,
       STEMI,
+      PADS_applied,
       Referred_To_PCI,
+      TCP,
     }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportGrid>
+      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
+        <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
-              field="Time"
+              field="Time Onset"
+              data={Time_Onset ? Time_Onset : "Not recorded"}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Time Obtained"
               data={Time_Obtained ? Time_Obtained : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
 
@@ -816,6 +828,8 @@ function PatientReport({
               field="4 Rhythm"
               data={Four_Rhythm ? Four_Rhythm : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
 
@@ -824,6 +838,8 @@ function PatientReport({
               field="12 Rhythm"
               data={Twelve_Rhythm ? Twelve_Rhythm : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
 
@@ -832,6 +848,8 @@ function PatientReport({
               field="Other Rhythm"
               data={ECG_Other ? ECG_Other : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
 
@@ -840,6 +858,18 @@ function PatientReport({
               field="STEMI"
               data={STEMI ? STEMI : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="PADS applied"
+              data={PADS_applied ? PADS_applied : "Not recorded"}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
 
@@ -848,13 +878,25 @@ function PatientReport({
               field="Referred to Primary PCI"
               data={Referred_To_PCI ? Referred_To_PCI : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
             />
           </PatientReportColumn>
-        </PatientReportGrid>
+
+          <PatientReportColumn>
+            <ReportField
+              field="TCP"
+              data={TCP ? TCP : "Not recorded"}
+              paddingBottom="0"
+              fontSize="0.7rem"
+              fieldMinHeight="35px"
+            />
+          </PatientReportColumn>
+        </PatientReportTableGrid>
       </PatientReportRender>
     )
   );
-  //#endregion /cardiacChestPainRender = Cardiac Chest Pain report
+  //#endregion /cardiacAssessmentRender = Cardiac Assessment report
 
   //#region strokeAssesssmentRender = Stroke Assessment report #TODO - Needs testing
   const strokeAssesssmentRender = strokeAssessmentData.map(
@@ -2299,7 +2341,7 @@ function PatientReport({
               {cardiacChestPainData && cardiacChestPainData.length > 0 ? (
                 <>
                   <HeadingTwo text="Cardiac Assessment" />
-                  {cardiacChestPainRender}
+                  {cardiacAssessmentRender}
                 </>
               ) : null}
 
