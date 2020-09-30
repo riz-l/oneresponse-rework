@@ -2388,7 +2388,7 @@ function PatientReport({
 
               {drugsMedsData && drugsMedsData.length > 0 ? (
                 <>
-                  <HeadingTwo text="Drugs/Meds" marginTop="2rem" />
+                  <HeadingTwo text="Drugs / Meds" marginTop="2rem" />
                   {drugsMedsRender}
                 </>
               ) : null}
