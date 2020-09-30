@@ -713,7 +713,18 @@ function PatientReport({
 
   //#region drugsMedsRender = Drugs/Meds report #TODO - Needs testing
   const drugsMedsRender = drugsMedsData.map(
-    ({ id, Name, Pouch, Time, Dosage, Unit, Route, By, Own_Meds }) => (
+    ({
+      id,
+      Name,
+      Pouch,
+      Time,
+      Dosage,
+      Unit,
+      Route,
+      By,
+      Own_Meds,
+      Admin_PGD,
+    }) => (
       <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
         <PatientReportTableGrid>
           <PatientReportColumn>
@@ -802,8 +813,20 @@ function PatientReport({
 
           <PatientReportColumn>
             <ReportField
-              field="Own Medications"
+              field="Own Medication"
               data={Own_Meds ? Own_Meds : "Not recorded"}
+              paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Admin PGD"
+              data={Admin_PGD ? Admin_PGD : "Not recorded"}
               paddingBottom="0"
               fontSize="0.71rem"
               fieldFontWeight="700"
@@ -817,7 +840,7 @@ function PatientReport({
   );
   //#endregion /drugsMedsRender = Drugs/Meds report
 
-  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Needs testing
+  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Missing 'Drug', needs testing
   const drugsMedsRefusalRender = drugsMedsData.map(
     ({ id, Drug_Refusal, Drug_By_Refusal }) => (
       <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
