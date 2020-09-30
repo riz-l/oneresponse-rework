@@ -1883,7 +1883,7 @@ function PatientReport({
               data={CommsNeeds_YN ? CommsNeeds_YN : "Not recorded"}
             />
             <ReportField
-              field="NWAS improves the quality of care given toPatients through clinical audit, research and Patient feedback.
+              field="NWAS improves the quality of care given to Patients through clinical audit, research and Patient feedback.
               
               May we contact you after this incident to assist us in improving patient care?"
               data={ImprovePatCare_YN ? ImprovePatCare_YN : "Not recorded"}
