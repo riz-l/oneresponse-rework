@@ -2381,7 +2381,7 @@ function PatientReport({
 
               {patientIVData && patientIVData.length > 0 ? (
                 <>
-                  <HeadingTwo text="IV Refusal" marginTop="2rem" />
+                  <HeadingTwo text="IV Not Cannulated" marginTop="2rem" />
                   {ivRefusalRender}
                 </>
               ) : null}
