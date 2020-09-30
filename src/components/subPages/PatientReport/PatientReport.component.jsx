@@ -1,6 +1,6 @@
 // Import: Dependencies
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 // Import: UI
 import HeadingOne from "../../UI/Headings/HeadingOne/HeadingOne.component";
@@ -2541,8 +2541,17 @@ const PatientReportContainer = styled.div`
   margin: 1rem;
 `;
 
+// Styled: fsadeIn
+const fadeIn = keyframes`
+    0% {opacity: 0; transform: translateY(-20px)};
+    100% {opacity: 1; transform: translateY(0)};
+`;
+
 // Styled: PatientReportSection
 const PatientReportSection = styled.section`
+  animation-duration: 1.5s;
+  animation-name: ${fadeIn};
+  animation-iteration-count: 1;
   background: #ffffff;
   margin-bottom: 1rem;
 `;
