@@ -55,6 +55,7 @@ const HeaderContainer = styled.div`
     "secondary-header";
   grid-template-rows: 7vh 5vh;
   min-height: 200px;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 // Styled: HeaderPrimary
