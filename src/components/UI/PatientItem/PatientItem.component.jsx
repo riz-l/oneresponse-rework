@@ -21,6 +21,7 @@ function PatientItem({
   const masterIdString = MasterID.split("-").pop();
 
   // Calculates time difference between ePR_Date and current time
+  // Calculates seconds since admission date (current Date - ePR_Date)
   const secondsSinceAdmission = Math.floor(
     // (1000 * 3600 * 24) =
     // milliseconds to seconds, seconds to hours, hours to days
@@ -28,11 +29,12 @@ function PatientItem({
   );
   console.log("Seconds since admission: ", secondsSinceAdmission);
 
-  function secondsToHoursMinutesSeconds(d) {
-    d = Number(d);
-    var hours = Math.floor(d / 3600);
-    var minutes = Math.floor((d % 3600) / 60);
-    var seconds = Math.floor((d % 3600) % 60);
+  // Converts secondsSinceAdmission into hours, minutes and seconds
+  function secondsToHoursMinutesSeconds(sec) {
+    sec = Number(sec);
+    var hours = Math.floor(sec / 3600);
+    var minutes = Math.floor((sec % 3600) / 60);
+    var seconds = Math.floor((sec % 3600) % 60);
 
     var hoursDisplay =
       hours > 0 ? hours + (hours === 1 ? " hour, " : " hours, ") : "";
