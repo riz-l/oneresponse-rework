@@ -7,14 +7,20 @@ import Icon from "../Icon/Icon.component";
 
 // UI: PatientItem
 function PatientItem({
+  id,
   PD_Firstname,
   PD_Surname,
   PD_Gender,
   PD_DOB,
+  MasterID,
   ePR_CallSign,
+  complete,
 }) {
+  // Truncates the MasterID (Master_ePR_ID) from the last "-"
+  const masterIdString = MasterID.split("-").pop();
+
   return (
-    <PatientItemContainer>
+    <PatientItemContainer key={id}>
       <PatientItemIcon className="PatientItemIcon-hover">
         <Icon icon="fas fa-user-alt" />
       </PatientItemIcon>
@@ -44,8 +50,16 @@ function PatientItem({
 
         <PatientItemStatus>
           <PatientItemStatusText>
+            {MasterID ? "..." + masterIdString : "Null"}
+          </PatientItemStatusText>
+
+          <PatientItemStatusText>
             {ePR_CallSign ? ePR_CallSign : <span>ePR CallSign</span>}
+          </PatientItemStatusText>
+
+          <PatientItemStatusText>
             <p>Status:</p>
+            {complete ? <span>Ready to Print</span> : <span>In Progress</span>}
           </PatientItemStatusText>
         </PatientItemStatus>
       </PatientItemWrapper>
