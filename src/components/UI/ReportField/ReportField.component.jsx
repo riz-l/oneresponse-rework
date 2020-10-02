@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 // UI: ReportField
 function ReportField({
-  fieldAlignItems,
   data,
   field,
   fieldFontWeight,
@@ -44,7 +43,6 @@ function ReportField({
       <ReportFieldWrapper>
         <ReportFieldField
           style={{
-            alignItems: `${fieldAlignItems}`,
             marginBottom: `${fieldMarginBottom}`,
             fontWeight: `${fieldFontWeight}`,
             letterSpacing: `${fieldLetterSpacing}`,

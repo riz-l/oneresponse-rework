@@ -359,7 +359,6 @@ function PatientReport({
             <ReportField
               field="Time"
               data={Obs_Time ? Obs_Time : null}
-              fieldAlignItems="center"
               fieldMarginBottom="4px"
               paddingBottom="2px"
               fontSize="0.71rem"
