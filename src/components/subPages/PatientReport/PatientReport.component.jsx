@@ -1,6 +1,6 @@
 // Import: Dependencies
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 // Import: UI
 import HeadingOne from "../../UI/Headings/HeadingOne/HeadingOne.component";

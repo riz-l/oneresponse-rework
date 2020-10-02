@@ -13,11 +13,36 @@ function PatientItem({
   PD_Gender,
   PD_DOB,
   MasterID,
+  ePR_Date,
   ePR_CallSign,
   complete,
 }) {
   // Truncates the MasterID (Master_ePR_ID) from the last "-"
   const masterIdString = MasterID.split("-").pop();
+
+  // Calculates time difference between ePR_Date and current time
+  const secondsSinceAdmission = Math.floor(
+    // (1000 * 3600 * 24) =
+    // milliseconds to seconds, seconds to hours, hours to days
+    (Date.now() - new Date(ePR_Date).getTime()) / 1000
+  );
+  console.log("Seconds since admission: ", secondsSinceAdmission);
+
+  function secondsToHoursMinutesSeconds(d) {
+    d = Number(d);
+    var hours = Math.floor(d / 3600);
+    var minutes = Math.floor((d % 3600) / 60);
+    var seconds = Math.floor((d % 3600) % 60);
+
+    var hoursDisplay =
+      hours > 0 ? hours + (hours === 1 ? " hour, " : " hours, ") : "";
+    var minutesDisplay =
+      minutes > 0 ? minutes + (minutes === 1 ? " minute, " : " minutes, ") : "";
+    var secondsDisplay =
+      seconds > 0 ? seconds + (seconds === 1 ? " second, " : " seconds, ") : "";
+
+    return hoursDisplay + minutesDisplay + secondsDisplay;
+  }
 
   return (
     <PatientItemContainer key={id}>
@@ -51,6 +76,14 @@ function PatientItem({
         <PatientItemStatus>
           <PatientItemStatusText>
             {MasterID ? "..." + masterIdString : "Null"}
+          </PatientItemStatusText>
+
+          <PatientItemStatusText>
+            {ePR_Date ? (
+              secondsToHoursMinutesSeconds(secondsSinceAdmission)
+            ) : (
+              <span>ePR Date</span>
+            )}
           </PatientItemStatusText>
 
           <PatientItemStatusText>
