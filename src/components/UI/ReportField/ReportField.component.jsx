@@ -4,10 +4,12 @@ import styled from "styled-components";
 
 // UI: ReportField
 function ReportField({
+  fieldAlignItems,
   data,
   field,
   fieldFontWeight,
   fieldLetterSpacing,
+  fieldMarginBottom,
   fieldMinHeight,
   fieldTextTransform,
   fontSize,
@@ -21,6 +23,7 @@ function ReportField({
   paddingRight,
   paddingBottom,
   paddingLeft,
+  fieldWidth,
 }) {
   return (
     <ReportFieldContainer
@@ -41,10 +44,13 @@ function ReportField({
       <ReportFieldWrapper>
         <ReportFieldField
           style={{
+            alignItems: `${fieldAlignItems}`,
+            marginBottom: `${fieldMarginBottom}`,
             fontWeight: `${fieldFontWeight}`,
             letterSpacing: `${fieldLetterSpacing}`,
             minHeight: `${fieldMinHeight}`,
             textTransform: `${fieldTextTransform}`,
+            width: `${fieldWidth}`,
           }}
         >
           {field}
@@ -76,7 +82,7 @@ const ReportFieldWrapper = styled.div`
 
 // Styled: ReportFieldField
 const ReportFieldField = styled.span`
-  align-items: center;
+  align-items: flex-start;
   color: #414141;
   display: flex;
   flex-direction: column;

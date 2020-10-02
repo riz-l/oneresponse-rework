@@ -359,11 +359,14 @@ function PatientReport({
             <ReportField
               field="Time"
               data={Obs_Time ? Obs_Time : null}
+              fieldAlignItems="center"
+              fieldMarginBottom="4px"
               paddingBottom="2px"
               fontSize="0.71rem"
               fieldFontWeight="700"
               fieldMinHeight="45px"
               fieldTextTransform="uppercase"
+              fieldWidth="100%"
             />
           </PatientReportColumn>
 
@@ -2717,17 +2720,8 @@ const PatientReportContainer = styled.div`
   margin: 1rem;
 `;
 
-// Styled: fadeIn
-const fadeIn = keyframes`
-    0% {opacity: 0; transform: translateY(-20px)};
-    100% {opacity: 1; transform: translateY(0)};
-`;
-
 // Styled: PatientReportSection
 const PatientReportSection = styled.section`
-  animation-duration: 1.5s;
-  animation-name: ${fadeIn};
-  animation-iteration-count: 1;
   background: #ffffff;
   margin-bottom: 1rem;
 `;
