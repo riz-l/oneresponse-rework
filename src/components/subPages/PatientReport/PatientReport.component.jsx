@@ -875,39 +875,55 @@ function PatientReport({
 
   //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Missing 'Drug', needs testing
   const drugsMedsRefusalRender = drugsMedsData.map(
-    ({ id, Drug_Refusal, Drug_By_Refusal }) => (
-      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
-        <PatientReportTableGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Type"
-              data={Drug_Refusal ? Drug_Refusal : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.71rem"
-              fieldFontWeight="700"
-              fieldMinHeight="45px"
-              fieldTextTransform="uppercase"
-            />
-          </PatientReportColumn>
+    ({ id, Drug_Refusal, Name, Drug_By_Refusal, Time }) =>
+      Time === "" ? (
+        <PatientReportRender
+          key={id}
+          style={{ borderTop: "1px solid #e0e0e0" }}
+        >
+          <PatientReportTableGrid>
+            <PatientReportColumn>
+              <ReportField
+                field="Type"
+                data={Drug_Refusal ? Drug_Refusal : "Not recorded"}
+                paddingBottom="0"
+                fontSize="0.71rem"
+                fieldFontWeight="700"
+                fieldMinHeight="45px"
+                fieldTextTransform="uppercase"
+              />
+            </PatientReportColumn>
 
-          <PatientReportColumn>
-            <ReportField
-              field="By"
-              data={Drug_By_Refusal ? Drug_By_Refusal : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.71rem"
-              fieldFontWeight="700"
-              fieldMinHeight="45px"
-              fieldTextTransform="uppercase"
-            />
-          </PatientReportColumn>
+            <PatientReportColumn>
+              <ReportField
+                field="Drug"
+                data={Name ? Name : "Not recorded"}
+                paddingBottom="0"
+                fontSize="0.71rem"
+                fieldFontWeight="700"
+                fieldMinHeight="45px"
+                fieldTextTransform="uppercase"
+              />
+            </PatientReportColumn>
 
-          <PatientReportColumn>
-            <></>
-          </PatientReportColumn>
-        </PatientReportTableGrid>
-      </PatientReportRender>
-    )
+            <PatientReportColumn>
+              <ReportField
+                field="By"
+                data={Drug_By_Refusal ? Drug_By_Refusal : "Not recorded"}
+                paddingBottom="0"
+                fontSize="0.71rem"
+                fieldFontWeight="700"
+                fieldMinHeight="45px"
+                fieldTextTransform="uppercase"
+              />
+            </PatientReportColumn>
+
+            <PatientReportColumn>
+              <></>
+            </PatientReportColumn>
+          </PatientReportTableGrid>
+        </PatientReportRender>
+      ) : null
   );
   //#endregion /drugsMedsRefusalRender = Drugs/Meds Refusal report
 
