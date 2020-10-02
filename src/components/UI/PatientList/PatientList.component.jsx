@@ -50,7 +50,7 @@ function PatientList({ isOpen, setSelectedPatient }) {
         key={Master_ePR_ID}
         onClick={() => setSelectedPatient(Master_ePR_ID)}
       >
-        <PatientItem {...otherPatientListProps} />
+        <PatientItem MasterID={Master_ePR_ID} {...otherPatientListProps} />
       </div>
     )
   );

@@ -7,6 +7,18 @@
 - `node-sass`
 - `styled-components`
 
+## Code Editors
+
+In terms of code editors, I would recommend the following in order:
+
+1. Visual Studio (VS) Code
+
+- Available [here](https://code.visualstudio.com/)
+
+2. Atom
+
+- Available [here](https://atom.io/)
+
 ## VS Code Extensions
 
 ### Optional
