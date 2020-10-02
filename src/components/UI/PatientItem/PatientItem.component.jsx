@@ -32,15 +32,15 @@ function PatientItem({
   // Converts secondsSinceAdmission into hours, minutes and seconds
   function secondsToHoursMinutesSeconds(sec) {
     sec = Number(sec);
-    var hours = Math.floor(sec / 3600);
-    var minutes = Math.floor((sec % 3600) / 60);
-    var seconds = Math.floor((sec % 3600) % 60);
+    let hours = Math.floor(sec / 3600);
+    let minutes = Math.floor((sec % 3600) / 60);
+    let seconds = Math.floor((sec % 3600) % 60);
 
-    var hoursDisplay =
+    let hoursDisplay =
       hours > 0 ? hours + (hours === 1 ? " hour, " : " hours, ") : "";
-    var minutesDisplay =
+    let minutesDisplay =
       minutes > 0 ? minutes + (minutes === 1 ? " minute, " : " minutes, ") : "";
-    var secondsDisplay =
+    let secondsDisplay =
       seconds > 0 ? seconds + (seconds === 1 ? " second, " : " seconds, ") : "";
 
     return hoursDisplay + minutesDisplay + secondsDisplay;
