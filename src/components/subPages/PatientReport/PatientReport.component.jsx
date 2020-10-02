@@ -353,18 +353,17 @@ function PatientReport({
       Obs_Pain_Score,
       Obs_Peak_Flow,
     }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
+      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
         <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Time"
               data={Obs_Time ? Obs_Time : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -372,9 +371,11 @@ function PatientReport({
             <ReportField
               field="Resp Rate"
               data={Obs_Resp_Rate ? Obs_Resp_Rate : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -382,9 +383,11 @@ function PatientReport({
             <ReportField
               field="SpO2 (&#37;)"
               data={Obs_SpO2 ? Obs_SpO2 : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -392,9 +395,11 @@ function PatientReport({
             <ReportField
               field="Air/Oxygen"
               data={Obs_Oxygen ? Obs_Oxygen : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -402,9 +407,11 @@ function PatientReport({
             <ReportField
               field="Temp (&#176;C)"
               data={Obs_Temp ? Obs_Temp : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -418,9 +425,11 @@ function PatientReport({
                   </>
                 ) : null
               }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -428,9 +437,11 @@ function PatientReport({
             <ReportField
               field="Heart Rate"
               data={Obs_Heart_Rate ? Obs_Heart_Rate : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -438,9 +449,11 @@ function PatientReport({
             <ReportField
               field="ACVPU"
               data={Obs_AVPU ? Obs_AVPU : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -448,9 +461,11 @@ function PatientReport({
             <ReportField
               field="NEWS2 Total"
               data={Obs_NEWS_Total ? Obs_NEWS_Total : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -458,9 +473,11 @@ function PatientReport({
             <ReportField
               field="Cap Refill (sec)"
               data={Obs_Cap_Refill ? Obs_Cap_Refill : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -474,9 +491,11 @@ function PatientReport({
                   </>
                 ) : null
               }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -484,9 +503,11 @@ function PatientReport({
             <ReportField
               field="GCS Total"
               data={Obs_EVM_Total ? Obs_EVM_Total : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -494,9 +515,11 @@ function PatientReport({
             <ReportField
               field="BM (M/Mol)"
               data={Obs_BM ? Obs_BM : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -510,9 +533,11 @@ function PatientReport({
                   </>
                 ) : null
               }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -526,9 +551,11 @@ function PatientReport({
                   </>
                 ) : null
               }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -536,9 +563,11 @@ function PatientReport({
             <ReportField
               field="Pain Score"
               data={Obs_Pain_Score ? Obs_Pain_Score : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -546,9 +575,11 @@ function PatientReport({
             <ReportField
               field="Peak Flow (l/min)"
               data={Obs_Peak_Flow ? Obs_Peak_Flow : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
         </PatientReportTableGrid>
@@ -898,9 +929,11 @@ function PatientReport({
             <ReportField
               field="Time Onset"
               data={Time_Onset ? Time_Onset : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -908,9 +941,11 @@ function PatientReport({
             <ReportField
               field="Time Obtained"
               data={Time_Obtained ? Time_Obtained : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -918,9 +953,11 @@ function PatientReport({
             <ReportField
               field="4 Rhythm"
               data={Four_Rhythm ? Four_Rhythm : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -928,9 +965,11 @@ function PatientReport({
             <ReportField
               field="12 Rhythm"
               data={Twelve_Rhythm ? Twelve_Rhythm : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -938,9 +977,11 @@ function PatientReport({
             <ReportField
               field="Other Rhythm"
               data={ECG_Other ? ECG_Other : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -948,9 +989,11 @@ function PatientReport({
             <ReportField
               field="STEMI"
               data={STEMI ? STEMI : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -958,9 +1001,11 @@ function PatientReport({
             <ReportField
               field="PADS applied"
               data={PADS_applied ? PADS_applied : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -968,9 +1013,11 @@ function PatientReport({
             <ReportField
               field="Referred to Primary PCI"
               data={Referred_To_PCI ? Referred_To_PCI : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -978,9 +1025,11 @@ function PatientReport({
             <ReportField
               field="TCP"
               data={TCP ? TCP : "Not recorded"}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
         </PatientReportTableGrid>
