@@ -353,18 +353,19 @@ function PatientReport({
       Obs_Pain_Score,
       Obs_Peak_Flow,
     }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
+      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
         <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Time"
               data={Obs_Time ? Obs_Time : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              fieldMarginBottom="4px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
+              fieldWidth="100%"
             />
           </PatientReportColumn>
 
@@ -372,9 +373,11 @@ function PatientReport({
             <ReportField
               field="Resp Rate"
               data={Obs_Resp_Rate ? Obs_Resp_Rate : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -382,9 +385,11 @@ function PatientReport({
             <ReportField
               field="SpO2 (&#37;)"
               data={Obs_SpO2 ? Obs_SpO2 : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -392,9 +397,11 @@ function PatientReport({
             <ReportField
               field="Air/Oxygen"
               data={Obs_Oxygen ? Obs_Oxygen : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -402,9 +409,11 @@ function PatientReport({
             <ReportField
               field="Temp (&#176;C)"
               data={Obs_Temp ? Obs_Temp : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -418,9 +427,11 @@ function PatientReport({
                   </>
                 ) : null
               }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -428,9 +439,11 @@ function PatientReport({
             <ReportField
               field="Heart Rate"
               data={Obs_Heart_Rate ? Obs_Heart_Rate : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -438,9 +451,11 @@ function PatientReport({
             <ReportField
               field="ACVPU"
               data={Obs_AVPU ? Obs_AVPU : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -448,9 +463,11 @@ function PatientReport({
             <ReportField
               field="NEWS2 Total"
               data={Obs_NEWS_Total ? Obs_NEWS_Total : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -458,9 +475,11 @@ function PatientReport({
             <ReportField
               field="Cap Refill (sec)"
               data={Obs_Cap_Refill ? Obs_Cap_Refill : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -474,9 +493,11 @@ function PatientReport({
                   </>
                 ) : null
               }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -484,9 +505,11 @@ function PatientReport({
             <ReportField
               field="GCS Total"
               data={Obs_EVM_Total ? Obs_EVM_Total : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -494,9 +517,11 @@ function PatientReport({
             <ReportField
               field="BM (M/Mol)"
               data={Obs_BM ? Obs_BM : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -510,9 +535,11 @@ function PatientReport({
                   </>
                 ) : null
               }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -526,9 +553,11 @@ function PatientReport({
                   </>
                 ) : null
               }
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -536,9 +565,11 @@ function PatientReport({
             <ReportField
               field="Pain Score"
               data={Obs_Pain_Score ? Obs_Pain_Score : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -546,9 +577,11 @@ function PatientReport({
             <ReportField
               field="Peak Flow (l/min)"
               data={Obs_Peak_Flow ? Obs_Peak_Flow : null}
-              paddingBottom="0"
-              fontSize="0.7rem"
-              fieldMinHeight="35px"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
         </PatientReportTableGrid>
@@ -570,16 +603,17 @@ function PatientReport({
       IV_Attempts,
       IV_By,
     }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
+      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
         <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Type"
               data={IV_ID ? IV_ID : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -587,7 +621,11 @@ function PatientReport({
             <ReportField
               field="Size"
               data={IV_Size ? IV_Size : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -595,7 +633,11 @@ function PatientReport({
             <ReportField
               field="Site"
               data={IV_Site ? IV_Site : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -603,7 +645,11 @@ function PatientReport({
             <ReportField
               field="Successful"
               data={IV_Successful ? IV_Successful : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -611,7 +657,11 @@ function PatientReport({
             <ReportField
               field="Flushed"
               data={IV_Flushed ? IV_Flushed : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -619,7 +669,11 @@ function PatientReport({
             <ReportField
               field="Non-touch Technique"
               data={IV_Non_Touch ? IV_Non_Touch : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -627,7 +681,11 @@ function PatientReport({
             <ReportField
               field="Attempts"
               data={IV_Attempts ? IV_Attempts : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -635,7 +693,11 @@ function PatientReport({
             <ReportField
               field="By"
               data={IV_By ? IV_By : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
         </PatientReportTableGrid>
@@ -646,50 +708,71 @@ function PatientReport({
 
   //#region ivRefusalRender = IV Refusal report #TODO - Needs testing
   const ivRefusalRender = patientIVData.map(
-    ({ id, IV_Type_Refusal, IV_By_Refusal }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Type"
-              data={IV_Type_Refusal ? IV_Type_Refusal : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
+    ({ IV_ID, id, IV_Type_Refusal, IV_By_Refusal }) =>
+      IV_ID === "" ? (
+        <PatientReportRender
+          key={id}
+          style={{ borderTop: "1px solid #e0e0e0" }}
+        >
+          <PatientReportTableGrid>
+            <PatientReportColumn>
+              <ReportField
+                field="Type"
+                data={IV_Type_Refusal ? IV_Type_Refusal : "Not recorded"}
+                paddingBottom="0"
+                fontSize="0.71rem"
+                fieldFontWeight="700"
+                fieldMinHeight="45px"
+                fieldTextTransform="uppercase"
+              />
+            </PatientReportColumn>
 
-          <PatientReportColumn>
-            <ReportField
-              field="By"
-              data={IV_By_Refusal ? IV_By_Refusal : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
+            <PatientReportColumn>
+              <ReportField
+                field="By"
+                data={IV_By_Refusal ? IV_By_Refusal : "Not recorded"}
+                paddingBottom="0"
+                fontSize="0.71rem"
+                fieldFontWeight="700"
+                fieldMinHeight="45px"
+                fieldTextTransform="uppercase"
+              />
+            </PatientReportColumn>
 
-          <PatientReportColumn>
-            <></>
-          </PatientReportColumn>
-        </PatientReportGrid>
-      </PatientReportRender>
-    )
+            <PatientReportColumn>
+              <></>
+            </PatientReportColumn>
+          </PatientReportTableGrid>
+        </PatientReportRender>
+      ) : null
   );
   //#endregion /ivRefusalRender = IV Refusal report
 
   //#region drugsMedsRender = Drugs/Meds report #TODO - Needs testing
   const drugsMedsRender = drugsMedsData.map(
-    ({ id, Name, Pouch, Time, Dosage, Unit, Route, By, Own_Meds }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
+    ({
+      id,
+      Name,
+      Pouch,
+      Time,
+      Dosage,
+      Unit,
+      Route,
+      By,
+      Own_Meds,
+      Admin_PGD,
+    }) => (
+      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
         <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
               field="Drug"
               data={Name ? Name : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -698,6 +781,10 @@ function PatientReport({
               field="Pouch No."
               data={Pouch ? Pouch : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -706,6 +793,10 @@ function PatientReport({
               field="Time"
               data={Time ? Time : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -714,6 +805,10 @@ function PatientReport({
               field="Dosage"
               data={Dosage ? Dosage : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -722,6 +817,10 @@ function PatientReport({
               field="Unit"
               data={Unit ? Unit : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -730,6 +829,10 @@ function PatientReport({
               field="Route"
               data={Route ? Route : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -738,14 +841,34 @@ function PatientReport({
               field="By"
               data={By ? By : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
           <PatientReportColumn>
             <ReportField
-              field="Own Medications"
+              field="Own Medication"
               data={Own_Meds ? Own_Meds : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Admin PGD"
+              data={Admin_PGD ? Admin_PGD : "Not recorded"}
+              paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
         </PatientReportTableGrid>
@@ -754,60 +877,97 @@ function PatientReport({
   );
   //#endregion /drugsMedsRender = Drugs/Meds report
 
-  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Needs testing
+  //#region drugsMedsRefusalRender = Drugs/Meds Refusal report #TODO - Missing 'Drug', needs testing
   const drugsMedsRefusalRender = drugsMedsData.map(
-    ({ id, Drug_Refusal, Drug_By_Refusal }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportTableGrid>
-          <PatientReportColumn>
-            <ReportField
-              field="Type"
-              data={Drug_Refusal ? Drug_Refusal : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
+    ({ Time, id, Drug_Refusal, Name, Drug_By_Refusal }) =>
+      Time === "" ? (
+        <PatientReportRender
+          key={id}
+          style={{ borderTop: "1px solid #e0e0e0" }}
+        >
+          <PatientReportTableGrid>
+            <PatientReportColumn>
+              <ReportField
+                field="Type"
+                data={Drug_Refusal ? Drug_Refusal : "Not recorded"}
+                paddingBottom="0"
+                fontSize="0.71rem"
+                fieldFontWeight="700"
+                fieldMinHeight="45px"
+                fieldTextTransform="uppercase"
+              />
+            </PatientReportColumn>
 
-          <PatientReportColumn>
-            <ReportField
-              field="By"
-              data={Drug_By_Refusal ? Drug_By_Refusal : "Not recorded"}
-              paddingBottom="0"
-            />
-          </PatientReportColumn>
+            <PatientReportColumn>
+              <ReportField
+                field="Drug"
+                data={Name ? Name : "Not recorded"}
+                paddingBottom="0"
+                fontSize="0.71rem"
+                fieldFontWeight="700"
+                fieldMinHeight="45px"
+                fieldTextTransform="uppercase"
+              />
+            </PatientReportColumn>
 
-          <PatientReportColumn>
-            <></>
-          </PatientReportColumn>
-        </PatientReportTableGrid>
-      </PatientReportRender>
-    )
+            <PatientReportColumn>
+              <ReportField
+                field="By"
+                data={Drug_By_Refusal ? Drug_By_Refusal : "Not recorded"}
+                paddingBottom="0"
+                fontSize="0.71rem"
+                fieldFontWeight="700"
+                fieldMinHeight="45px"
+                fieldTextTransform="uppercase"
+              />
+            </PatientReportColumn>
+
+            <PatientReportColumn>
+              <></>
+            </PatientReportColumn>
+          </PatientReportTableGrid>
+        </PatientReportRender>
+      ) : null
   );
   //#endregion /drugsMedsRefusalRender = Drugs/Meds Refusal report
 
-  //#region cardiacChestPainRender = Cardiac Chest Pain report #TODO - Needs testing
-  const cardiacChestPainRender = cardiacChestPainData.map(
+  //#region cardiacAssessmentRender = Cardiac Assessment report #TODO - Needs testing
+  const cardiacAssessmentRender = cardiacChestPainData.map(
     ({
       id,
+      Time_Onset,
       Time_Obtained,
       Four_Rhythm,
       Twelve_Rhythm,
       ECG_Other,
       STEMI,
+      PADS_applied,
       Referred_To_PCI,
+      TCP,
     }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
-        <PatientReportGrid>
+      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
+        <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
-              field="Time"
+              field="Time Onset"
+              data={Time_Onset ? Time_Onset : "Not recorded"}
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="Time Obtained"
               data={Time_Obtained ? Time_Obtained : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -815,7 +975,11 @@ function PatientReport({
             <ReportField
               field="4 Rhythm"
               data={Four_Rhythm ? Four_Rhythm : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -823,7 +987,11 @@ function PatientReport({
             <ReportField
               field="12 Rhythm"
               data={Twelve_Rhythm ? Twelve_Rhythm : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -831,7 +999,11 @@ function PatientReport({
             <ReportField
               field="Other Rhythm"
               data={ECG_Other ? ECG_Other : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -839,7 +1011,23 @@ function PatientReport({
             <ReportField
               field="STEMI"
               data={STEMI ? STEMI : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
+            />
+          </PatientReportColumn>
+
+          <PatientReportColumn>
+            <ReportField
+              field="PADS applied"
+              data={PADS_applied ? PADS_applied : "Not recorded"}
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -847,14 +1035,30 @@ function PatientReport({
             <ReportField
               field="Referred to Primary PCI"
               data={Referred_To_PCI ? Referred_To_PCI : "Not recorded"}
-              paddingBottom="0"
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
-        </PatientReportGrid>
+
+          <PatientReportColumn>
+            <ReportField
+              field="TCP"
+              data={TCP ? TCP : "Not recorded"}
+              paddingBottom="2px"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
+            />
+          </PatientReportColumn>
+        </PatientReportTableGrid>
       </PatientReportRender>
     )
   );
-  //#endregion /cardiacChestPainRender = Cardiac Chest Pain report
+  //#endregion /cardiacAssessmentRender = Cardiac Assessment report
 
   //#region strokeAssesssmentRender = Stroke Assessment report #TODO - Needs testing
   const strokeAssesssmentRender = strokeAssessmentData.map(
@@ -1547,10 +1751,7 @@ function PatientReport({
       ClinicalSupportNotes,
       OtherAdvice,
     }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
+      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
         <ReportField
           field="Action Taken"
           data={ActionTaken ? ActionTaken : "Not recorded"}
@@ -1613,10 +1814,7 @@ function PatientReport({
   //#region skeletalTraumaRender = Skeletal Trauma report #TODO - Needs testing
   const skeletalTraumaRender = skeletalTraumaData.map(
     ({ id, ST_Type, ST_Site, ST_Side, ST_Area, ST_Time, ST_By }) => (
-      <PatientReportRender
-        key={id}
-        style={{ borderBottom: "1px solid #e0e0e0" }}
-      >
+      <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
         <PatientReportTableGrid>
           <PatientReportColumn>
             <ReportField
@@ -1841,7 +2039,7 @@ function PatientReport({
               data={CommsNeeds_YN ? CommsNeeds_YN : "Not recorded"}
             />
             <ReportField
-              field="NWAS improves the quality of care given toPatients through clinical audit, research and Patient feedback.
+              field="NWAS improves the quality of care given to Patients through clinical audit, research and Patient feedback.
               
               May we contact you after this incident to assist us in improving patient care?"
               data={ImprovePatCare_YN ? ImprovePatCare_YN : "Not recorded"}
@@ -2183,6 +2381,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2201,6 +2400,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2219,6 +2419,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2237,6 +2438,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2254,14 +2456,14 @@ function PatientReport({
 
               {patientIVData && patientIVData.length > 0 ? (
                 <>
-                  <HeadingTwo text="IV Refusal" marginTop="2rem" />
+                  <HeadingTwo text="IV Not Cannulated" marginTop="2rem" />
                   {ivRefusalRender}
                 </>
               ) : null}
 
               {drugsMedsData && drugsMedsData.length > 0 ? (
                 <>
-                  <HeadingTwo text="Drugs/Meds" marginTop="2rem" />
+                  <HeadingTwo text="Drugs / Meds" marginTop="2rem" />
                   {drugsMedsRender}
                 </>
               ) : null}
@@ -2288,6 +2490,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2299,7 +2502,7 @@ function PatientReport({
               {cardiacChestPainData && cardiacChestPainData.length > 0 ? (
                 <>
                   <HeadingTwo text="Cardiac Assessment" />
-                  {cardiacChestPainRender}
+                  {cardiacAssessmentRender}
                 </>
               ) : null}
 
@@ -2322,6 +2525,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2340,6 +2544,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2358,6 +2563,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2376,6 +2582,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2429,6 +2636,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2461,6 +2669,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2482,6 +2691,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2521,6 +2731,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2565,7 +2776,7 @@ const PatientReportGrid = styled.div`
 const PatientReportTableGrid = styled.div`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(66px, 1fr));
   height: 100%;
   width: 100%;
 `;

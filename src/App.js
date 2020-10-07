@@ -33,6 +33,8 @@ function App() {
         <AppPatientList>
           <PatientList
             isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            selectedPatient={selectedPatient}
             setSelectedPatient={setSelectedPatient}
           />
         </AppPatientList>

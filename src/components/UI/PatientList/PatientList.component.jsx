@@ -6,7 +6,12 @@ import styled from "styled-components";
 import PatientItem from "../PatientItem/PatientItem.component";
 
 // UI: PatientList
-function PatientList({ isOpen, setSelectedPatient }) {
+function PatientList({
+  isOpen,
+  setIsOpen,
+  selectedPatient,
+  setSelectedPatient,
+}) {
   // State = loading, patients
   const [loading, setLoading] = useState(true);
   const [patients, setPatients] = useState([]);
@@ -36,6 +41,11 @@ function PatientList({ isOpen, setSelectedPatient }) {
   if (loading) {
     return (
       <PatientListContainer>
+        <PatientListWrapper>
+          <PatientListHeader>Patients Created in last 72hrs</PatientListHeader>
+          <PatientListLead>Please select from the list below:</PatientListLead>
+        </PatientListWrapper>
+
         <PatientListLoadingMessage>
           <p>Loading...</p>
         </PatientListLoadingMessage>
@@ -49,8 +59,11 @@ function PatientList({ isOpen, setSelectedPatient }) {
       <div
         key={Master_ePR_ID}
         onClick={() => setSelectedPatient(Master_ePR_ID)}
+        style={
+          Master_ePR_ID === selectedPatient ? { background: "#2c2c2c" } : null
+        }
       >
-        <PatientItem {...otherPatientListProps} />
+        <PatientItem MasterID={Master_ePR_ID} {...otherPatientListProps} />
       </div>
     )
   );

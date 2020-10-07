@@ -7,14 +7,47 @@ import Icon from "../Icon/Icon.component";
 
 // UI: PatientItem
 function PatientItem({
+  id,
   PD_Firstname,
   PD_Surname,
   PD_Gender,
   PD_DOB,
+  MasterID,
+  ePR_Date,
   ePR_CallSign,
+  complete,
 }) {
+  // Truncates the MasterID (Master_ePR_ID) from the last "-"
+  const masterIdString = MasterID.split("-").pop();
+
+  // Calculates time difference between ePR_Date and current time
+  // Calculates seconds since admission date (current Date - ePR_Date)
+  const secondsSinceAdmission = Math.floor(
+    // (1000 * 3600 * 24) =
+    // milliseconds to seconds, seconds to hours, hours to days
+    (Date.now() - new Date(ePR_Date).getTime()) / 1000
+  );
+  console.log("Seconds since admission: ", secondsSinceAdmission);
+
+  // Converts secondsSinceAdmission into hours, minutes and seconds
+  function secondsToHoursMinutesSeconds(sec) {
+    sec = Number(sec);
+    let hours = Math.floor(sec / 3600);
+    let minutes = Math.floor((sec % 3600) / 60);
+    let seconds = Math.floor((sec % 3600) % 60);
+
+    let hoursDisplay =
+      hours > 0 ? hours + (hours === 1 ? " hour, " : " hours, ") : "";
+    let minutesDisplay =
+      minutes > 0 ? minutes + (minutes === 1 ? " minute, " : " minutes, ") : "";
+    let secondsDisplay =
+      seconds > 0 ? seconds + (seconds === 1 ? " second, " : " seconds, ") : "";
+
+    return hoursDisplay + minutesDisplay + secondsDisplay;
+  }
+
   return (
-    <PatientItemContainer>
+    <PatientItemContainer key={id}>
       <PatientItemIcon className="PatientItemIcon-hover">
         <Icon icon="fas fa-user-alt" />
       </PatientItemIcon>
@@ -44,8 +77,24 @@ function PatientItem({
 
         <PatientItemStatus>
           <PatientItemStatusText>
+            {MasterID ? "..." + masterIdString : "Null"}
+          </PatientItemStatusText>
+
+          <PatientItemStatusText>
+            {ePR_Date ? (
+              secondsToHoursMinutesSeconds(secondsSinceAdmission)
+            ) : (
+              <span>ePR Date</span>
+            )}
+          </PatientItemStatusText>
+
+          <PatientItemStatusText>
             {ePR_CallSign ? ePR_CallSign : <span>ePR CallSign</span>}
+          </PatientItemStatusText>
+
+          <PatientItemStatusText>
             <p>Status:</p>
+            {complete ? <span>Ready to Print</span> : <span>In Progress</span>}
           </PatientItemStatusText>
         </PatientItemStatus>
       </PatientItemWrapper>
