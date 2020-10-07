@@ -6,7 +6,7 @@ import styled from "styled-components";
 import PatientItem from "../PatientItem/PatientItem.component";
 
 // UI: PatientList
-function PatientList({ isOpen, setSelectedPatient }) {
+function PatientList({ isOpen, setIsOpen, setSelectedPatient }) {
   // State = loading, patients
   const [loading, setLoading] = useState(true);
   const [patients, setPatients] = useState([]);
@@ -36,12 +36,19 @@ function PatientList({ isOpen, setSelectedPatient }) {
   if (loading) {
     return (
       <PatientListContainer>
+        <PatientListWrapper>
+          <PatientListHeader>Patients Created in last 72hrs</PatientListHeader>
+          <PatientListLead>Please select from the list below:</PatientListLead>
+        </PatientListWrapper>
+
         <PatientListLoadingMessage>
           <p>Loading...</p>
         </PatientListLoadingMessage>
       </PatientListContainer>
     );
   }
+
+  // If screen width is <= 768px, selecting a Patient closes the PatientList
 
   // Maps PD_Firstname, PD_Surname and Master_ePR_ID from state
   const patientListRender = patients.map(
