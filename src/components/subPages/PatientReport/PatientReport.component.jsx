@@ -2381,6 +2381,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2399,6 +2400,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2417,6 +2419,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2435,6 +2438,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2486,6 +2490,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2520,6 +2525,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2538,6 +2544,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2556,6 +2563,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2574,6 +2582,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2627,6 +2636,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2659,6 +2669,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
@@ -2680,6 +2691,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
@@ -2719,6 +2731,7 @@ function PatientReport({
             padding="1rem"
           />
         </PatientReportHeadingContainer>
+
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"

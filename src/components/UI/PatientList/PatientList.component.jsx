@@ -6,7 +6,12 @@ import styled from "styled-components";
 import PatientItem from "../PatientItem/PatientItem.component";
 
 // UI: PatientList
-function PatientList({ isOpen, setIsOpen, setSelectedPatient }) {
+function PatientList({
+  isOpen,
+  setIsOpen,
+  selectedPatient,
+  setSelectedPatient,
+}) {
   // State = loading, patients
   const [loading, setLoading] = useState(true);
   const [patients, setPatients] = useState([]);
@@ -48,14 +53,15 @@ function PatientList({ isOpen, setIsOpen, setSelectedPatient }) {
     );
   }
 
-  // If screen width is <= 768px, selecting a Patient closes the PatientList
-
   // Maps PD_Firstname, PD_Surname and Master_ePR_ID from state
   const patientListRender = patients.map(
     ({ Master_ePR_ID, ...otherPatientListProps }) => (
       <div
         key={Master_ePR_ID}
         onClick={() => setSelectedPatient(Master_ePR_ID)}
+        style={
+          Master_ePR_ID === selectedPatient ? { background: "#2c2c2c" } : null
+        }
       >
         <PatientItem MasterID={Master_ePR_ID} {...otherPatientListProps} />
       </div>

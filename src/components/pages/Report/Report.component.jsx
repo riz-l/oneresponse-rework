@@ -17,7 +17,7 @@ import PatientReport from "../../subPages/PatientReport/PatientReport.component"
 
 // page: Report
 function Report({ selectedPatient }) {
-  // State
+  // State = Report
   const [cadDetailsData, setCADDetailsData] = useState([]); // Incident Information
   const [patientDetailsData, setPatientDetailsData] = useState([]); // Patient Details
   const [nokData, setNokData] = useState([]); // Patient Details
@@ -48,6 +48,9 @@ function Report({ selectedPatient }) {
   const [patientCapacityData, setPatientCapacityData] = useState([]); // Capacity to Consent
   const [bestInterestData, setBestInterestData] = useState([]); // Capacity to Consent
   const [signAndSyncData, setSignAndSyncData] = useState([]); // Sign and Sync
+
+  // State = Diagnosis of Death
+  const [diagnosisOfDeathData, setdiagnosisOfDeathData] = useState([]); // Diagnosis of Death
 
   // When selectedPatient changes fetch selected Patient report data from OneResponse APIs
   // If successful, ...Data === OneResponse API data (for selected Patient), loading === false
@@ -369,6 +372,18 @@ function Report({ selectedPatient }) {
           throw new Error("Unable to retrieve Sign and Sync data.");
         }
         //#endregion /Sign and Sync data
+
+        //#region Diagnosis of Death data
+        try {
+          const diagnosisOfDeathApi = `https://cad-message-to-trust-test.azurewebsites.net/DiagnosisOfDeath/ePRID/${selectedPatient}`;
+          const diagnosisOfDeathResponse = await fetch(diagnosisOfDeathApi);
+          const diagnosisOfDeathApiData = await diagnosisOfDeathResponse.json();
+          setdiagnosisOfDeathData(diagnosisOfDeathApiData);
+        } catch (error) {
+          console.log("Diagnosis of Death data error: ", error);
+          throw new Error("Unable to retrieve Diagnosis of Death data.");
+        }
+        //#endregion /Diagnosis of Death data
       }
     }
 
@@ -464,7 +479,10 @@ function Report({ selectedPatient }) {
           </Route>
 
           <Route path="/diagnosis-of-death">
-            <DiagnosisOfDeath selectedPatient={selectedPatient} />
+            <DiagnosisOfDeath
+              selectedPatient={selectedPatient}
+              diagnosisOfDeathData={diagnosisOfDeathData}
+            />
           </Route>
         </Switch>
       </ReportWrapper>
