@@ -2272,10 +2272,12 @@ function PatientReport({
       Final_Impression,
       staffNumberInput,
       professsional_Box,
+      signature,
       professionalRegNoInput,
       snrStaffNumberInput,
       snrProfessional_Box,
       snrProfessionalRegNoInput,
+      signatureSnrSig,
       signatureRefusalName,
     }) => (
       <PatientReportRender key={id}>
@@ -2308,11 +2310,13 @@ function PatientReport({
                   : "Not recorded"
               }
             />
-            <ReportField
-              field="Signature"
-              data="[Requires Signature render]"
-              marginBottom="2rem"
-            />
+            <ReportField field="Staff Signature" />
+            {signature && signature.length > 0 ? (
+              <img
+                src={"data:image/png;base64," + `${signature}`}
+                alt="Staff Signature"
+              />
+            ) : null}
           </PatientReportColumn>
 
           <PatientReportColumn>
@@ -2329,11 +2333,13 @@ function PatientReport({
                   : "Not recorded"
               }
             />
-            <ReportField
-              field="Signature"
-              data="[Requires Signature render]"
-              marginBottom="2rem"
-            />
+            <ReportField field="Senior Clinician's Signature" />
+            {signatureSnrSig && signatureSnrSig.length > 0 ? (
+              <img
+                src={"data:image/png;base64," + `${signatureSnrSig}`}
+                alt="Senior Clinician Signature"
+              />
+            ) : null}
           </PatientReportColumn>
         </PatientReportGrid>
 

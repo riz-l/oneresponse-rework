@@ -63,7 +63,7 @@ function PatientList({
           Master_ePR_ID === selectedPatient ? { background: "#2c2c2c" } : null
         }
       >
-        <PatientItem MasterID={Master_ePR_ID} {...otherPatientListProps} />
+        <PatientItem {...otherPatientListProps} />
       </div>
     )
   );
