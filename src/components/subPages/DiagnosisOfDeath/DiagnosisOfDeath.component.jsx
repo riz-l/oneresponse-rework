@@ -153,8 +153,8 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
   );
   //#endregion /terminationofResuscitationRender = Termination of Resuscitation report
 
-  //#region conditionsUnequivicallyAssociatedRender = Conditions unequivically Associated With Death report #TODO - Needs testing
-  const conditionsUnequivicallyAssociatedRender = diagnosisOfDeathData.map(
+  //#region conditionsUnequivocallyAssociatedRender = Conditions unequivically Associated With Death report #TODO - Needs testing
+  const conditionsUnequivocallyAssociatedRender = diagnosisOfDeathData.map(
     ({ id, Condition }) => (
       <DiagnosisOfDeathRender key={id}>
         <DiagnosisOfDeathGrid>
@@ -168,7 +168,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
       </DiagnosisOfDeathRender>
     )
   );
-  //#endregion /conditionsUnequivicallyAssociatedRender = Conditions unequivically Associated With Death report
+  //#endregion /conditionsUnequivocallyAssociatedRender = Conditions unequivically Associated With Death report
 
   //#region expectedDeathRender = Expected Death report #TODO - Needs testing
   const expectedDeathRender = diagnosisOfDeathData.map(
@@ -232,11 +232,11 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
       </DiagnosisOfDeathSection>
 
       <DiagnosisOfDeathSection>
-        {/* Advance Decisions to Refuse Treatment DNACPR/and That Fuffils Criteria Specified */}
+        {/* Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified */}
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
             icon="fas fa-sticky-note"
-            text="Advance Decisions to Refuse Treatment DNACPR/and That Fuffils Criteria Specified"
+            text="Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified"
             padding="1rem"
           />
         </DiagnosisOfDeathHeadingContainer>
@@ -283,8 +283,8 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
             : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
-            ? conditionsUnequivicallyAssociatedRender
-            : "Conditions Unequivically Associated With Death not recorded"}
+            ? conditionsUnequivocallyAssociatedRender
+            : "Conditions Unequivocally Associated With Death not recorded"}
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
