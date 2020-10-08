@@ -3,6 +3,9 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
+// Import: Assets
+import { ReactComponent as NwasLogo } from "../../../assets/images/nwaslogo.svg";
+
 // Import: UI
 import Icon from "../Icon/Icon.component";
 
@@ -13,7 +16,9 @@ function ReportHeader() {
       <ReportHeaderOptions>
         {/* <NavLink
           activeStyle={{
+            background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
+            transition: "background 150ms linear",
           }}
           to="/sbar"
         >
@@ -23,7 +28,9 @@ function ReportHeader() {
 
         <NavLink
           activeStyle={{
+            background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
+            transition: "background 150ms linear",
           }}
           to="/patient-report"
         >
@@ -33,7 +40,9 @@ function ReportHeader() {
 
         <NavLink
           activeStyle={{
+            background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
+            transition: "background 150ms linear",
           }}
           to="/notes"
         >
@@ -43,7 +52,9 @@ function ReportHeader() {
 
         <NavLink
           activeStyle={{
+            background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
+            transition: "background 150ms linear",
           }}
           to="/media"
         >
@@ -53,7 +64,9 @@ function ReportHeader() {
 
         <NavLink
           activeStyle={{
+            background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
+            transition: "background 150ms linear",
           }}
           to="/ecg"
         >
@@ -63,7 +76,9 @@ function ReportHeader() {
 
         <NavLink
           activeStyle={{
+            background: "#e0e0e0",
             borderTop: "3px solid #569fd3",
+            transition: "background 150ms linear",
           }}
           to="/diagnosis-of-death"
         >
@@ -71,6 +86,10 @@ function ReportHeader() {
           <li>DoD</li>
         </NavLink>
       </ReportHeaderOptions>
+
+      <ReportHeaderLogo>
+        <NwasLogo />
+      </ReportHeaderLogo>
     </ReportHeaderContainer>
   );
 }
@@ -87,17 +106,36 @@ const ReportHeaderContainer = styled.div`
   height: auto;
   justify-content: space-between;
   padding: 0 1rem;
+  position: sticky;
+  -webkit-position: sticky;
   top: 0;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
-
-  position: sticky;
-  -webkit-position: sticky;
 
   @media screen and (max-width: 768px) {
     position: static;
     -webkit-position: static;
   }
+
+  & svg {
+    height: 90px;
+    margin-right: 0.2rem;
+    visibility: visible;
+
+    @media screen and (max-width: 912px) {
+      display: none;
+      visibility: hidden;
+    }
+  }
+`;
+
+// Styled: ReportHeaderLogo
+const ReportHeaderLogo = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  width: 216px;
 `;
 
 // Styled: ReportHeaderOptions
@@ -110,6 +148,7 @@ const ReportHeaderOptions = styled.ul`
 
   & a {
     align-items: center;
+    border-top: 3px solid transparent;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -142,8 +181,12 @@ const ReportHeaderOptions = styled.ul`
 
     & i {
       color: #414141;
-      font-size: 1.4rem;
+      font-size: 2.4rem;
       transition: color 150ms linear;
+
+      @media screen and (max-width: 416px) {
+        font-size: 2rem;
+      }
     }
 
     & li {

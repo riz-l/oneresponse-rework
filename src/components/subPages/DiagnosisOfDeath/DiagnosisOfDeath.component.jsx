@@ -199,7 +199,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
           <HeadingOne
             icon="fas fa-sticky-note"
             text="Diagnosis of Death"
-            padding="1rem"
+            padding="0.6rem"
           />
         </DiagnosisOfDeathHeadingContainer>
 
@@ -218,7 +218,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
           <HeadingOne
             icon="fas fa-sticky-note"
             text="Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
-            padding="1rem"
+            padding="0.6rem"
           />
         </DiagnosisOfDeathHeadingContainer>
 
@@ -237,7 +237,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
           <HeadingOne
             icon="fas fa-sticky-note"
             text="Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified"
-            padding="1rem"
+            padding="0.6rem"
           />
         </DiagnosisOfDeathHeadingContainer>
 
@@ -256,7 +256,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
           <HeadingOne
             icon="fas fa-sticky-note"
             text="Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include"
-            padding="1rem"
+            padding="0.6rem"
           />
         </DiagnosisOfDeathHeadingContainer>
 
@@ -275,7 +275,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
           <HeadingOne
             icon="fas fa-sticky-note"
             text="Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing)"
-            padding="1rem"
+            padding="0.6rem"
           />
         </DiagnosisOfDeathHeadingContainer>
 
@@ -294,7 +294,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
           <HeadingOne
             icon="fas fa-sticky-note"
             text="Expected Death Due to Illness or Pre-Existing Condition"
-            padding="1rem"
+            padding="0.6rem"
           />
         </DiagnosisOfDeathHeadingContainer>
 
