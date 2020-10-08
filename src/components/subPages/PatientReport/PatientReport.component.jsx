@@ -1821,6 +1821,10 @@ function PatientReport({
               field="Type"
               data={ST_Type ? ST_Type : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -1829,6 +1833,10 @@ function PatientReport({
               field="Site"
               data={ST_Site ? ST_Site : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -1837,6 +1845,10 @@ function PatientReport({
               field="Side"
               data={ST_Side ? ST_Side : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -1845,6 +1857,10 @@ function PatientReport({
               field="Area"
               data={ST_Area ? ST_Area : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -1853,6 +1869,10 @@ function PatientReport({
               field="Time"
               data={ST_Time ? ST_Time : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
 
@@ -1861,6 +1881,10 @@ function PatientReport({
               field="By"
               data={ST_By ? ST_By : "Not recorded"}
               paddingBottom="0"
+              fontSize="0.71rem"
+              fieldFontWeight="700"
+              fieldMinHeight="45px"
+              fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
         </PatientReportTableGrid>
@@ -2384,7 +2408,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Incident Information"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2403,7 +2427,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Patient Details"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2422,7 +2446,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Clinical Observations"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2441,7 +2465,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="IV Access and Medications"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2493,7 +2517,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Cardiovascular Assessment"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2528,7 +2552,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Airways Management"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2547,7 +2571,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Cardiac Arrest"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2566,7 +2590,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Transport Options"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2585,7 +2609,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Triage and Pathfinder Support"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2639,7 +2663,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Trauma Management"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2672,7 +2696,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Communications, Consent and Notifications"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2694,7 +2718,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Capacity to Consent"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
@@ -2734,7 +2758,7 @@ function PatientReport({
           <HeadingOne
             icon="fas fa-file-medical-alt"
             text="Sign and Sync"
-            padding="1rem"
+            padding="0.6rem"
           />
         </PatientReportHeadingContainer>
 
