@@ -99,7 +99,7 @@ const PatientListContainer = styled.div`
   transform: translateX(0%);
   transition: transform 150ms linear;
   width: 400px;
-
+  -webkit-tap-highlight-color: transparent;
   @media screen and (max-width: 768px) {
     width: 100vw;
   }

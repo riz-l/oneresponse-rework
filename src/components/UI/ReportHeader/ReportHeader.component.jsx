@@ -89,6 +89,7 @@ const ReportHeaderContainer = styled.div`
   padding: 0 1rem;
   top: 0;
   width: 100%;
+  -webkit-tap-highlight-color: transparent;
 
   position: sticky;
   -webkit-position: sticky;
