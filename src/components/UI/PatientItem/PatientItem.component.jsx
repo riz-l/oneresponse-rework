@@ -20,7 +20,6 @@ function PatientItem({
 }) {
   // Only shows the last n characters of the PD_Incident_Number string
   const n = 10;
-  console.log(PD_Incident_Number.substring(PD_Incident_Number.length - n));
 
   // Calculates time difference between ePR_Date and current time
   // Calculates seconds since admission date (current Date - ePR_Date)

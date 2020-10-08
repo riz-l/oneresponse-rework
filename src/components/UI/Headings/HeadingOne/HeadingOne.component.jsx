@@ -63,13 +63,19 @@ const HeadingOneWrapper = styled.div`
 
   & i {
     color: #414141;
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-right: 10px;
+    visibility: visible;
+
+    @media screen and (max-width: 614px) {
+      display: none;
+      visibility: hidden;
+    }
   }
 `;
 
 // Styled: HeadingOneText
 const HeadingOneText = styled.h1`
   color: #414141;
-  font-size: 2rem;
+  font-size: 1.6rem;
 `;
