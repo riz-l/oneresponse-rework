@@ -210,8 +210,8 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
+      {/* Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning) */}
       <DiagnosisOfDeathSection>
-        {/* Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning) */}
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
             icon="fas fa-sticky-note"
@@ -229,8 +229,8 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
+      {/* Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified */}
       <DiagnosisOfDeathSection>
-        {/* Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified */}
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
             icon="fas fa-sticky-note"
@@ -248,8 +248,8 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
+      {/* Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include */}
       <DiagnosisOfDeathSection>
-        {/* Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include */}
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
             icon="fas fa-sticky-note"
@@ -267,8 +267,8 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
+      {/* Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing) */}
       <DiagnosisOfDeathSection>
-        {/* Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing) */}
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
             icon="fas fa-sticky-note"
@@ -286,8 +286,8 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
+      {/* Expected Death Due to Illness or Pre-Existing Condition */}
       <DiagnosisOfDeathSection>
-        {/* Expected Death Due to Illness or Pre-Existing Condition */}
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
             icon="fas fa-sticky-note"
