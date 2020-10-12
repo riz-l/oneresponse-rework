@@ -38,32 +38,77 @@ function Notes({ selectedPatient, notesData }) {
   );
   //#endregion /historyOfPresentingComplaintRender = History of Presenting Complaint report
 
-  const presentingComplaintRender = notesData.map(({ id, AddtItem_PC }) => (
+  //#region previousMedicalHistoryRender = Previous Medical History report #TODO - Needs testing
+  const previousMedicalHistoryRender = notesData.map(({ id, AddtItem_PMH }) => (
     <NotesRender key={id}>
       <NotesGrid>
         <NotesColumn>
-          <ReportField data={AddtItem_PC ? AddtItem_PC : "Not recorded"} />
+          <ReportField data={AddtItem_PMH ? AddtItem_PMH : "Not recorded"} />
         </NotesColumn>
       </NotesGrid>
     </NotesRender>
   ));
-  //#endregion /presentingComplaintRender = Presenting Complaint report
+  //#endregion /previousMedicalHistoryRender = Previous Medical History report
 
-  //#region previousMedicalHistoryRender = Previous Medical History report #TODO - Needs testing
-  const previousMedicalHistoryRender = notesData.map (
-    ({id, AddtItem_PMH}) => (
+  //#region socialHistoryRender = Social History report #TODO - Needs testing
+  const socialHistoryRender = notesData.map(
+    ({ id, AddtItem_Social_History }) => (
       <NotesRender key={id}>
         <NotesGrid>
           <NotesColumn>
             <ReportField
-              data={AddtItem_PMH ? AddtItem_PMH : "Not recorded"}
+              data={
+                AddtItem_Social_History
+                  ? AddtItem_Social_History
+                  : "Not recorded"
+              }
             />
           </NotesColumn>
         </NotesGrid>
       </NotesRender>
     )
   );
-  //#end region /previousMedicalHistoryRender = Previous Medical History report
+  //#endregion /socialHistoryRender = Social History report
+
+  //#region familyHistoryRender = Family History report #TODO - Needs testing
+  const familyHistoryRender = notesData.map(
+    ({ id, AddtItem_Family_History }) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={
+                AddtItem_Family_History
+                  ? AddtItem_Family_History
+                  : "Not recorded"
+              }
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+  //#endregion /familyHistoryRender = Family History report
+
+  //#region onExaminationRender = On Examination report #TODO - Needs testing
+  const onExaminationRender = notesData.map(
+    ({ id, AddtItem_On_Examination }) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={
+                AddtItem_On_Examination
+                  ? AddtItem_On_Examination
+                  : "Not recorded"
+              }
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+  //#endregion /onExaminationRender = On Examination report
 
   return (
     <NotesContainer>
@@ -121,6 +166,63 @@ function Notes({ selectedPatient, notesData }) {
             : notesData && notesData.length > 0
             ? previousMedicalHistoryRender
             : "Previous Medical History data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* Social History */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="Social History"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? socialHistoryRender
+            : "Social History data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* Family History */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="Family History"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? familyHistoryRender
+            : "Family History data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* On Examination */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="On Examination"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? onExaminationRender
+            : "On Examination data not recorded"}
         </ReportContainer>
       </NotesSection>
     </NotesContainer>
