@@ -13,6 +13,38 @@ import ReportField from "../../UI/ReportField/ReportField.component";
 // subPage: Notes
 function Notes({ selectedPatient, notesData }) {
   //#region presentingComplaintRender = Presenting Complaint report #TODO - Needs testing
+
+  const presentingComplaintRender = notesData.map (
+    ({id, AddtItem_PC}) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={AddtItem_PC ? AddtItem_PC : "Not recorded"}
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+//#endregion /presentingComplaintRender = Presenting Complaint report
+
+  //#region historyOfPresentingComplaintRender = History of Presenting Complaint report #TODO - Needs testing
+  const historyOfPresentingComplaintRender = notesData.map (
+    ({id, AddtItem_HPC}) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={AddtItem_HPC ? AddtItem_HPC : "Not recorded"}
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+//#endregion /historyOfPresentingComplaintRender = History of Presenting Complaint report
+
   const presentingComplaintRender = notesData.map(({ id, AddtItem_PC }) => (
     <NotesRender key={id}>
       <NotesGrid>
@@ -42,6 +74,25 @@ function Notes({ selectedPatient, notesData }) {
             : notesData && notesData.length > 0
             ? presentingComplaintRender
             : "Presenting Complaint data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* History of Presenting Complaint */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="History of Presenting Complaint"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? historyOfPresentingComplaintRender
+            : "History of Presenting Complaint data not recorded"}
         </ReportContainer>
       </NotesSection>
     </NotesContainer>
