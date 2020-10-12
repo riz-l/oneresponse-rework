@@ -26,7 +26,7 @@ function Notes({selectedPatient, notesData}) {
       </NotesRender>
     )
   );
-  //#end region /presentingComplaintRender = Presenting Complaint report
+//#endregion /presentingComplaintRender = Presenting Complaint report
 
   //#region historyOfPresentingComplaintRender = History of Presenting Complaint report #TODO - Needs testing
   const historyOfPresentingComplaintRender = notesData.map (
