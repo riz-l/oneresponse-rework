@@ -11,8 +11,9 @@ import ReportContainer from "../../UI/ReportContainer/ReportContainer.component"
 import ReportField from "../../UI/ReportField/ReportField.component";
 
 // subPage: Notes
-function Notes({selectedPatient, notesData}) {
+function Notes({ selectedPatient, notesData }) {
   //#region presentingComplaintRender = Presenting Complaint report #TODO - Needs testing
+
   const presentingComplaintRender = notesData.map (
     ({id, AddtItem_PC}) => (
       <NotesRender key={id}>
@@ -43,6 +44,17 @@ function Notes({selectedPatient, notesData}) {
     )
   );
 //#endregion /historyOfPresentingComplaintRender = History of Presenting Complaint report
+
+  const presentingComplaintRender = notesData.map(({ id, AddtItem_PC }) => (
+    <NotesRender key={id}>
+      <NotesGrid>
+        <NotesColumn>
+          <ReportField data={AddtItem_PC ? AddtItem_PC : "Not recorded"} />
+        </NotesColumn>
+      </NotesGrid>
+    </NotesRender>
+  ));
+  //#endregion /presentingComplaintRender = Presenting Complaint report
 
   return (
     <NotesContainer>

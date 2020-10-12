@@ -1,31 +1,33 @@
 // Import: Dependencies
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 // Import: Assets
-import { ReactComponent as NwasLogo } from "../../../assets/images/nwaslogo.svg";
+// import { ReactComponent as NwasLogo } from "../../../assets/images/nwaslogo.svg";
 
 // Import: UI
 import Icon from "../Icon/Icon.component";
 
 // UI: ReportHeader
-function ReportHeader() {
-  return (
-    <ReportHeaderContainer>
-      <ReportHeaderOptions>
-        {/* <NavLink
-          activeStyle={{
-            background: "#e0e0e0",
-            borderTop: "3px solid #569fd3",
-            transition: "background 150ms linear",
-          }}
-          to="/sbar"
-        >
-          <Icon icon="fas fa-laptop-medical" />
-          <li>SBAR</li>
-        </NavLink> */}
+function ReportHeader({ isOpen }) {
+  // State = windowWidth
+  const [windowWidth, setWindowWidth] = useState(0);
 
+  // useEffect = Checks and updates windowWidth
+  useEffect(() => {
+    const updateWindowDimensions = () => {
+      const newWidth = window.innerWidth;
+      setWindowWidth(newWidth);
+      console.log("Updating Height");
+    };
+
+    window.addEventListener("resize", updateWindowDimensions);
+  }, []);
+
+  return (
+    <ReportHeaderContainer isOpen={isOpen} windowWidth={windowWidth}>
+      <ReportHeaderOptions>
         <NavLink
           activeStyle={{
             background: "#e0e0e0",
@@ -87,9 +89,9 @@ function ReportHeader() {
         </NavLink>
       </ReportHeaderOptions>
 
-      <ReportHeaderLogo>
+      {/* <ReportHeaderLogo>
         <NwasLogo />
-      </ReportHeaderLogo>
+      </ReportHeaderLogo> */}
     </ReportHeaderContainer>
   );
 }
@@ -106,16 +108,23 @@ const ReportHeaderContainer = styled.div`
   height: auto;
   justify-content: space-between;
   padding: 0 1rem;
-  position: sticky;
-  -webkit-position: sticky;
+  position: ${({ isOpen, windowWidth }) => {
+    if (isOpen && windowWidth <= 768) {
+      return "static";
+    } else {
+      return "sticky";
+    }
+  }};
+  -webkit-position: ${({ isOpen, windowWidth }) => {
+    if (isOpen && windowWidth <= 768) {
+      return "static";
+    } else {
+      return "sticky";
+    }
+  }};
   top: 0;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
-
-  @media screen and (max-width: 768px) {
-    position: static;
-    -webkit-position: static;
-  }
 
   & svg {
     height: 90px;
@@ -130,13 +139,13 @@ const ReportHeaderContainer = styled.div`
 `;
 
 // Styled: ReportHeaderLogo
-const ReportHeaderLogo = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 80px;
-  width: 216px;
-`;
+// const ReportHeaderLogo = styled.div`
+//   align-items: center;
+//   display: flex;
+//   justify-content: center;
+//   height: 80px;
+//   width: 216px;
+// `;
 
 // Styled: ReportHeaderOptions
 const ReportHeaderOptions = styled.ul`
