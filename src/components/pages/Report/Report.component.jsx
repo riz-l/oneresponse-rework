@@ -16,7 +16,7 @@ import PatientReport from "../../subPages/PatientReport/PatientReport.component"
 // import Sbar from "../../subPages/Sbar/Sbar.component";
 
 // page: Report
-function Report({ selectedPatient }) {
+function Report({ selectedPatient, isOpen }) {
   // State = Report
   const [cadDetailsData, setCADDetailsData] = useState([]); // Incident Information
   const [patientDetailsData, setPatientDetailsData] = useState([]); // Patient Details
@@ -393,11 +393,11 @@ function Report({ selectedPatient }) {
   return (
     <ReportContainer>
       <ReportWrapper>
-        <PatientNameHeader
+        {/* <PatientNameHeader
           selectedPatient={selectedPatient}
           patientDetailsData={patientDetailsData}
-        />
-        <ReportHeader />
+        /> */}
+        <ReportHeader isOpen={isOpen} />
 
         <Switch>
           <Route exact path="/">
