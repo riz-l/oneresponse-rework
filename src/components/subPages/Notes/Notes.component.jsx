@@ -42,7 +42,7 @@ function Notes({selectedPatient, notesData}) {
       </NotesRender>
     )
   );
-  //#end region /historyOfPresentingComplaintRender = History of Presenting Complaint report
+//#endregion /historyOfPresentingComplaintRender = History of Presenting Complaint report
 
   return (
     <NotesContainer>
