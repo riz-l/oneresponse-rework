@@ -178,7 +178,10 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
               field="Expected Death due to terminal illness"
               data={DoD_Terminal ? DoD_Terminal : "Not recorded"}
             />
-            <ReportField
+          </DiagnosisOfDeathColumn>
+
+          <DiagnosisOfDeathColumn>
+          <ReportField
               field="Explanation"
               data={Terminal_Illness ? Terminal_Illness : "Not recorded"}
             />
