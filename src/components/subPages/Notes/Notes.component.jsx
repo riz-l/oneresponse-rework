@@ -81,6 +81,22 @@ function Notes({ selectedPatient, notesData }) {
   );
   //#end region /socialHistoryRender = Social History report
 
+  //#region familyHistoryRender = Family History report #TODO - Needs testing
+  const familyHistoryRender = notesData.map (
+    ({id, AddtItem_Family_History}) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={AddtItem_Family_History ? AddtItem_Family_History : "Not recorded"}
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+  //#end region /familyHistoryRender = Family History report
+
   return (
     <NotesContainer>
       {/* Presenting Complaint */}
@@ -156,6 +172,25 @@ function Notes({ selectedPatient, notesData }) {
             : notesData && notesData.length > 0
             ? socialHistoryRender
             : "Social History data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* Family History */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="Family History"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? familyHistoryRender
+            : "Family History data not recorded"}
         </ReportContainer>
       </NotesSection>
     </NotesContainer>
