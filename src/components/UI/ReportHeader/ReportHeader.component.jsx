@@ -12,7 +12,7 @@ import Icon from "../Icon/Icon.component";
 // UI: ReportHeader
 function ReportHeader({ isOpen }) {
   // State = windowWidth
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   // useEffect = Checks and updates windowWidth
   useEffect(() => {
@@ -109,17 +109,17 @@ const ReportHeaderContainer = styled.div`
   justify-content: space-between;
   padding: 0 1rem;
   position: ${({ isOpen, windowWidth }) => {
-    if (isOpen && windowWidth <= 768) {
-      return "static";
-    } else {
+    if (!isOpen || windowWidth > 768) {
       return "sticky";
+    } else {
+      return "static";
     }
   }};
   -webkit-position: ${({ isOpen, windowWidth }) => {
-    if (isOpen && windowWidth <= 768) {
-      return "static";
-    } else {
+    if (!isOpen || windowWidth > 768) {
       return "sticky";
+    } else {
+      return "static";
     }
   }};
   top: 0;

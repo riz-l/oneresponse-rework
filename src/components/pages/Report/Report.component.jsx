@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Switch, Route } from "react-router-dom";
 
 // Import: UI
-import PatientNameHeader from "../../UI/PatientNameHeader/PatientNameHeader.component";
+// import PatientNameHeader from "../../UI/PatientNameHeader/PatientNameHeader.component";
 import ReportHeader from "../../UI/ReportHeader/ReportHeader.component";
 
 // Import: subPages
@@ -48,7 +48,7 @@ function Report({ selectedPatient, isOpen }) {
   const [patientCapacityData, setPatientCapacityData] = useState([]); // Capacity to Consent
   const [bestInterestData, setBestInterestData] = useState([]); // Capacity to Consent
   const [signAndSyncData, setSignAndSyncData] = useState([]); // Sign and Sync
-  
+
   // State = Notes
   const [notesData, setNotesData] = useState([]); // Notes
 
@@ -482,10 +482,7 @@ function Report({ selectedPatient, isOpen }) {
           </Route>
 
           <Route path="/notes">
-            <Notes 
-              selectedPatient={selectedPatient} 
-              notesData={notesData}  
-            />
+            <Notes selectedPatient={selectedPatient} notesData={notesData} />
           </Route>
 
           <Route path="/media">

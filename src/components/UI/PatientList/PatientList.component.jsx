@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 // Import: UI
-import PatientItem from "../PatientItem/PatientItem.component";
 import Icon from "../Icon/Icon.component";
+import PatientItem from "../PatientItem/PatientItem.component";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.component";
 
 // UI: PatientList
 function PatientList({
@@ -43,12 +44,32 @@ function PatientList({
     return (
       <PatientListContainer>
         <PatientListWrapper>
-          <PatientListHeader>Patients Created in last 72hrs</PatientListHeader>
+          <PatientListHeader>
+            <Icon icon="fas fa-hospital-user" />
+            Patients Created in last 72hrs
+          </PatientListHeader>
+
+          <PatientListButtonContainer>
+            <PatientListButton type="button">Incoming</PatientListButton>
+            <PatientListButton type="button">Arrived</PatientListButton>
+            <PatientListButton type="button">Processed</PatientListButton>
+          </PatientListButtonContainer>
+
+          <PatientListButtonContainer>
+            <PatientListButton type="button">PID</PatientListButton>
+            <PatientListButton type="button">Non-PID</PatientListButton>
+          </PatientListButtonContainer>
+
+          <PatientListCount>
+            <p>Patient Count: {Object.keys(patients).length}</p>
+          </PatientListCount>
+
           <PatientListLead>Please select from the list below:</PatientListLead>
         </PatientListWrapper>
 
         <PatientListLoadingMessage>
           <p>Loading...</p>
+          <LoadingSpinner />
         </PatientListLoadingMessage>
       </PatientListContainer>
     );
@@ -139,7 +160,7 @@ const PatientListLoadingMessage = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-around;
-  padding: 0.4rem;
+  padding: 2rem 0.4rem;
 
   & p {
     font-size: 2rem;
