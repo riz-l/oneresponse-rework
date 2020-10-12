@@ -65,6 +65,22 @@ function Notes({ selectedPatient, notesData }) {
   );
   //#end region /previousMedicalHistoryRender = Previous Medical History report
 
+  //#region socialHistoryRender = Social History report #TODO - Needs testing
+  const socialHistoryRender = notesData.map (
+    ({id, AddtItem_Social_History}) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={AddtItem_Social_History ? AddtItem_Social_History : "Not recorded"}
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+  //#end region /socialHistoryRender = Social History report
+
   return (
     <NotesContainer>
       {/* Presenting Complaint */}
@@ -121,6 +137,25 @@ function Notes({ selectedPatient, notesData }) {
             : notesData && notesData.length > 0
             ? previousMedicalHistoryRender
             : "Previous Medical History data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* Social History */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="Social History"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? socialHistoryRender
+            : "Social History data not recorded"}
         </ReportContainer>
       </NotesSection>
     </NotesContainer>
