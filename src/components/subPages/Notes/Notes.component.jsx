@@ -110,54 +110,6 @@ function Notes({ selectedPatient, notesData }) {
   );
   //#endregion /onExaminationRender = On Examination report
 
-  //#region socialHistoryRender = Social History report #TODO - Needs testing
-  const socialHistoryRender = notesData.map (
-    ({id, AddtItem_Social_History}) => (
-      <NotesRender key={id}>
-        <NotesGrid>
-          <NotesColumn>
-            <ReportField
-              data={AddtItem_Social_History ? AddtItem_Social_History : "Not recorded"}
-            />
-          </NotesColumn>
-        </NotesGrid>
-      </NotesRender>
-    )
-  );
-  //#end region /socialHistoryRender = Social History report
-
-  //#region familyHistoryRender = Family History report #TODO - Needs testing
-  const familyHistoryRender = notesData.map (
-    ({id, AddtItem_Family_History}) => (
-      <NotesRender key={id}>
-        <NotesGrid>
-          <NotesColumn>
-            <ReportField
-              data={AddtItem_Family_History ? AddtItem_Family_History : "Not recorded"}
-            />
-          </NotesColumn>
-        </NotesGrid>
-      </NotesRender>
-    )
-  );
-  //#end region /familyHistoryRender = Family History report
-
-  //#region onExaminationRender = On Examination report #TODO - Needs testing
-  const onExaminationRender = notesData.map (
-    ({id, AddtItem_On_Examination}) => (
-      <NotesRender key={id}>
-        <NotesGrid>
-          <NotesColumn>
-            <ReportField
-              data={AddtItem_On_Examination ? AddtItem_On_Examination : "Not recorded"}
-            />
-          </NotesColumn>
-        </NotesGrid>
-      </NotesRender>
-    )
-  );
-  //#end region /onExaminationRender = On Examination report
-
   return (
     <NotesContainer>
       {/* Presenting Complaint */}
