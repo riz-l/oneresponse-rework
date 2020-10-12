@@ -97,6 +97,22 @@ function Notes({ selectedPatient, notesData }) {
   );
   //#end region /familyHistoryRender = Family History report
 
+  //#region onExaminationRender = On Examination report #TODO - Needs testing
+  const onExaminationRender = notesData.map (
+    ({id, AddtItem_On_Examination}) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={AddtItem_On_Examination ? AddtItem_On_Examination : "Not recorded"}
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+  //#end region /onExaminationRender = On Examination report
+
   return (
     <NotesContainer>
       {/* Presenting Complaint */}
@@ -191,6 +207,25 @@ function Notes({ selectedPatient, notesData }) {
             : notesData && notesData.length > 0
             ? familyHistoryRender
             : "Family History data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* On Examination */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="On Examination"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? onExaminationRender
+            : "On Examination data not recorded"}
         </ReportContainer>
       </NotesSection>
     </NotesContainer>
