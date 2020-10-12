@@ -40,7 +40,7 @@ function App() {
         </AppPatientList>
 
         <AppPatientReport>
-          <Report selectedPatient={selectedPatient} />
+          <Report selectedPatient={selectedPatient} isOpen={isOpen} />
         </AppPatientReport>
       </AppLayout>
     </AppContainer>

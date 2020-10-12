@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 // Import: UI
 import PatientItem from "../PatientItem/PatientItem.component";
+import Icon from "../Icon/Icon.component";
 
 // UI: PatientList
 function PatientList({
@@ -63,7 +64,15 @@ function PatientList({
           Master_ePR_ID === selectedPatient ? { background: "#2c2c2c" } : null
         }
       >
-        <PatientItem {...otherPatientListProps} />
+        <div
+          onClick={
+            window.innerWidth <= 768
+              ? () => setIsOpen((isOpen) => !isOpen)
+              : null
+          }
+        >
+          <PatientItem {...otherPatientListProps} />
+        </div>
       </div>
     )
   );
@@ -74,7 +83,26 @@ function PatientList({
         style={!isOpen ? { transform: "translateX(-100%" } : null}
       >
         <PatientListWrapper>
-          <PatientListHeader>Patients Created in last 72hrs</PatientListHeader>
+          <PatientListHeader>
+            <Icon icon="fas fa-hospital-user" />
+            Patients Created in last 72hrs
+          </PatientListHeader>
+
+          <PatientListButtonContainer>
+            <PatientListButton type="button">Incoming</PatientListButton>
+            <PatientListButton type="button">Arrived</PatientListButton>
+            <PatientListButton type="button">Processed</PatientListButton>
+          </PatientListButtonContainer>
+
+          <PatientListButtonContainer>
+            <PatientListButton type="button">PID</PatientListButton>
+            <PatientListButton type="button">Non-PID</PatientListButton>
+          </PatientListButtonContainer>
+
+          <PatientListCount>
+            <p>Patient Count: {Object.keys(patients).length}</p>
+          </PatientListCount>
+
           <PatientListLead>Please select from the list below:</PatientListLead>
         </PatientListWrapper>
         {patientListRender}
@@ -100,6 +128,7 @@ const PatientListContainer = styled.div`
   transition: transform 150ms linear;
   width: 400px;
   -webkit-tap-highlight-color: transparent;
+
   @media screen and (max-width: 768px) {
     width: 100vw;
   }
@@ -122,15 +151,20 @@ const PatientListLoadingMessage = styled.div`
 // Styled: PatientListWrapper
 const PatientListWrapper = styled.div`
   align-items: flex-start;
-  ${"" /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */}
+  background: #414141;
+  box-shadow: 0 5px 8px -9px rgba(0, 0, 0, 0.75);
   color: #ffffff;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   padding: 1rem;
+  position: sticky;
+  -webkit-position: sticky;
   text-align: left;
+  top: 0;
   width: 100%;
+  z-index: 9999;
 `;
 
 // Styled: PatientListHeader
@@ -142,10 +176,66 @@ const PatientListHeader = styled.span`
   @media screen and (max-width: 327px) {
     font-size: 1.2rem;
   }
+
+  & i {
+    font-size: 1.3rem;
+    margin-right: 6px;
+  }
 `;
 
 // Styled: PatientListLead
 const PatientListLead = styled.span`
   letter-spacing: 0.8px;
   opacity: 0.7;
+`;
+
+// Styled: PatientListButtonContainer
+const PatientListButtonContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin: 4px 0;
+  width: 100%;
+`;
+
+// Styled: PatientListButton
+const PatientListButton = styled.button`
+  background: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline;
+  font-size: 14px;
+  padding: 4px 0;
+  letter-spacing: 1px;
+  margin: 0 2px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 150ms linear;
+  width: 100px;
+
+  &:hover {
+    background: #e0e0e0;
+    transition: all 150ms linear;
+  }
+
+  &:focus {
+    background: #414141;
+    border: 2px solid #fff;
+    color: #fff;
+    transition: all 150ms linear;
+  }
+`;
+
+// Styled: PatientListCount
+const PatientListCount = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+
+  & p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
 `;

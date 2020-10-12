@@ -2337,7 +2337,7 @@ function PatientReport({
             <ReportField field="Staff Signature" />
             {signature && signature.length > 0 ? (
               <img
-                src={"data:image/png;base64," + `${signature}`}
+                src={"data:image/png;base64," + signature}
                 alt="Staff Signature"
               />
             ) : null}
@@ -2360,7 +2360,7 @@ function PatientReport({
             <ReportField field="Senior Clinician's Signature" />
             {signatureSnrSig && signatureSnrSig.length > 0 ? (
               <img
-                src={"data:image/png;base64," + `${signatureSnrSig}`}
+                src={"data:image/png;base64," + signatureSnrSig}
                 alt="Senior Clinician Signature"
               />
             ) : null}
