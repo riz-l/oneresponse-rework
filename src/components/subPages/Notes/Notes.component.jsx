@@ -87,7 +87,7 @@ function Notes({selectedPatient, notesData}) {
   );
 }
 
-// Export:Notes
+// Export: Notes
 export default Notes;
 
 // Styled: NotesContainer
