@@ -48,6 +48,9 @@ function Report({ selectedPatient }) {
   const [patientCapacityData, setPatientCapacityData] = useState([]); // Capacity to Consent
   const [bestInterestData, setBestInterestData] = useState([]); // Capacity to Consent
   const [signAndSyncData, setSignAndSyncData] = useState([]); // Sign and Sync
+  
+  // State = Notes
+  const [notesData, setNotesData] = useState([]); // Notes
 
   // State = Diagnosis of Death
   const [diagnosisOfDeathData, setdiagnosisOfDeathData] = useState([]); // Diagnosis of Death
@@ -373,6 +376,18 @@ function Report({ selectedPatient }) {
         }
         //#endregion /Sign and Sync data
 
+        //#region Notes data
+        try {
+          const notesApi = `https://cad-message-to-trust-test.azurewebsites.net/Notes/ePRID/${selectedPatient}`;
+          const notesResponse = await fetch(notesApi);
+          const notesApiData = await notesResponse.json();
+          setNotesData(notesApiData);
+        } catch (error) {
+          console.log("Notes data error: ", error);
+          throw new Error("Unable to retrieve Notes data.");
+        }
+        //#endregion /Notes data
+
         //#region Diagnosis of Death data
         try {
           const diagnosisOfDeathApi = `https://cad-message-to-trust-test.azurewebsites.net/DiagnosisOfDeath/ePRID/${selectedPatient}`;
@@ -467,7 +482,10 @@ function Report({ selectedPatient }) {
           </Route>
 
           <Route path="/notes">
-            <Notes selectedPatient={selectedPatient} />
+            <Notes 
+              selectedPatient={selectedPatient} 
+              notesData={notesData}  
+            />
           </Route>
 
           <Route path="/media">

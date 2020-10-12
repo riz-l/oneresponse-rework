@@ -4,9 +4,7 @@ import styled from "styled-components";
 
 // Import: UI
 import HeadingOne from "../../UI/Headings/HeadingOne/HeadingOne.component";
-import HeadingTwo from "../../UI/Headings/HeadingTwo/HeadingTwo.component";
 import HeadingThree from "../../UI/Headings/HeadingThree/HeadingThree.component";
-import HeadingFour from "../../UI/Headings/HeadingFour/HeadingFour.component";
 import ReportContainer from "../../UI/ReportContainer/ReportContainer.component";
 import ReportField from "../../UI/ReportField/ReportField.component";
 
@@ -338,15 +336,6 @@ const DiagnosisOfDeathGrid = styled.div`
   width: 100%;
 `;
 
-// Styled: DiagnosisOfDeathTableGrid
-const DiagnosisOfDeathTableGrid = styled.div`
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(66px, 1fr));
-  height: 100%;
-  width: 100%;
-`;
-
 // Styled: DiagnosisOfDeathColumn
 const DiagnosisOfDeathColumn = styled.div`
   align-items: flex-start;
@@ -361,12 +350,4 @@ const DiagnosisOfDeathColumn = styled.div`
 const DiagnosisOfDeathHeadingContainer = styled.div`
   background: #e0e0e0;
   width: 100%;
-`;
-
-// Styled: DiagnosisOfDeathAddressContainer
-const DiagnosisOfDeathAddressContainer = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 `;
