@@ -123,6 +123,22 @@ function Notes({ selectedPatient, notesData, loading }) {
   ));
   //#endregion /impressionRender = Impession report
 
+//#region planTreatmentRender = Plan/Treatment report #TODO - Needs testing
+  const planTreatmentRender = notesData.map(
+    ({ id, AddtItem_Meds }) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={ AddtItem_Meds ? AddtItem_Meds : "Not recorded"}
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+//#endregion /planTreatmentRender = Plan/Treatment report
+
   return (
     <NotesContainer>
       {/* Presenting Complaint */}
@@ -269,6 +285,25 @@ function Notes({ selectedPatient, notesData, loading }) {
             : notesData && notesData.length > 0
             ? impressionRender
             : "Impression data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* Plan/Treatment */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="Plan/Treatment"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? planTreatmentRender
+            : "Plan/Treatment data not recorded"}
         </ReportContainer>
       </NotesSection>
     </NotesContainer>
