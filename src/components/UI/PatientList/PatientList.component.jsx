@@ -221,8 +221,9 @@ const PatientListButtonContainer = styled.div`
 
 // Styled: PatientListButton
 const PatientListButton = styled.button`
-  background: #fff;
-  border: 2px solid transparent;
+  background: #414141;
+  border: 2px solid #fff;
+  color: #fff;
   cursor: pointer;
   display: inline;
   font-size: 14px;
@@ -236,13 +237,14 @@ const PatientListButton = styled.button`
 
   &:hover {
     background: #e0e0e0;
+    color: #414141;
     transition: all 150ms linear;
   }
 
   &:focus {
-    background: #414141;
+    background: #fff;
     border: 2px solid #fff;
-    color: #fff;
+    color: #2c2c2c;
     transition: all 150ms linear;
   }
 `;
