@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 import Icon from "../Icon/Icon.component";
 
 // UI: ReportHeader
-function ReportHeader({ isOpen }) {
+function ReportHeader({ patientListIsOpen }) {
   // State = windowWidth
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -26,7 +26,10 @@ function ReportHeader({ isOpen }) {
   }, []);
 
   return (
-    <ReportHeaderContainer isOpen={isOpen} windowWidth={windowWidth}>
+    <ReportHeaderContainer
+      patientListIsOpen={patientListIsOpen}
+      windowWidth={windowWidth}
+    >
       <ReportHeaderOptions>
         <NavLink
           activeStyle={{
@@ -109,15 +112,15 @@ const ReportHeaderContainer = styled.div`
   height: auto;
   justify-content: space-between;
   padding: 0 1rem;
-  position: ${({ isOpen, windowWidth }) => {
-    if (!isOpen || windowWidth > 768) {
+  position: ${({ patientListIsOpen, windowWidth }) => {
+    if (!patientListIsOpen || windowWidth > 768) {
       return "sticky";
     } else {
       return "static";
     }
   }};
-  -webkit-position: ${({ isOpen, windowWidth }) => {
-    if (!isOpen || windowWidth > 768) {
+  -webkit-position: ${({ patientListIsOpen, windowWidth }) => {
+    if (!patientListIsOpen || windowWidth > 768) {
       return "sticky";
     } else {
       return "static";

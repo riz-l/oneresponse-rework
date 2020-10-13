@@ -8,22 +8,27 @@ import Report from "./components/pages/Report/Report.component";
 // Import: UI
 import Header from "./components/UI/Header/Header.component";
 import PatientList from "./components/UI/PatientList/PatientList.component";
+import PatientSearchMenu from "./components/UI/PatientSearchMenu/PatientSearchMenu.component";
 
 // Component: App
 function App() {
-  // State = isOpen, selectedPatient
-  const [isOpen, setIsOpen] = useState(true);
+  // State = patientListIsOpen, selectedPatient
+  const [patientListIsOpen, setPatientListIsOpen] = useState(true);
+  const [searchMenuIsOpen, setSearchMenuIsOpen] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
 
   return (
     <AppContainer>
       <AppHeader>
-        <Header setIsOpen={setIsOpen} />
+        <Header
+          setPatientListIsOpen={setPatientListIsOpen}
+          setSearchMenuIsOpen={setSearchMenuIsOpen}
+        />
       </AppHeader>
 
       <AppLayout
         style={
-          !isOpen
+          !patientListIsOpen
             ? {
                 gridTemplateColumns: "0 1fr",
               }
@@ -32,16 +37,24 @@ function App() {
       >
         <AppPatientList>
           <PatientList
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
+            patientListIsOpen={patientListIsOpen}
+            setPatientListIsOpen={setPatientListIsOpen}
             selectedPatient={selectedPatient}
             setSelectedPatient={setSelectedPatient}
           />
         </AppPatientList>
 
         <AppPatientReport>
-          <Report selectedPatient={selectedPatient} isOpen={isOpen} />
+          <Report
+            selectedPatient={selectedPatient}
+            patientListIsOpen={patientListIsOpen}
+          />
         </AppPatientReport>
+
+        <PatientSearchMenu
+          searchMenuIsOpen={searchMenuIsOpen}
+          setSearchMenuIsOpen={setSearchMenuIsOpen}
+        />
       </AppLayout>
     </AppContainer>
   );
