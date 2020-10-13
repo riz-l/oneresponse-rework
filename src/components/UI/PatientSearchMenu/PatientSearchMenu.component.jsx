@@ -40,4 +40,10 @@ const PatientSearchMenuContainer = styled.div`
   max-width: 500px;
   min-width: 500px;
   z-index: 99999;
+
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+  }
 `;
