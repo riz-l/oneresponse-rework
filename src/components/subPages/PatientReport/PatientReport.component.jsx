@@ -37,6 +37,7 @@ function PatientReport({
   patientCapacityData,
   bestInterestData,
   signAndSyncData,
+  loading,
 }) {
   //#region cadDetailsRender = CAD Details report #TODO - Needs testing
   const cadDetailsRender = cadDetailsData.map(
@@ -2415,6 +2416,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : cadDetailsData && cadDetailsData.length > 0
             ? cadDetailsRender
             : "Incident Information data not recorded"}
@@ -2434,6 +2437,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : patientDetailsData && patientDetailsData.length > 0
             ? patientDetailsRender
             : "Patient Details data not recorded"}
@@ -2453,6 +2458,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : clinicalObservationsData && clinicalObservationsData.length > 0
             ? clinicalObservationsRender
             : "Clinical Observations data not recorded"}
@@ -2472,6 +2479,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
+          ) : loading ? (
+            "Loading..."
           ) : patientIVData &&
             patientIVData.length > 0 &&
             drugsMedsData &&
@@ -2524,6 +2533,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
+          ) : loading ? (
+            "Loading..."
           ) : cardiacChestPainData &&
             cardiacChestPainData.length > 0 &&
             strokeAssessmentData &&
@@ -2559,6 +2570,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : airwaysManagementData && airwaysManagementData.length > 0
             ? airwaysManagementRender
             : "Airways Management data not recorded"}
@@ -2578,6 +2591,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : cardiacArrestData && cardiacArrestData.length > 0
             ? cardiacArrestRender
             : "Cardiac Arrest data not recorded"}
@@ -2597,6 +2612,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : transportOptionsData && transportOptionsData.length > 0
             ? transportOptionsRender
             : "Transport Options data not recorded"}
@@ -2616,6 +2633,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
+          ) : loading ? (
+            "Loading..."
           ) : specialistPathwaysData &&
             specialistPathwaysData.length > 0 &&
             majorTraumaData &&
@@ -2670,6 +2689,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
+          ) : loading ? (
+            "Loading..."
           ) : skeletalTraumaData &&
             skeletalTraumaData.length > 0 &&
             burnsData &&
@@ -2703,6 +2724,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : communicationsConsentNotificationsData &&
               communicationsConsentNotificationsData.length > 0 &&
               patientRefusalData &&
@@ -2725,6 +2748,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null ? (
             "Please select a Patient from the Patient list"
+          ) : loading ? (
+            "Loading..."
           ) : mentalCapacityData &&
             mentalCapacityData.length > 0 &&
             patientDecisionsData &&
@@ -2765,6 +2790,8 @@ function PatientReport({
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : signAndSyncData && signAndSyncData.length > 0
             ? signAndSyncRender
             : "Sign and Sync data not recorded"}

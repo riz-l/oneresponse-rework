@@ -9,7 +9,7 @@ import ReportContainer from "../../UI/ReportContainer/ReportContainer.component"
 import ReportField from "../../UI/ReportField/ReportField.component";
 
 // subPage: DiagnosisOfDeath
-function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
+function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
   //#region diagnosisOfDeathRender = Diagnosis of Death report #TODO - Needs testing
   const diagnosisOfDeathRender = diagnosisOfDeathData.map(
     ({ id, DoD_Time, Privacy, Confirmed, Police }) => (
@@ -181,7 +181,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
           </DiagnosisOfDeathColumn>
 
           <DiagnosisOfDeathColumn>
-          <ReportField
+            <ReportField
               field="Explanation"
               data={Terminal_Illness ? Terminal_Illness : "Not recorded"}
             />
@@ -207,6 +207,8 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
             ? diagnosisOfDeathRender
             : "Diagnosis of Death data not recorded"}
@@ -226,9 +228,11 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
             ? factorsToConfirmRender
-            : "Factors to Confirm not recorded"}
+            : "Factors to Confirm... data not recorded"}
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
@@ -245,9 +249,11 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
             ? advanceDecisionsToRefuseRender
-            : "Advance Decisions to Refuse Treatment not recorded"}
+            : "Advance Decisions to Refuse... data not recorded"}
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
@@ -264,9 +270,11 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
             ? terminationofResuscitationRender
-            : "Termination of Resuscitation not recorded"}
+            : "Termination of Resuscitation... data not recorded"}
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
@@ -283,9 +291,11 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
             ? conditionsUnequivocallyAssociatedRender
-            : "Conditions Unequivocally Associated With Death not recorded"}
+            : "Conditions Unequivocally Associated... data not recorded"}
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
@@ -302,9 +312,11 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
             ? expectedDeathRender
-            : "Expected Death not recorded"}
+            : "Expected Death... data not recorded"}
         </ReportContainer>
       </DiagnosisOfDeathSection>
     </DiagnosisOfDeathContainer>

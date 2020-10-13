@@ -34,7 +34,8 @@ function ReportHeader({ isOpen }) {
             borderTop: "3px solid #569fd3",
             transition: "background 150ms linear",
           }}
-          to="/patient-report"
+          to="/"
+          exact
         >
           <Icon icon="fas fa-file-medical-alt" />
           <li>Report</li>

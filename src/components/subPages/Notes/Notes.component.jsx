@@ -4,14 +4,11 @@ import styled from "styled-components";
 
 // Import: UI
 import HeadingOne from "../../UI/Headings/HeadingOne/HeadingOne.component";
-// import HeadingTwo from "../../UI/Headings/HeadingTwo/HeadingTwo.component";
-// import HeadingThree from "../../UI/Headings/HeadingThree/HeadingThree.component";
-// import HeadingFour from "../../UI/Headings/HeadingFour/HeadingFour.component";
 import ReportContainer from "../../UI/ReportContainer/ReportContainer.component";
 import ReportField from "../../UI/ReportField/ReportField.component";
 
 // subPage: Notes
-function Notes({ selectedPatient, notesData }) {
+function Notes({ selectedPatient, notesData, loading }) {
   //#region presentingComplaintRender = Presenting Complaint report #TODO - Needs testing
   const presentingComplaintRender = notesData.map(({ id, AddtItem_PC }) => (
     <NotesRender key={id}>
@@ -141,6 +138,8 @@ function Notes({ selectedPatient, notesData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : notesData && notesData.length > 0
             ? presentingComplaintRender
             : "Presenting Complaint data not recorded"}
@@ -160,6 +159,8 @@ function Notes({ selectedPatient, notesData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : notesData && notesData.length > 0
             ? historyOfPresentingComplaintRender
             : "History of Presenting Complaint data not recorded"}
@@ -179,6 +180,8 @@ function Notes({ selectedPatient, notesData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : notesData && notesData.length > 0
             ? previousMedicalHistoryRender
             : "Previous Medical History data not recorded"}
@@ -198,6 +201,8 @@ function Notes({ selectedPatient, notesData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : notesData && notesData.length > 0
             ? socialHistoryRender
             : "Social History data not recorded"}
@@ -217,6 +222,8 @@ function Notes({ selectedPatient, notesData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : notesData && notesData.length > 0
             ? familyHistoryRender
             : "Family History data not recorded"}
@@ -236,6 +243,8 @@ function Notes({ selectedPatient, notesData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : notesData && notesData.length > 0
             ? onExaminationRender
             : "On Examination data not recorded"}
@@ -255,6 +264,8 @@ function Notes({ selectedPatient, notesData }) {
         <ReportContainer>
           {selectedPatient === null
             ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
             : notesData && notesData.length > 0
             ? impressionRender
             : "Impression data not recorded"}

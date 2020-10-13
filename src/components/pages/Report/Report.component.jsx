@@ -17,6 +17,9 @@ import PatientReport from "../../subPages/PatientReport/PatientReport.component"
 
 // page: Report
 function Report({ selectedPatient, isOpen }) {
+  // State = loading
+  const [loading, setLoading] = useState(true);
+
   // State = Report
   const [cadDetailsData, setCADDetailsData] = useState([]); // Incident Information
   const [patientDetailsData, setPatientDetailsData] = useState([]); // Patient Details
@@ -60,6 +63,8 @@ function Report({ selectedPatient, isOpen }) {
   // If unsuccessful, catch error
   useEffect(() => {
     async function getApiData() {
+      setLoading(true);
+
       if (selectedPatient !== null) {
         //#region Incident Information Data
         try {
@@ -400,6 +405,7 @@ function Report({ selectedPatient, isOpen }) {
         }
         //#endregion /Diagnosis of Death data
       }
+      setLoading(false);
     }
 
     getApiData();
@@ -445,58 +451,31 @@ function Report({ selectedPatient, isOpen }) {
               patientCapacityData={patientCapacityData}
               bestInterestData={bestInterestData}
               signAndSyncData={signAndSyncData}
-            />
-          </Route>
-
-          <Route path="/patient-report">
-            <PatientReport
-              selectedPatient={selectedPatient}
-              cadDetailsData={cadDetailsData}
-              patientDetailsData={patientDetailsData}
-              nokData={nokData}
-              clinicalObservationsData={clinicalObservationsData}
-              patientIVData={patientIVData}
-              drugsMedsData={drugsMedsData}
-              cardiacChestPainData={cardiacChestPainData}
-              strokeAssessmentData={strokeAssessmentData}
-              airwaysManagementData={airwaysManagementData}
-              cardiacArrestData={cardiacArrestData}
-              transportOptionsData={transportOptionsData}
-              specialistPathwaysData={specialistPathwaysData}
-              majorTraumaData={majorTraumaData}
-              manchesterTriageSystemData={manchesterTriageSystemData}
-              pathfindersData={pathfindersData}
-              jointDecisionMakingData={jointDecisionMakingData}
-              skeletalTraumaData={skeletalTraumaData}
-              burnsData={burnsData}
-              communicationsConsentNotificationsData={
-                communicationsConsentNotificationsData
-              }
-              patientRefusalData={patientRefusalData}
-              mentalCapacityData={mentalCapacityData}
-              patientDecisionsData={patientDecisionsData}
-              patientCapacityData={patientCapacityData}
-              bestInterestData={bestInterestData}
-              signAndSyncData={signAndSyncData}
+              loading={loading}
             />
           </Route>
 
           <Route path="/notes">
-            <Notes selectedPatient={selectedPatient} notesData={notesData} />
+            <Notes
+              selectedPatient={selectedPatient}
+              notesData={notesData}
+              loading={loading}
+            />
           </Route>
 
           <Route path="/media">
-            <Media selectedPatient={selectedPatient} />
+            <Media selectedPatient={selectedPatient} loading={loading} />
           </Route>
 
           <Route path="/ecg">
-            <Ecg selectedPatient={selectedPatient} />
+            <Ecg selectedPatient={selectedPatient} loading={loading} />
           </Route>
 
           <Route path="/diagnosis-of-death">
             <DiagnosisOfDeath
               selectedPatient={selectedPatient}
               diagnosisOfDeathData={diagnosisOfDeathData}
+              loading={loading}
             />
           </Route>
         </Switch>
