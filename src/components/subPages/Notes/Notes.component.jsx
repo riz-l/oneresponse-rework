@@ -12,7 +12,7 @@ import ReportField from "../../UI/ReportField/ReportField.component";
 
 // subPage: Notes
 function Notes({ selectedPatient, notesData }) {
-  //#region presentingComplaintRender = Presenting Complaint report #TODO - Needs testing
+//#region presentingComplaintRender = Presenting Complaint report #TODO - Needs testing
   const presentingComplaintRender = notesData.map(({ id, AddtItem_PC }) => (
     <NotesRender key={id}>
       <NotesGrid>
@@ -22,9 +22,9 @@ function Notes({ selectedPatient, notesData }) {
       </NotesGrid>
     </NotesRender>
   ));
-  //#endregion /presentingComplaintRender = Presenting Complaint report
+//#endregion /presentingComplaintRender = Presenting Complaint report
 
-  //#region historyOfPresentingComplaintRender = History of Presenting Complaint report #TODO - Needs testing
+//#region historyOfPresentingComplaintRender = History of Presenting Complaint report #TODO - Needs testing
   const historyOfPresentingComplaintRender = notesData.map(
     ({ id, AddtItem_HPC }) => (
       <NotesRender key={id}>
@@ -36,9 +36,9 @@ function Notes({ selectedPatient, notesData }) {
       </NotesRender>
     )
   );
-  //#endregion /historyOfPresentingComplaintRender = History of Presenting Complaint report
+//#endregion /historyOfPresentingComplaintRender = History of Presenting Complaint report
 
-  //#region previousMedicalHistoryRender = Previous Medical History report #TODO - Needs testing
+//#region previousMedicalHistoryRender = Previous Medical History report #TODO - Needs testing
   const previousMedicalHistoryRender = notesData.map(({ id, AddtItem_PMH }) => (
     <NotesRender key={id}>
       <NotesGrid>
@@ -48,67 +48,71 @@ function Notes({ selectedPatient, notesData }) {
       </NotesGrid>
     </NotesRender>
   ));
-  //#endregion /previousMedicalHistoryRender = Previous Medical History report
+//#endregion /previousMedicalHistoryRender = Previous Medical History report
 
-  //#region socialHistoryRender = Social History report #TODO - Needs testing
+//#region socialHistoryRender = Social History report #TODO - Needs testing
   const socialHistoryRender = notesData.map(
     ({ id, AddtItem_Social_History }) => (
       <NotesRender key={id}>
         <NotesGrid>
           <NotesColumn>
             <ReportField
-              data={
-                AddtItem_Social_History
-                  ? AddtItem_Social_History
-                  : "Not recorded"
-              }
+              data={AddtItem_Social_History ? AddtItem_Social_History : "Not recorded"}
             />
           </NotesColumn>
         </NotesGrid>
       </NotesRender>
     )
   );
-  //#endregion /socialHistoryRender = Social History report
+//#endregion /socialHistoryRender = Social History report
 
-  //#region familyHistoryRender = Family History report #TODO - Needs testing
+//#region familyHistoryRender = Family History report #TODO - Needs testing
   const familyHistoryRender = notesData.map(
     ({ id, AddtItem_Family_History }) => (
       <NotesRender key={id}>
         <NotesGrid>
           <NotesColumn>
             <ReportField
-              data={
-                AddtItem_Family_History
-                  ? AddtItem_Family_History
-                  : "Not recorded"
-              }
+              data={AddtItem_Family_History ? AddtItem_Family_History : "Not recorded"}
             />
           </NotesColumn>
         </NotesGrid>
       </NotesRender>
     )
   );
-  //#endregion /familyHistoryRender = Family History report
+//#endregion /familyHistoryRender = Family History report
 
-  //#region onExaminationRender = On Examination report #TODO - Needs testing
+//#region onExaminationRender = On Examination report #TODO - Needs testing
   const onExaminationRender = notesData.map(
     ({ id, AddtItem_On_Examination }) => (
       <NotesRender key={id}>
         <NotesGrid>
           <NotesColumn>
             <ReportField
-              data={
-                AddtItem_On_Examination
-                  ? AddtItem_On_Examination
-                  : "Not recorded"
-              }
+              data={AddtItem_On_Examination ? AddtItem_On_Examination : "Not recorded"}
             />
           </NotesColumn>
         </NotesGrid>
       </NotesRender>
     )
   );
-  //#endregion /onExaminationRender = On Examination report
+//#endregion /onExaminationRender = On Examination report
+
+//#region impressionRender = Impression report #TODO - Needs testing
+  const impressionRender = notesData.map(
+    ({ id, AddtItem_Impr_and_Trmt }) => (
+      <NotesRender key={id}>
+        <NotesGrid>
+          <NotesColumn>
+            <ReportField
+              data={ AddtItem_Impr_and_Trmt ? AddtItem_Impr_and_Trmt : "Not recorded"}
+            />
+          </NotesColumn>
+        </NotesGrid>
+      </NotesRender>
+    )
+  );
+//#endregion /impressionRender = Impession report
 
   return (
     <NotesContainer>
@@ -223,6 +227,25 @@ function Notes({ selectedPatient, notesData }) {
             : notesData && notesData.length > 0
             ? onExaminationRender
             : "On Examination data not recorded"}
+        </ReportContainer>
+      </NotesSection>
+
+      {/* Impression */}
+      <NotesSection>
+        <NotesHeadingContainer>
+          <HeadingOne
+            icon="fas fa-sticky-note"
+            text="Impression"
+            padding="0.6rem"
+          />
+        </NotesHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : notesData && notesData.length > 0
+            ? impressionRender
+            : "impression data not recorded"}
         </ReportContainer>
       </NotesSection>
     </NotesContainer>
