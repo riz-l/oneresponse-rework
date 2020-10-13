@@ -16,7 +16,7 @@ import PatientReport from "../../subPages/PatientReport/PatientReport.component"
 // import Sbar from "../../subPages/Sbar/Sbar.component";
 
 // page: Report
-function Report({ selectedPatient, isOpen }) {
+function Report({ selectedPatient, patientListIsOpen }) {
   // State = loading
   const [loading, setLoading] = useState(true);
 
@@ -418,7 +418,7 @@ function Report({ selectedPatient, isOpen }) {
           selectedPatient={selectedPatient}
           patientDetailsData={patientDetailsData}
         /> */}
-        <ReportHeader isOpen={isOpen} />
+        <ReportHeader patientListIsOpen={patientListIsOpen} />
 
         <Switch>
           <Route exact path="/">

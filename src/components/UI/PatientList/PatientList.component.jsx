@@ -9,8 +9,8 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.component";
 
 // UI: PatientList
 function PatientList({
-  isOpen,
-  setIsOpen,
+  patientListIsOpen,
+  setPatientListIsOpen,
   selectedPatient,
   setSelectedPatient,
 }) {
@@ -88,7 +88,10 @@ function PatientList({
         <div
           onClick={
             window.innerWidth <= 768
-              ? () => setIsOpen((isOpen) => !isOpen)
+              ? () =>
+                  setPatientListIsOpen(
+                    (patientListIsOpen) => !patientListIsOpen
+                  )
               : null
           }
         >
@@ -101,7 +104,7 @@ function PatientList({
   return (
     <>
       <PatientListContainer
-        style={!isOpen ? { transform: "translateX(-100%" } : null}
+        style={!patientListIsOpen ? { transform: "translateX(-100%" } : null}
       >
         <PatientListWrapper>
           <PatientListHeader>
