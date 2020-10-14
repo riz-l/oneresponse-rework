@@ -198,7 +198,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
       <DiagnosisOfDeathSection>
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="Diagnosis of Death"
             padding="0.6rem"
           />
@@ -219,7 +219,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
       <DiagnosisOfDeathSection>
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="Factors to Confirm Resuscitation Should Not Be Attempted (No Suspicion of Drowning)"
             padding="0.6rem"
           />
@@ -240,7 +240,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
       <DiagnosisOfDeathSection>
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="Advance Decisions to Refuse Treatment DNACPR/and That Fulfils Criteria Specified"
             padding="0.6rem"
           />
@@ -261,7 +261,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
       <DiagnosisOfDeathSection>
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="Termination of Resuscitation, if on Advanced Life Support for 20 Minutes Include"
             padding="0.6rem"
           />
@@ -282,7 +282,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
       <DiagnosisOfDeathSection>
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="Conditions Unequivocally Associated With Death (in Cases of Rigor Mortis, Hypostasis, and Fetal Maceration, Take an ECG While Confirming No Pulse and Breathing)"
             padding="0.6rem"
           />
@@ -303,7 +303,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
       <DiagnosisOfDeathSection>
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
-            icon="fas fa-sticky-note"
+            icon="fas fa-procedures"
             text="Expected Death Due to Illness or Pre-Existing Condition"
             padding="0.6rem"
           />
