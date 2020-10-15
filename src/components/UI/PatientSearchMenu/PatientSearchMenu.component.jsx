@@ -1,12 +1,30 @@
 // Import: Dependencies
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 // Import: UI
 import Icon from "../Icon/Icon.component";
 
 // UI: PatientSearchMenu
-function PatientSearchMenu({ searchMenuIsOpen, setSearchMenuIsOpen }) {
+function PatientSearchMenu({
+  searchMenuIsOpen,
+  setSearchMenuIsOpen,
+  patients,
+  selectedPatient,
+  setSelectedPatient,
+}) {
+  // Search: Incident No.
+  // Search: Call Sign
+  // Search: ePR User
+  // Search: Patient Firstname
+  const filterFirstname = patients.filter(
+    (patient) => patient.PD_Firstname === "charlie"
+  );
+
+  // Search: Patient Surname
+  // Search: NHS No.
+  // Search: Receiving Location
+
   return (
     <PatientSearchMenuContainer searchMenuIsOpen={searchMenuIsOpen}>
       <PatientSearchMenuWrapper>
@@ -69,7 +87,7 @@ function PatientSearchMenu({ searchMenuIsOpen, setSearchMenuIsOpen }) {
             type="text"
           />
 
-          <PatientSearchMenuLabel for="nhsNo">NHS No</PatientSearchMenuLabel>
+          <PatientSearchMenuLabel for="nhsNo">NHS No.</PatientSearchMenuLabel>
           <PatientSearchMenuInput
             placeholder="NHS No."
             name="nhsNo"
@@ -142,7 +160,7 @@ const PatientSearchMenuWrapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 1rem auto;
   width: 80%;
 `;
 
