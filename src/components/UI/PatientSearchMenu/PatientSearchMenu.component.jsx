@@ -122,7 +122,7 @@ const PatientSearchMenuContainer = styled.div`
   top: 0;
   transform: ${({ searchMenuIsOpen }) =>
     searchMenuIsOpen ? `translateX(0)` : `translateX(100%)`};
-  transition: transform 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  transition: transform 150ms linear, visibility 150ms linear;
   visibility: ${({ searchMenuIsOpen }) =>
     searchMenuIsOpen ? `visible` : `hidden`};
   width: 500px;
