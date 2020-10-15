@@ -104,22 +104,22 @@ function PatientSearchMenu({
             id="receivingLocation"
             type="text"
           />
+
+          <PatientSearchMenuButtonContainer>
+            <PatientSearchMenuButton type="button">
+              Search
+            </PatientSearchMenuButton>
+
+            <PatientSearchMenuButton
+              onClick={() => {
+                setSearchMenuIsOpen((searchMenuIsOpen) => !searchMenuIsOpen);
+              }}
+              type="button"
+            >
+              Clear / Cancel
+            </PatientSearchMenuButton>
+          </PatientSearchMenuButtonContainer>
         </PatientSearchMenuInputContainer>
-
-        <PatientSearchMenuButtonContainer>
-          <PatientSearchMenuButton type="button">
-            Search
-          </PatientSearchMenuButton>
-
-          <PatientSearchMenuButton
-            onClick={() => {
-              setSearchMenuIsOpen((searchMenuIsOpen) => !searchMenuIsOpen);
-            }}
-            type="button"
-          >
-            Clear / Cancel
-          </PatientSearchMenuButton>
-        </PatientSearchMenuButtonContainer>
       </PatientSearchMenuWrapper>
     </PatientSearchMenuContainer>
   );
@@ -171,6 +171,7 @@ const PatientSearchMenuHeader = styled.div`
   flex-direction: column;
   height: auto;
   justify-content: flex-start;
+  margin-bottom: 1rem;
   width: 100%;
 
   & p {
@@ -237,6 +238,7 @@ const PatientSearchMenuButtonContainer = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
+  margin-top: 1rem;
   width: 100%;
 `;
 
