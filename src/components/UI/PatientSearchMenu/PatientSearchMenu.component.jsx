@@ -12,11 +12,81 @@ function PatientSearchMenu({ searchMenuIsOpen, setSearchMenuIsOpen }) {
       <PatientSearchMenuWrapper>
         <PatientSearchMenuHeader>
           <PatientSearchMenuHeading>
-            <Icon icon="" />
+            <Icon icon="fas fa-search" />
             <h3>Patient / Incident Search</h3>
           </PatientSearchMenuHeading>
           <p>Please enter search criteria below:</p>
         </PatientSearchMenuHeader>
+
+        <PatientSearchMenuInputContainer>
+          <PatientSearchMenuLabel for="incidentNo">
+            Incident No.
+          </PatientSearchMenuLabel>
+          <PatientSearchMenuInput
+            placeholder="Incident No."
+            name="incidentNo"
+            id="incidentNo"
+            type="text"
+          />
+
+          <PatientSearchMenuLabel for="callSign">
+            Call Sign
+          </PatientSearchMenuLabel>
+          <PatientSearchMenuInput
+            placeholder="Call Sign"
+            name="callSign"
+            id="callSign"
+            type="text"
+          />
+
+          <PatientSearchMenuLabel for="eprUser">
+            ePR User
+          </PatientSearchMenuLabel>
+          <PatientSearchMenuInput
+            placeholder="ePR User"
+            name="eprUser"
+            id="eprUser"
+            type="text"
+          />
+
+          <PatientSearchMenuLabel for="patientFirstname">
+            Patient Firstname
+          </PatientSearchMenuLabel>
+          <PatientSearchMenuInput
+            placeholder="Patient Firstname"
+            name="patientFirstname"
+            id="patientFirstname"
+            type="text"
+          />
+
+          <PatientSearchMenuLabel for="patientSurname">
+            Patient Surname
+          </PatientSearchMenuLabel>
+          <PatientSearchMenuInput
+            placeholder="Patient Surname"
+            name="patientSurname"
+            id="patientSurname"
+            type="text"
+          />
+
+          <PatientSearchMenuLabel for="nhsNo">NHS No</PatientSearchMenuLabel>
+          <PatientSearchMenuInput
+            placeholder="NHS No."
+            name="nhsNo"
+            id="nhsNo"
+            type="text"
+          />
+
+          <PatientSearchMenuLabel for="receivingLocation">
+            Receiving Location
+          </PatientSearchMenuLabel>
+          <PatientSearchMenuInput
+            placeholder="Receiving Location"
+            name="receivingLocation"
+            id="receivingLocation"
+            type="text"
+          />
+        </PatientSearchMenuInputContainer>
 
         <PatientSearchMenuButtonContainer>
           <PatientSearchMenuButton type="button">
@@ -43,10 +113,11 @@ export default PatientSearchMenu;
 // Styled: PatientSearchMenuContainer
 const PatientSearchMenuContainer = styled.div`
   background: #414141;
-  height: 100vh;
   max-height: 100vh;
   min-height: 100vh;
   position: fixed;
+  overflow-x: hidden;
+  overflow-y: scroll;
   right: 0;
   top: 0;
   transform: ${({ searchMenuIsOpen }) =>
@@ -72,8 +143,6 @@ const PatientSearchMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin: 1rem;
-  background: red;
-  height: 100%;
   width: 80%;
 `;
 
@@ -82,16 +151,9 @@ const PatientSearchMenuHeader = styled.div`
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  background: green;
   height: auto;
+  justify-content: flex-start;
   width: 100%;
-
-  & h3 {
-    color: #fff;
-    font-size: 22px;
-    font-weight: 600;
-  }
 
   & p {
     color: #fff;
@@ -103,6 +165,53 @@ const PatientSearchMenuHeading = styled.div`
   align-items: center;
   display: flex;
   justify-content: flex-start;
+
+  & i {
+    color: #fff;
+    font-size: 22px;
+    margin-right: 6px;
+  }
+
+  & h3 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 600;
+  }
+`;
+
+// Styled: PatientSearchMenuInputContainer
+const PatientSearchMenuInputContainer = styled.form`
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem 0;
+  width: 100%;
+`;
+
+// Styled: PatientSearchMenuInput
+const PatientSearchMenuInput = styled.input`
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  margin-bottom: 1rem;
+  padding: 10px 0;
+  text-indent: 1rem;
+  transition: all 150ms linear;
+  width: 100%;
+
+  &:focus {
+    background: #fff;
+    border: 1px solid #2c2c2c;
+    color: #2c2c2c;
+    transition: all 150ms linear;
+  }
+`;
+
+// Styled: PatientSearchMenuLabel
+const PatientSearchMenuLabel = styled.label`
+  color: #fff;
+  margin-bottom: 8px;
 `;
 
 // Styled: PatientSearchMenuButtonContainer
