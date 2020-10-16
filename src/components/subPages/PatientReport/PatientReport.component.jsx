@@ -2391,16 +2391,16 @@ function PatientReport({
           </PatientReportColumn>
 
           <PatientReportColumn>
-            <ReportField 
-            field="Patients/Guardians Signature"    />
+            <ReportField field="Patients/Guardians Signature" />
             {signatureRefusal && signatureRefusal.length > 0 ? (
               <img
                 src={"data:image/png;base64," + signatureRefusal}
                 alt="Patients/Guardians Signature"
               />
-            ) : "Not recorded"}
+            ) : (
+              "Not recorded"
+            )}
           </PatientReportColumn>
-
           <PatientReportColumn>
             <></>
           </PatientReportColumn>
