@@ -13,17 +13,34 @@ function PatientSearchMenu({
   selectedPatient,
   setSelectedPatient,
 }) {
-  // Search: Incident No.
-  // Search: Call Sign
-  // Search: ePR User
-  // Search: Patient Firstname
-  const filterFirstname = patients.filter(
-    (patient) => patient.PD_Firstname === "charlie"
-  );
+  // State
+  const [searchIncidentNo, setSearchIncidentNo] = useState(""); // Incident No.
+  const [searchCallSign, setSearchCallSign] = useState(""); // Call Sign
+  const [searchEprUser, setSearchEprUser] = useState(""); // ePR User
+  const [searchFirstname, setSearchFirstname] = useState(""); // Patient Firstname
+  const [searchSurname, setSearchSurname] = useState(""); // Patient Surname
+  const [searchNhsNo, setSearchNhsNo] = useState(""); // NHS No.
+  const [searchReceivingLocation, setSearchReceivingLocation] = useState(""); // Receiving Location
 
-  // Search: Patient Surname
-  // Search: NHS No.
-  // Search: Receiving Location
+  // form: handleSubmit
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log("Form submitted!");
+  }
+
+  // form: resetSearch
+  function resetSearch() {
+    setSearchMenuIsOpen((searchMenuIsOpen) => !searchMenuIsOpen);
+    setSearchIncidentNo("");
+    setSearchCallSign("");
+    setSearchEprUser("");
+    setSearchFirstname("");
+    setSearchSurname("");
+    setSearchNhsNo("");
+    setSearchReceivingLocation("");
+  }
+
+  // Test: Patient filter
 
   return (
     <PatientSearchMenuContainer searchMenuIsOpen={searchMenuIsOpen}>
@@ -36,8 +53,8 @@ function PatientSearchMenu({
           <p>Please enter search criteria below:</p>
         </PatientSearchMenuHeader>
 
-        <PatientSearchMenuInputContainer>
-          <PatientSearchMenuLabel for="incidentNo">
+        <PatientSearchMenuInputContainer onSubmit={handleSubmit}>
+          <PatientSearchMenuLabel htmlFor="incidentNo">
             Incident No.
           </PatientSearchMenuLabel>
           <PatientSearchMenuInput
@@ -45,9 +62,12 @@ function PatientSearchMenu({
             name="incidentNo"
             id="incidentNo"
             type="text"
+            value={searchIncidentNo}
+            onChange={(event) => setSearchIncidentNo(event.target.value)}
           />
+          <p>{searchIncidentNo}</p>
 
-          <PatientSearchMenuLabel for="callSign">
+          <PatientSearchMenuLabel htmlFor="callSign">
             Call Sign
           </PatientSearchMenuLabel>
           <PatientSearchMenuInput
@@ -55,9 +75,12 @@ function PatientSearchMenu({
             name="callSign"
             id="callSign"
             type="text"
+            value={searchCallSign}
+            onChange={(event) => setSearchCallSign(event.target.value)}
           />
+          <p>{searchCallSign}</p>
 
-          <PatientSearchMenuLabel for="eprUser">
+          <PatientSearchMenuLabel htmlFor="eprUser">
             ePR User
           </PatientSearchMenuLabel>
           <PatientSearchMenuInput
@@ -65,9 +88,12 @@ function PatientSearchMenu({
             name="eprUser"
             id="eprUser"
             type="text"
+            value={searchEprUser}
+            onChange={(event) => setSearchEprUser(event.target.value)}
           />
+          <p>{searchEprUser}</p>
 
-          <PatientSearchMenuLabel for="patientFirstname">
+          <PatientSearchMenuLabel htmlFor="patientFirstname">
             Patient Firstname
           </PatientSearchMenuLabel>
           <PatientSearchMenuInput
@@ -75,9 +101,12 @@ function PatientSearchMenu({
             name="patientFirstname"
             id="patientFirstname"
             type="text"
+            value={searchFirstname}
+            onChange={(event) => setSearchFirstname(event.target.value)}
           />
+          <p>{searchFirstname}</p>
 
-          <PatientSearchMenuLabel for="patientSurname">
+          <PatientSearchMenuLabel htmlFor="patientSurname">
             Patient Surname
           </PatientSearchMenuLabel>
           <PatientSearchMenuInput
@@ -85,17 +114,25 @@ function PatientSearchMenu({
             name="patientSurname"
             id="patientSurname"
             type="text"
+            value={searchSurname}
+            onChange={(event) => setSearchSurname(event.target.value)}
           />
+          <p>{searchSurname}</p>
 
-          <PatientSearchMenuLabel for="nhsNo">NHS No.</PatientSearchMenuLabel>
+          <PatientSearchMenuLabel htmlFor="nhsNo">
+            NHS No.
+          </PatientSearchMenuLabel>
           <PatientSearchMenuInput
             placeholder="NHS No."
             name="nhsNo"
             id="nhsNo"
             type="text"
+            value={searchNhsNo}
+            onChange={(event) => setSearchNhsNo(event.target.value)}
           />
+          <p>{searchNhsNo}</p>
 
-          <PatientSearchMenuLabel for="receivingLocation">
+          <PatientSearchMenuLabel htmlFor="receivingLocation">
             Receiving Location
           </PatientSearchMenuLabel>
           <PatientSearchMenuInput
@@ -103,19 +140,17 @@ function PatientSearchMenu({
             name="receivingLocation"
             id="receivingLocation"
             type="text"
+            value={searchReceivingLocation}
+            onChange={(event) => setSearchReceivingLocation(event.target.value)}
           />
+          <p>{searchReceivingLocation}</p>
 
           <PatientSearchMenuButtonContainer>
-            <PatientSearchMenuButton type="button">
+            <PatientSearchMenuButton type="submit">
               Search
             </PatientSearchMenuButton>
 
-            <PatientSearchMenuButton
-              onClick={() => {
-                setSearchMenuIsOpen((searchMenuIsOpen) => !searchMenuIsOpen);
-              }}
-              type="button"
-            >
+            <PatientSearchMenuButton onClick={resetSearch} type="button">
               Clear / Cancel
             </PatientSearchMenuButton>
           </PatientSearchMenuButtonContainer>

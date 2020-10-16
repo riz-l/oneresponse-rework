@@ -38,7 +38,7 @@ function PatientList({
       setLoading(false);
     }
     getPatientList();
-  }, []);
+  }, [setPatients]);
 
   // If loading === true, render loading message
   if (loading) {
