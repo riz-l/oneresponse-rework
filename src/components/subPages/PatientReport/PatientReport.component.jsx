@@ -2346,6 +2346,9 @@ function PatientReport({
                 src={"data:image/png;base64," + signature}
                 alt="Staff Signature"
               />
+            ) : (
+              "Not recorded"
+            )}
           </PatientReportColumn>
 
           <PatientReportColumn>
@@ -2367,6 +2370,14 @@ function PatientReport({
               }
             />
             <ReportField field="Senior Clinician's Signature" />
+            {signatureSnrSig && signatureSnrSig.length > 0 ? (
+              <img
+                src={"data:image/png;base64," + signatureSnrSig}
+                alt="Senior Clinician Signature"
+              />
+            ) : (
+              "Not recorded"
+            )}
           </PatientReportColumn>
         </PatientReportGrid>
 
