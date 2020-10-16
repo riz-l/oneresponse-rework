@@ -2304,6 +2304,7 @@ function PatientReport({
       snrProfessionalRegNoInput,
       signatureSnrSig,
       signatureRefusalName,
+      signatureRefusal,
     }) => (
       <PatientReportRender key={id}>
         {/* Final Impression and Clinical Signatures */}
@@ -2401,9 +2402,16 @@ function PatientReport({
           </PatientReportColumn>
 
           <PatientReportColumn>
-            <ReportField field="Signature" data="[Requires Signature render]" />
+            <ReportField field="Patients/Guardians Signature" />
+            {signatureRefusal && signatureRefusal.length > 0 ? (
+              <img
+                src={"data:image/png;base64," + signatureRefusal}
+                alt="Patients/Guardians Signature"
+              />
+            ) : (
+              "Not recorded"
+            )}
           </PatientReportColumn>
-
           <PatientReportColumn>
             <></>
           </PatientReportColumn>
