@@ -11,12 +11,13 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.component";
 function PatientList({
   patientListIsOpen,
   setPatientListIsOpen,
+  patients,
+  setPatients,
   selectedPatient,
   setSelectedPatient,
 }) {
-  // State = loading, patients
+  // State = loading
   const [loading, setLoading] = useState(true);
-  const [patients, setPatients] = useState([]);
 
   // When PatientList renders fetch data from OneResponse API
   // If successful, patients === OneResponse API data, loading === false
@@ -37,7 +38,7 @@ function PatientList({
       setLoading(false);
     }
     getPatientList();
-  }, []);
+  }, [setPatients]);
 
   // If loading === true, render loading message
   if (loading) {

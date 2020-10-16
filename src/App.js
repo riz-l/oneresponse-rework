@@ -13,6 +13,7 @@ import PatientSearchMenu from "./components/UI/PatientSearchMenu/PatientSearchMe
 // Component: App
 function App() {
   // State = patientListIsOpen, selectedPatient
+  const [patients, setPatients] = useState([]);
   const [patientListIsOpen, setPatientListIsOpen] = useState(true);
   const [searchMenuIsOpen, setSearchMenuIsOpen] = useState(false);
   const [selectedPatient, setSelectedPatient] = useState(null);
@@ -39,6 +40,8 @@ function App() {
           <PatientList
             patientListIsOpen={patientListIsOpen}
             setPatientListIsOpen={setPatientListIsOpen}
+            patients={patients}
+            setPatients={setPatients}
             selectedPatient={selectedPatient}
             setSelectedPatient={setSelectedPatient}
           />
@@ -54,6 +57,9 @@ function App() {
         <PatientSearchMenu
           searchMenuIsOpen={searchMenuIsOpen}
           setSearchMenuIsOpen={setSearchMenuIsOpen}
+          patients={patients}
+          selectedPatient={selectedPatient}
+          setSelectedPatient={setSelectedPatient}
         />
       </AppLayout>
     </AppContainer>

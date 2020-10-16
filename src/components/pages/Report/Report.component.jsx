@@ -371,7 +371,7 @@ function Report({ selectedPatient, patientListIsOpen }) {
 
         //#region Sign and Sync data
         try {
-          const signAndSyncApi = `https://cad-message-to-trust-test.azurewebsites.net/BestInterest/ePRID/${selectedPatient}`;
+          const signAndSyncApi = `https://cad-message-to-trust-test.azurewebsites.net/SignAndSync/ePRID/${selectedPatient}`;
           const signAndSyncResponse = await fetch(signAndSyncApi);
           const signAndSyncApiData = await signAndSyncResponse.json();
           setSignAndSyncData(signAndSyncApiData);
