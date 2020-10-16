@@ -2331,9 +2331,13 @@ function PatientReport({
             <ReportField
               field="Registration No."
               data={
-                professsional_Box || professionalRegNoInput
-                  ? { professsional_Box } / { professionalRegNoInput }
-                  : "Not recorded"
+                professsional_Box || professionalRegNoInput ? (
+                  <p>
+                    {professsional_Box} / {professionalRegNoInput}
+                  </p>
+                ) : (
+                  "Not recorded"
+                )
               }
             />
             <ReportField field="Staff Signature" />
@@ -2342,7 +2346,6 @@ function PatientReport({
                 src={"data:image/png;base64," + signature}
                 alt="Staff Signature"
               />
-            ) : "Not recorded"}
           </PatientReportColumn>
 
           <PatientReportColumn>
@@ -2354,18 +2357,16 @@ function PatientReport({
             <ReportField
               field="Registration No."
               data={
-                professsional_Box || snrProfessionalRegNoInput
-                  ? { snrProfessional_Box } / { snrProfessionalRegNoInput }
-                  : "Not recorded"
+                professsional_Box || snrProfessionalRegNoInput ? (
+                  <p>
+                    {snrProfessional_Box} / {snrProfessionalRegNoInput}
+                  </p>
+                ) : (
+                  "Not recorded"
+                )
               }
             />
             <ReportField field="Senior Clinician's Signature" />
-            {signatureSnrSig && signatureSnrSig.length > 0 ? (
-              <img
-                src={"data:image/png;base64," + `${signatureSnrSig}`}
-                alt="Senior Clinician Signature"
-              />
-            ) : "Not recorded"} 
           </PatientReportColumn>
         </PatientReportGrid>
 
