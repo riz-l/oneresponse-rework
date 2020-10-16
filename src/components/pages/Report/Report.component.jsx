@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Switch, Route } from "react-router-dom";
 
 // Import: UI
-// import PatientNameHeader from "../../UI/PatientNameHeader/PatientNameHeader.component";
+import PatientNameHeader from "../../UI/PatientNameHeader/PatientNameHeader.component";
 import ReportHeader from "../../UI/ReportHeader/ReportHeader.component";
 
 // Import: subPages
@@ -414,10 +414,10 @@ function Report({ selectedPatient, patientListIsOpen }) {
   return (
     <ReportContainer>
       <ReportWrapper>
-        {/* <PatientNameHeader
+        <PatientNameHeader
           selectedPatient={selectedPatient}
           patientDetailsData={patientDetailsData}
-        /> */}
+        />
         <ReportHeader patientListIsOpen={patientListIsOpen} />
 
         <Switch>

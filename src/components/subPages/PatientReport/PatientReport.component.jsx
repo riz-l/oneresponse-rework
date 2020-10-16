@@ -2304,6 +2304,7 @@ function PatientReport({
       snrProfessionalRegNoInput,
       signatureSnrSig,
       signatureRefusalName,
+      signatureRefusal,
     }) => (
       <PatientReportRender key={id}>
         {/* Final Impression and Clinical Signatures */}
@@ -2345,9 +2346,6 @@ function PatientReport({
                 src={"data:image/png;base64," + signature}
                 alt="Staff Signature"
               />
-            ) : (
-              "Not recorded"
-            )}
           </PatientReportColumn>
 
           <PatientReportColumn>
@@ -2369,14 +2367,6 @@ function PatientReport({
               }
             />
             <ReportField field="Senior Clinician's Signature" />
-            {signatureSnrSig && signatureSnrSig.length > 0 ? (
-              <img
-                src={"data:image/png;base64," + signatureSnrSig}
-                alt="Senior Clinician Signature"
-              />
-            ) : (
-              "Not recorded"
-            )}
           </PatientReportColumn>
         </PatientReportGrid>
 
@@ -2401,7 +2391,14 @@ function PatientReport({
           </PatientReportColumn>
 
           <PatientReportColumn>
-            <ReportField field="Signature" data="[Requires Signature render]" />
+            <ReportField 
+            field="Patients/Guardians Signature"    />
+            {signatureRefusal && signatureRefusal.length > 0 ? (
+              <img
+                src={"data:image/png;base64," + signatureRefusal}
+                alt="Patients/Guardians Signature"
+              />
+            ) : "Not recorded"}
           </PatientReportColumn>
 
           <PatientReportColumn>
