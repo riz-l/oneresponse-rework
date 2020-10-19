@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 // Import: UI
 import Icon from "../Icon/Icon.component";
+import PatientItem from "../PatientItem/PatientItem.component";
 
 // UI: PatientSearchMenu
 function PatientSearchMenu({
@@ -14,13 +15,13 @@ function PatientSearchMenu({
   setSelectedPatient,
 }) {
   // State
-  const [searchIncidentNo, setSearchIncidentNo] = useState(""); // Incident No.
-  const [searchCallSign, setSearchCallSign] = useState(""); // Call Sign
-  const [searchEprUser, setSearchEprUser] = useState(""); // ePR User
-  const [searchFirstname, setSearchFirstname] = useState(""); // Patient Firstname
-  const [searchSurname, setSearchSurname] = useState(""); // Patient Surname
-  const [searchNhsNo, setSearchNhsNo] = useState(""); // NHS No.
-  const [searchReceivingLocation, setSearchReceivingLocation] = useState(""); // Receiving Location
+  const [searchIncidentNo, setSearchIncidentNo] = useState(null); // Incident No., PD_Incident_Number
+  const [searchCallSign, setSearchCallSign] = useState(null); // Call Sign, ePR_CallSign
+  const [searchEprUser, setSearchEprUser] = useState(null); // ePR User, ePR_User
+  const [searchFirstname, setSearchFirstname] = useState(null); // Patient Firstname, PD_Firstname
+  const [searchSurname, setSearchSurname] = useState(null); // Patient Surname, PD_Surname
+  const [searchNhsNo, setSearchNhsNo] = useState(null); // NHS No., PD_NHS_No
+  const [searchReceivingLocation, setSearchReceivingLocation] = useState(null); // Receiving Location, PD_Receiving_Location
 
   // form: handleSubmit
   function handleSubmit(event) {
@@ -31,16 +32,14 @@ function PatientSearchMenu({
   // form: resetSearch
   function resetSearch() {
     setSearchMenuIsOpen((searchMenuIsOpen) => !searchMenuIsOpen);
-    setSearchIncidentNo("");
-    setSearchCallSign("");
-    setSearchEprUser("");
-    setSearchFirstname("");
-    setSearchSurname("");
-    setSearchNhsNo("");
-    setSearchReceivingLocation("");
+    setSearchIncidentNo(null);
+    setSearchCallSign(null);
+    setSearchEprUser(null);
+    setSearchFirstname(null);
+    setSearchSurname(null);
+    setSearchNhsNo(null);
+    setSearchReceivingLocation(null);
   }
-
-  // Test: Patient filter
 
   return (
     <PatientSearchMenuContainer searchMenuIsOpen={searchMenuIsOpen}>
@@ -52,6 +51,16 @@ function PatientSearchMenu({
           </PatientSearchMenuHeading>
           <p>Please enter search criteria below:</p>
         </PatientSearchMenuHeader>
+
+        <PatientSearchMenuButtonContainer>
+          <PatientSearchMenuButton type="submit">
+            Search
+          </PatientSearchMenuButton>
+
+          <PatientSearchMenuButton onClick={resetSearch} type="button">
+            Clear / Cancel
+          </PatientSearchMenuButton>
+        </PatientSearchMenuButtonContainer>
 
         <PatientSearchMenuInputContainer onSubmit={handleSubmit}>
           <PatientSearchMenuLabel htmlFor="incidentNo">
@@ -65,7 +74,6 @@ function PatientSearchMenu({
             value={searchIncidentNo}
             onChange={(event) => setSearchIncidentNo(event.target.value)}
           />
-          <p>{searchIncidentNo}</p>
 
           <PatientSearchMenuLabel htmlFor="callSign">
             Call Sign
@@ -78,7 +86,6 @@ function PatientSearchMenu({
             value={searchCallSign}
             onChange={(event) => setSearchCallSign(event.target.value)}
           />
-          <p>{searchCallSign}</p>
 
           <PatientSearchMenuLabel htmlFor="eprUser">
             ePR User
@@ -91,7 +98,6 @@ function PatientSearchMenu({
             value={searchEprUser}
             onChange={(event) => setSearchEprUser(event.target.value)}
           />
-          <p>{searchEprUser}</p>
 
           <PatientSearchMenuLabel htmlFor="patientFirstname">
             Patient Firstname
@@ -104,7 +110,6 @@ function PatientSearchMenu({
             value={searchFirstname}
             onChange={(event) => setSearchFirstname(event.target.value)}
           />
-          <p>{searchFirstname}</p>
 
           <PatientSearchMenuLabel htmlFor="patientSurname">
             Patient Surname
@@ -117,7 +122,6 @@ function PatientSearchMenu({
             value={searchSurname}
             onChange={(event) => setSearchSurname(event.target.value)}
           />
-          <p>{searchSurname}</p>
 
           <PatientSearchMenuLabel htmlFor="nhsNo">
             NHS No.
@@ -130,7 +134,6 @@ function PatientSearchMenu({
             value={searchNhsNo}
             onChange={(event) => setSearchNhsNo(event.target.value)}
           />
-          <p>{searchNhsNo}</p>
 
           <PatientSearchMenuLabel htmlFor="receivingLocation">
             Receiving Location
@@ -143,17 +146,72 @@ function PatientSearchMenu({
             value={searchReceivingLocation}
             onChange={(event) => setSearchReceivingLocation(event.target.value)}
           />
-          <p>{searchReceivingLocation}</p>
 
-          <PatientSearchMenuButtonContainer>
-            <PatientSearchMenuButton type="submit">
-              Search
-            </PatientSearchMenuButton>
+          <PatientSearchResultContainer>
+            <h5>Results:</h5>
+            <div>
+              {patients
+                .filter(
+                  (patient) =>
+                    patient.PD_Firstname !== "" &&
+                    patient.PD_Firstname === searchFirstname
+                )
+                .map(({ Master_ePR_ID, ...otherPatientListProps }) => (
+                  <div
+                    key={Master_ePR_ID}
+                    style={
+                      Master_ePR_ID === selectedPatient
+                        ? { background: "#2c2c2c" }
+                        : null
+                    }
+                    onClick={() => setSelectedPatient(Master_ePR_ID)}
+                  >
+                    <div
+                      onClick={
+                        window.innerWidth <= 768
+                          ? () =>
+                              setSearchMenuIsOpen(
+                                (searchMenuIsOpen) => !searchMenuIsOpen
+                              )
+                          : null
+                      }
+                    >
+                      <PatientItem {...otherPatientListProps} />
+                    </div>
+                  </div>
+                ))}
+            </div>
 
-            <PatientSearchMenuButton onClick={resetSearch} type="button">
-              Clear / Cancel
-            </PatientSearchMenuButton>
-          </PatientSearchMenuButtonContainer>
+            <h5 style={{ marginTop: "1rem" }}>Anonymous Results:</h5>
+            <div>
+              {patients
+                .filter((patient) => patient.PD_Firstname === "")
+                .map(({ Master_ePR_ID, ...otherPatientListProps }) => (
+                  <div
+                    key={Master_ePR_ID}
+                    style={
+                      Master_ePR_ID === selectedPatient
+                        ? { background: "#2c2c2c" }
+                        : null
+                    }
+                    onClick={() => setSelectedPatient(Master_ePR_ID)}
+                  >
+                    <div
+                      onClick={
+                        window.innerWidth <= 768
+                          ? () =>
+                              setSearchMenuIsOpen(
+                                (searchMenuIsOpen) => !searchMenuIsOpen
+                              )
+                          : null
+                      }
+                    >
+                      <PatientItem {...otherPatientListProps} />
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </PatientSearchResultContainer>
         </PatientSearchMenuInputContainer>
       </PatientSearchMenuWrapper>
     </PatientSearchMenuContainer>
@@ -206,7 +264,6 @@ const PatientSearchMenuHeader = styled.div`
   flex-direction: column;
   height: auto;
   justify-content: flex-start;
-  margin-bottom: 1rem;
   width: 100%;
 
   & p {
@@ -230,6 +287,40 @@ const PatientSearchMenuHeading = styled.div`
     color: #fff;
     font-size: 22px;
     font-weight: 600;
+  }
+`;
+
+// Styled: PatientSearchMenuButtonContainer
+const PatientSearchMenuButtonContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  width: 100%;
+`;
+
+// Styled: PatientSearchMenuButton
+const PatientSearchMenuButton = styled.button`
+  background: #414141;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  display: inline;
+  font-size: 14px;
+  padding: 10px 8px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 150ms linear;
+  width: 100%;
+
+  &:hover {
+    background: #fff;
+    color: #2c2c2c;
+    transition: all 150ms linear;
+  }
+
+  &:nth-child(1) {
+    margin-right: 10px;
   }
 `;
 
@@ -268,36 +359,18 @@ const PatientSearchMenuLabel = styled.label`
   margin-bottom: 8px;
 `;
 
-// Styled: PatientSearchMenuButtonContainer
-const PatientSearchMenuButtonContainer = styled.div`
-  align-items: center;
+// Styled: PatientSearchResultContainer
+const PatientSearchResultContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  height: auto;
   margin-top: 1rem;
   width: 100%;
-`;
 
-// Styled: PatientSearchMenuButton
-const PatientSearchMenuButton = styled.button`
-  background: #414141;
-  border: 2px solid #fff;
-  color: #fff;
-  cursor: pointer;
-  display: inline;
-  font-size: 14px;
-  padding: 10px 8px;
-  letter-spacing: 1px;
-  text-decoration: none;
-  transition: all 150ms linear;
-  width: 100%;
-
-  &:hover {
-    background: #fff;
-    color: #2c2c2c;
-    transition: all 150ms linear;
-  }
-
-  &:nth-child(1) {
-    margin-right: 10px;
+  & h5 {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 1px;
   }
 `;
