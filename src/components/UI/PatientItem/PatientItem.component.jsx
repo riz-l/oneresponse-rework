@@ -8,7 +8,6 @@ import Icon from "../Icon/Icon.component";
 // UI: PatientItem
 function PatientItem({
   id,
-  isSearchMenu,
   PD_Firstname,
   PD_Surname,
   PD_Gender,

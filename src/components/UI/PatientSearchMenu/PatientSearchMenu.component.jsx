@@ -167,13 +167,10 @@ function PatientSearchMenu({
                     onClick={() => setSelectedPatient(Master_ePR_ID)}
                   >
                     <div
-                      onClick={
-                        window.innerWidth <= 768
-                          ? () =>
-                              setSearchMenuIsOpen(
-                                (searchMenuIsOpen) => !searchMenuIsOpen
-                              )
-                          : null
+                      onClick={() =>
+                        setSearchMenuIsOpen(
+                          (searchMenuIsOpen) => !searchMenuIsOpen
+                        )
                       }
                     >
                       <PatientItem {...otherPatientListProps} />
@@ -197,13 +194,10 @@ function PatientSearchMenu({
                     onClick={() => setSelectedPatient(Master_ePR_ID)}
                   >
                     <div
-                      onClick={
-                        window.innerWidth <= 768
-                          ? () =>
-                              setSearchMenuIsOpen(
-                                (searchMenuIsOpen) => !searchMenuIsOpen
-                              )
-                          : null
+                      onClick={() =>
+                        setSearchMenuIsOpen(
+                          (searchMenuIsOpen) => !searchMenuIsOpen
+                        )
                       }
                     >
                       <PatientItem {...otherPatientListProps} />
@@ -375,3 +369,6 @@ const PatientSearchResultContainer = styled.div`
     margin-bottom: 1rem;
   }
 `;
+
+// Styled: PatientSearchResultHeader
+const PatientSearchResultHeader = styled.div``;
