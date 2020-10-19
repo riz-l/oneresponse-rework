@@ -372,5 +372,6 @@ const PatientSearchResultContainer = styled.div`
     font-size: 1.4rem;
     font-weight: 500;
     letter-spacing: 1px;
+    margin-bottom: 1rem;
   }
 `;

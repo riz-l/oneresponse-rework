@@ -8,6 +8,7 @@ import Icon from "../Icon/Icon.component";
 // UI: PatientItem
 function PatientItem({
   id,
+  isSearchMenu,
   PD_Firstname,
   PD_Surname,
   PD_Gender,
@@ -116,6 +117,7 @@ export default PatientItem;
 const PatientItemContainer = styled.div`
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
   display: flex;
   height: 100%;
   justify-content: flex-start;

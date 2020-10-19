@@ -2346,6 +2346,9 @@ function PatientReport({
                 src={"data:image/png;base64," + signature}
                 alt="Staff Signature"
               />
+            ) : (
+              "Not recorded"
+            )}
           </PatientReportColumn>
 
           <PatientReportColumn>
