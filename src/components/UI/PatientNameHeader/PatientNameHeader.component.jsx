@@ -8,30 +8,30 @@ import Icon from "../Icon/Icon.component";
 // UI: PatientNameHeader
 function PatientNameHeader({ selectedPatient, patientDetailsData }) {
   // Renders a selected Patient's Firstname, Surname and Master_ePR_ID
-  const patientNameRender = patientDetailsData.map(
-    ({ id, Master_ePR_ID, PD_Firstname, PD_Surname }) => (
-      <PatientNameHeaderContainer key={id}>
-        <PatientNameHeaderWrapper>
-          <PatientNameHeaderRow>
-            <PatientNameHeaderFirstname>
-              {PD_Firstname ? PD_Firstname : <span>Forename</span>}
-            </PatientNameHeaderFirstname>
+  // const patientNameRender = patientDetailsData.map(
+  //   ({ id, Master_ePR_ID, PD_Firstname, PD_Surname }) => (
+  //     <PatientNameHeaderContainer key={id}>
+  //       <PatientNameHeaderWrapper>
+  //         <PatientNameHeaderRow>
+  //           <PatientNameHeaderFirstname>
+  //             {PD_Firstname ? PD_Firstname : <span>Forename</span>}
+  //           </PatientNameHeaderFirstname>
 
-            <PatientNameHeaderSurname>
-              {PD_Surname ? PD_Surname : <span>Surname</span>}
-            </PatientNameHeaderSurname>
-          </PatientNameHeaderRow>
+  //           <PatientNameHeaderSurname>
+  //             {PD_Surname ? PD_Surname : <span>Surname</span>}
+  //           </PatientNameHeaderSurname>
+  //         </PatientNameHeaderRow>
 
-          <PatientNameHeaderIdContainer>
-            <span>Master ePR ID:</span>
-            <PatientNameHeaderId>
-              {Master_ePR_ID ? Master_ePR_ID : <span>Master ePR ID</span>}
-            </PatientNameHeaderId>
-          </PatientNameHeaderIdContainer>
-        </PatientNameHeaderWrapper>
-      </PatientNameHeaderContainer>
-    )
-  );
+  //         <PatientNameHeaderIdContainer>
+  //           <span>Master ePR ID:</span>
+  //           <PatientNameHeaderId>
+  //             {Master_ePR_ID ? Master_ePR_ID : <span>Master ePR ID</span>}
+  //           </PatientNameHeaderId>
+  //         </PatientNameHeaderIdContainer>
+  //       </PatientNameHeaderWrapper>
+  //     </PatientNameHeaderContainer>
+  //   )
+  // );
 
   // If selectedPatient === null, render select Patient prompt
   // If selectedPatient !== null, render {patientNameRender}
@@ -42,9 +42,7 @@ function PatientNameHeader({ selectedPatient, patientDetailsData }) {
           <Icon icon="fas fa-exclamation-triangle" />
           <span>Please select a Patient</span>
         </PatientNameHeaderPrompt>
-      ) : (
-        patientNameRender
-      )}
+      ) : null}
     </>
   );
 }
