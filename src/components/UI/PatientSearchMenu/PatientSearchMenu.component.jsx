@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 // Import: UI
 import Icon from "../Icon/Icon.component";
+import PatientItem from "../PatientItem/PatientItem.component";
 
 // UI: PatientSearchMenu
 function PatientSearchMenu({
@@ -13,14 +14,17 @@ function PatientSearchMenu({
   selectedPatient,
   setSelectedPatient,
 }) {
-  // State
-  const [searchIncidentNo, setSearchIncidentNo] = useState(""); // Incident No.
-  const [searchCallSign, setSearchCallSign] = useState(""); // Call Sign
-  const [searchEprUser, setSearchEprUser] = useState(""); // ePR User
-  const [searchFirstname, setSearchFirstname] = useState(""); // Patient Firstname
-  const [searchSurname, setSearchSurname] = useState(""); // Patient Surname
-  const [searchNhsNo, setSearchNhsNo] = useState(""); // NHS No.
-  const [searchReceivingLocation, setSearchReceivingLocation] = useState(""); // Receiving Location
+  // State = search
+  const [searchIncidentNo, setSearchIncidentNo] = useState(null); // Incident No., PD_Incident_Number
+  const [searchCallSign, setSearchCallSign] = useState(null); // Call Sign, ePR_CallSign
+  const [searchEprUser, setSearchEprUser] = useState(null); // ePR User, ePR_User
+  const [searchFirstname, setSearchFirstname] = useState(null); // Patient Firstname, PD_Firstname
+  const [searchSurname, setSearchSurname] = useState(null); // Patient Surname, PD_Surname
+  const [searchNhsNo, setSearchNhsNo] = useState(null); // NHS No., PD_NHS_No
+  const [searchReceivingLocation, setSearchReceivingLocation] = useState(null); // Receiving Location, PD_Receiving_Location
+
+  // State = isAnonymousHidden
+  const [isAnonymousHidden, setIsAnonymousHidden] = useState(true);
 
   // form: handleSubmit
   function handleSubmit(event) {
@@ -31,16 +35,14 @@ function PatientSearchMenu({
   // form: resetSearch
   function resetSearch() {
     setSearchMenuIsOpen((searchMenuIsOpen) => !searchMenuIsOpen);
-    setSearchIncidentNo("");
-    setSearchCallSign("");
-    setSearchEprUser("");
-    setSearchFirstname("");
-    setSearchSurname("");
-    setSearchNhsNo("");
-    setSearchReceivingLocation("");
+    setSearchIncidentNo(null);
+    setSearchCallSign(null);
+    setSearchEprUser(null);
+    setSearchFirstname(null);
+    setSearchSurname(null);
+    setSearchNhsNo(null);
+    setSearchReceivingLocation(null);
   }
-
-  // Test: Patient filter
 
   return (
     <PatientSearchMenuContainer searchMenuIsOpen={searchMenuIsOpen}>
@@ -52,6 +54,16 @@ function PatientSearchMenu({
           </PatientSearchMenuHeading>
           <p>Please enter search criteria below:</p>
         </PatientSearchMenuHeader>
+
+        <PatientSearchMenuButtonContainer>
+          <PatientSearchMenuButton type="submit">
+            Search
+          </PatientSearchMenuButton>
+
+          <PatientSearchMenuButton onClick={resetSearch} type="button">
+            Clear / Cancel
+          </PatientSearchMenuButton>
+        </PatientSearchMenuButtonContainer>
 
         <PatientSearchMenuInputContainer onSubmit={handleSubmit}>
           <PatientSearchMenuLabel htmlFor="incidentNo">
@@ -65,7 +77,6 @@ function PatientSearchMenu({
             value={searchIncidentNo}
             onChange={(event) => setSearchIncidentNo(event.target.value)}
           />
-          <p>{searchIncidentNo}</p>
 
           <PatientSearchMenuLabel htmlFor="callSign">
             Call Sign
@@ -78,7 +89,6 @@ function PatientSearchMenu({
             value={searchCallSign}
             onChange={(event) => setSearchCallSign(event.target.value)}
           />
-          <p>{searchCallSign}</p>
 
           <PatientSearchMenuLabel htmlFor="eprUser">
             ePR User
@@ -91,7 +101,6 @@ function PatientSearchMenu({
             value={searchEprUser}
             onChange={(event) => setSearchEprUser(event.target.value)}
           />
-          <p>{searchEprUser}</p>
 
           <PatientSearchMenuLabel htmlFor="patientFirstname">
             Patient Firstname
@@ -104,7 +113,6 @@ function PatientSearchMenu({
             value={searchFirstname}
             onChange={(event) => setSearchFirstname(event.target.value)}
           />
-          <p>{searchFirstname}</p>
 
           <PatientSearchMenuLabel htmlFor="patientSurname">
             Patient Surname
@@ -117,7 +125,6 @@ function PatientSearchMenu({
             value={searchSurname}
             onChange={(event) => setSearchSurname(event.target.value)}
           />
-          <p>{searchSurname}</p>
 
           <PatientSearchMenuLabel htmlFor="nhsNo">
             NHS No.
@@ -130,7 +137,6 @@ function PatientSearchMenu({
             value={searchNhsNo}
             onChange={(event) => setSearchNhsNo(event.target.value)}
           />
-          <p>{searchNhsNo}</p>
 
           <PatientSearchMenuLabel htmlFor="receivingLocation">
             Receiving Location
@@ -143,17 +149,100 @@ function PatientSearchMenu({
             value={searchReceivingLocation}
             onChange={(event) => setSearchReceivingLocation(event.target.value)}
           />
-          <p>{searchReceivingLocation}</p>
 
-          <PatientSearchMenuButtonContainer>
-            <PatientSearchMenuButton type="submit">
-              Search
-            </PatientSearchMenuButton>
+          <PatientSearchResultContainer>
+            <h5>Results:</h5>
+            <div>
+              {patients
+                .filter(
+                  (patient) =>
+                    (patient.PD_Incident_Number !== "" &&
+                      patient.PD_Incident_Number.length > 0 &&
+                      patient.PD_Incident_Number === searchIncidentNo) ||
+                    (patient.ePR_CallSign !== "" &&
+                      patient.ePR_CallSign.length > 0 &&
+                      patient.ePR_CallSign === searchCallSign) ||
+                    (patient.ePR_User !== "" &&
+                      patient.ePR_User.length > 0 &&
+                      patient.ePR_User === searchEprUser) ||
+                    (patient.PD_Firstname !== "" &&
+                      patient.PD_Firstname.length > 0 &&
+                      patient.PD_Firstname === searchFirstname) ||
+                    (patient.PD_Surname !== "" &&
+                      patient.PD_Surname.length > 0 &&
+                      patient.PD_Surname === searchSurname) ||
+                    (patient.PD_NHS_No !== "" &&
+                      patient.PD_NHS_No !== null &&
+                      patient.PD_NHS_No !== undefined &&
+                      patient.PD_NHS_No === searchNhsNo) ||
+                    (patient.PD_Receiving_Location !== "" &&
+                      patient.PD_Receiving_Location.length > 0 &&
+                      patient.PD_Receiving_Location === searchReceivingLocation)
+                )
+                .map(({ Master_ePR_ID, ...otherPatientListProps }) => (
+                  <div
+                    key={Master_ePR_ID}
+                    style={
+                      Master_ePR_ID === selectedPatient
+                        ? { background: "#2c2c2c" }
+                        : null
+                    }
+                    onClick={() => setSelectedPatient(Master_ePR_ID)}
+                  >
+                    <div
+                      onClick={() =>
+                        setSearchMenuIsOpen(
+                          (searchMenuIsOpen) => !searchMenuIsOpen
+                        )
+                      }
+                    >
+                      <PatientItem {...otherPatientListProps} />
+                    </div>
+                  </div>
+                ))}
+            </div>
 
-            <PatientSearchMenuButton onClick={resetSearch} type="button">
-              Clear / Cancel
-            </PatientSearchMenuButton>
-          </PatientSearchMenuButtonContainer>
+            <PatientSearchResultHeader>
+              <h5 style={{ marginTop: "1rem" }}>Anonymous Results:</h5>
+              <PatientSearchAnonymousButton
+                onClick={() =>
+                  setIsAnonymousHidden(
+                    (isAnonymousHidden) => !isAnonymousHidden
+                  )
+                }
+              >
+                {isAnonymousHidden ? "Show" : "Hide"}
+              </PatientSearchAnonymousButton>
+            </PatientSearchResultHeader>
+
+            <PatientSearchAnonymousResults
+              isAnonymousHidden={isAnonymousHidden}
+            >
+              {patients
+                .filter((patient) => patient.PD_Firstname === "")
+                .map(({ Master_ePR_ID, ...otherPatientListProps }) => (
+                  <div
+                    key={Master_ePR_ID}
+                    style={
+                      Master_ePR_ID === selectedPatient
+                        ? { background: "#2c2c2c" }
+                        : null
+                    }
+                    onClick={() => setSelectedPatient(Master_ePR_ID)}
+                  >
+                    <div
+                      onClick={() =>
+                        setSearchMenuIsOpen(
+                          (searchMenuIsOpen) => !searchMenuIsOpen
+                        )
+                      }
+                    >
+                      <PatientItem {...otherPatientListProps} />
+                    </div>
+                  </div>
+                ))}
+            </PatientSearchAnonymousResults>
+          </PatientSearchResultContainer>
         </PatientSearchMenuInputContainer>
       </PatientSearchMenuWrapper>
     </PatientSearchMenuContainer>
@@ -206,7 +295,6 @@ const PatientSearchMenuHeader = styled.div`
   flex-direction: column;
   height: auto;
   justify-content: flex-start;
-  margin-bottom: 1rem;
   width: 100%;
 
   & p {
@@ -230,6 +318,40 @@ const PatientSearchMenuHeading = styled.div`
     color: #fff;
     font-size: 22px;
     font-weight: 600;
+  }
+`;
+
+// Styled: PatientSearchMenuButtonContainer
+const PatientSearchMenuButtonContainer = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0;
+  width: 100%;
+`;
+
+// Styled: PatientSearchMenuButton
+const PatientSearchMenuButton = styled.button`
+  background: #414141;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  display: inline;
+  font-size: 14px;
+  padding: 10px 8px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 150ms linear;
+  width: 100%;
+
+  &:hover {
+    background: #fff;
+    color: #2c2c2c;
+    transition: all 150ms linear;
+  }
+
+  &:nth-child(1) {
+    margin-right: 10px;
   }
 `;
 
@@ -268,28 +390,47 @@ const PatientSearchMenuLabel = styled.label`
   margin-bottom: 8px;
 `;
 
-// Styled: PatientSearchMenuButtonContainer
-const PatientSearchMenuButtonContainer = styled.div`
+// Styled: PatientSearchResultContainer
+const PatientSearchResultContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  margin-top: 1rem;
+  width: 100%;
+
+  & h5 {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+`;
+
+// Styled: PatientSearchResultHeader
+const PatientSearchResultHeader = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
-  width: 100%;
 `;
 
-// Styled: PatientSearchMenuButton
-const PatientSearchMenuButton = styled.button`
+// Styled: PatientSearchAnonymousButton
+const PatientSearchAnonymousButton = styled.button`
+  align-items: center;
   background: #414141;
   border: 2px solid #fff;
   color: #fff;
   cursor: pointer;
-  display: inline;
+  display: flex;
   font-size: 14px;
-  padding: 10px 8px;
+  height: 35px;
+  justify-content: center;
   letter-spacing: 1px;
+  padding: 1rem 2rem;
+  text-align: center;
   text-decoration: none;
   transition: all 150ms linear;
-  width: 100%;
+  width: 100px;
 
   &:hover {
     background: #fff;
@@ -297,7 +438,19 @@ const PatientSearchMenuButton = styled.button`
     transition: all 150ms linear;
   }
 
-  &:nth-child(1) {
-    margin-right: 10px;
+  &:focus {
+    background: #fff;
+    border: 2px solid #fff;
+    color: #2c2c2c;
+    transition: all 150ms linear;
   }
+`;
+
+// Styled: PatientSearchAnonymousResults
+const PatientSearchAnonymousResults = styled.div`
+  display: ${({ isAnonymousHidden }) => (isAnonymousHidden ? "none" : "flex")};
+  flex-direction: column;
+  transition: all 150ms linear;
+  visibility: ${({ isAnonymousHidden }) =>
+    isAnonymousHidden ? "hidden" : "visible"};
 `;

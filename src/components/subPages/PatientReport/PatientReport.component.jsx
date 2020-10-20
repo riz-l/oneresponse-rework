@@ -43,7 +43,6 @@ function PatientReport({
   const cadDetailsRender = cadDetailsData.map(
     ({
       id,
-      Master_ePR_ID,
       CAD_ID,
       ePR_User,
       CAD_Date,
@@ -64,7 +63,7 @@ function PatientReport({
           <PatientReportColumn>
             <ReportField
               field="Incident Number"
-              data={Master_ePR_ID ? Master_ePR_ID : "Not recorded"}
+              data={CAD_ID ? CAD_ID : "Not recorded"}
             />
             <ReportField
               field="Call Sign"
@@ -81,6 +80,7 @@ function PatientReport({
           </PatientReportColumn>
 
           <PatientReportColumn>
+            {/* #FIXME - Crew data field is incorrect */}
             <ReportField field="Crew" data={CAD_ID ? CAD_ID : "Not recorded"} />
             <ReportField
               field="Location of Incident"
