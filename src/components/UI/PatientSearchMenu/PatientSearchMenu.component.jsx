@@ -14,7 +14,7 @@ function PatientSearchMenu({
   selectedPatient,
   setSelectedPatient,
 }) {
-  // State
+  // State = search
   const [searchIncidentNo, setSearchIncidentNo] = useState(null); // Incident No., PD_Incident_Number
   const [searchCallSign, setSearchCallSign] = useState(null); // Call Sign, ePR_CallSign
   const [searchEprUser, setSearchEprUser] = useState(null); // ePR User, ePR_User
@@ -22,6 +22,9 @@ function PatientSearchMenu({
   const [searchSurname, setSearchSurname] = useState(null); // Patient Surname, PD_Surname
   const [searchNhsNo, setSearchNhsNo] = useState(null); // NHS No., PD_NHS_No
   const [searchReceivingLocation, setSearchReceivingLocation] = useState(null); // Receiving Location, PD_Receiving_Location
+
+  // State = isAnonymousHidden
+  const [isAnonymousHidden, setIsAnonymousHidden] = useState(true);
 
   // form: handleSubmit
   function handleSubmit(event) {
@@ -153,8 +156,28 @@ function PatientSearchMenu({
               {patients
                 .filter(
                   (patient) =>
-                    patient.PD_Firstname !== "" &&
-                    patient.PD_Firstname === searchFirstname
+                    (patient.PD_Incident_Number !== "" &&
+                      patient.PD_Incident_Number.length > 0 &&
+                      patient.PD_Incident_Number === searchIncidentNo) ||
+                    (patient.ePR_CallSign !== "" &&
+                      patient.ePR_CallSign.length > 0 &&
+                      patient.ePR_CallSign === searchCallSign) ||
+                    (patient.ePR_User !== "" &&
+                      patient.ePR_User.length > 0 &&
+                      patient.ePR_User === searchEprUser) ||
+                    (patient.PD_Firstname !== "" &&
+                      patient.PD_Firstname.length > 0 &&
+                      patient.PD_Firstname === searchFirstname) ||
+                    (patient.PD_Surname !== "" &&
+                      patient.PD_Surname.length > 0 &&
+                      patient.PD_Surname === searchSurname) ||
+                    (patient.PD_NHS_No !== "" &&
+                      patient.PD_NHS_No !== null &&
+                      patient.PD_NHS_No !== undefined &&
+                      patient.PD_NHS_No === searchNhsNo) ||
+                    (patient.PD_Receiving_Location !== "" &&
+                      patient.PD_Receiving_Location.length > 0 &&
+                      patient.PD_Receiving_Location === searchReceivingLocation)
                 )
                 .map(({ Master_ePR_ID, ...otherPatientListProps }) => (
                   <div
@@ -179,8 +202,22 @@ function PatientSearchMenu({
                 ))}
             </div>
 
-            <h5 style={{ marginTop: "1rem" }}>Anonymous Results:</h5>
-            <div>
+            <PatientSearchResultHeader>
+              <h5 style={{ marginTop: "1rem" }}>Anonymous Results:</h5>
+              <PatientSearchAnonymousButton
+                onClick={() =>
+                  setIsAnonymousHidden(
+                    (isAnonymousHidden) => !isAnonymousHidden
+                  )
+                }
+              >
+                {isAnonymousHidden ? "Show" : "Hide"}
+              </PatientSearchAnonymousButton>
+            </PatientSearchResultHeader>
+
+            <PatientSearchAnonymousResults
+              isAnonymousHidden={isAnonymousHidden}
+            >
               {patients
                 .filter((patient) => patient.PD_Firstname === "")
                 .map(({ Master_ePR_ID, ...otherPatientListProps }) => (
@@ -204,7 +241,7 @@ function PatientSearchMenu({
                     </div>
                   </div>
                 ))}
-            </div>
+            </PatientSearchAnonymousResults>
           </PatientSearchResultContainer>
         </PatientSearchMenuInputContainer>
       </PatientSearchMenuWrapper>
@@ -371,4 +408,49 @@ const PatientSearchResultContainer = styled.div`
 `;
 
 // Styled: PatientSearchResultHeader
-const PatientSearchResultHeader = styled.div``;
+const PatientSearchResultHeader = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+`;
+
+// Styled: PatientSearchAnonymousButton
+const PatientSearchAnonymousButton = styled.button`
+  align-items: center;
+  background: #414141;
+  border: 2px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  height: 35px;
+  justify-content: center;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: all 150ms linear;
+  width: 100px;
+
+  &:hover {
+    background: #fff;
+    color: #2c2c2c;
+    transition: all 150ms linear;
+  }
+
+  &:focus {
+    background: #fff;
+    border: 2px solid #fff;
+    color: #2c2c2c;
+    transition: all 150ms linear;
+  }
+`;
+
+// Styled: PatientSearchAnonymousResults
+const PatientSearchAnonymousResults = styled.div`
+  display: ${({ isAnonymousHidden }) => (isAnonymousHidden ? "none" : "flex")};
+  flex-direction: column;
+  transition: all 150ms linear;
+  visibility: ${({ isAnonymousHidden }) =>
+    isAnonymousHidden ? "hidden" : "visible"};
+`;

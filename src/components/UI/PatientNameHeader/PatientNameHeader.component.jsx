@@ -72,146 +72,146 @@ const PatientNameHeaderPrompt = styled.div`
 `;
 
 // Styled: PatientNameHeaderContainer
-const PatientNameHeaderContainer = styled.div`
-  align-items: center;
-  background: #ffffff;
-  display: flex;
-  justify-content: flex-start;
-  padding: 1rem;
-  width: 100%;
-`;
+// const PatientNameHeaderContainer = styled.div`
+//   align-items: center;
+//   background: #ffffff;
+//   display: flex;
+//   justify-content: flex-start;
+//   padding: 1rem;
+//   width: 100%;
+// `;
 
 // Styled: PatientNameHeaderWrapper
-const PatientNameHeaderWrapper = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`;
+// const PatientNameHeaderWrapper = styled.div`
+//   align-items: flex-start;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+// `;
 
 // Styled: PatientNameHeaderRow
-const PatientNameHeaderRow = styled.div`
-  align-items: center;
-  display: flex;
-  height: 100%;
-  justify-content: center;
+// const PatientNameHeaderRow = styled.div`
+//   align-items: center;
+//   display: flex;
+//   height: 100%;
+//   justify-content: center;
 
-  @media screen and (max-width: 468px) {
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: center;
-  }
-`;
+//   @media screen and (max-width: 468px) {
+//     align-items: flex-start;
+//     flex-direction: column;
+//     justify-content: center;
+//   }
+// `;
 
 // Styled: PatientNameHeaderFirstname
-const PatientNameHeaderFirstname = styled.span`
-  color: #414141;
-  font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: 1.4px;
+// const PatientNameHeaderFirstname = styled.span`
+//   color: #414141;
+//   font-size: 2.2rem;
+//   font-weight: 600;
+//   letter-spacing: 1.4px;
 
-  @media screen and (max-width: 748px) {
-    font-size: 1.6rem;
-  }
+//   @media screen and (max-width: 748px) {
+//     font-size: 1.6rem;
+//   }
 
-  @media screen and (max-width: 564px) {
-    font-size: 1.2rem;
-  }
+//   @media screen and (max-width: 564px) {
+//     font-size: 1.2rem;
+//   }
 
-  @media screen and (max-width: 468px) {
-    margin-left: 0;
-  }
+//   @media screen and (max-width: 468px) {
+//     margin-left: 0;
+//   }
 
-  @media screen and (max-width: 368px) {
-    font-size: 1rem;
-  }
+//   @media screen and (max-width: 368px) {
+//     font-size: 1rem;
+//   }
 
-  & span {
-    color: #414141;
-    font-size: 2.2rem;
-    font-weight: 300;
-    letter-spacing: 1.4px;
+//   & span {
+//     color: #414141;
+//     font-size: 2.2rem;
+//     font-weight: 300;
+//     letter-spacing: 1.4px;
 
-    @media screen and (max-width: 748px) {
-      font-size: 1.6rem;
-    }
+//     @media screen and (max-width: 748px) {
+//       font-size: 1.6rem;
+//     }
 
-    @media screen and (max-width: 564px) {
-      font-size: 1.2rem;
-    }
+//     @media screen and (max-width: 564px) {
+//       font-size: 1.2rem;
+//     }
 
-    @media screen and (max-width: 468px) {
-      margin-left: 0;
-    }
+//     @media screen and (max-width: 468px) {
+//       margin-left: 0;
+//     }
 
-    @media screen and (max-width: 368px) {
-      font-size: 1rem;
-    }
-  }
-`;
+//     @media screen and (max-width: 368px) {
+//       font-size: 1rem;
+//     }
+//   }
+// `;
 
 // Styled: PatientNameHeaderSurname
-const PatientNameHeaderSurname = styled.span`
-  color: #414141;
-  font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: 1.4px;
-  margin-left: 10px;
+// const PatientNameHeaderSurname = styled.span`
+//   color: #414141;
+//   font-size: 2.2rem;
+//   font-weight: 600;
+//   letter-spacing: 1.4px;
+//   margin-left: 10px;
 
-  @media screen and (max-width: 748px) {
-    font-size: 1.6rem;
-  }
+//   @media screen and (max-width: 748px) {
+//     font-size: 1.6rem;
+//   }
 
-  @media screen and (max-width: 564px) {
-    font-size: 1.2rem;
-  }
+//   @media screen and (max-width: 564px) {
+//     font-size: 1.2rem;
+//   }
 
-  @media screen and (max-width: 468px) {
-    margin-left: 0;
-  }
+//   @media screen and (max-width: 468px) {
+//     margin-left: 0;
+//   }
 
-  @media screen and (max-width: 368px) {
-    font-size: 1rem;
-  }
+//   @media screen and (max-width: 368px) {
+//     font-size: 1rem;
+//   }
 
-  & span {
-    color: #414141;
-    font-size: 2.2rem;
-    font-weight: 300;
-    letter-spacing: 1.4px;
+//   & span {
+//     color: #414141;
+//     font-size: 2.2rem;
+//     font-weight: 300;
+//     letter-spacing: 1.4px;
 
-    @media screen and (max-width: 748px) {
-      font-size: 1.6rem;
-    }
+//     @media screen and (max-width: 748px) {
+//       font-size: 1.6rem;
+//     }
 
-    @media screen and (max-width: 564px) {
-      font-size: 1.2rem;
-    }
+//     @media screen and (max-width: 564px) {
+//       font-size: 1.2rem;
+//     }
 
-    @media screen and (max-width: 368px) {
-      font-size: 1rem;
-    }
-  }
-`;
+//     @media screen and (max-width: 368px) {
+//       font-size: 1rem;
+//     }
+//   }
+// `;
 
 // Styled: PatientNameHeaderIdContainer
-const PatientNameHeaderIdContainer = styled.div`
-  align-items: flex-start;
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
+// const PatientNameHeaderIdContainer = styled.div`
+//   align-items: flex-start;
+//   display: flex;
+//   justify-content: flex-start;
+//   width: 100%;
 
-  & span {
-    color: #2c2c2c;
-  }
+//   & span {
+//     color: #2c2c2c;
+//   }
 
-  @media screen and (max-width: 468px) {
-    display: none;
-  }
-`;
+//   @media screen and (max-width: 468px) {
+//     display: none;
+//   }
+// `;
 
 // Styled: PatientNameHeaderId
-const PatientNameHeaderId = styled.span`
-  color: #414141;
-  margin-left: 1rem;
-`;
+// const PatientNameHeaderId = styled.span`
+//   color: #414141;
+//   margin-left: 1rem;
+// `;

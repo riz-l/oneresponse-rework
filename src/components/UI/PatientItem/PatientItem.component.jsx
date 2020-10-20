@@ -73,7 +73,7 @@ function PatientItem({
               {PD_DOB ? PD_DOB : <span>Date of Birth</span>}
             </PatientItemOther>
 
-            <PatientItemOther>
+            <PatientItemOther style={{ marginTop: "1rem" }}>
               {PVN_Transport ? PVN_Transport : <span>Reported Condition</span>}
             </PatientItemOther>
           </PatientItemOtherContainer>
