@@ -183,6 +183,10 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
               data={Terminal_Illness ? Terminal_Illness : "Not recorded"}
             />
           </DiagnosisOfDeathColumn>
+
+          <DiagnosisOfDeathColumn>
+            <></>
+          </DiagnosisOfDeathColumn>
         </DiagnosisOfDeathGrid>
       </DiagnosisOfDeathRender>
     )
