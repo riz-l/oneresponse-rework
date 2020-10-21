@@ -360,13 +360,11 @@ function PatientReport({
             <ReportField
               field="Time"
               data={Obs_Time ? Obs_Time : null}
-              fieldMarginBottom="4px"
               paddingBottom="2px"
               fontSize="0.71rem"
               fieldFontWeight="700"
               fieldMinHeight="45px"
               fieldTextTransform="uppercase"
-              fieldWidth="100%"
             />
           </PatientReportColumn>
 
