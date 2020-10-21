@@ -12,7 +12,7 @@ import ReportField from "../../UI/ReportField/ReportField.component";
 function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
   //#region diagnosisOfDeathRender = Diagnosis of Death report #TODO - Needs testing
   const diagnosisOfDeathRender = diagnosisOfDeathData.map(
-    ({ id, DoD_Time, Privacy, Confirmed, Police }) => (
+    ({ id, DoD_Time, Privacy, Confirmed }) => (
       <DiagnosisOfDeathRender key={id}>
         <DiagnosisOfDeathGrid>
           <DiagnosisOfDeathColumn>
@@ -34,10 +34,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
           </DiagnosisOfDeathColumn>
 
           <DiagnosisOfDeathColumn>
-            <ReportField
-              field="Police / Coroner"
-              data={Police ? Police : "Not recorded"}
-            />
+            <></>
           </DiagnosisOfDeathColumn>
         </DiagnosisOfDeathGrid>
       </DiagnosisOfDeathRender>
