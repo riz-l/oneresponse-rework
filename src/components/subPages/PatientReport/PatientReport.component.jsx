@@ -945,7 +945,7 @@ function PatientReport({
       TCP,
     }) => (
       <PatientReportRender key={id} style={{ borderTop: "1px solid #e0e0e0" }}>
-        <PatientReportTableGrid>
+        <PatientReportCATableGrid>
           <PatientReportColumn>
             <ReportField
               field="Time Onset"
@@ -1053,7 +1053,7 @@ function PatientReport({
               fieldTextTransform="uppercase"
             />
           </PatientReportColumn>
-        </PatientReportTableGrid>
+        </PatientReportCATableGrid>
       </PatientReportRender>
     )
   );
@@ -2852,6 +2852,15 @@ const PatientReportTableGrid = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(66px, 1fr));
+  height: 100%;
+  width: 100%;
+`;
+
+// Styled: PatientReportCATableGrid
+const PatientReportCATableGrid = styled.div`
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   height: 100%;
   width: 100%;
 `;
