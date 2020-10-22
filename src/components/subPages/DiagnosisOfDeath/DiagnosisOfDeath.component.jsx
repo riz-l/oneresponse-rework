@@ -193,6 +193,49 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
   );
   //#endregion /expectedDeathRender = Expected Death report
 
+  //#region attendanceAndRelativesRender = Attendance and Relatives report #TODO - Needs testing
+  const attendanceAndRelativesRender = diagnosisOfDeathData.map(
+    ({ id, Police, Terminal_Additional, GP, Relative, DoD_Leaflet, DoD_Disability }) => (
+      <DiagnosisOfDeathRender key={id}>
+        <DiagnosisOfDeathGrid>
+          <DiagnosisOfDeathColumn>
+            <ReportField
+              field="Police attendance"
+              data={Police ? Police : "Not recorded"}
+            />
+            <ReportField
+              field="Relatives attendance"
+              data={Relative ? Relative : "Not recorded"}
+            />
+          </DiagnosisOfDeathColumn>
+
+          <DiagnosisOfDeathColumn>
+            <ReportField
+              field="Details of police involvement"
+              data={Terminal_Additional ? Terminal_Additional : "Not recorded"}
+            />
+            <ReportField
+              field="Bereavement leaflet provided and consider religious support"
+              data={DoD_Leaflet ? DoD_Leaflet : "Not recorded"}
+            />
+          </DiagnosisOfDeathColumn>
+
+          <DiagnosisOfDeathColumn>
+            <ReportField
+              field="GP attendance"
+              data={GP ? GP : "Not recorded"}
+            />
+             <ReportField
+              field="Did the patient have a learning disability? If yes, inform support centre"
+              data={DoD_Disability ? DoD_Disability : "Not recorded"}
+            />
+          </DiagnosisOfDeathColumn>
+        </DiagnosisOfDeathGrid>
+      </DiagnosisOfDeathRender>
+    )
+  );
+  //#endregion /attendanceAndRelatives = Attendance and Relatives report
+
   return (
     <DiagnosisOfDeathContainer>
       {/* Diagnosis of Death */}
@@ -318,6 +361,27 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
             : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
             ? expectedDeathRender
             : "Expected Death... data not recorded"}
+        </ReportContainer>
+      </DiagnosisOfDeathSection>
+
+      {/* attendance and Relatives */}
+      <DiagnosisOfDeathSection>
+        <DiagnosisOfDeathHeadingContainer>
+          <HeadingOne
+            icon="fas fa-procedures"
+            text="Attendance and Relatives"
+            padding="0.6rem"
+          />
+        </DiagnosisOfDeathHeadingContainer>
+
+        <ReportContainer>
+          {selectedPatient === null
+            ? "Please select a Patient from the Patient list"
+            : loading
+            ? "Loading..."
+            : diagnosisOfDeathData && diagnosisOfDeathData.length > 0
+            ? attendanceAndRelativesRender
+            : "Attendance and Relatives data not recorded"}
         </ReportContainer>
       </DiagnosisOfDeathSection>
     </DiagnosisOfDeathContainer>
