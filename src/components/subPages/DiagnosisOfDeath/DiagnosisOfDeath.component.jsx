@@ -372,7 +372,7 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
         </ReportContainer>
       </DiagnosisOfDeathSection>
 
-      {/* attendance and Relatives */}
+      {/* Attendance and Relatives */}
       <DiagnosisOfDeathSection>
         <DiagnosisOfDeathHeadingContainer>
           <HeadingOne
