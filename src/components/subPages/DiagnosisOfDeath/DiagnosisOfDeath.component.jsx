@@ -195,38 +195,46 @@ function DiagnosisOfDeath({ selectedPatient, diagnosisOfDeathData, loading }) {
 
   //#region attendanceAndRelativesRender = Attendance and Relatives report #TODO - Needs testing
   const attendanceAndRelativesRender = diagnosisOfDeathData.map(
-    ({ id, Police, Terminal_Additional, GP, Relative, DoD_Leaflet, DoD_Disability }) => (
+    ({
+      id,
+      Police,
+      Terminal_Additional,
+      GP,
+      Relative,
+      DoD_Leaflet,
+      DoD_Disability,
+    }) => (
       <DiagnosisOfDeathRender key={id}>
         <DiagnosisOfDeathGrid>
           <DiagnosisOfDeathColumn>
             <ReportField
-              field="Police attendance"
+              field="Police Attendance"
               data={Police ? Police : "Not recorded"}
             />
             <ReportField
-              field="Relatives attendance"
+              field="Details of Police involvement"
+              data={Terminal_Additional ? Terminal_Additional : "Not recorded"}
+            />
+          </DiagnosisOfDeathColumn>
+
+          <DiagnosisOfDeathColumn>
+            <ReportField
+              field="GP Attendance"
+              data={GP ? GP : "Not recorded"}
+            />
+            <ReportField
+              field="Relatives Attendance"
               data={Relative ? Relative : "Not recorded"}
             />
           </DiagnosisOfDeathColumn>
 
           <DiagnosisOfDeathColumn>
             <ReportField
-              field="Details of police involvement"
-              data={Terminal_Additional ? Terminal_Additional : "Not recorded"}
-            />
-            <ReportField
-              field="Bereavement leaflet provided and consider religious support"
+              field="Bereavement Leaflet provided and consider religious support"
               data={DoD_Leaflet ? DoD_Leaflet : "Not recorded"}
             />
-          </DiagnosisOfDeathColumn>
-
-          <DiagnosisOfDeathColumn>
             <ReportField
-              field="GP attendance"
-              data={GP ? GP : "Not recorded"}
-            />
-             <ReportField
-              field="Did the patient have a learning disability? If yes, inform support centre"
+              field="Did the Patient have a known learning disability? If yes, inform support centre"
               data={DoD_Disability ? DoD_Disability : "Not recorded"}
             />
           </DiagnosisOfDeathColumn>
