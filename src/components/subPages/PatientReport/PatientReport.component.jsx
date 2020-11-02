@@ -2343,6 +2343,7 @@ function PatientReport({
               <img
                 src={"data:image/png;base64," + signature}
                 alt="Staff Signature"
+                style={{ marginBottom: "2rem" }}
               />
             ) : (
               "Not recorded"
@@ -2372,6 +2373,7 @@ function PatientReport({
               <img
                 src={"data:image/png;base64," + signatureSnrSig}
                 alt="Senior Clinician Signature"
+                style={{ marginBottom: "2rem" }}
               />
             ) : (
               "Not recorded"

@@ -15,13 +15,13 @@ function PatientSearchMenu({
   setSelectedPatient,
 }) {
   // State = search
-  const [searchIncidentNo, setSearchIncidentNo] = useState(null); // Incident No., PD_Incident_Number
-  const [searchCallSign, setSearchCallSign] = useState(null); // Call Sign, ePR_CallSign
-  const [searchEprUser, setSearchEprUser] = useState(null); // ePR User, ePR_User
-  const [searchFirstname, setSearchFirstname] = useState(null); // Patient Firstname, PD_Firstname
-  const [searchSurname, setSearchSurname] = useState(null); // Patient Surname, PD_Surname
-  const [searchNhsNo, setSearchNhsNo] = useState(null); // NHS No., PD_NHS_No
-  const [searchReceivingLocation, setSearchReceivingLocation] = useState(null); // Receiving Location, PD_Receiving_Location
+  const [searchIncidentNo, setSearchIncidentNo] = useState(""); // Incident No., PD_Incident_Number
+  const [searchCallSign, setSearchCallSign] = useState(""); // Call Sign, ePR_CallSign
+  const [searchEprUser, setSearchEprUser] = useState(""); // ePR User, ePR_User
+  const [searchFirstname, setSearchFirstname] = useState(""); // Patient Firstname, PD_Firstname
+  const [searchSurname, setSearchSurname] = useState(""); // Patient Surname, PD_Surname
+  const [searchNhsNo, setSearchNhsNo] = useState(""); // NHS No., PD_NHS_No
+  const [searchReceivingLocation, setSearchReceivingLocation] = useState(""); // Receiving Location, PD_Receiving_Location
 
   // State = isAnonymousHidden
   const [isAnonymousHidden, setIsAnonymousHidden] = useState(true);
@@ -35,13 +35,13 @@ function PatientSearchMenu({
   // form: resetSearch
   function resetSearch() {
     setSearchMenuIsOpen((searchMenuIsOpen) => !searchMenuIsOpen);
-    setSearchIncidentNo(null);
-    setSearchCallSign(null);
-    setSearchEprUser(null);
-    setSearchFirstname(null);
-    setSearchSurname(null);
-    setSearchNhsNo(null);
-    setSearchReceivingLocation(null);
+    setSearchIncidentNo("");
+    setSearchCallSign("");
+    setSearchEprUser("");
+    setSearchFirstname("");
+    setSearchSurname("");
+    setSearchNhsNo("");
+    setSearchReceivingLocation("");
   }
 
   return (
