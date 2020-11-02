@@ -12,6 +12,7 @@ function PatientItem({
   PD_Surname,
   PD_Gender,
   PD_DOB,
+  PD_Reported_Condition,
   PVN_Transport,
   PD_Incident_Number,
   ePR_Date,
@@ -48,9 +49,14 @@ function PatientItem({
 
   return (
     <PatientItemContainer key={id}>
-      <PatientItemIcon className="PatientItemIcon-hover">
-        <Icon icon="fas fa-user-alt" />
-      </PatientItemIcon>
+      <PatientItemIconContainer>
+        <PatientItemIcon className="PatientItemIcon-hover">
+          <Icon icon="fas fa-user-alt" />
+        </PatientItemIcon>
+        <PatientItemOther>
+          {PVN_Transport ? PVN_Transport : <span>Transport</span>}
+        </PatientItemOther>
+      </PatientItemIconContainer>
 
       <PatientItemWrapper>
         <PatientItemSecondWrapper>
@@ -74,7 +80,7 @@ function PatientItem({
             </PatientItemOther>
 
             <PatientItemOther style={{ marginTop: "1rem" }}>
-              {PVN_Transport ? PVN_Transport : <span>Reported Condition</span>}
+              {PD_Reported_Condition ? PD_Reported_Condition : <span>Reported Condition</span>}
             </PatientItemOther>
           </PatientItemOtherContainer>
         </PatientItemSecondWrapper>
@@ -137,6 +143,13 @@ const PatientItemContainer = styled.div`
     }
   }
 `;
+
+//Styled: PatientItemIconContainer
+const PatientItemIconContainer = styled.div`
+align-items: center;
+display: flex;
+flex-direction:column;
+`
 
 // Styled: PatientItemIcon
 const PatientItemIcon = styled.div`
