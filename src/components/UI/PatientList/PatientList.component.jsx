@@ -50,7 +50,7 @@ function PatientList({
             Patients Created in last 72hrs
           </PatientListHeader>
 
-          <PatientListButtonContainer>
+          {/* <PatientListButtonContainer>
             <PatientListButton type="button">Incoming</PatientListButton>
             <PatientListButton type="button">Arrived</PatientListButton>
             <PatientListButton type="button">Processed</PatientListButton>
@@ -59,7 +59,7 @@ function PatientList({
           <PatientListButtonContainer>
             <PatientListButton type="button">PID</PatientListButton>
             <PatientListButton type="button">Non-PID</PatientListButton>
-          </PatientListButtonContainer>
+          </PatientListButtonContainer> */}
 
           <PatientListCount>
             <p>Patient Count: {Object.keys(patients).length}</p>
@@ -113,7 +113,7 @@ function PatientList({
             Patients Created in last 72hrs
           </PatientListHeader>
 
-          <PatientListButtonContainer>
+          {/* <PatientListButtonContainer>
             <PatientListButton type="button">Incoming</PatientListButton>
             <PatientListButton type="button">Arrived</PatientListButton>
             <PatientListButton type="button">Processed</PatientListButton>
@@ -122,7 +122,7 @@ function PatientList({
           <PatientListButtonContainer>
             <PatientListButton type="button">PID</PatientListButton>
             <PatientListButton type="button">Non-PID</PatientListButton>
-          </PatientListButtonContainer>
+          </PatientListButtonContainer> */}
 
           <PatientListCount>
             <p>Patient Count: {Object.keys(patients).length}</p>
@@ -215,43 +215,43 @@ const PatientListLead = styled.span`
 `;
 
 // Styled: PatientListButtonContainer
-const PatientListButtonContainer = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: flex-start;
-  margin: 4px 0;
-  width: 100%;
-`;
+// const PatientListButtonContainer = styled.div`
+//   align-items: center;
+//   display: flex;
+//   justify-content: flex-start;
+//   margin: 4px 0;
+//   width: 100%;
+// `;
 
 // Styled: PatientListButton
-const PatientListButton = styled.button`
-  background: #414141;
-  border: 2px solid #fff;
-  color: #fff;
-  cursor: pointer;
-  display: inline;
-  font-size: 14px;
-  padding: 4px 0;
-  letter-spacing: 1px;
-  margin: 0 2px;
-  text-align: center;
-  text-decoration: none;
-  transition: all 150ms linear;
-  width: 100px;
+// const PatientListButton = styled.button`
+//   background: #414141;
+//   border: 2px solid #fff;
+//   color: #fff;
+//   cursor: pointer;
+//   display: inline;
+//   font-size: 14px;
+//   padding: 4px 0;
+//   letter-spacing: 1px;
+//   margin: 0 2px;
+//   text-align: center;
+//   text-decoration: none;
+//   transition: all 150ms linear;
+//   width: 100px;
 
-  &:hover {
-    background: #e0e0e0;
-    color: #414141;
-    transition: all 150ms linear;
-  }
+//   &:hover {
+//     background: #e0e0e0;
+//     color: #414141;
+//     transition: all 150ms linear;
+//   }
 
-  &:focus {
-    background: #fff;
-    border: 2px solid #fff;
-    color: #2c2c2c;
-    transition: all 150ms linear;
-  }
-`;
+//   &:focus {
+//     background: #fff;
+//     border: 2px solid #fff;
+//     color: #2c2c2c;
+//     transition: all 150ms linear;
+//   }
+// `;
 
 // Styled: PatientListCount
 const PatientListCount = styled.div`
