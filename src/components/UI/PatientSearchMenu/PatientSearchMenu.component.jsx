@@ -197,58 +197,6 @@ function PatientSearchMenu({
                     </div>
                   ) : null
                 )}
-
-              {/* {patients
-                .filter(
-                  (patient) =>
-                    (patient.PD_Incident_Number !== "" &&
-                      patient.PD_Incident_Number.length > 0 &&
-                      patient.PD_Incident_Number === searchIncidentNo) ||
-                    (patient.ePR_CallSign !== "" &&
-                      patient.ePR_CallSign.length > 0 &&
-                      patient.ePR_CallSign === searchCallSign) ||
-                    (patient.ePR_User !== "" &&
-                      patient.ePR_User.length > 0 &&
-                      patient.ePR_User === searchEprUser) ||
-                    (patient.PD_Firstname !== "" &&
-                      patient.PD_Firstname.length > 0 &&
-                      patient.PD_Firstname === searchFirstname) ||
-                    (patient.PD_Surname.toLowerCase() !== "" &&
-                      patient.PD_Surname.length > 0 &&
-                      patient.PD_Surname.toLowerCase().includes(
-                        searchSurname.toLowerCase()
-                      )) ||
-                    (patient.PD_NHS_No !== "" &&
-                      patient.PD_NHS_No !== null &&
-                      patient.PD_NHS_No !== undefined &&
-                      patient.PD_NHS_No === searchNhsNo) ||
-                    (patient.PD_Receiving_Location !== "" &&
-                      patient.PD_Receiving_Location.length > 0 &&
-                      patient.PD_Receiving_Location === searchReceivingLocation)
-                )
-                .map(({ Master_ePR_ID, ...otherPatientListProps }) =>
-                  searchIncidentNo.length > 0 ||
-                  searchCallSign.length > 0 ||
-                  searchEprUser.length > 0 ||
-                  searchFirstname.length > 0 ||
-                  searchSurname.length > 0 ||
-                  searchNhsNo.length > 0 ||
-                  searchReceivingLocation.length > 0 ? (
-                    <div
-                      key={Master_ePR_ID}
-                      style={
-                        Master_ePR_ID === selectedPatient
-                          ? { background: "#2c2c2c" }
-                          : null
-                      }
-                      onClick={() => setSelectedPatient(Master_ePR_ID)}
-                    >
-                      <div onClick={() => resetSearch()}>
-                        <PatientItem {...otherPatientListProps} />
-                      </div>
-                    </div>
-                  ) : null
-                )} */}
             </div>
 
             <PatientSearchResultHeader>
