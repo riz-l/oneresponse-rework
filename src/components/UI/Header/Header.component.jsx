@@ -38,7 +38,7 @@ function Header({ setPatientListIsOpen, setSearchMenuIsOpen }) {
 
         <HeaderSecondaryRight>
           <HeaderButton>
-            <Icon icon="fas fa-save" />
+            <Icon icon="fas fa-print" />
           </HeaderButton>
 
           <HeaderButton
