@@ -29,7 +29,7 @@ function PatientSearchMenu({
   // form: handleSubmit
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Form submitted!");
+    console.log("Patient Search Menu form submitted!");
   }
 
   // form: resetSearch
@@ -156,6 +156,51 @@ function PatientSearchMenu({
               {patients
                 .filter(
                   (patient) =>
+                    patient.PD_Incident_Number.includes(searchIncidentNo) &&
+                    patient.ePR_CallSign
+                      .toLowerCase()
+                      .includes(searchCallSign.toLowerCase()) &&
+                    patient.ePR_User
+                      .toLowerCase()
+                      .includes(searchEprUser.toLowerCase()) &&
+                    patient.PD_Firstname.toLowerCase().includes(
+                      searchFirstname.toLowerCase()
+                    ) &&
+                    patient.PD_Surname.toLowerCase().includes(
+                      searchSurname.toLowerCase()
+                    ) &&
+                    patient.PD_NHS_No === searchNhsNo &&
+                    patient.PD_Receiving_Location.toLowerCase().includes(
+                      searchReceivingLocation.toLowerCase()
+                    )
+                )
+                .map(({ Master_ePR_ID, ...otherPatientListProps }) =>
+                  searchIncidentNo.length > 0 ||
+                  searchCallSign.length > 0 ||
+                  searchEprUser.length > 0 ||
+                  searchFirstname.length > 0 ||
+                  searchSurname.length > 0 ||
+                  searchNhsNo.length > 0 ||
+                  searchReceivingLocation.length > 0 ? (
+                    <div
+                      key={Master_ePR_ID}
+                      style={
+                        Master_ePR_ID === selectedPatient
+                          ? { background: "#2c2c2c" }
+                          : null
+                      }
+                      onClick={() => setSelectedPatient(Master_ePR_ID)}
+                    >
+                      <div onClick={() => resetSearch()}>
+                        <PatientItem {...otherPatientListProps} />
+                      </div>
+                    </div>
+                  ) : null
+                )}
+
+              {/* {patients
+                .filter(
+                  (patient) =>
                     (patient.PD_Incident_Number !== "" &&
                       patient.PD_Incident_Number.length > 0 &&
                       patient.PD_Incident_Number === searchIncidentNo) ||
@@ -168,9 +213,11 @@ function PatientSearchMenu({
                     (patient.PD_Firstname !== "" &&
                       patient.PD_Firstname.length > 0 &&
                       patient.PD_Firstname === searchFirstname) ||
-                    (patient.PD_Surname !== "" &&
+                    (patient.PD_Surname.toLowerCase() !== "" &&
                       patient.PD_Surname.length > 0 &&
-                      patient.PD_Surname === searchSurname) ||
+                      patient.PD_Surname.toLowerCase().includes(
+                        searchSurname.toLowerCase()
+                      )) ||
                     (patient.PD_NHS_No !== "" &&
                       patient.PD_NHS_No !== null &&
                       patient.PD_NHS_No !== undefined &&
@@ -179,27 +226,29 @@ function PatientSearchMenu({
                       patient.PD_Receiving_Location.length > 0 &&
                       patient.PD_Receiving_Location === searchReceivingLocation)
                 )
-                .map(({ Master_ePR_ID, ...otherPatientListProps }) => (
-                  <div
-                    key={Master_ePR_ID}
-                    style={
-                      Master_ePR_ID === selectedPatient
-                        ? { background: "#2c2c2c" }
-                        : null
-                    }
-                    onClick={() => setSelectedPatient(Master_ePR_ID)}
-                  >
+                .map(({ Master_ePR_ID, ...otherPatientListProps }) =>
+                  searchIncidentNo.length > 0 ||
+                  searchCallSign.length > 0 ||
+                  searchEprUser.length > 0 ||
+                  searchFirstname.length > 0 ||
+                  searchSurname.length > 0 ||
+                  searchNhsNo.length > 0 ||
+                  searchReceivingLocation.length > 0 ? (
                     <div
-                      onClick={() =>
-                        setSearchMenuIsOpen(
-                          (searchMenuIsOpen) => !searchMenuIsOpen
-                        )
+                      key={Master_ePR_ID}
+                      style={
+                        Master_ePR_ID === selectedPatient
+                          ? { background: "#2c2c2c" }
+                          : null
                       }
+                      onClick={() => setSelectedPatient(Master_ePR_ID)}
                     >
-                      <PatientItem {...otherPatientListProps} />
+                      <div onClick={() => resetSearch()}>
+                        <PatientItem {...otherPatientListProps} />
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ) : null
+                )} */}
             </div>
 
             <PatientSearchResultHeader>
