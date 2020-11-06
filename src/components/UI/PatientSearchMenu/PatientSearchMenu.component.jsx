@@ -156,7 +156,9 @@ function PatientSearchMenu({
               {patients
                 .filter(
                   (patient) =>
-                    patient.PD_Incident_Number.includes(searchIncidentNo) &&
+                    patient.PD_Incident_Number.toLowerCase().includes(
+                      searchIncidentNo.toLowerCase()
+                    ) &&
                     patient.ePR_CallSign
                       .toLowerCase()
                       .includes(searchCallSign.toLowerCase()) &&
@@ -169,7 +171,8 @@ function PatientSearchMenu({
                     patient.PD_Surname.toLowerCase().includes(
                       searchSurname.toLowerCase()
                     ) &&
-                    patient.PD_NHS_No === searchNhsNo &&
+                    patient.PD_NHS_No !== null &&
+                    patient.PD_NHS_No.includes(searchNhsNo) &&
                     patient.PD_Receiving_Location.toLowerCase().includes(
                       searchReceivingLocation.toLowerCase()
                     )
