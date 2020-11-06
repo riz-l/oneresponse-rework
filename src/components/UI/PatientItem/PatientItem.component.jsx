@@ -53,6 +53,7 @@ function PatientItem({
         <PatientItemIcon className="PatientItemIcon-hover">
           <Icon icon="fas fa-user-alt" />
         </PatientItemIcon>
+
         <PatientItemOther>
           {PVN_Transport ? PVN_Transport : <span>Transport</span>}
         </PatientItemOther>
@@ -80,7 +81,11 @@ function PatientItem({
             </PatientItemOther>
 
             <PatientItemOther style={{ marginTop: "1rem" }}>
-              {PD_Reported_Condition ? PD_Reported_Condition : <span>Reported Condition</span>}
+              {PD_Reported_Condition ? (
+                PD_Reported_Condition
+              ) : (
+                <span>Reported Condition</span>
+              )}
             </PatientItemOther>
           </PatientItemOtherContainer>
         </PatientItemSecondWrapper>
@@ -146,10 +151,10 @@ const PatientItemContainer = styled.div`
 
 //Styled: PatientItemIconContainer
 const PatientItemIconContainer = styled.div`
-align-items: center;
-display: flex;
-flex-direction:column;
-`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
 
 // Styled: PatientItemIcon
 const PatientItemIcon = styled.div`
@@ -161,7 +166,7 @@ const PatientItemIcon = styled.div`
   min-height: 55px;
   max-height: 55px;
   justify-content: center;
-  padding: 0.2rem;
+  padding: 0.4rem;
   width: 55px;
   min-width: 55px;
   max-width: 55px;
