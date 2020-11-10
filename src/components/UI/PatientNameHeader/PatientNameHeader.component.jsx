@@ -6,7 +6,7 @@ import styled from "styled-components";
 import Icon from "../Icon/Icon.component";
 
 // UI: PatientNameHeader
-function PatientNameHeader({ selectedPatient, patientDetailsData }) {
+function PatientNameHeader({ selectedPatient }) {
   // Renders a selected Patient's Firstname, Surname and Master_ePR_ID
   // const patientNameRender = patientDetailsData.map(
   //   ({ id, Master_ePR_ID, PD_Firstname, PD_Surname }) => (

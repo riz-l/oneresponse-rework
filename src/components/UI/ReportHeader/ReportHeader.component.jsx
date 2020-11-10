@@ -19,7 +19,7 @@ function ReportHeader({ patientListIsOpen }) {
     const updateWindowDimensions = () => {
       const newWidth = window.innerWidth;
       setWindowWidth(newWidth);
-      console.log("Updating Height");
+      // console.log("Updating Height");
     };
 
     window.addEventListener("resize", updateWindowDimensions);

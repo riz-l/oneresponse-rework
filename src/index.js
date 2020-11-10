@@ -1,3 +1,4 @@
+import "react-app-polyfill/ie9"; // Internet Explorer 9+ support
 // Import: Dependencies
 import React from "react";
 import ReactDOM from "react-dom";
