@@ -76,7 +76,8 @@ const AppContainer = styled.div`
 
 // Styled: AppHeader
 const AppHeader = styled.div`
-  height: 12vh;
+  /* height: 12vh; */
+  height: auto;
   width: 100%;
 `;
 
