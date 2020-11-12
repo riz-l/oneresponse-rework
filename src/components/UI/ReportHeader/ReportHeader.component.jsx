@@ -10,9 +10,6 @@ import { ReactComponent as MediaIcon } from "../../../assets/images/media-icon.s
 import { ReactComponent as EcgIcon } from "../../../assets/images/ecg-icon.svg";
 import { ReactComponent as DodIcon } from "../../../assets/images/dod-icon.svg";
 
-// Import: UI
-import Icon from "../Icon/Icon.component";
-
 // UI: ReportHeader
 function ReportHeader({ patientListIsOpen }) {
   // State = windowWidth
@@ -45,7 +42,6 @@ function ReportHeader({ patientListIsOpen }) {
           exact
         >
           <ReportIcon />
-          {/* <Icon icon="fas fa-file-medical-alt" /> */}
           <li>Report</li>
         </NavLink>
 
@@ -58,7 +54,6 @@ function ReportHeader({ patientListIsOpen }) {
           to="/notes"
         >
           <NotesIcon />
-          {/* <Icon icon="fas fa-sticky-note" /> */}
           <li>Notes</li>
         </NavLink>
 
@@ -71,7 +66,6 @@ function ReportHeader({ patientListIsOpen }) {
           to="/media"
         >
           <MediaIcon />
-          {/* <Icon icon="fas fa-camera" /> */}
           <li>Media</li>
         </NavLink>
 
@@ -84,7 +78,6 @@ function ReportHeader({ patientListIsOpen }) {
           to="/ecg"
         >
           <EcgIcon />
-          {/* <Icon icon="fas fa-heartbeat" /> */}
           <li>ECG</li>
         </NavLink>
 
@@ -97,14 +90,9 @@ function ReportHeader({ patientListIsOpen }) {
           to="/diagnosis-of-death"
         >
           <DodIcon />
-          {/* <Icon icon="fas fa-procedures" /> */}
           <li>DoD</li>
         </NavLink>
       </ReportHeaderOptions>
-
-      {/* <ReportHeaderLogo>
-        <NwasLogo />
-      </ReportHeaderLogo> */}
     </ReportHeaderContainer>
   );
 }
@@ -141,15 +129,6 @@ const ReportHeaderContainer = styled.div`
   -webkit-tap-highlight-color: transparent;
 `;
 
-// Styled: ReportHeaderLogo
-// const ReportHeaderLogo = styled.div`
-//   align-items: center;
-//   display: flex;
-//   justify-content: center;
-//   height: 80px;
-//   width: 216px;
-// `;
-
 // Styled: ReportHeaderOptions
 const ReportHeaderOptions = styled.ul`
   align-items: center;
@@ -184,8 +163,7 @@ const ReportHeaderOptions = styled.ul`
     }
 
     &:hover {
-      & i,
-      li {
+      & li {
         color: #2c2c2c;
         transition: color 150ms linear;
       }
@@ -193,16 +171,6 @@ const ReportHeaderOptions = styled.ul`
       & svg {
         fill: #2c2c2c;
         transition: fill 150ms linear;
-      }
-    }
-
-    & i {
-      color: #414141;
-      font-size: 2.4rem;
-      transition: color 150ms linear;
-
-      @media screen and (max-width: 416px) {
-        font-size: 2rem;
       }
     }
 

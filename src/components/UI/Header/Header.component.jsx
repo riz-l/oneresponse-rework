@@ -3,6 +3,11 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+// Import: Assets
+import { ReactComponent as PrintIcon } from "../../../assets/images/header-printer.svg";
+import { ReactComponent as SearchIcon } from "../../../assets/images/header-search.svg";
+import { ReactComponent as LogoutIcon } from "../../../assets/images/header-logout.svg";
+
 // Import: UI
 import Icon from "../Icon/Icon.component";
 import Logo from "../Logo/Logo.component";
@@ -38,7 +43,7 @@ function Header({ setPatientListIsOpen, setSearchMenuIsOpen }) {
 
         <HeaderSecondaryRight>
           <HeaderButton>
-            <Icon icon="fas fa-print" />
+            <PrintIcon />
           </HeaderButton>
 
           <HeaderButton
@@ -46,11 +51,11 @@ function Header({ setPatientListIsOpen, setSearchMenuIsOpen }) {
               setSearchMenuIsOpen((searchMenuIsOpen) => !searchMenuIsOpen);
             }}
           >
-            <Icon icon="fas fa-search" />
+            <SearchIcon />
           </HeaderButton>
 
           <HeaderButton>
-            <Icon icon="fas fa-sign-in-alt" />
+            <LogoutIcon />
           </HeaderButton>
         </HeaderSecondaryRight>
       </HeaderSecondary>
@@ -112,10 +117,16 @@ const HeaderSecondary = styled.div`
 // Styled: HeaderSecondaryLeft
 const HeaderSecondaryLeft = styled.div`
   align-items: center;
+  color: #e0e0e0;
   cursor: pointer;
   display: flex;
   justify-content: center;
   padding: 0 1rem;
+  transition: all 150ms linear;
+
+  &:hover {
+    color: #ffffff;
+  }
 
   & p {
     text-transform: uppercase;
@@ -131,6 +142,7 @@ const HeaderSecondaryLeftToggle = styled.div`
   & i {
     font-size: 20px;
     margin-right: 10px;
+    transition: color 150ms linear;
   }
 `;
 
@@ -162,8 +174,16 @@ const HeaderButton = styled.div`
     transition: all 150ms linear;
   }
 
-  & i {
-    font-size: 1.6rem;
+  & svg {
+    fill: #e0e0e0;
+    height: 25px;
+    transition: fill 150ms linear;
+    width: 25px;
+
+    &:hover {
+      fill: #ffffff;
+      transition: fill 150ms linear;
+    }
   }
 
   &:nth-child(3) {
