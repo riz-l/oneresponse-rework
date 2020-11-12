@@ -4,7 +4,11 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 // Import: Assets
-// import { ReactComponent as NwasLogo } from "../../../assets/images/nwaslogo.svg";
+import { ReactComponent as ReportIcon } from "../../../assets/images/report-icon.svg";
+import { ReactComponent as NotesIcon } from "../../../assets/images/notes-icon.svg";
+import { ReactComponent as MediaIcon } from "../../../assets/images/media-icon.svg";
+import { ReactComponent as EcgIcon } from "../../../assets/images/ecg-icon.svg";
+import { ReactComponent as DodIcon } from "../../../assets/images/dod-icon.svg";
 
 // Import: UI
 import Icon from "../Icon/Icon.component";
@@ -40,7 +44,8 @@ function ReportHeader({ patientListIsOpen }) {
           to="/"
           exact
         >
-          <Icon icon="fas fa-file-medical-alt" />
+          <ReportIcon />
+          {/* <Icon icon="fas fa-file-medical-alt" /> */}
           <li>Report</li>
         </NavLink>
 
@@ -52,7 +57,8 @@ function ReportHeader({ patientListIsOpen }) {
           }}
           to="/notes"
         >
-          <Icon icon="fas fa-sticky-note" />
+          <NotesIcon />
+          {/* <Icon icon="fas fa-sticky-note" /> */}
           <li>Notes</li>
         </NavLink>
 
@@ -64,7 +70,8 @@ function ReportHeader({ patientListIsOpen }) {
           }}
           to="/media"
         >
-          <Icon icon="fas fa-camera" />
+          <MediaIcon />
+          {/* <Icon icon="fas fa-camera" /> */}
           <li>Media</li>
         </NavLink>
 
@@ -76,7 +83,8 @@ function ReportHeader({ patientListIsOpen }) {
           }}
           to="/ecg"
         >
-          <Icon icon="fas fa-heartbeat" />
+          <EcgIcon />
+          {/* <Icon icon="fas fa-heartbeat" /> */}
           <li>ECG</li>
         </NavLink>
 
@@ -88,7 +96,8 @@ function ReportHeader({ patientListIsOpen }) {
           }}
           to="/diagnosis-of-death"
         >
-          <Icon icon="fas fa-procedures" />
+          <DodIcon />
+          {/* <Icon icon="fas fa-procedures" /> */}
           <li>DoD</li>
         </NavLink>
       </ReportHeaderOptions>
@@ -130,17 +139,6 @@ const ReportHeaderContainer = styled.div`
   transition: position 150ms linear;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
-
-  & svg {
-    height: 90px;
-    margin-right: 0.2rem;
-    visibility: visible;
-
-    @media screen and (max-width: 912px) {
-      display: none;
-      visibility: hidden;
-    }
-  }
 `;
 
 // Styled: ReportHeaderLogo
@@ -191,6 +189,11 @@ const ReportHeaderOptions = styled.ul`
         color: #2c2c2c;
         transition: color 150ms linear;
       }
+
+      & svg {
+        fill: #2c2c2c;
+        transition: fill 150ms linear;
+      }
     }
 
     & i {
@@ -200,6 +203,23 @@ const ReportHeaderOptions = styled.ul`
 
       @media screen and (max-width: 416px) {
         font-size: 2rem;
+      }
+    }
+
+    & svg {
+      fill: #414141;
+      height: 40px;
+      transition: fill 150ms linear;
+      width: 40px;
+
+      @media screen and (max-width: 420px) {
+        height: 35px;
+        width: 35px;
+      }
+
+      @media screen and (max-width: 330px) {
+        height: 30px;
+        width: 30px;
       }
     }
 
