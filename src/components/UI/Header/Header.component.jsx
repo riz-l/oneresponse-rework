@@ -68,7 +68,7 @@ const HeaderContainer = styled.div`
     "primary-header"
     "secondary-header";
   /* grid-template-rows: 7vh 5vh; */
-  grid-template-rows: 65px 55px;
+  grid-template-rows: 75px 45px;
   -webkit-tap-highlight-color: transparent;
 `;
 
