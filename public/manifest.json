@@ -1,7 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "OneResponse",
+  "name": "OneResponse - Management Web",
   "icons": [
+    
   ],
   "start_url": ".",
   "display": "standalone",

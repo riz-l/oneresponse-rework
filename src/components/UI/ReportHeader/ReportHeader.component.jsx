@@ -127,6 +127,7 @@ const ReportHeaderContainer = styled.div`
     }
   }};
   top: 0;
+  transition: position 150ms linear;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
 
