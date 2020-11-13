@@ -76,8 +76,8 @@ const AppContainer = styled.div`
 
 // Styled: AppHeader
 const AppHeader = styled.div`
-  /* height: 12vh; */
-  height: auto;
+  height: 12vh;
+  /* height: auto; */
   width: 100%;
 `;
 
@@ -86,7 +86,7 @@ const AppLayout = styled.div`
   display: grid;
   grid-template-areas: "patient-list report-container";
   grid-template-columns: 400px 1fr;
-  grid-template-rows: 100vh;
+  grid-template-rows: 88vh;
   transition: all 150ms linear;
 `;
 
